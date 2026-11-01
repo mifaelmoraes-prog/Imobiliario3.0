@@ -1,0 +1,54 @@
+:root {
+  /* Cores Base e Superfícies (Tema Claro como Padrão) */
+  --bg: #FAFAF8;
+  --surface: #FFFFFF;
+  --surface-secondary: #F5F5F3;
+  --text-primary: #1C1917;
+  --text-secondary: #78716C;
+  --text-muted: #A8A29E;
+
+  /* Um Acento, Uma Função */
+  --accent: #C8431F;
+  --accent-hover: #B33917;
+  --accent-light: #FDF2F0;
+  --accent-focus: rgba(200, 67, 31, 0.25);
+
+  /* Linhas e Contornos */
+  --border-subtle: #E7E5E4;
+  --border-hover: #D6D3D1;
+
+  /* Elevação Suave e Profundidade */
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+  --shadow-modal: 0 20px 25px -5px rgba(0, 0, 0, 0.09), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+
+  /* Raios e Formas */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Acessibilidade WCAG */
+  --tap-target-min: 44px;
+}
+
+.dark {
+  --bg: #121214;
+  --surface: #18181B;
+  --surface-secondary: #27272A;
+  --text-primary: #F4F4F5;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+
+  --accent: #E0532C;
+  --accent-hover: #C8431F;
+  --accent-light: #2A1A17;
+  --accent-focus: rgba(224, 83, 44, 0.35);
+
+  --border-subtle: #27272A;
+  --border-hover: #3F3F46;
+
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --shadow-modal: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}

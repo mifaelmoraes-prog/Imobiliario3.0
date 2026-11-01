@@ -1,0 +1,181 @@
+[
+  {
+    "CANDIDATE_ID": "CANDIDATE_DEMO_001",
+    "ENTITY_TYPE": "PERSON_CANDIDATE",
+    "DEMAND_STATE": "BUYER_CANDIDATE",
+    "SOURCE_CLASS": "SANITIZED_DEMO_SOURCE",
+    "SOURCE_REF_SANITIZED": "SRC-DEMO-001",
+    "DATA_STATE": "OBSERVED",
+    "VERIFICATION_STATE": "VERIFIED",
+    "CONFIDENCE_IF_SUPPORTED": "HIGH",
+    "PRIVACY_CLASS": "SANITIZED_DEMO",
+    "PERMITTED_USE": "ALLOWED_FOR_VERTICAL_CONSUMPTION",
+    "FRESHNESS_STATE": "CURRENT_DEMO",
+    "DECLARED_DATA": {
+      "preferred_city": "Vitória"
+    },
+    "OBSERVED_DATA": {
+      "property_type_interest": "Apartamento",
+      "bedrooms_interest": 2
+    },
+    "INFERRED_DATA": {},
+    "MATCH_INPUTS": {
+      "preferred_city": "Vitória",
+      "property_type": "Apartamento",
+      "bedrooms_min": 2
+    },
+    "MISSING_INFORMATION": [
+      "budget",
+      "financial_prequalification"
+    ],
+    "NEXT_INFORMATION_ACTION": "Confirmar faixa de orçamento e forma de pagamento",
+    "PROVENANCE_SUMMARY": "Fixture sanitizada para teste de UX; não representa lead real.",
+    "LABELS": [
+      "DEMO",
+      "SANITIZED"
+    ]
+  },
+  {
+    "CANDIDATE_ID": "CANDIDATE_DEMO_002",
+    "ENTITY_TYPE": "PERSON_CANDIDATE",
+    "DEMAND_STATE": "DEMAND_SIGNAL",
+    "SOURCE_CLASS": "SANITIZED_DEMO_SOURCE",
+    "SOURCE_REF_SANITIZED": "SRC-DEMO-002",
+    "DATA_STATE": "OBSERVED",
+    "VERIFICATION_STATE": "NOT_VERIFIED",
+    "CONFIDENCE_IF_SUPPORTED": "MEDIUM",
+    "PRIVACY_CLASS": "SANITIZED_DEMO",
+    "PERMITTED_USE": "ALLOWED_FOR_VERTICAL_CONSUMPTION",
+    "FRESHNESS_STATE": "CURRENT_DEMO",
+    "DECLARED_DATA": {},
+    "OBSERVED_DATA": {
+      "city_interest": "Vila Velha",
+      "amenity_interest": [
+        "varanda",
+        "lazer"
+      ]
+    },
+    "INFERRED_DATA": {},
+    "MATCH_INPUTS": {
+      "city_interest": "Vila Velha",
+      "amenities": [
+        "varanda",
+        "lazer"
+      ]
+    },
+    "MISSING_INFORMATION": [
+      "identity_verification",
+      "budget",
+      "bedrooms",
+      "purchase_timeline"
+    ],
+    "NEXT_INFORMATION_ACTION": "Qualificar intenção, orçamento e prazo",
+    "PROVENANCE_SUMMARY": "Sinal observado e não verificado; fixture sanitizada.",
+    "LABELS": [
+      "DEMO",
+      "SIMULATION",
+      "SANITIZED"
+    ]
+  },
+  {
+    "CANDIDATE_ID": "CANDIDATE_DEMO_003",
+    "ENTITY_TYPE": "PERSON_CANDIDATE",
+    "DEMAND_STATE": "BUYER_CANDIDATE",
+    "SOURCE_CLASS": "SANITIZED_DEMO_SOURCE",
+    "SOURCE_REF_SANITIZED": "SRC-DEMO-003",
+    "DATA_STATE": "INFERRED",
+    "VERIFICATION_STATE": "NOT_VERIFIED",
+    "CONFIDENCE_IF_SUPPORTED": "LOW",
+    "PRIVACY_CLASS": "SANITIZED_DEMO",
+    "PERMITTED_USE": "ALLOWED_FOR_VERTICAL_CONSUMPTION",
+    "FRESHNESS_STATE": "CURRENT_DEMO",
+    "DECLARED_DATA": {},
+    "OBSERVED_DATA": {
+      "engaged_with": "compact_units"
+    },
+    "INFERRED_DATA": {
+      "possible_investor_profile": true
+    },
+    "MATCH_INPUTS": {
+      "unit_profile": "compact"
+    },
+    "MISSING_INFORMATION": [
+      "declared_purchase_goal",
+      "budget",
+      "financial_status"
+    ],
+    "NEXT_INFORMATION_ACTION": "Validar objetivo de compra antes de qualquer priorização forte",
+    "PROVENANCE_SUMMARY": "Inferência demonstrativa; não é fato verificado.",
+    "LABELS": [
+      "DEMO",
+      "SIMULATION",
+      "SANITIZED"
+    ]
+  },
+  {
+    "CANDIDATE_ID": "CANDIDATE_DEMO_004",
+    "ENTITY_TYPE": "PERSON_CANDIDATE",
+    "DEMAND_STATE": "BUYER_CANDIDATE",
+    "SOURCE_CLASS": "SANITIZED_DEMO_SOURCE",
+    "SOURCE_REF_SANITIZED": "SRC-DEMO-004",
+    "DATA_STATE": "MISSING",
+    "VERIFICATION_STATE": "UNKNOWN_VERIFICATION",
+    "CONFIDENCE_IF_SUPPORTED": null,
+    "PRIVACY_CLASS": "SANITIZED_DEMO",
+    "PERMITTED_USE": "ALLOWED_FOR_VERTICAL_CONSUMPTION",
+    "FRESHNESS_STATE": "UNKNOWN",
+    "DECLARED_DATA": {},
+    "OBSERVED_DATA": {},
+    "INFERRED_DATA": {},
+    "MATCH_INPUTS": {},
+    "MISSING_INFORMATION": [
+      "location",
+      "budget",
+      "typology",
+      "bedrooms",
+      "timeline",
+      "financial_status"
+    ],
+    "NEXT_INFORMATION_ACTION": "Realizar qualificação mínima antes do match",
+    "PROVENANCE_SUMMARY": "Registro deliberadamente incompleto para validar Missing Information.",
+    "LABELS": [
+      "DEMO",
+      "SIMULATION",
+      "SANITIZED"
+    ]
+  },
+  {
+    "CANDIDATE_ID": "CANDIDATE_DEMO_005",
+    "ENTITY_TYPE": "PERSON_CANDIDATE",
+    "DEMAND_STATE": "BUYER_CANDIDATE",
+    "SOURCE_CLASS": "SANITIZED_DEMO_SOURCE",
+    "SOURCE_REF_SANITIZED": "SRC-DEMO-005",
+    "DATA_STATE": "OBSERVED",
+    "VERIFICATION_STATE": "NOT_VERIFIED",
+    "CONFIDENCE_IF_SUPPORTED": "MEDIUM",
+    "PRIVACY_CLASS": "SANITIZED_DEMO",
+    "PERMITTED_USE": "ALLOWED_FOR_VERTICAL_CONSUMPTION",
+    "FRESHNESS_STATE": "CURRENT_DEMO",
+    "DECLARED_DATA": {
+      "preferred_city": "Vitória"
+    },
+    "OBSERVED_DATA": {
+      "property_type_interest": "Casa"
+    },
+    "INFERRED_DATA": {},
+    "MATCH_INPUTS": {
+      "preferred_city": "Vitória",
+      "property_type": "Casa"
+    },
+    "MISSING_INFORMATION": [
+      "budget",
+      "timeline"
+    ],
+    "NEXT_INFORMATION_ACTION": "Não priorizar para empreendimento vertical sem nova evidência",
+    "PROVENANCE_SUMMARY": "Fixture weak/no-fit para teste do fluxo de Why Not.",
+    "LABELS": [
+      "DEMO",
+      "SANITIZED"
+    ]
+  }
+]
