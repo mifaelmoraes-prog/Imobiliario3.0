@@ -125,3 +125,4 @@ export function ExitIntentModal({ isOpen, onClose }) {
     </Modal>
   );
 }
+

@@ -279,3 +279,4 @@ export function RevenueHome({ onNavigateTab }) {
     </div>
   );
 }
+

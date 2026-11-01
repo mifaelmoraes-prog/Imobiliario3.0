@@ -179,3 +179,4 @@ export function FinanceSimulatorModal({ property, isOpen, onClose }) {
     </Modal>
   );
 }
+

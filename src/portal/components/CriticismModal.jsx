@@ -115,3 +115,4 @@ export function CriticismModal({ property, isOpen, onClose }) {
     </Modal>
   );
 }
+

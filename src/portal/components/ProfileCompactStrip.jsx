@@ -144,3 +144,4 @@ export function ProfileCompactStrip({ onOpenDrawer }) {
     </div>
   );
 }
+

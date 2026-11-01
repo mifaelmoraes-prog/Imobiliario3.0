@@ -109,3 +109,4 @@ export function PrerequisitesModal({ property, isOpen, onClose, onOpenWhatsApp }
     </Modal>
   );
 }
+

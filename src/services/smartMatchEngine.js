@@ -160,3 +160,4 @@ export function calculatePropertyMatch(property, profile) {
     summary: `${criteriaMet} de ${totalCriteria} pilares atendidos`
   };
 }
+

@@ -135,3 +135,4 @@ export function LoginModal({ isOpen, onClose, onLoginSuccess }) {
     </Modal>
   );
 }
+

@@ -198,3 +198,4 @@ export function PropertyBuyersView({ property, onBack }) {
     </div>
   );
 }
+

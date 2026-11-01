@@ -214,3 +214,4 @@ export function InventoryTable({ onSelectPropertyForBuyers }) {
     </div>
   );
 }
+
