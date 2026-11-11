@@ -80,6 +80,10 @@ function pickProvider(keys) {
   return null;
 }
 
+// Provedor → timestamp até quando pular (cota esgotada)
+const exhaustedUntil = new Map();
+const isExhausted = (name) => (exhaustedUntil.get(name) || 0) > Date.now();
+
 async function synthesizeWith(provider, text, keys) {
   if (provider === 'openai') {
     const cacheKey = `openai:${text}`;
@@ -107,16 +111,29 @@ export async function handleTtsRequest({ method, body, origin, host }, keys = {}
   if (method !== 'POST') return json(405, { error: 'method_not_allowed' });
   // Só aceita chamadas da própria página (evita uso da chave por outros sites)
   if (origin && host && new URL(origin).host !== host) return json(403, { error: 'forbidden' });
-  const provider = pickProvider(keys);
-  if (!provider) return json(503, { error: 'tts_unconfigured' });
+  const primary = pickProvider(keys);
+  if (!primary) return json(503, { error: 'tts_unconfigured' });
 
   const text = typeof body?.text === 'string' ? body.text.trim() : '';
   if (!text || text.length > MAX_CHARS) return json(400, { error: 'invalid_text' });
 
-  // Se o provedor principal falhar, tenta o outro (quando houver chave).
-  const backup = provider === 'gemini' ? 'openai' : 'gemini';
-  const order = keys[backup] ? [provider, backup] : [provider];
-  for (const name of order) {
+  // Uma conversa fala com uma voz só: depois da primeira fala, o navegador fixa o
+  // provedor (body.provider) e o servidor não troca de provedor no meio dela.
+  // Se o fixado estiver sem cota, o navegador passa para a voz do navegador.
+  const pinned = ['openai', 'gemini'].includes(body?.provider) && keys[body.provider] ? body.provider : null;
+  // Trocar de provedor sozinho trocaria a voz no meio do atendimento, e o Gemini leva de 11 a 20 s
+  // por fala (medido): só vale como reserva se for pedido (TTS_ALLOW_PROVIDER_FALLBACK=1).
+  const backup = primary === 'gemini' ? 'openai' : 'gemini';
+  const allowFallback = process.env.TTS_ALLOW_PROVIDER_FALLBACK === '1' && keys[backup];
+  const order = pinned ? [pinned] : allowFallback ? [primary, backup] : [primary];
+  const available = order.filter(name => !isExhausted(name));
+  const exhaustedReply = () => {
+    const wait = Math.max(...order.map(name => Math.ceil(((exhaustedUntil.get(name) || 0) - Date.now()) / 1000)), 30);
+    return json(429, { error: 'tts_exhausted', retry_after_sec: wait });
+  };
+  if (available.length === 0) return exhaustedReply();
+
+  for (const name of available) {
     try {
       const { audio, contentType } = await synthesizeWith(name, text, keys);
       return {
@@ -125,8 +142,13 @@ export async function handleTtsRequest({ method, body, origin, host }, keys = {}
         body: audio
       };
     } catch (err) {
-      console.error(`[tts] falha no ${name} TTS:`, err?.message || err);
+      console.error(`[tts] falha no ${name} TTS:`, String(err?.message || err).slice(0, 160));
+      // Cota esgotada: deixa o provedor de lado por um tempo, sem gastar uma tentativa por fala
+      if (err?.status === 429 && !(err.retryAfterSec <= 8)) {
+        exhaustedUntil.set(name, Date.now() + Math.min((err.retryAfterSec || 600) * 1000, 60 * 60 * 1000));
+      }
     }
   }
-  return json(502, { error: 'tts_failed' });
+  // Se a falha foi falta de cota, avisa o navegador para pausar a voz neural por um tempo
+  return order.every(isExhausted) ? exhaustedReply() : json(502, { error: 'tts_failed' });
 }

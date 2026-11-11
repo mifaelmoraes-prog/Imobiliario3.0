@@ -6,14 +6,25 @@
  * modelo só fala de imóveis que o catálogo devolveu.
  * Usado por api/concierge.js (Vercel) e pela rota de desenvolvimento em vite.config.js.
  */
+import { parseRetryAfterSec } from './openaiTts.js';
+
 // Modelo principal e reservas: cada modelo tem a própria cota na OpenAI, então
 // se um bater o limite o próximo da lista assume.
 const MODEL = process.env.OPENAI_CHAT_MODEL || 'gpt-5.4-mini';
-const FALLBACK_MODELS = (process.env.OPENAI_CHAT_FALLBACK_MODELS ?? 'gpt-4.1-mini,gpt-5.4-nano')
+// Não use gpt-4o-mini aqui: a voz gpt-4o-mini-tts divide a cota dele.
+// O gpt-5.4-nano é o último: nos testes ele ignorou regras do prompt e confundiu "5 mil" com 5 milhões.
+const FALLBACK_MODELS = (process.env.OPENAI_CHAT_FALLBACK_MODELS ?? 'gpt-4.1-mini,gpt-5.4,gpt-4.1,gpt-5.4-nano')
   .split(',').map(s => s.trim()).filter(Boolean);
 const MODELS = [...new Set([MODEL, ...FALLBACK_MODELS])];
 const exhaustedUntil = new Map(); // modelo → timestamp até quando pular
 const REASONING_EFFORT = process.env.OPENAI_CHAT_REASONING ?? 'none';
+
+// reasoning_effort só existe nos modelos de raciocínio; "none" só a partir do gpt-5.1
+function reasoningFor(model) {
+  if (!REASONING_EFFORT || !/^(gpt-[5-9]|o\d)/.test(model)) return null;
+  if (REASONING_EFFORT === 'none' && /^gpt-5(-|$)/.test(model)) return 'minimal';
+  return REASONING_EFFORT;
+}
 const MAX_MESSAGES = 60;
 const MAX_CONTENT_CHARS = 8000;
 
@@ -32,13 +43,22 @@ Se a pessoa já contou algo, nunca pergunte de novo: reconheça e avance para o 
 Antes de fazer sua pergunta, releia o histórico: respostas indiretas contam (por exemplo, "investir 4 milhões" já diz que a finalidade é investimento e o orçamento é R$ 4.000.000).
 
 Regras:
-- Termine cada resposta com exatamente uma pergunta curta que avance para o próximo marco que ainda falta (por exemplo, depois de mostrar um imóvel, pergunte se é para morar ou investir). Evite fechos vagos como "se quiser, posso ajudar".
-- Respostas curtas: 1 a 3 frases, porque elas são faladas em voz alta. Sem listas, sem markdown, sem emojis.
+- Suas respostas são faladas em voz alta: no máximo 2 frases curtas, uns 35 palavras, em tom de conversa. Sem listas, markdown, emojis, parênteses nem aspas.
+- Termine com uma única pergunta curta, nunca duas, que avance para o próximo marco que ainda falta (por exemplo, depois de mostrar um imóvel, pergunte se é para morar ou investir). Evite fechos vagos como "se quiser, posso ajudar" e "posso ajudar em mais alguma coisa?".
+- Varie o começo das frases: não comece todas as respostas com "Perfeito", "Claro" ou "Entendi". Reconheça o que a pessoa disse com naturalidade e vá direto ao ponto.
+- Se a pessoa não respondeu à sua última pergunta, não a repita: avance com a busca ou faça outra pergunta. Nunca faça a mesma pergunta duas vezes seguidas.
+- Ao sugerir bairros, cite no máximo 2. Nunca leia uma lista.
+- Valores: "mil" multiplica por 1.000 e "milhão" por 1.000.000. "5 mil" são R$ 5.000, nunca R$ 5.000.000. Um orçamento de compra abaixo de R$ 100.000 quase certamente é aluguel ou engano: confirme com a pessoa antes de buscar.
+
+Exemplos do tom e do tamanho certos (adapte, não copie):
+- "procuro casa em Jurerê" → "Em Jurerê tenho duas casas, uma bem mais em conta que a outra. É para morar ou investir?"
+- "quero ver" → (mostrar_imoveis) "Deixei na tela para você. Quantos quartos você precisa?"
+- "até 1 milhão" → "Nesse valor achei um apartamento de 2 quartos na Praia do Canto. Quer que eu mostre?"
 - Escreva valores sempre em algarismos com "R$", nunca por extenso. Para preços de imóveis, copie exatamente o campo preco_texto devolvido pela ferramenta (por exemplo "R$ 8.199.000"); não arredonde nem converta.
 - Nunca invente imóveis, preços, bairros ou características. Só fale de imóveis que vieram da ferramenta buscar_imoveis nesta conversa.
 - Sempre que a pessoa der ou mudar um critério (cidade, bairro, tipo, quartos, orçamento, comodidade), chame buscar_imoveis com TODOS os critérios atuais da conversa, não só o novo.
-- Quando houver poucos resultados (até 3), descreva brevemente o melhor deles e ofereça mostrá-lo.
-- Quando a pessoa pedir para ver, quiser o link, os detalhes ou fotos, chame mostrar_imoveis com os ids. Os imóveis aparecem como cartões com botão "Ver detalhes" no chat: diga isso numa frase curta, sem repetir os dados do cartão.
+- Quando houver um só resultado, diga o essencial numa frase (tipo, bairro e preço). Com 2 ou 3, resuma o contraste entre eles (por exemplo, "uma casa maior e uma mais em conta"), sem ler a ficha de cada um.
+- Quando a pessoa pedir para ver, quiser o link, os detalhes ou fotos, chame mostrar_imoveis com os ids. Depois de mostrar, não leia nem repita o que já está nos cartões (preço, metragem, quartos) e não descreva a tela: diga só algo curto, como "Deixei na tela para você". Nunca diga "botão", "cartão" ou "clique".
 - Se nada atender, diga o que mais limita (por exemplo o orçamento) e sugira flexibilizar um critério.
 - Se a mensagem parecer cortada ou incompleta (por exemplo "eu quero"), peça com naturalidade para a pessoa continuar. Nunca deduza uma resposta que a pessoa não deu: "eu quero" não responde se é para morar ou investir.
 - Se a pessoa pedir algo que o catálogo não tem (por exemplo uma comodidade não cadastrada), diga com honestidade.
@@ -198,8 +218,7 @@ export async function handleConciergeRequest({ method, body, origin, host }, key
     body: JSON.stringify({
       ...payload,
       model,
-      // reasoning_effort só existe nos modelos de raciocínio (gpt-5 em diante)
-      ...(REASONING_EFFORT && /^(gpt-[5-9]|o\d)/.test(model) ? { reasoning_effort: REASONING_EFFORT } : {})
+      ...(reasoningFor(model) ? { reasoning_effort: reasoningFor(model) } : {})
     })
   });
 
@@ -211,7 +230,7 @@ export async function handleConciergeRequest({ method, body, origin, host }, key
       let data = await res.json();
       if (res.status === 429) {
         const message = data?.error?.message || '';
-        const wait = Number(/try again in ([\d.]+)s/i.exec(message)?.[1]);
+        const wait = parseRetryAfterSec(message);
         if (wait > 0 && wait <= 8) {
           // Limite por minuto com espera curta: tenta o mesmo modelo mais uma vez
           await new Promise(r => setTimeout(r, wait * 1000 + 250));
@@ -226,6 +245,7 @@ export async function handleConciergeRequest({ method, body, origin, host }, key
       const msg = data.choices?.[0]?.message;
       if (!msg) throw new Error('resposta sem mensagem');
       return json(200, {
+        model, // qual modelo respondeu (útil para entender mudanças de qualidade)
         message: {
           role: 'assistant',
           content: msg.content ?? null,
