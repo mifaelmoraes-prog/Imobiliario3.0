@@ -11,9 +11,15 @@ const BRAIN_ENDPOINT = '/api/concierge';
 const BRAIN_TIMEOUT_MS = 20000;
 const NO_BUDGET = 10000000; // mesmo valor de "sem limite" do perfil
 const MAX_LISTED = 5;
+const MIN_PLAUSIBLE_BUDGET = 100000;
 
 let brainAvailable = import.meta.env?.VITE_CONCIERGE_BRAIN !== 'off';
 export const isBrainAvailable = () => brainAvailable;
+
+// Modelo que respondeu por último (diagnóstico: window.__brainModel no console)
+let lastModel = null;
+export const getLastBrainModel = () => lastModel;
+if (typeof window !== 'undefined') Object.defineProperty(window, '__brainModel', { get: () => lastModel, configurable: true });
 
 /** Resumo do catálogo enviado ao modelo (cidades, bairros e comodidades reais). */
 export function buildBrainContext(vocabulary) {
@@ -48,6 +54,7 @@ export async function askBrain(messages, context, signal) {
     }
     if (!res.ok) throw new Error(`falha no cérebro (${res.status})`);
     const data = await res.json();
+    lastModel = data.model || null;
     return data.message;
   } finally {
     clearTimeout(timeout);
@@ -128,12 +135,23 @@ export function searchCatalog(args, { allProperties, vocabulary }) {
     }
   });
 
+  // Orçamento de compra abaixo de R$ 100 mil quase sempre é aluguel ou "mil" confundido
+  // com "milhão": não filtra por ele e manda o modelo confirmar com a pessoa.
+  let budget = typeof args.orcamento_max === 'number' && args.orcamento_max > 0 ? args.orcamento_max : NO_BUDGET;
+  if (budget < MIN_PLAUSIBLE_BUDGET) {
+    avisos.push(`O valor ${budget} é baixo demais para a compra de um imóvel (parece aluguel ou engano). Não foi usado no filtro: confirme o orçamento com a pessoa.`);
+    budget = NO_BUDGET;
+  } else if (budget >= 1_000_000_000) {
+    avisos.push('O orçamento informado é implausível e não foi usado. Confirme o valor com a pessoa.');
+    budget = NO_BUDGET;
+  }
+
   const criteria = {
     city,
     neighborhoods,
     propertyType: args.tipo || 'Todos',
     minBedrooms: Number.isInteger(args.quartos_min) && args.quartos_min > 0 ? args.quartos_min : 0,
-    maxBudget: typeof args.orcamento_max === 'number' && args.orcamento_max > 0 ? args.orcamento_max : NO_BUDGET,
+    maxBudget: budget,
     amenities
   };
 

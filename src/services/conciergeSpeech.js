@@ -54,6 +54,7 @@ export function toSpokenText(text) {
       /^mil$/i.test(unit) ? `${n} mil reais` : `${n} ${unit} de reais`)
     .replace(/R\$\s*(\d[\d.]*\d|\d)(?:,\d{2})?/g, (_, n) => spokenMoney(parseInt(n.replace(/\./g, ''), 10)))
     .replace(/\b24h\b/gi, '24 horas')
+    .replace(/\s*\([^)]*\)/g, '') // apartes entre parênteses só fazem sentido na tela
     .replace(/\s-\s[A-Z]{2}\b/g, '') // "Vitória - ES" → "Vitória"
     .replace(/["“”]/g, '')
     .replace(/\s+/g, ' ')
@@ -100,21 +101,44 @@ const AUDIO_CACHE_LIMIT = 30;
 
 export const isNeuralVoiceAvailable = () => neuralAvailable;
 
+// Uma conversa fala com uma voz só: o provedor da primeira fala fica fixo, e o servidor
+// não troca de voz no meio. Sem cota ou com erro, a voz neural fica em pausa e a
+// conversa segue na voz do navegador, sem esperar cada resposta falhar de novo.
+let sessionProvider = null;
+let neuralDownUntil = 0;
+const markNeuralDown = (seconds) => {
+  neuralDownUntil = Date.now() + Math.min(Math.max(seconds, 30), 30 * 60) * 1000;
+};
+const isNeuralUsable = () => neuralAvailable && Date.now() >= neuralDownUntil;
+
 async function fetchNeuralAudio(text, signal) {
   if (audioCache.has(text)) return audioCache.get(text);
   const res = await fetch(NEURAL_ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ text }),
+    body: JSON.stringify({ text, ...(sessionProvider ? { provider: sessionProvider } : {}) }),
     signal
   });
   if (res.status === 503 || res.status === 404 || res.status === 405) {
     neuralAvailable = false; // sem chave ou sem função: não tenta de novo nesta sessão
     throw new Error(`voz neural indisponível (${res.status})`);
   }
+  if (res.status === 429) {
+    let wait = 300;
+    try {
+      wait = (await res.json()).retry_after_sec || wait;
+    } catch {
+      // usa a espera padrão
+    }
+    markNeuralDown(wait);
+    throw new Error('cota da voz neural esgotada');
+  }
   if (!res.ok || !(res.headers.get('Content-Type') || '').startsWith('audio/')) {
+    markNeuralDown(120);
     throw new Error(`falha na voz neural (${res.status})`);
   }
+  const provider = res.headers.get('X-TTS-Provider');
+  if (provider && !sessionProvider) sessionProvider = provider;
   const url = URL.createObjectURL(await res.blob());
   if (audioCache.size >= AUDIO_CACHE_LIMIT) {
     const [oldText, oldUrl] = audioCache.entries().next().value;
@@ -175,13 +199,20 @@ function speakWithBrowser(spoken, token, { onStart, onEnd }) {
   }, 500);
 }
 
-// Junta frases curtas em trechos de ~60 a 220 caracteres: o primeiro trecho
-// chega rápido e os seguintes são gerados enquanto o anterior toca.
+// Cada trecho é uma requisição de voz, e a cota é pequena: respostas curtas (as normais)
+// saem numa só, com a mesma entonação do começo ao fim. Só as longas são divididas, em
+// no máximo 2 trechos, para a primeira parte tocar enquanto a segunda é gerada.
 function neuralChunks(text) {
+  const MAX_SINGLE = 300;
+  const MAX_CHUNK = 500;
+  if (text.length <= MAX_SINGLE) return [text];
   const out = [];
   let buf = '';
   for (const s of splitSentences(text)) {
-    if (buf && (buf.length >= 60 || buf.length + s.length > 220)) {
+    if (!out.length && buf.length >= 90) {
+      out.push(buf);
+      buf = s;
+    } else if (buf && buf.length + s.length + 1 > MAX_CHUNK) {
       out.push(buf);
       buf = s;
     } else {
@@ -195,8 +226,17 @@ function neuralChunks(text) {
 function fetchWithTimeout(text) {
   const controller = new AbortController();
   currentFetch = controller;
-  const timeout = setTimeout(() => controller.abort(), NEURAL_TIMEOUT_MS);
-  return fetchNeuralAudio(text, controller.signal).finally(() => clearTimeout(timeout));
+  let timedOut = false;
+  const timeout = setTimeout(() => {
+    timedOut = true;
+    controller.abort();
+  }, NEURAL_TIMEOUT_MS);
+  return fetchNeuralAudio(text, controller.signal)
+    .catch((err) => {
+      if (timedOut) markNeuralDown(60); // demorou demais: não tenta a cada resposta
+      throw err;
+    })
+    .finally(() => clearTimeout(timeout));
 }
 
 function speakWithNeural(spoken, token, callbacks) {
@@ -272,7 +312,7 @@ export function speak(text, { onStart, onEnd, audioUrl } = {}) {
   }
   const speakText = () => {
     if (token !== currentToken) return;
-    if (neuralAvailable) speakWithNeural(spoken, token, { onStart, onEnd });
+    if (isNeuralUsable()) speakWithNeural(spoken, token, { onStart, onEnd });
     else speakWithBrowser(spoken, token, { onStart, onEnd });
   };
   if (!audioUrl) return speakText();
