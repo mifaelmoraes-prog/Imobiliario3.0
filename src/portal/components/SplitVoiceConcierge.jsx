@@ -26,7 +26,7 @@ import {
 import {
   speak,
   stopSpeaking,
-  isSpeechSynthesisSupported,
+  canSpeak,
   spokenMoney,
   joinPt
 } from '../../services/conciergeSpeech';
@@ -121,7 +121,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
 
   // Fala a resposta e, no modo conversa, volta a ouvir quando terminar
   const replyByVoice = (spokenText) => {
-    if (!voiceRepliesRef.current || !isSpeechSynthesisSupported()) return;
+    if (!voiceRepliesRef.current || !canSpeak()) return;
     speak(spokenText, {
       onStart: () => setIsSpeaking(true),
       onEnd: () => {
@@ -398,7 +398,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
       return;
     }
     noSpeechCountRef.current = 0;
-    conversationRef.current = voiceReplies && isSpeechSynthesisSupported();
+    conversationRef.current = voiceReplies && canSpeak();
     startListening();
   };
 
@@ -512,7 +512,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
                     ? 'Concierge falando… toque no microfone para interromper e responder.'
                     : voiceHint || 'Dica: toque no microfone e converse; eu respondo em voz.'}
               </span>
-              {isSpeechSynthesisSupported() && (
+              {canSpeak() && (
                 <button
                   type="button"
                   onClick={toggleVoiceReplies}
