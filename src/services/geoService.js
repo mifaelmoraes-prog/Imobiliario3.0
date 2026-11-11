@@ -248,3 +248,4 @@ export function getMapViewport(selectedCity, properties = []) {
     zoom: 6
   };
 }
+
