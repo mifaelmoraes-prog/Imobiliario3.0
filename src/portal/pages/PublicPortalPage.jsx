@@ -39,20 +39,44 @@ export function PublicPortalPage({
   const [financeTarget, setFinanceTarget] = useState(null);
   const [prereqTarget, setPrereqTarget] = useState(null);
 
-  // Detecção de Exit Intent (quando o cursor sobe para fechar a aba)
+  // Detecção de Exit Intent: exibido APENAS UMA VEZ por sessão (US-08 / anti-fadiga)
+  // Evita reaparecer quando o usuário apenas troca de aba ou retorna depois
   useEffect(() => {
-    let triggered = false;
+    const EXIT_INTENT_STORAGE_KEY = 'urban_exit_intent_shown_v3';
+    
+    // Se já foi disparado ou dispensado nesta sessão de navegação, ignora
+    if (sessionStorage.getItem(EXIT_INTENT_STORAGE_KEY)) {
+      return;
+    }
+
+    // Delay de elegibilidade (5s) para não disparar logo no carregamento inicial
+    let isEligible = false;
+    const dwellTimer = setTimeout(() => {
+      isEligible = true;
+    }, 5000);
+
     const handleMouseLeave = (e) => {
-      if (e.clientY <= 10 && !triggered && !isConciergeOpen && !activePropertyDetail) {
-        triggered = true;
+      // Dispara apenas quando o cursor realmente cruza a borda superior do viewport (fechar ou trocar aba)
+      if (
+        isEligible &&
+        e.clientY <= 0 &&
+        !sessionStorage.getItem(EXIT_INTENT_STORAGE_KEY) &&
+        !isConciergeOpen &&
+        !activePropertyDetail &&
+        !showExitIntent
+      ) {
+        sessionStorage.setItem(EXIT_INTENT_STORAGE_KEY, 'true');
         setShowExitIntent(true);
-        logActivity('EXIT_INTENT_TRIGGERED', 'Gatilho de intenção de saída do cursor detectado');
+        logActivity('EXIT_INTENT_TRIGGERED', 'Gatilho de intenção de saída detectado (única exibição por sessão)');
       }
     };
 
     document.addEventListener('mouseleave', handleMouseLeave);
-    return () => document.removeEventListener('mouseleave', handleMouseLeave);
-  }, [isConciergeOpen, activePropertyDetail, setShowExitIntent, logActivity]);
+    return () => {
+      clearTimeout(dwellTimer);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [isConciergeOpen, activePropertyDetail, showExitIntent, setShowExitIntent, logActivity]);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAFAF8] dark:bg-stone-900 transition-colors">
@@ -156,7 +180,10 @@ export function PublicPortalPage({
       {/* Popup de Exit Intent e Geração de Dossiê PDF (US-08) */}
       <ExitIntentModal
         isOpen={showExitIntent}
-        onClose={() => setShowExitIntent(false)}
+        onClose={() => {
+          sessionStorage.setItem('urban_exit_intent_shown_v3', 'true');
+          setShowExitIntent(false);
+        }}
       />
 
       {/* Simulador Multi-Banco SAC/PRICE (US-18) */}

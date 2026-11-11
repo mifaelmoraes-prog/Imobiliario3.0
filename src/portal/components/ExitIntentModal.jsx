@@ -23,6 +23,10 @@ export function ExitIntentModal({ isOpen, onClose }) {
     e.preventDefault();
     if (!name || !phone) return;
 
+    try {
+      sessionStorage.setItem('urban_exit_intent_shown_v3', 'true');
+    } catch (err) {}
+
     identifyLead({ leadName: name, leadPhone: phone });
     logActivity('DOSSIER_DOWNLOAD', `Dossiê baixado por ${name} (${phone}) com ${selectedDossierProperties.length} imóveis`);
 
