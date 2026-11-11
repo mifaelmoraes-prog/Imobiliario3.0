@@ -126,6 +126,30 @@ export function BuyerProfileProvider({ children }) {
     logActivity('PROFILE_UPDATE', `${exists ? 'Removido' : 'Adicionado'} interesse: ${amenity}`);
   };
 
+  // Adiciona comodidades sem remover as existentes (usado pelo Concierge).
+  // Usa atualização funcional para não perder itens em chamadas no mesmo ciclo.
+  const addAmenities = (amenities) => {
+    if (!amenities?.length) return;
+    setProfile(prev => {
+      const current = prev.lifestyle?.amenities || [];
+      const toAdd = amenities.filter(a => !current.includes(a));
+      if (toAdd.length === 0) return prev;
+      return {
+        ...prev,
+        lifestyle: {
+          ...prev.lifestyle,
+          amenities: [...current, ...toAdd],
+          provenance: {
+            dataState: 'DECLARED',
+            verificationState: prev.lifestyle?.provenance?.verificationState || 'NOT_VERIFIED',
+            updatedAt: new Date().toISOString()
+          }
+        }
+      };
+    });
+    logActivity('PROFILE_UPDATE', `Interesses adicionados: ${amenities.join(', ')}`);
+  };
+
   // Redefinir perfil
   const resetProfile = () => {
     setProfile(DEFAULT_PROFILE);
@@ -161,6 +185,7 @@ export function BuyerProfileProvider({ children }) {
         updatePillar,
         setMaxBudget,
         toggleAmenity,
+        addAmenities,
         resetProfile,
         identifyLead,
         activePillarsCount,
