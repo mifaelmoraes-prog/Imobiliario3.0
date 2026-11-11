@@ -1,29 +1,41 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Modal } from '../../design-system/Modal';
 import { Button } from '../../design-system/Button';
-import { Stepper } from '../../design-system/Stepper';
-import { SliderRange, formatCurrencyBRL } from '../../design-system/SliderRange';
+import { formatCurrencyBRL } from '../../design-system/SliderRange';
 import { useBuyerProfile } from '../../context/BuyerProfileContext';
 import { useProperties } from '../../context/PropertyContext';
-import { 
-  Mic, 
-  MicOff, 
-  Send, 
-  Sparkles, 
-  Building2, 
-  MapPin, 
-  CheckCircle2, 
-  RotateCcw,
-  Bot,
+import { calculatePropertyMatch } from '../../services/smartMatchEngine';
+import { extractBudget } from '../../services/conciergeParser';
+import {
+  Mic,
+  MicOff,
+  Send,
+  Sparkles,
+  CheckCircle2,
   User,
   ArrowRight
 } from 'lucide-react';
 
+const KNOWN_NEIGHBORHOODS = ['batel', 'ecoville', 'bigorrilho', 'cabral', 'juvevê', 'pinheiros', 'itaim bibi', 'vila mariana', 'moema'];
+
+const KNOWN_AMENITIES = [
+  { key: 'varanda gourmet', label: 'Varanda Gourmet' },
+  { key: 'piscina', label: 'Piscina' },
+  { key: 'academia', label: 'Academia' },
+  { key: 'sol da manhã', label: 'Sol da Manhã' },
+  { key: 'pet friendly', label: 'Pet Friendly' },
+  { key: 'churrasqueira', label: 'Churrasqueira' }
+];
+
+const getSpeechRecognition = () =>
+  typeof window !== 'undefined' ? (window.SpeechRecognition || window.webkitSpeechRecognition || null) : null;
+
 export function SplitVoiceConcierge({ isOpen, onClose }) {
-  const { profile, updatePillar, setMaxBudget, toggleAmenity, activePillarsCount, logActivity } = useBuyerProfile();
+  const { profile, updatePillar, setMaxBudget, addAmenities, activePillarsCount, logActivity } = useBuyerProfile();
   const { properties } = useProperties();
 
   const [isRecording, setIsRecording] = useState(false);
+  const [voiceHint, setVoiceHint] = useState('');
   const [inputText, setInputText] = useState('');
   const [messages, setMessages] = useState([
     {
@@ -34,34 +46,72 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
   ]);
 
   const messagesEndRef = useRef(null);
+  const inputRef = useRef(null);
+  const recognitionRef = useRef(null);
+  const replyTimeoutsRef = useRef(new Set());
+
+  // Refs com os valores mais recentes: o callback de voz e o setTimeout
+  // rodam depois do render em que foram criados.
+  const profileRef = useRef(profile);
+  const propertiesRef = useRef(properties);
+  profileRef.current = profile;
+  propertiesRef.current = properties;
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
+
+  // Encerra o microfone e respostas pendentes ao fechar o modal ou desmontar
+  useEffect(() => {
+    if (!isOpen) {
+      recognitionRef.current?.abort();
+      recognitionRef.current = null;
+      setIsRecording(false);
+    }
+  }, [isOpen]);
+
+  useEffect(() => () => {
+    recognitionRef.current?.abort();
+    replyTimeoutsRef.current.forEach(clearTimeout);
+    replyTimeoutsRef.current.clear();
+  }, []);
+
+  const fallbackToText = (hint) => {
+    setVoiceHint(hint);
+    setIsRecording(false);
+    inputRef.current?.focus();
+  };
 
   // Processa texto e extrai os 4 pilares com inteligência heurística/semântica
   const processInput = (text) => {
     if (!text.trim()) return;
 
     // Adiciona mensagem do usuário
-    const userMsg = { id: `user-${Date.now()}`, sender: 'user', text };
+    const userMsg = { id: `user-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`, sender: 'user', text };
     setMessages(prev => [...prev, userMsg]);
     setInputText('');
 
     const lower = text.toLowerCase();
-    const updates = {};
     const feedbackParts = [];
 
+    // Perfil projetado com as alterações desta mensagem, para contar compatíveis
+    // sem depender do próximo render.
+    const current = profileRef.current;
+    const projected = {
+      ...current,
+      location: { ...current.location },
+      typology: { ...current.typology },
+      budget: { ...current.budget },
+      lifestyle: { ...current.lifestyle, amenities: [...(current.lifestyle?.amenities || [])] }
+    };
+
     // 1. Extração de Bairros
-    const neighborhoodsFound = [];
-    const knownNeighborhoods = ['batel', 'ecoville', 'bigorrilho', 'cabral', 'juvevê', 'pinheiros', 'itaim bibi', 'vila mariana', 'moema'];
-    knownNeighborhoods.forEach(nh => {
-      if (lower.includes(nh)) {
-        neighborhoodsFound.push(nh.charAt(0).toUpperCase() + nh.slice(1));
-      }
-    });
+    const neighborhoodsFound = KNOWN_NEIGHBORHOODS
+      .filter(nh => lower.includes(nh))
+      .map(nh => nh.charAt(0).toUpperCase() + nh.slice(1));
     if (neighborhoodsFound.length > 0) {
       updatePillar('location', { neighborhoods: neighborhoodsFound });
+      projected.location.neighborhoods = neighborhoodsFound;
       feedbackParts.push(`Localização ajustada para: ${neighborhoodsFound.join(', ')}`);
     }
 
@@ -70,98 +120,120 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
     if (bedroomMatch) {
       const bedrooms = parseInt(bedroomMatch[1], 10);
       updatePillar('typology', { minBedrooms: bedrooms });
+      projected.typology.minBedrooms = bedrooms;
       feedbackParts.push(`Definido mínimo de ${bedrooms} ${bedrooms === 1 ? 'quarto' : 'quartos'}`);
     }
 
     // 3. Extração de Tipo de Imóvel
-    if (lower.includes('apartamento') || lower.includes('apto')) {
-      updatePillar('typology', { propertyType: 'Apartamento' });
-      feedbackParts.push('Tipologia: Apartamento');
-    } else if (lower.includes('casa')) {
-      updatePillar('typology', { propertyType: 'Casa' });
-      feedbackParts.push('Tipologia: Casa');
-    } else if (lower.includes('cobertura')) {
-      updatePillar('typology', { propertyType: 'Cobertura' });
-      feedbackParts.push('Tipologia: Cobertura');
+    let propertyType = null;
+    if (lower.includes('apartamento') || lower.includes('apto')) propertyType = 'Apartamento';
+    else if (lower.includes('casa')) propertyType = 'Casa';
+    else if (lower.includes('cobertura')) propertyType = 'Cobertura';
+    if (propertyType) {
+      updatePillar('typology', { propertyType });
+      projected.typology.propertyType = propertyType;
+      feedbackParts.push(`Tipologia: ${propertyType}`);
     }
 
     // 4. Extração de Orçamento
-    const budgetMatch = lower.match(/(até|max|máximo|teto)?\s*(r\$)?\s*(\d+(?:[.,]\d+)?)\s*(milhões|milhao|mi|mil)/);
-    if (budgetMatch) {
-      const num = parseFloat(budgetMatch[3].replace(',', '.'));
-      const unit = budgetMatch[4];
-      let val = num;
-      if (unit.startsWith('mi')) val = num * 1000000;
-      else if (unit === 'mil') val = num * 1000;
-
-      if (val >= 200000) {
-        setMaxBudget(val);
-        feedbackParts.push(`Teto orçamentário configurado para ${formatCurrencyBRL(val)}`);
-      }
+    const budget = extractBudget(text);
+    if (budget !== null) {
+      setMaxBudget(budget);
+      projected.budget.maxBudget = budget;
+      feedbackParts.push(`Teto orçamentário configurado para ${formatCurrencyBRL(budget)}`);
     }
 
-    // 5. Comodidades
-    const knownAmenities = [
-      { key: 'varanda gourmet', label: 'Varanda Gourmet' },
-      { key: 'piscina', label: 'Piscina' },
-      { key: 'academia', label: 'Academia' },
-      { key: 'sol da manhã', label: 'Sol da Manhã' },
-      { key: 'pet friendly', label: 'Pet Friendly' },
-      { key: 'churrasqueira', label: 'Churrasqueira' }
-    ];
-
-    knownAmenities.forEach(item => {
-      if (lower.includes(item.key)) {
-        toggleAmenity(item.label);
-        feedbackParts.push(`Comodidade anotada: ${item.label}`);
-      }
-    });
+    // 5. Comodidades: apenas adiciona (repetir um item não o remove)
+    const amenitiesFound = KNOWN_AMENITIES.filter(item => lower.includes(item.key)).map(item => item.label);
+    if (amenitiesFound.length > 0) {
+      addAmenities(amenitiesFound);
+      amenitiesFound.forEach(a => {
+        if (!projected.lifestyle.amenities.includes(a)) projected.lifestyle.amenities.push(a);
+      });
+      feedbackParts.push(`Comodidades anotadas: ${amenitiesFound.join(', ')}`);
+    }
 
     logActivity('CONCIERGE_INTERACTION', `Interação no concierge: "${text}"`);
 
+    // Conta imóveis que atendem a todos os critérios do perfil projetado
+    const matches = propertiesRef.current.map(p => calculatePropertyMatch(p, projected));
+    const hasActiveProfile = matches.some(m => m.hasActiveProfile);
+    const compatibleCount = matches.filter(m => m.hasActiveProfile && m.criteriaMet === m.totalCriteria).length;
+
     // Resposta do Concierge
-    setTimeout(() => {
-      let replyText = 'Perfeito! Já atualizei seus 4 pilares em tempo real ao lado.';
-      if (feedbackParts.length > 0) {
-        replyText += ` Entendi: ${feedbackParts.join('. ')}.`;
+    const timeoutId = setTimeout(() => {
+      replyTimeoutsRef.current.delete(timeoutId);
+      let replyText;
+      if (feedbackParts.length === 0) {
+        replyText = 'Não consegui identificar bairro, tipo de imóvel, quartos, orçamento ou comodidades nessa mensagem. Pode me contar, por exemplo, o bairro e o valor máximo que pretende investir?';
+      } else {
+        replyText = `Perfeito! Entendi: ${feedbackParts.join('. ')}.`;
+        if (hasActiveProfile) {
+          replyText += compatibleCount > 0
+            ? ` Encontrei ${compatibleCount} ${compatibleCount === 1 ? 'imóvel que atende' : 'imóveis que atendem'} a todos os seus critérios. Deseja refinar algo mais?`
+            : ' Ainda não encontrei imóveis que atendam a todos os critérios juntos. Quer flexibilizar algum deles?';
+        }
       }
-      replyText += ` Encontrei ${properties.length} imóveis compatíveis com o que você procura. Deseja refinar algo mais?`;
 
       setMessages(prev => [
         ...prev,
-        { id: `concierge-${Date.now()}`, sender: 'concierge', text: replyText }
+        { id: `concierge-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`, sender: 'concierge', text: replyText }
       ]);
     }, 600);
+    replyTimeoutsRef.current.add(timeoutId);
   };
 
-  // Suporte a gravação de voz contínua
+  const processInputRef = useRef(processInput);
+  processInputRef.current = processInput;
+
+  // Gravação de voz com parada real e fallback discreto para texto (RNF-03)
   const handleToggleVoice = () => {
-    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-      alert('Seu navegador não suporta reconhecimento de voz nativo. Por favor, utilize o campo de digitação.');
-      return;
-    }
-
     if (isRecording) {
-      setIsRecording(false);
+      recognitionRef.current?.stop();
       return;
     }
 
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const SpeechRecognition = getSpeechRecognition();
+    if (!SpeechRecognition) {
+      fallbackToText('Seu navegador não suporta voz. Pode digitar livremente por aqui.');
+      return;
+    }
+
     const recognition = new SpeechRecognition();
     recognition.lang = 'pt-BR';
     recognition.continuous = false;
     recognition.interimResults = false;
 
-    recognition.onstart = () => setIsRecording(true);
-    recognition.onend = () => setIsRecording(false);
-    recognition.onerror = () => setIsRecording(false);
-
+    recognition.onstart = () => {
+      setVoiceHint('');
+      setIsRecording(true);
+    };
+    recognition.onend = () => {
+      if (recognitionRef.current === recognition) recognitionRef.current = null;
+      setIsRecording(false);
+    };
+    recognition.onerror = (event) => {
+      if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+        fallbackToText('Microfone sem permissão. Pode digitar livremente por aqui.');
+      } else if (event.error === 'no-speech') {
+        setVoiceHint('Não ouvi nada. Tente novamente ou digite por aqui.');
+      } else if (event.error !== 'aborted') {
+        fallbackToText('Não foi possível usar a voz agora. Pode digitar livremente por aqui.');
+      }
+      setIsRecording(false);
+    };
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
-      processInput(transcript);
+      processInputRef.current(transcript);
     };
 
-    recognition.start();
+    recognitionRef.current = recognition;
+    try {
+      recognition.start();
+    } catch {
+      recognitionRef.current = null;
+      fallbackToText('Não foi possível usar a voz agora. Pode digitar livremente por aqui.');
+    }
   };
 
   return (
@@ -237,6 +309,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
 
               {/* Campo de Texto para Digitação Direta */}
               <input
+                ref={inputRef}
                 type="text"
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
@@ -256,7 +329,11 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
             </form>
 
             <div className="flex items-center justify-between text-[11px] text-stone-400">
-              <span>{isRecording ? "🔴 Ouvindo sua voz com atenção..." : "Dica: Fale naturalmente sobre bairro, orçamento e estilo de vida"}</span>
+              <span aria-live="polite">
+                {isRecording
+                  ? "🔴 Ouvindo sua voz com atenção..."
+                  : voiceHint || "Dica: Fale naturalmente sobre bairro, orçamento e estilo de vida"}
+              </span>
             </div>
           </div>
 

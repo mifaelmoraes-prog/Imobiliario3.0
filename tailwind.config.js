@@ -8,6 +8,10 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Tom intermediário entre stone-800 e stone-900, usado em superfícies no modo escuro
+        stone: {
+          850: '#221F1D'
+        },
         accent: {
           DEFAULT: '#C8431F',
           hover: '#B33917',
