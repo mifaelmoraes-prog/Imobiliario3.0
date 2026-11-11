@@ -1,0 +1,132 @@
+/**
+ * geminiTts.js
+ * Voz neural do Concierge via Gemini TTS. Roda só no servidor: a chave
+ * GEMINI_API_KEY nunca vai para o navegador.
+ * Usado por api/tts.js (Vercel) e pela rota de desenvolvimento em vite.config.js.
+ */
+import { GoogleGenAI } from '@google/genai';
+import { synthesizeOpenAI } from './openaiTts.js';
+
+const MODEL = process.env.GEMINI_TTS_MODEL || 'gemini-3.8-flash-lite-tts';
+const VOICE = process.env.GEMINI_TTS_VOICE || 'Sulafat'; // "Warm"
+const STYLE = 'acolhedor, natural e profissional, em ritmo de conversa';
+export const MAX_CHARS = 600;
+
+let client = null;
+let clientKey = null;
+function getClient(apiKey) {
+  if (!client || clientKey !== apiKey) {
+    client = new GoogleGenAI({ apiKey, httpOptions: { apiVersion: 'v1beta' } });
+    clientKey = apiKey;
+  }
+  return client;
+}
+
+// Frases que se repetem ("Deseja refinar algo mais?") ficam em memória
+// enquanto a instância estiver quente.
+const cache = new Map();
+const CACHE_LIMIT = 100;
+
+// O retorno unário já é WAV; se vier PCM cru (24 kHz, mono, 16 bits), embrulha.
+function ensureWav(buf) {
+  if (buf.subarray(0, 4).toString('ascii') === 'RIFF') return buf;
+  const header = Buffer.alloc(44);
+  const sampleRate = 24000;
+  header.write('RIFF', 0);
+  header.writeUInt32LE(36 + buf.length, 4);
+  header.write('WAVE', 8);
+  header.write('fmt ', 12);
+  header.writeUInt32LE(16, 16);
+  header.writeUInt16LE(1, 20); // PCM
+  header.writeUInt16LE(1, 22); // mono
+  header.writeUInt32LE(sampleRate, 24);
+  header.writeUInt32LE(sampleRate * 2, 28);
+  header.writeUInt16LE(2, 32);
+  header.writeUInt16LE(16, 34);
+  header.write('data', 36);
+  header.writeUInt32LE(buf.length, 40);
+  return Buffer.concat([header, buf]);
+}
+
+export async function synthesize(text, apiKey) {
+  if (cache.has(text)) return cache.get(text);
+  const interaction = await getClient(apiKey).interactions.create({
+    model: MODEL,
+    input: [{
+      type: 'user_input',
+      content: [{ type: 'text', text, annotations: [{ type: 'speech_metadata', style: STYLE }] }]
+    }],
+    response_format: { type: 'audio' },
+    generation_config: { speech_config: [{ voice: VOICE }] }
+  });
+  const data = interaction?.output_audio?.data;
+  if (!data) throw new Error('Gemini TTS não retornou áudio');
+  const wav = ensureWav(Buffer.from(data, 'base64'));
+  if (cache.size >= CACHE_LIMIT) cache.delete(cache.keys().next().value);
+  cache.set(text, wav);
+  return wav;
+}
+
+/**
+ * Escolhe o provedor: TTS_PROVIDER=gemini|openai; sem isso, usa o que tiver chave
+ * (OpenAI primeiro: começa a falar em ~1,5 s, contra ~4,5 s do Gemini).
+ */
+function pickProvider(keys) {
+  const wanted = (process.env.TTS_PROVIDER || '').toLowerCase();
+  if (wanted === 'openai' && keys.openai) return 'openai';
+  if (wanted === 'gemini' && keys.gemini) return 'gemini';
+  if (keys.openai) return 'openai';
+  if (keys.gemini) return 'gemini';
+  return null;
+}
+
+async function synthesizeWith(provider, text, keys) {
+  if (provider === 'openai') {
+    const cacheKey = `openai:${text}`;
+    if (cache.has(cacheKey)) return cache.get(cacheKey);
+    const result = await synthesizeOpenAI(text, keys.openai);
+    if (cache.size >= CACHE_LIMIT) cache.delete(cache.keys().next().value);
+    cache.set(cacheKey, result);
+    return result;
+  }
+  return { audio: await synthesize(text, keys.gemini), contentType: 'audio/wav' };
+}
+
+/**
+ * Trata POST /api/tts de forma independente do servidor.
+ * @param keys { gemini?: string, openai?: string }
+ * @returns {{ status: number, headers: object, body: Buffer|string }}
+ */
+export async function handleTtsRequest({ method, body, origin, host }, keys = {}) {
+  const json = (status, payload) => ({
+    status,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+
+  if (method !== 'POST') return json(405, { error: 'method_not_allowed' });
+  // Só aceita chamadas da própria página (evita uso da chave por outros sites)
+  if (origin && host && new URL(origin).host !== host) return json(403, { error: 'forbidden' });
+  const provider = pickProvider(keys);
+  if (!provider) return json(503, { error: 'tts_unconfigured' });
+
+  const text = typeof body?.text === 'string' ? body.text.trim() : '';
+  if (!text || text.length > MAX_CHARS) return json(400, { error: 'invalid_text' });
+
+  // Se o provedor principal falhar, tenta o outro (quando houver chave).
+  const backup = provider === 'gemini' ? 'openai' : 'gemini';
+  const order = keys[backup] ? [provider, backup] : [provider];
+  for (const name of order) {
+    try {
+      const { audio, contentType } = await synthesizeWith(name, text, keys);
+      return {
+        status: 200,
+        headers: { 'Content-Type': contentType, 'Cache-Control': 'private, max-age=86400', 'X-TTS-Provider': name },
+        body: audio
+      };
+    } catch (err) {
+      console.error(`[tts] falha no ${name} TTS:`, err?.message || err);
+    }
+  }
+  return json(502, { error: 'tts_failed' });
+}

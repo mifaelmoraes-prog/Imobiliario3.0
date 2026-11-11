@@ -17,6 +17,7 @@ export function calculatePropertyMatch(property, profile) {
     (profile.budget?.maxBudget && profile.budget.maxBudget < 10000000) ||
     (profile.typology?.minBedrooms > 0) ||
     (profile.typology?.minParking > 0) ||
+    (profile.typology?.propertyType && profile.typology.propertyType !== 'Todos') ||
     (profile.lifestyle?.amenities && profile.lifestyle.amenities.length > 0);
 
   if (!hasActiveFilters) {
