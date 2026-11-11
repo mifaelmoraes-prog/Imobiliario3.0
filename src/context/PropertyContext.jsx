@@ -103,6 +103,8 @@ export function PropertyProvider({ children }) {
     <PropertyContext.Provider
       value={{
         properties: processedProperties,
+        // Catálogo completo, sem filtros de busca/cidade (usado pelo Concierge)
+        allProperties: properties,
         rawPropertiesCount: properties.length,
         searchQuery,
         setSearchQuery,
