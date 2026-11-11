@@ -92,7 +92,8 @@ function stopAll() {
 // responde 503 e o Concierge passa a usar só a voz do navegador.
 // ---------------------------------------------------------------------------
 const NEURAL_ENDPOINT = '/api/tts';
-const NEURAL_TIMEOUT_MS = 6000;
+// O Gemini leva 3,5 a 5,5 s por trecho; abaixo disso a voz cairia na do navegador
+const NEURAL_TIMEOUT_MS = 9000;
 let neuralAvailable = import.meta.env?.VITE_NEURAL_TTS !== 'off';
 const audioCache = new Map(); // texto falado → object URL
 const AUDIO_CACHE_LIMIT = 30;
@@ -174,48 +175,85 @@ function speakWithBrowser(spoken, token, { onStart, onEnd }) {
   }, 500);
 }
 
-function speakWithNeural(spoken, token, callbacks) {
-  const { onStart, onEnd } = callbacks;
+// Junta frases curtas em trechos de ~60 a 220 caracteres: o primeiro trecho
+// chega rápido e os seguintes são gerados enquanto o anterior toca.
+function neuralChunks(text) {
+  const out = [];
+  let buf = '';
+  for (const s of splitSentences(text)) {
+    if (buf && (buf.length >= 60 || buf.length + s.length > 220)) {
+      out.push(buf);
+      buf = s;
+    } else {
+      buf = buf ? `${buf} ${s}` : s;
+    }
+  }
+  if (buf) out.push(buf);
+  return out;
+}
+
+function fetchWithTimeout(text) {
   const controller = new AbortController();
   currentFetch = controller;
   const timeout = setTimeout(() => controller.abort(), NEURAL_TIMEOUT_MS);
-  const fallback = () => {
+  return fetchNeuralAudio(text, controller.signal).finally(() => clearTimeout(timeout));
+}
+
+function speakWithNeural(spoken, token, callbacks) {
+  const { onStart, onEnd } = callbacks;
+  const chunks = neuralChunks(spoken);
+  let started = false;
+  let next = fetchWithTimeout(chunks[0]);
+
+  // Se a voz neural falhar no meio, o restante sai na voz do navegador
+  const fallbackFrom = (i) => {
     if (token !== currentToken) return;
     currentAudio = null;
-    speakWithBrowser(spoken, token, callbacks);
+    if (!started) {
+      started = true;
+      onStart?.();
+    }
+    speakWithBrowser(chunks.slice(i).join(' '), token, { onEnd });
   };
 
-  fetchNeuralAudio(spoken, controller.signal)
-    .then((url) => {
-      clearTimeout(timeout);
-      if (token !== currentToken) return;
-      currentFetch = null;
-      const audio = new Audio(url);
-      currentAudio = audio;
-      let started = false;
-      audio.onplaying = () => {
-        if (token === currentToken && !started) {
-          started = true;
-          onStart?.();
-        }
-      };
-      audio.onended = () => {
+  const playAt = (i) => {
+    next
+      .then((url) => {
         if (token !== currentToken) return;
-        currentToken++;
-        currentAudio = null;
-        onEnd?.();
-      };
-      audio.onerror = () => {
-        if (!started) fallback();
-      };
-      audio.play().catch(() => {
-        if (!started) fallback();
-      });
-    })
-    .catch(() => {
-      clearTimeout(timeout);
-      fallback();
-    });
+        currentFetch = null;
+        // Já pede o próximo trecho enquanto este toca
+        if (i + 1 < chunks.length) {
+          next = fetchWithTimeout(chunks[i + 1]);
+          next.catch(() => {}); // tratado quando chegar a vez dele
+        }
+        const audio = new Audio(url);
+        currentAudio = audio;
+        let playing = false;
+        audio.onplaying = () => {
+          playing = true;
+          if (token === currentToken && !started) {
+            started = true;
+            onStart?.();
+          }
+        };
+        audio.onended = () => {
+          if (token !== currentToken) return;
+          if (i + 1 < chunks.length) return playAt(i + 1);
+          currentToken++;
+          currentAudio = null;
+          onEnd?.();
+        };
+        audio.onerror = () => {
+          if (!playing) fallbackFrom(i);
+        };
+        audio.play().catch(() => {
+          if (!playing) fallbackFrom(i);
+        });
+      })
+      .catch(() => fallbackFrom(i));
+  };
+
+  playAt(0);
 }
 
 /**
@@ -223,7 +261,7 @@ function speakWithNeural(spoken, token, callbacks) {
  * navegador. onEnd é chamado uma única vez quando a fala termina (ou falha);
  * não é chamado se stopSpeaking() ou outro speak() interromper.
  */
-export function speak(text, { onStart, onEnd } = {}) {
+export function speak(text, { onStart, onEnd, audioUrl } = {}) {
   const token = ++currentToken;
   stopAll();
   const spoken = toSpokenText(text);
@@ -232,8 +270,34 @@ export function speak(text, { onStart, onEnd } = {}) {
     onEnd?.();
     return;
   }
-  if (neuralAvailable) speakWithNeural(spoken, token, { onStart, onEnd });
-  else speakWithBrowser(spoken, token, { onStart, onEnd });
+  const speakText = () => {
+    if (token !== currentToken) return;
+    if (neuralAvailable) speakWithNeural(spoken, token, { onStart, onEnd });
+    else speakWithBrowser(spoken, token, { onStart, onEnd });
+  };
+  if (!audioUrl) return speakText();
+
+  // Áudio pronto (ex.: saudação gravada): toca na hora; se falhar, fala o texto
+  const audio = new Audio(audioUrl);
+  currentAudio = audio;
+  let playing = false;
+  audio.onplaying = () => {
+    if (token !== currentToken || playing) return;
+    playing = true;
+    onStart?.();
+  };
+  audio.onended = () => {
+    if (token !== currentToken) return;
+    currentToken++;
+    currentAudio = null;
+    onEnd?.();
+  };
+  audio.onerror = () => {
+    if (!playing) speakText();
+  };
+  audio.play().catch(() => {
+    if (!playing) speakText();
+  });
 }
 
 export function stopSpeaking() {
