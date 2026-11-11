@@ -21,8 +21,16 @@ import {
   User,
   ArrowRight,
   Volume2,
-  VolumeX
+  VolumeX,
+  BedDouble,
+  MapPin
 } from 'lucide-react';
+import {
+  askBrain,
+  buildBrainContext,
+  isBrainAvailable,
+  searchCatalog
+} from '../../services/conciergeBrainClient';
 import {
   speak,
   stopSpeaking,
@@ -37,11 +45,12 @@ const getSpeechRecognition = () =>
   typeof window !== 'undefined' ? (window.SpeechRecognition || window.webkitSpeechRecognition || null) : null;
 
 export function SplitVoiceConcierge({ isOpen, onClose }) {
-  const { profile, updatePillar, setMaxBudget, addAmenities, activePillarsCount, logActivity } = useBuyerProfile();
-  const { properties, allProperties, selectedCity, setSelectedCity } = useProperties();
+  const { profile, updatePillar, setMaxBudget, addAmenities, activePillarsCount, logActivity, identifyLead } = useBuyerProfile();
+  const { properties, allProperties, selectedCity, setSelectedCity, setActivePropertyDetail } = useProperties();
 
   // Bairros, cidades e comodidades vêm do próprio catálogo
   const vocabulary = useMemo(() => buildVocabulary(allProperties), [allProperties]);
+  const brainContext = useMemo(() => buildBrainContext(vocabulary), [vocabulary]);
 
   const [isRecording, setIsRecording] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
@@ -56,6 +65,12 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
     }
   });
   const [inputText, setInputText] = useState('');
+  const [isThinking, setIsThinking] = useState(false);
+  const isThinkingRef = useRef(false);
+  // Histórico no formato do modelo (user / assistant / tool), separado das bolhas
+  const brainHistoryRef = useRef([]);
+  const brainContextRef = useRef(brainContext);
+  brainContextRef.current = brainContext;
   const [messages, setMessages] = useState([
     {
       id: 'msg-welcome',
@@ -89,7 +104,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+  }, [messages, isThinking]);
 
   // Encerra o microfone e respostas pendentes ao fechar o modal ou desmontar
   useEffect(() => {
@@ -146,9 +161,126 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
     }
   };
 
-  // Processa texto e extrai os 4 pilares com inteligência heurística/semântica
-  const processInput = (text, { viaVoice = false } = {}) => {
-    if (!text.trim()) return;
+  const newId = (prefix) => `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
+
+  // Aplica ao perfil (painel dos 4 pilares e catálogo) os critérios da busca do cérebro
+  const applyCriteria = (criteria) => {
+    updatePillar('location', {
+      ...(criteria.city ? { city: criteria.city.label } : {}),
+      neighborhoods: criteria.neighborhoods
+    });
+    setSelectedCity(criteria.city?.shortLabel || '');
+    updatePillar('typology', { propertyType: criteria.propertyType, minBedrooms: criteria.minBedrooms });
+    setMaxBudget(criteria.maxBudget);
+    updatePillar('lifestyle', { amenities: criteria.amenities });
+  };
+
+  // Executa uma ferramenta pedida pelo modelo; devolve o conteúdo da resposta da ferramenta
+  const runTool = (call) => {
+    let args = {};
+    try {
+      args = JSON.parse(call.function?.arguments || '{}');
+    } catch {
+      return { erro: 'argumentos inválidos' };
+    }
+    if (call.function?.name === 'buscar_imoveis') {
+      const { result, criteria } = searchCatalog(args, {
+        allProperties: allPropertiesRef.current,
+        vocabulary: vocabularyRef.current
+      });
+      applyCriteria(criteria);
+      return result;
+    }
+    if (call.function?.name === 'mostrar_imoveis') {
+      const ids = Array.isArray(args.ids) ? args.ids.slice(0, 3) : [];
+      const found = ids.map(id => allPropertiesRef.current.find(p => p.id === id)).filter(Boolean);
+      if (found.length) {
+        setMessages(prev => [...prev, { id: newId('cards'), sender: 'concierge', cards: found }]);
+        logActivity('CONCIERGE_SHOW', `Concierge mostrou: ${found.map(p => p.id).join(', ')}`);
+      }
+      return { mostrados: found.map(p => p.id), nao_encontrados: ids.filter(id => !found.some(p => p.id === id)) };
+    }
+    if (call.function?.name === 'registrar_interesse') {
+      const name = String(args.nome || '').trim().slice(0, 120);
+      const phoneDigits = String(args.telefone || '').replace(/\D/g, '');
+      const phone = phoneDigits.length >= 8 ? String(args.telefone).trim().slice(0, 40) : '';
+      const email = /\S+@\S+\.\S+/.test(args.email || '') ? String(args.email).trim().slice(0, 120) : '';
+      if (!name) return { registrado: false, erro: 'falta o nome' };
+      if (!phone && !email) return { registrado: false, erro: 'falta um telefone (com DDD) ou e-mail válido' };
+
+      const ids = (Array.isArray(args.imoveis_ids) ? args.imoveis_ids : [])
+        .filter(id => allPropertiesRef.current.some(p => p.id === id))
+        .slice(0, 5);
+      identifyLead({ leadName: name, leadPhone: phone, leadEmail: email });
+      logActivity('VISIT_REQUEST', `Pediu contato de corretor pelo Concierge${args.melhor_horario ? ` (${args.melhor_horario})` : ''}`, {
+        propertyIds: ids,
+        preferredTime: args.melhor_horario || null,
+        purpose: args.finalidade || null,
+        timeline: args.prazo || null,
+        notes: args.observacoes || null,
+        channel: 'concierge'
+      });
+      const when = args.melhor_horario ? ` · ${args.melhor_horario}` : '';
+      setMessages(prev => [...prev, {
+        id: newId('lead'),
+        sender: 'concierge',
+        notice: `Contato registrado: ${name} · ${phone || email}${when}`
+      }]);
+      return { registrado: true, imoveis_ids: ids };
+    }
+    return { erro: `ferramenta desconhecida: ${call.function?.name}` };
+  };
+
+  // Conversa com o cérebro (modelo + ferramentas). Devolve false se não conseguiu responder.
+  const respondWithBrain = async (text, viaVoice) => {
+    const history = brainHistoryRef.current;
+    const snapshot = history.length;
+    history.push({ role: 'user', content: text });
+    setIsThinking(true);
+    let toolsRan = false;
+    try {
+      for (let round = 0; round < 4; round++) {
+        const reply = await askBrain(history, brainContextRef.current);
+        history.push(reply);
+        if (reply.tool_calls?.length) {
+          toolsRan = true;
+          reply.tool_calls.forEach(call => {
+            history.push({ role: 'tool', tool_call_id: call.id, content: JSON.stringify(runTool(call)) });
+          });
+          continue;
+        }
+        const answer = (reply.content || '').trim();
+        if (!answer) break;
+        setMessages(prev => [...prev, { id: newId('concierge'), sender: 'concierge', text: answer }]);
+        if (viaVoice) replyByVoice(answer);
+        return true;
+      }
+      throw new Error('cérebro sem resposta final');
+    } catch (err) {
+      history.length = snapshot; // não deixa histórico pela metade
+      if (toolsRan) {
+        // Algo já aconteceu nesta vez (busca, cartões, contato): não responde por regras por cima
+        console.warn('[concierge] falha depois de executar ferramentas:', err?.message || err);
+        const sorry = 'Tive uma instabilidade agora, mas o que aparece acima já está valendo. Pode repetir sua última mensagem?';
+        setMessages(prev => [...prev, { id: newId('concierge'), sender: 'concierge', text: sorry }]);
+        if (viaVoice) replyByVoice(sorry);
+        return true;
+      }
+      console.warn('[concierge] usando respostas por regras:', err?.message || err);
+      return false;
+    } finally {
+      // Mantém o histórico enxuto: as últimas ~40 mensagens, começando num "user"
+      if (history.length > 40) {
+        let cut = history.length - 40;
+        while (cut < history.length && history[cut].role !== 'user') cut++;
+        history.splice(0, cut);
+      }
+      setIsThinking(false);
+    }
+  };
+
+  const processInput = async (text, { viaVoice = false } = {}) => {
+    if (!text.trim() || isThinkingRef.current) return;
     if (!viaVoice) {
       // Digitar encerra o modo conversa e interrompe a fala em andamento
       conversationRef.current = false;
@@ -156,12 +288,21 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
       setIsSpeaking(false);
     }
 
-    // Adiciona mensagem do usuário
-    const userMsg = { id: `user-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`, sender: 'user', text };
-    setMessages(prev => [...prev, userMsg]);
+    setMessages(prev => [...prev, { id: newId('user'), sender: 'user', text }]);
     setInputText('');
+    logActivity('CONCIERGE_INTERACTION', `Interação no concierge: "${text}"`);
 
-    const lower = text.toLowerCase();
+    if (isBrainAvailable()) {
+      isThinkingRef.current = true;
+      const ok = await respondWithBrain(text, viaVoice);
+      isThinkingRef.current = false;
+      if (ok) return;
+    }
+    respondWithRules(text, viaVoice);
+  };
+
+  // Reserva sem modelo: extrai os 4 pilares com regras e responde com a contagem
+  const respondWithRules = (text, viaVoice) => {
     const feedbackParts = [];
     // Versão curta para ser falada: "casa, 3 quartos, no Jardim Camburi, até 900 mil reais"
     const spokenParts = {};
@@ -239,8 +380,6 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
     }
     const unsupported = extracted.unsupportedAmenities;
 
-    logActivity('CONCIERGE_INTERACTION', `Interação no concierge: "${text}"`);
-
     // Conta imóveis que atendem a todos os critérios do perfil projetado
     // Mesmo critério do filtro de cidade do catálogo (PropertyContext)
     const cityFilter = (extracted.city?.shortLabel || selectedCityRef.current || '').toLowerCase();
@@ -249,7 +388,31 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
       : allPropertiesRef.current;
     const matches = pool.map(p => calculatePropertyMatch(p, projected));
     const hasActiveProfile = matches.some(m => m.hasActiveProfile);
-    const compatibleCount = matches.filter(m => m.hasActiveProfile && m.criteriaMet === m.totalCriteria).length;
+    const compatible = pool.filter((p, i) => matches[i].hasActiveProfile && matches[i].criteriaMet === matches[i].totalCriteria);
+    const compatibleCount = compatible.length;
+
+    // "quero saber mais", "me mostra", "detalhes", "link", "sim": mostra os imóveis
+    const wantsToSee = /\b(sim|quero ver|ver (os|o|as|a)?\s*im[oó]ve|mostr|detalhe|saber mais|mais informa|link|foto|quais s[aã]o|me (manda|envia|passa))/i.test(text);
+    if (feedbackParts.length === 0 && unsupported.length === 0 && wantsToSee) {
+      const toShow = (compatibleCount > 0 ? compatible : [])
+        .slice()
+        .sort((a, b) => (b.price || 0) - (a.price || 0))
+        .slice(0, 3);
+      const timeoutId = setTimeout(() => {
+        replyTimeoutsRef.current.delete(timeoutId);
+        const replyText = toShow.length
+          ? `Aqui ${toShow.length === 1 ? 'está o imóvel' : `estão os ${toShow.length} imóveis`} que combinam com o que você me contou. Toque em "Ver detalhes" para abrir fotos e a ficha completa.`
+          : 'Ainda não tenho imóveis selecionados para mostrar. Me conte o bairro ou a cidade, e quanto pretende investir.';
+        setMessages(prev => [
+          ...prev,
+          ...(toShow.length ? [{ id: newId('cards'), sender: 'concierge', cards: toShow }] : []),
+          { id: newId('concierge'), sender: 'concierge', text: replyText }
+        ]);
+        if (viaVoice) replyByVoice(replyText);
+      }, 600);
+      replyTimeoutsRef.current.add(timeoutId);
+      return;
+    }
 
     // Resposta do Concierge
     const timeoutId = setTimeout(() => {
@@ -262,7 +425,9 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
       if (feedbackParts.length === 0 && unsupported.length > 0) {
         replyText = unsupportedNote.trim();
       } else if (feedbackParts.length === 0) {
-        replyText = 'Não consegui identificar bairro, tipo de imóvel, quartos, orçamento ou comodidades nessa mensagem. Pode me contar, por exemplo, o bairro e o valor máximo que pretende investir?';
+        replyText = hasActiveProfile && compatibleCount > 0
+          ? `Não entendi bem essa parte. Tenho ${compatibleCount} ${compatibleCount === 1 ? 'imóvel' : 'imóveis'} com o que você me contou: quer que eu ${compatibleCount === 1 ? 'mostre' : 'mostre os principais'}, ou prefere ajustar o bairro, os quartos ou o orçamento?`
+          : 'Não entendi bem essa parte. Me conte o bairro ou a cidade que você procura e quanto pretende investir.';
       } else {
         // Contagem, depois o aviso do que não filtramos e, por último, a pergunta
         let question = '';
@@ -285,7 +450,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
       // Em voz, um resumo curto em vez da lista de campos
       let spokenText = replyText;
       if (feedbackParts.length === 0 && unsupported.length === 0) {
-        spokenText = 'Não entendi bem. Me conte o bairro ou a cidade, e quanto pretende investir.';
+        spokenText = replyText;
       } else if (feedbackParts.length > 0) {
         const order = ['type', 'bedrooms', 'neighborhoods', 'city', 'budget', 'amenities'];
         const summary = order.filter(k => spokenParts[k]).map(k => spokenParts[k]).join(', ');
@@ -316,13 +481,22 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
 
     const recognition = new SpeechRecognition();
     recognition.lang = 'pt-BR';
-    recognition.continuous = false;
+    // Contínuo: uma pausa curta ("eu quero… investir 4 milhões") não encerra a fala.
+    // Só encerra depois de END_OF_SPEECH_MS sem nada novo.
+    recognition.continuous = true;
     recognition.interimResults = true;
     recognition.maxAlternatives = 1;
 
+    const END_OF_SPEECH_MS = 1600;
     let finalText = '';
+    let lastInterim = '';
     let retryAfterSilence = false;
     let hadError = false;
+    let endTimer = null;
+    const scheduleEnd = () => {
+      clearTimeout(endTimer);
+      endTimer = setTimeout(() => recognition.stop(), END_OF_SPEECH_MS);
+    };
 
     recognition.onstart = () => {
       setVoiceHint('');
@@ -333,10 +507,12 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
       let interim = '';
       for (let i = event.resultIndex; i < event.results.length; i++) {
         const chunk = event.results[i][0].transcript;
-        if (event.results[i].isFinal) finalText += chunk;
+        if (event.results[i].isFinal) finalText += `${chunk} `;
         else interim += chunk;
       }
+      lastInterim = interim;
       setInterimText(`${finalText}${interim}`.trim());
+      if (`${finalText}${interim}`.trim()) scheduleEnd();
     };
     recognition.onerror = (event) => {
       hadError = true;
@@ -356,11 +532,13 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
       }
     };
     recognition.onend = () => {
+      clearTimeout(endTimer);
       if (recognitionRef.current !== recognition) return; // substituída ou abortada
       recognitionRef.current = null;
       setIsRecording(false);
       setInterimText('');
-      const heard = finalText.trim();
+      // Se parou antes de o navegador confirmar o trecho final, usa o provisório
+      const heard = `${finalText}${lastInterim}`.replace(/\s+/g, ' ').trim();
       if (heard) {
         noSpeechCountRef.current = 0;
         processInputRef.current(heard, { viaVoice: true });
@@ -429,15 +607,67 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
                     <Sparkles className="w-4 h-4" />
                   </div>
                 )}
-                <div
-                  className={`p-3.5 rounded-2xl text-xs sm:text-sm leading-relaxed max-w-[85%] ${
-                    m.sender === 'user'
-                      ? 'bg-stone-900 text-white dark:bg-white dark:text-stone-900 rounded-br-none shadow-sm'
-                      : 'bg-white dark:bg-stone-800 text-stone-800 dark:text-stone-100 rounded-bl-none border border-stone-200/70 dark:border-stone-700/70 shadow-sm'
-                  }`}
-                >
-                  {m.text}
-                </div>
+                {m.notice ? (
+                  <div className="inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-200 dark:border-emerald-800">
+                    <CheckCircle2 className="w-4 h-4 shrink-0" />
+                    {m.notice}
+                  </div>
+                ) : m.cards ? (
+                  <div className="flex flex-col gap-2 max-w-[85%] w-full">
+                    {m.cards.map(p => (
+                      <div
+                        key={p.id}
+                        className="flex gap-3 p-2 rounded-2xl rounded-bl-none bg-white dark:bg-stone-800 border border-stone-200/70 dark:border-stone-700/70 shadow-sm"
+                      >
+                        {p.image && (
+                          <img
+                            src={p.image}
+                            alt=""
+                            loading="lazy"
+                            className="w-24 h-20 sm:w-28 rounded-xl object-cover shrink-0 bg-stone-100 dark:bg-stone-700"
+                          />
+                        )}
+                        <div className="flex-1 min-w-0 flex flex-col justify-between gap-1 text-xs">
+                          <div>
+                            <span className="block font-bold text-sm text-accent">{formatCurrencyBRL(p.price)}</span>
+                            <span className="block font-semibold text-stone-800 dark:text-stone-100">
+                              {p.type} · {p.area} m²
+                            </span>
+                            <span className="flex items-center gap-1 text-stone-500 dark:text-stone-400 truncate">
+                              <MapPin className="w-3 h-3 shrink-0" />
+                              {p.neighborhood}, {(p.city || '').split('-')[0].trim()}
+                            </span>
+                            <span className="flex items-center gap-1 text-stone-500 dark:text-stone-400">
+                              <BedDouble className="w-3 h-3 shrink-0" />
+                              {p.bedrooms} {p.bedrooms === 1 ? 'quarto' : 'quartos'}
+                              {p.parking ? ` · ${p.parking} ${p.parking === 1 ? 'vaga' : 'vagas'}` : ''}
+                            </span>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setActivePropertyDetail(p);
+                              logActivity('VIEW_PROPERTY', `Visualizou pelo Concierge: ${p.title}`, { propertyId: p.id });
+                            }}
+                            className="self-start inline-flex items-center gap-1 min-h-[32px] px-3 rounded-lg bg-accent text-white font-semibold hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                          >
+                            Ver detalhes <ArrowRight className="w-3 h-3" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div
+                    className={`p-3.5 rounded-2xl text-xs sm:text-sm leading-relaxed max-w-[85%] ${
+                      m.sender === 'user'
+                        ? 'bg-stone-900 text-white dark:bg-white dark:text-stone-900 rounded-br-none shadow-sm'
+                        : 'bg-white dark:bg-stone-800 text-stone-800 dark:text-stone-100 rounded-bl-none border border-stone-200/70 dark:border-stone-700/70 shadow-sm'
+                    }`}
+                  >
+                    {m.text}
+                  </div>
+                )}
                 {m.sender === 'user' && (
                   <div className="w-8 h-8 rounded-full bg-stone-200 dark:bg-stone-700 text-stone-700 dark:text-stone-200 flex items-center justify-center shrink-0 mt-0.5">
                     <User className="w-4 h-4" />
@@ -445,6 +675,22 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
                 )}
               </div>
             ))}
+            {isThinking && (
+              <div className="flex gap-3 justify-start" role="status" aria-label="Concierge pensando">
+                <div className="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <Sparkles className="w-4 h-4" />
+                </div>
+                <div className="px-4 py-3 rounded-2xl rounded-bl-none bg-white dark:bg-stone-800 border border-stone-200/70 dark:border-stone-700/70 shadow-sm flex items-center gap-1">
+                  {[0, 150, 300].map(delay => (
+                    <span
+                      key={delay}
+                      className="w-1.5 h-1.5 rounded-full bg-stone-400 animate-bounce"
+                      style={{ animationDelay: `${delay}ms` }}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
             {interimText && (
               <div className="flex gap-3 justify-end" aria-hidden="true">
                 <div className="p-3.5 rounded-2xl text-xs sm:text-sm leading-relaxed max-w-[85%] rounded-br-none border border-dashed border-stone-300 dark:border-stone-600 text-stone-500 dark:text-stone-400 italic">
@@ -497,7 +743,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
                 variant="primary"
                 size="md"
                 type="submit"
-                disabled={!inputText.trim()}
+                disabled={!inputText.trim() || isThinking}
                 icon={Send}
                 ariaLabel="Enviar mensagem"
                 className="min-h-[48px]"

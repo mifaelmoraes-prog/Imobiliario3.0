@@ -49,7 +49,10 @@ export function spokenMoney(value) {
 /** Ajusta o texto escrito para soar natural em voz. */
 export function toSpokenText(text) {
   return (text || '')
-    .replace(/R\$\s*([\d.]+)(?:,\d{2})?/g, (_, n) => spokenMoney(parseInt(n.replace(/\./g, ''), 10)))
+    // "R$ 650 mil" → "650 mil reais"; "R$ 3,8 milhões" → "3,8 milhões de reais"
+    .replace(/R\$\s*([\d.,]+)\s*(mil|milh(?:ão|ao|ões|oes))(?![a-zà-ú])/gi, (_, n, unit) =>
+      /^mil$/i.test(unit) ? `${n} mil reais` : `${n} ${unit} de reais`)
+    .replace(/R\$\s*(\d[\d.]*\d|\d)(?:,\d{2})?/g, (_, n) => spokenMoney(parseInt(n.replace(/\./g, ''), 10)))
     .replace(/\b24h\b/gi, '24 horas')
     .replace(/\s-\s[A-Z]{2}\b/g, '') // "Vitória - ES" → "Vitória"
     .replace(/["“”]/g, '')
