@@ -4,7 +4,7 @@
  * a chave OPENAI_API_KEY nunca vai para o navegador.
  */
 const MODEL = process.env.OPENAI_TTS_MODEL || 'gpt-4o-mini-tts';
-const VOICE = process.env.OPENAI_TTS_VOICE || 'coral';
+const VOICE = process.env.OPENAI_TTS_VOICE || 'marin'; // a preferida da equipe entre as da OpenAI
 const INSTRUCTIONS =
   'Fale em português do Brasil, com sotaque brasileiro. Tom acolhedor, natural e profissional, ' +
   'em ritmo de conversa, como um corretor de imóveis atencioso.';

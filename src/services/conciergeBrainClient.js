@@ -82,6 +82,8 @@ const summarize = (p, match) => ({
   bairro: p.neighborhood,
   cidade: p.city,
   preco: p.price,
+  // Valor pronto para citar: o modelo copia em vez de converter (evita erro de número)
+  preco_texto: `R$ ${Number(p.price || 0).toLocaleString('pt-BR')}`,
   quartos: p.bedrooms,
   suites: p.suites,
   area_m2: p.area,

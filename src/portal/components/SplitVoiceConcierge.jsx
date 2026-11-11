@@ -40,6 +40,10 @@ import {
 } from '../../services/conciergeSpeech';
 
 const VOICE_REPLIES_KEY = 'concierge_voice_replies';
+// Saudação falada ao abrir: o áudio fica pronto em public/ (voz Marin), sem esperar a voz neural.
+// Se mudar o texto, gere o áudio de novo com a mesma frase.
+const GREETING_TEXT = 'Olá! Sou o Concierge da Urban Real State. Me conta: que tipo de imóvel você está procurando, e em qual região?';
+const GREETING_AUDIO = '/audio/concierge-saudacao.mp3';
 
 const getSpeechRecognition = () =>
   typeof window !== 'undefined' ? (window.SpeechRecognition || window.webkitSpeechRecognition || null) : null;
@@ -75,7 +79,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
     {
       id: 'msg-welcome',
       sender: 'concierge',
-      text: 'Olá! Sou seu Concierge Imobiliário. Você pode falar por voz ou digitar o que está buscando. Por exemplo: "Procuro uma casa de 3 quartos no Jardim Camburi, em Vitória, até R$ 900 mil com rua silenciosa".'
+      text: GREETING_TEXT
     }
   ]);
 
@@ -567,6 +571,25 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
 
   const startListeningRef = useRef(startListening);
   startListeningRef.current = startListening;
+
+  // Ao abrir pela primeira vez: o Concierge fala a saudação e já abre o microfone
+  // (modo conversa). O clique no botão que abriu o modal libera o áudio no navegador.
+  const greetedRef = useRef(false);
+  useEffect(() => {
+    if (!isOpen || greetedRef.current) return;
+    greetedRef.current = true;
+    if (!voiceRepliesRef.current || !getSpeechRecognition()) return; // sem voz: fica no texto
+    noSpeechCountRef.current = 0;
+    conversationRef.current = true;
+    speak(GREETING_TEXT, {
+      audioUrl: GREETING_AUDIO,
+      onStart: () => setIsSpeaking(true),
+      onEnd: () => {
+        setIsSpeaking(false);
+        if (conversationRef.current && isOpenRef.current) startListeningRef.current();
+      }
+    });
+  }, [isOpen]);
 
   // Microfone: ouvindo → para; falando → interrompe e ouve; parado → começa a conversa
   const handleToggleVoice = () => {
