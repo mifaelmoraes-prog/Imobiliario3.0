@@ -192,6 +192,20 @@ function sanitizeMessages(messages) {
  * body: { messages: ChatMessage[], context?: { cidades, bairrosPorCidade, comodidades } }
  * @returns {{ status: number, headers: object, body: string }}
  */
+// Uma linha por chamada ao modelo, para medir o custo real (sem conteúdo da conversa).
+// Desligue com CONCIERGE_LOG_USAGE=0.
+function logUsage(model, usage, msg) {
+  if (process.env.CONCIERGE_LOG_USAGE === '0' || !usage) return;
+  console.log('[concierge-usage]', JSON.stringify({
+    model,
+    input_tokens: usage.prompt_tokens ?? null,
+    cached_tokens: usage.prompt_tokens_details?.cached_tokens ?? 0,
+    output_tokens: usage.completion_tokens ?? null,
+    reasoning_tokens: usage.completion_tokens_details?.reasoning_tokens ?? 0,
+    tool_call: Boolean(msg.tool_calls?.length)
+  }));
+}
+
 export async function handleConciergeRequest({ method, body, origin, host }, keys = {}) {
   const json = (status, payload) => ({
     status,
@@ -244,6 +258,7 @@ export async function handleConciergeRequest({ method, body, origin, host }, key
       if (!res.ok) throw new Error(`OpenAI ${res.status}: ${data?.error?.message?.slice(0, 160)}`);
       const msg = data.choices?.[0]?.message;
       if (!msg) throw new Error('resposta sem mensagem');
+      logUsage(model, data.usage, msg);
       return json(200, {
         model, // qual modelo respondeu (útil para entender mudanças de qualidade)
         message: {
