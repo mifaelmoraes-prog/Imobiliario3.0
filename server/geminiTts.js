@@ -136,6 +136,9 @@ export async function handleTtsRequest({ method, body, origin, host }, keys = {}
   for (const name of available) {
     try {
       const { audio, contentType } = await synthesizeWith(name, text, keys);
+      if (process.env.CONCIERGE_LOG_USAGE !== '0') {
+        console.log('[tts-usage]', JSON.stringify({ provider: name, chars: text.length, audio_bytes: audio.length }));
+      }
       return {
         status: 200,
         headers: { 'Content-Type': contentType, 'Cache-Control': 'private, max-age=86400', 'X-TTS-Provider': name },
