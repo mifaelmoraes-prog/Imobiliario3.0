@@ -27,3 +27,6 @@ export const saveAlert = (row) => insertRow('concierge_alertas', row);
 
 /** Contato de corretor: gravação "melhor esforço", não bloqueia o atendimento. */
 export const saveLead = (row) => insertRow('concierge_leads', row);
+
+/** Feedback anônimo sobre o atendimento (texto e nota opcional). */
+export const saveFeedback = (row) => insertRow('concierge_feedback', row);
