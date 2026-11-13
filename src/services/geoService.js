@@ -20,7 +20,12 @@ export const CAPITAL_CENTERS = {
   'curitiba': { center: [-25.4284, -49.2733], zoom: 12, state: 'PR' },
   'florianópolis': { center: [-27.5954, -48.5480], zoom: 12, state: 'SC' },
   'florianopolis': { center: [-27.5954, -48.5480], zoom: 12, state: 'SC' },
-  'porto alegre': { center: [-30.0346, -51.2177], zoom: 12, state: 'RS' }
+  'porto alegre': { center: [-30.0346, -51.2177], zoom: 12, state: 'RS' },
+  // Litoral Norte de SP (imóveis de imobiliárias parceiras)
+  'são sebastião': { center: [-23.7458, -45.6848], zoom: 11, state: 'SP' },
+  'caraguatatuba': { center: [-23.6214, -45.4580], zoom: 11, state: 'SP' },
+  'bertioga': { center: [-23.8486, -46.1396], zoom: 12, state: 'SP' },
+  'ubatuba': { center: [-23.3977, -45.0820], zoom: 11, state: 'SP' }
 };
 
 // Mapeamento preciso por Cidade + Bairro
@@ -169,7 +174,26 @@ export const NEIGHBORHOOD_COORDINATES = {
   'porto alegre - rs::cavalhada': [-30.1082, -51.2282],
   'porto alegre - rs::jardim do salso': [-30.0582, -51.1682],
   'porto alegre - rs::moinhos de vento': [-30.0282, -51.2012],
-  'porto alegre - rs::higienópolis': [-30.0182, -51.1882]
+  'porto alegre - rs::higienópolis': [-30.0182, -51.1882],
+
+  // ===================== LITORAL NORTE E OUTROS (SP) =====================
+  // Posições aproximadas (nível de bairro/praia), obtidas do OpenStreetMap.
+  'são paulo - sp::jardim paulista': [-23.5652, -46.6602],
+  'são paulo - sp::jardim guedala': [-23.5870, -46.7187],
+  'são sebastião - sp::praia do engenho': [-23.7641, -45.7815],
+  'são sebastião - sp::praia de juquehy': [-23.7692, -45.7280],
+  'são sebastião - sp::praia de maresias': [-23.7870, -45.5616],
+  'são sebastião - sp::praia barra do sahy': [-23.7705, -45.6921],
+  'são sebastião - sp::praia de camburi': [-23.7742, -45.6437],
+  'caraguatatuba - sp::praia do indaiá': [-23.6441, -45.4238],
+  'caraguatatuba - sp::prainha': [-23.6311, -45.3904],
+  'caraguatatuba - sp::praia da tabatinga': [-23.5668, -45.2729],
+  'caraguatatuba - sp::condomínio costa verde tabatinga': [-23.5668, -45.2729],
+  'caraguatatuba - sp::martim de sá': [-23.6270, -45.3822],
+  'caraguatatuba - sp::morro do algodão': [-23.6828, -45.4515],
+  'caraguatatuba - sp::travessão - portal dos passaros': [-23.7077, -45.4456],
+  'bertioga - sp::riviera de são lourenço': [-23.7947, -46.0237],
+  'ubatuba - sp::praia da lagoinha': [-23.5235, -45.2104]
 };
 
 /**

@@ -62,7 +62,8 @@
 
   <h2>Em uma página</h2>
   <div class="grid">
-    <div class="card"><b>11 PRs</b><span>#1 a #8 mergeados; #9 e #10 mergeados fora de <code>dev</code> e recuperados no #11, que está aberto.</span></div>
+    <div class="card"><b>13 PRs</b><span>#1 a #12 mergeados em <code>dev</code>; o #13, com os 20 imóveis de parceiras, está aberto e com os checks passando.</span></div>
+    <div class="card"><b>20 imóveis novos</b><span>5 de cada: Riviera, Zullo, Quadra Realty e Israel. Preços de R$ 365 mil a R$ 12 milhões, em 5 cidades.</span></div>
     <div class="card"><b>Só ChatGPT</b><span>Voz Marin (OpenAI) e modelo <code>gpt-5.4-mini</code>, por custo. O Gemini ficou fora dos testes.</span></div>
     <div class="card"><b>~US$ 0,04 a 0,06</b><span>por conversa de 6 turnos. É estimativa; o log de uso já permite medir.</span></div>
     <div class="card"><b>2 flags desligadas</b><span>Alertas e feedback só entram em produção quando o time decidir e a base estiver pronta.</span></div>
@@ -98,6 +99,44 @@
     <li>Cotas: fila de modelos de reserva e a voz que para de tentar quando a cota acaba, em vez de falhar a cada fala.</li>
   </ul>
 
+  <h2>Imóveis de outras imobiliárias</h2>
+  <p class="sub">Pedido do Mifael: coletar 4 ou 5 imóveis de cada um de 4 sites e incluir na nossa base. Entraram 5 de cada (PR #13).</p>
+  <ul>
+    <li><b>Como foi coletado:</b> páginas públicas, com identificação própria no User-Agent, regras de <code>robots.txt</code> respeitadas (a Quadra pede 10 s entre requisições) e pausa entre os pedidos. Sem login e sem burlar proteção.</li>
+    <li><b>O que cada imóvel traz:</b> preço, área, quartos, suítes, banheiros, vagas, condomínio, descrição, 4 fotos e a URL de origem. As comodidades vêm só do texto do anúncio. O IPTU só entra quando a fonte diz o período (a Israel informa "por ano", convertido para mensal).</li>
+    <li><b>Origem visível:</b> cada card mostra "Anúncio: &lt;imobiliária&gt;" sobre a foto, e a ficha mostra "Anúncio de &lt;imobiliária&gt; · Ver anúncio original", com link para a página de origem.</li>
+    <li><b>Mapa:</b> as cidades novas caíam em São Paulo; foram incluídas posições aproximadas (nível de bairro ou praia) e o limite de chips de cidade subiu de 8 para 12.</li>
+    <li><b>Concierge:</b> já encontra os novos. "Casa em Maresias com piscina até 4 milhões" achou a casa de R$ 3.000.000 da Zullo.</li>
+  </ul>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Fonte</th><th>Código</th><th>Tipo</th><th>Bairro, cidade</th><th>Preço</th><th>Porte</th></tr></thead>
+    <tbody>
+      <tr><td>Riviera</td><td>ENG-V-SL9</td><td>Casa</td><td>Praia do Engenho, São Sebastião</td><td>R$ 2.500.000</td><td>3 q · 162 m²</td></tr>
+      <tr><td>Riviera</td><td>V100114</td><td>Casa</td><td>Praia de Juquehy, São Sebastião</td><td>R$ 2.600.000</td><td>3 q · 136 m²</td></tr>
+      <tr><td>Riviera</td><td>V2500019</td><td>Apartamento</td><td>Praia do Indaiá, Caraguatatuba</td><td>R$ 1.450.000</td><td>3 q · 136 m²</td></tr>
+      <tr><td>Riviera</td><td>V03462P</td><td>Apartamento</td><td>Prainha, Caraguatatuba</td><td>R$ 900.000</td><td>2 q · 77 m²</td></tr>
+      <tr><td>Riviera</td><td>V2500266</td><td>Casa</td><td>Praia da Tabatinga, Caraguatatuba</td><td>R$ 2.230.000</td><td>4 q · 154 m²</td></tr>
+      <tr><td>Zullo</td><td>MAR-081</td><td>Casa</td><td>Praia de Maresias, São Sebastião</td><td>R$ 3.000.000</td><td>3 q · 132 m²</td></tr>
+      <tr><td>Zullo</td><td>JUQ-045</td><td>Casa</td><td>Praia de Juquehy, São Sebastião</td><td>R$ 4.400.000</td><td>4 q · 177 m²</td></tr>
+      <tr><td>Zullo</td><td>SAH-017</td><td>Casa</td><td>Praia Barra do Sahy, São Sebastião</td><td>R$ 4.850.000</td><td>5 q · 300 m²</td></tr>
+      <tr><td>Zullo</td><td>CAM-039</td><td>Casa</td><td>Praia de Camburi, São Sebastião</td><td>R$ 1.500.000</td><td>2 q · 73 m²</td></tr>
+      <tr><td>Zullo</td><td>MAR-045</td><td>Casa</td><td>Praia de Maresias, São Sebastião</td><td>R$ 6.000.000</td><td>5 q · 294 m²</td></tr>
+      <tr><td>Quadra Realty</td><td>212324</td><td>Apartamento</td><td>Jardim Paulista, São Paulo</td><td>R$ 9.000.000</td><td>3 q · 190 m²</td></tr>
+      <tr><td>Quadra Realty</td><td>212322</td><td>Apartamento</td><td>Jardim Guedala, São Paulo</td><td>R$ 9.645.385</td><td>4 q · 428 m²</td></tr>
+      <tr><td>Quadra Realty</td><td>210543</td><td>Cobertura</td><td>Riviera de São Lourenço, Bertioga</td><td>R$ 12.000.000</td><td>4 q · 252 m²</td></tr>
+      <tr><td>Quadra Realty</td><td>210824</td><td>Casa</td><td>Praia da Lagoinha, Ubatuba</td><td>R$ 5.500.000</td><td>4 q · 359 m²</td></tr>
+      <tr><td>Quadra Realty</td><td>CV0596</td><td>Apartamento</td><td>Condomínio Costa Verde Tabatinga, Caraguatatuba</td><td>R$ 4.348.000</td><td>3 q · 97 m²</td></tr>
+      <tr><td>Israel</td><td>CA2223</td><td>Casa</td><td>Martim de Sá, Caraguatatuba</td><td>R$ 430.000</td><td>2 q · 130 m²</td></tr>
+      <tr><td>Israel</td><td>AP0005</td><td>Apartamento</td><td>Indaiá, Caraguatatuba</td><td>R$ 3.500.000</td><td>2 q · 144 m²</td></tr>
+      <tr><td>Israel</td><td>CA1559</td><td>Casa</td><td>Morro do Algodão, Caraguatatuba</td><td>R$ 380.000</td><td>3 q · 210 m²</td></tr>
+      <tr><td>Israel</td><td>CAC0140</td><td>Casa</td><td>Travessão - Portal dos Passaros, Caraguatatuba</td><td>R$ 386.000</td><td>2 q · 58 m²</td></tr>
+      <tr><td>Israel</td><td>ST0002</td><td>Apartamento</td><td>Juquehy, São Sebastião</td><td>R$ 365.000</td><td>1 q · 36 m²</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">Os preços e a disponibilidade são os do dia da coleta (13/11/2026) e podem mudar nas fontes. Não há rotina de atualização. As decisões sobre esses imóveis estão no item 7 abaixo.</p>
+
   <h2>Estado dos PRs</h2>
   <div class="table-wrap">
   <table>
@@ -107,13 +146,15 @@
       <tr><td>#6</td><td>Logs de uso de tokens e voz</td><td>dev</td><td><span class="tag ok">mergeado</span></td></tr>
       <tr><td>#7</td><td>Release <code>dev</code> → <code>main</code>: levou só os logs (#6), porque o resto ainda não estava em <code>dev</code></td><td>main</td><td><span class="tag ok">mergeado</span></td></tr>
       <tr><td>#8</td><td>Perguntas fora do roteiro (valor por m²) e perda de contexto</td><td>dev</td><td><span class="tag ok">mergeado em dev</span> · fora de <code>main</code></td></tr>
-      <tr><td>#9</td><td>Alertas (fase 1) e contatos no Supabase</td><td>branch do #8</td><td><span class="tag wait">mergeado fora de dev</span></td></tr>
-      <tr><td>#10</td><td>Perfil do visitante, saudação personalizada e feedback</td><td>branch do #9</td><td><span class="tag wait">mergeado fora de dev</span></td></tr>
-      <tr><td>#11</td><td>Recupera o #9 e o #10 para <code>dev</code> (sem mudança de código)</td><td>dev</td><td><span class="tag wait">aberto</span></td></tr>
+      <tr><td>#9</td><td>Alertas (fase 1) e contatos no Supabase</td><td>branch do #8</td><td><span class="tag wait">mergeado fora de dev</span> · chegou a <code>dev</code> pelo #11</td></tr>
+      <tr><td>#10</td><td>Perfil do visitante, saudação personalizada e feedback</td><td>branch do #9</td><td><span class="tag wait">mergeado fora de dev</span> · chegou a <code>dev</code> pelo #11</td></tr>
+      <tr><td>#11</td><td>Recupera o #9 e o #10 para <code>dev</code> (sem mudança de código)</td><td>dev</td><td><span class="tag ok">mergeado em dev</span></td></tr>
+      <tr><td>#12</td><td>Este documento (primeira versão)</td><td>dev</td><td><span class="tag ok">mergeado em dev</span></td></tr>
+      <tr><td>#13</td><td>20 imóveis de Riviera, Zullo, Quadra Realty e Israel, mapa, chips de cidade e origem do anúncio nos cards e na ficha</td><td>dev</td><td><span class="tag wait">aberto · checks ok</span></td></tr>
     </tbody>
   </table>
   </div>
-  <p class="note">Os PRs #9 e #10 estavam empilhados e foram mergeados nas branches intermediárias, depois que o #8 já estava em <code>dev</code>. Por isso o conteúdo deles ainda não está em <code>dev</code> nem em <code>main</code>. Próximos passos: mergear o #11 em <code>dev</code> e abrir um novo PR de <code>dev</code> para <code>main</code>. A produção sai do <code>main</code>, que hoje só tem os logs.</p>
+  <p class="note">Os PRs #9 e #10 foram mergeados nas branches intermediárias, e o #11 os levou para <code>dev</code>. Hoje <code>dev</code> tem tudo, menos os 20 imóveis (#13). A <code>main</code> ainda só tem os logs de uso: falta um novo PR de <code>dev</code> para <code>main</code>, que eu abro depois do merge do #13. A produção sai do <code>main</code>.</p>
 
   <h2 id="decisoes">Decisões do Mifael</h2>
   <p class="sub">Cada item mostra o que está travado e a recomendação.</p>
@@ -159,11 +200,23 @@
   <div class="decision">
     <h3><span class="tag dec">5</span> Release e produção</h3>
     <ul>
-      <li>Levar o que falta (#8, alertas e perfil/feedback) juntos para <code>main</code>, ou em etapas?</li>
+      <li>Levar o que falta (#8, alertas, perfil/feedback e, se aprovado, os 20 imóveis) juntos para <code>main</code>, ou em etapas?</li>
       <li>O dev não tem acesso à Vercel de produção. Quem valida os logs depois do deploy?</li>
-      <li>Aprovar e mergear o #11 em <code>dev</code>; depois, o novo PR de <code>dev</code> para <code>main</code>.</li>
+      <li>Aprovar e mergear o #13 em <code>dev</code>; depois, o novo PR de <code>dev</code> para <code>main</code>.</li>
     </ul>
-    <div class="rec"><b>Recomendação:</b> levar tudo junto com as flags desligadas e ligá-las uma a uma, depois de validar cada uma.</div>
+    <div class="rec"><b>Recomendação:</b> levar tudo junto com as flags desligadas e ligá-las uma a uma, depois de validar cada uma. Os 20 imóveis só devem ir para <code>main</code> depois da decisão 7.</div>
+  </div>
+
+  <div class="decision">
+    <h3><span class="tag dec">7</span> Imóveis de outras imobiliárias (os 20 do PR #13)</h3>
+    <ul>
+      <li><b>Autorização:</b> anúncios e fotos são das imobiliárias, e os imóveis aparecem no nosso portal. Falta um acordo de parceria ou autorização por escrito.</li>
+      <li><b>Marca d'água:</b> as fotos trazem a marca de quem as produziu (confirmei "ZULLO IMÓVEIS" e "Quadra Realty"). Foram mantidas de propósito: não removemos marcas de terceiros. Com a etiqueta de origem nos cards, a pessoa vê de quem é o anúncio. O caminho definitivo é pedir as fotos originais.</li>
+      <li><b>Quem atende:</b> hoje o WhatsApp e o pedido de visita levam à nossa equipe, mas o imóvel é de outra imobiliária. É preciso combinar quem responde e como a comissão é tratada.</li>
+      <li><b>Israel Imóveis:</b> o <code>robots.txt</code> dela libera "qualquer robô", mas restringe os bots de IA a poucas páginas, sem as de imóveis. A coleta foi feita a pedido do time, com script próprio. Se houver objeção, as 5 entradas saem sem afetar o resto.</li>
+      <li><b>Atualização:</b> preço e disponibilidade são os do dia da coleta e não há rotina para atualizá-los. Um imóvel vendido continuaria no site.</li>
+    </ul>
+    <div class="rec"><b>Recomendação:</b> tratar como protótipo até haver autorização. Se a ideia for seguir, pedir a parceria às 4 imobiliárias antes de publicar em <code>main</code>.</div>
   </div>
 
   <div class="decision">
@@ -189,6 +242,7 @@
     <li>Gravação com sucesso no Supabase real: as tabelas ainda não existem lá. O SQL foi testado num Postgres local (permissões, limites e consentimento).</li>
     <li>Microfone real do Chrome, Safari e celular. Os testes usaram voz simulada.</li>
     <li>O custo real por conversa: os números acima são estimativa.</li>
+    <li>Os 20 imóveis novos: o mapa visual com os pins (conferi só as coordenadas) e a etiqueta de origem em tela de celular. Cards, fichas, fotos e a busca do Concierge foram vistos na tela.</li>
   </ul>
 
   <h2>Limitações conhecidas</h2>
@@ -197,9 +251,10 @@
     <li>O navegador grava alertas e contatos direto no Supabase com a chave pública (só inserção, com validações e limite de 5 alertas por contato). Um endpoint próprio com chave de serviço seria mais robusto.</li>
     <li>O consentimento é registrado por regra do prompt e validação, não por um clique do cliente.</li>
     <li>Não existe link para compartilhar um imóvel específico.</li>
+    <li>Os 20 imóveis são uma amostra de um dia: sem rotina de atualização, com posições de mapa aproximadas (nível de bairro ou praia) e, quando a fonte tem um erro de cadastro, ele vem junto. Corrigi um caso (cobertura com 4 suítes e 1 banheiro).</li>
   </ul>
 
-  <footer>Gerado a partir dos PRs #1 a #11 do repositório Imobiliario3.0. Valores de custo são estimativas, calculadas com os preços publicados pela OpenAI em novembro de 2026.</footer>
+  <footer>Gerado a partir dos PRs #1 a #13 do repositório Imobiliario3.0. Valores de custo são estimativas, calculadas com os preços publicados pela OpenAI em novembro de 2026.</footer>
 </main>
 </body>
 </html>

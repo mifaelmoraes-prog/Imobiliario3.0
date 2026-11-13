@@ -96,7 +96,7 @@ export function PropertyProvider({ children }) {
     properties.forEach(p => {
       if (p.city) set.add(p.city.split('-')[0].trim());
     });
-    return Array.from(set).slice(0, 8);
+    return Array.from(set).slice(0, 12);
   }, [properties]);
 
   return (
