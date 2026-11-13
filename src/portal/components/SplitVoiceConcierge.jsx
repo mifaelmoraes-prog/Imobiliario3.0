@@ -465,6 +465,8 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
         ...prev,
         { id: `concierge-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`, sender: 'concierge', text: replyText }
       ]);
+      // O modelo precisa ver o que foi dito e respondido por regras, senão perde o fio na próxima vez
+      brainHistoryRef.current.push({ role: 'user', content: text }, { role: 'assistant', content: spokenText || replyText });
       if (viaVoice) replyByVoice(spokenText);
     }, 600);
     replyTimeoutsRef.current.add(timeoutId);
