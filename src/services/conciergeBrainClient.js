@@ -91,6 +91,10 @@ const summarize = (p, match) => ({
   preco: p.price,
   // Valor pronto para citar: o modelo copia em vez de converter (evita erro de número)
   preco_texto: `R$ ${Number(p.price || 0).toLocaleString('pt-BR')}`,
+  // Mesmo cálculo do cartão do site (preço ÷ área); pronto para citar, sem o modelo fazer conta
+  ...(p.price > 0 && p.area > 0
+    ? { preco_m2_texto: `R$ ${Math.round(p.price / p.area).toLocaleString('pt-BR')} por m²` }
+    : {}),
   quartos: p.bedrooms,
   suites: p.suites,
   area_m2: p.area,
