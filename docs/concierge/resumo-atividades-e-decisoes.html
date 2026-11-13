@@ -62,7 +62,7 @@
 
   <h2>Em uma página</h2>
   <div class="grid">
-    <div class="card"><b>10 PRs</b><span>5 mergeados antes, o #6 já em <code>dev</code> e 4 abertos (#7, #8, #9, #10), todos com os checks passando.</span></div>
+    <div class="card"><b>11 PRs</b><span>#1 a #8 mergeados; #9 e #10 mergeados fora de <code>dev</code> e recuperados no #11, que está aberto.</span></div>
     <div class="card"><b>Só ChatGPT</b><span>Voz Marin (OpenAI) e modelo <code>gpt-5.4-mini</code>, por custo. O Gemini ficou fora dos testes.</span></div>
     <div class="card"><b>~US$ 0,04 a 0,06</b><span>por conversa de 6 turnos. É estimativa; o log de uso já permite medir.</span></div>
     <div class="card"><b>2 flags desligadas</b><span>Alertas e feedback só entram em produção quando o time decidir e a base estiver pronta.</span></div>
@@ -104,15 +104,16 @@
     <thead><tr><th>PR</th><th>O que leva</th><th>Base</th><th>Estado</th></tr></thead>
     <tbody>
       <tr><td>#1 a #5</td><td>Base do Concierge: voz, vocabulário do catálogo, cérebro, saudação por voz e correções de cota e voz única</td><td>dev</td><td><span class="tag ok">mergeados</span></td></tr>
-      <tr><td>#6</td><td>Logs de uso de tokens e voz</td><td>dev</td><td><span class="tag ok">mergeado em dev</span></td></tr>
-      <tr><td>#8</td><td>Perguntas fora do roteiro (valor por m²) e perda de contexto</td><td>dev</td><td><span class="tag wait">aberto · checks ok</span></td></tr>
-      <tr><td>#9</td><td>Alertas (fase 1) e contatos no Supabase</td><td>#8</td><td><span class="tag wait">aberto · checks ok</span></td></tr>
-      <tr><td>#10</td><td>Perfil do visitante, saudação personalizada e feedback</td><td>#9</td><td><span class="tag wait">aberto · checks ok</span></td></tr>
-      <tr><td>#7</td><td>Release <code>dev</code> → <code>main</code>: hoje leva só os logs (#6) e cresce conforme #8, #9 e #10 entram em <code>dev</code></td><td>main</td><td><span class="tag wait">aberto · checks ok</span></td></tr>
+      <tr><td>#6</td><td>Logs de uso de tokens e voz</td><td>dev</td><td><span class="tag ok">mergeado</span></td></tr>
+      <tr><td>#7</td><td>Release <code>dev</code> → <code>main</code>: levou só os logs (#6), porque o resto ainda não estava em <code>dev</code></td><td>main</td><td><span class="tag ok">mergeado</span></td></tr>
+      <tr><td>#8</td><td>Perguntas fora do roteiro (valor por m²) e perda de contexto</td><td>dev</td><td><span class="tag ok">mergeado em dev</span> · fora de <code>main</code></td></tr>
+      <tr><td>#9</td><td>Alertas (fase 1) e contatos no Supabase</td><td>branch do #8</td><td><span class="tag wait">mergeado fora de dev</span></td></tr>
+      <tr><td>#10</td><td>Perfil do visitante, saudação personalizada e feedback</td><td>branch do #9</td><td><span class="tag wait">mergeado fora de dev</span></td></tr>
+      <tr><td>#11</td><td>Recupera o #9 e o #10 para <code>dev</code> (sem mudança de código)</td><td>dev</td><td><span class="tag wait">aberto</span></td></tr>
     </tbody>
   </table>
   </div>
-  <p class="note">Ordem de merge: #8, depois #9, depois #10. O GitHub passa cada um para <code>dev</code> quando o anterior é mergeado; em seguida o #7 leva tudo para <code>main</code>. A produção sai do <code>main</code>.</p>
+  <p class="note">Os PRs #9 e #10 estavam empilhados e foram mergeados nas branches intermediárias, depois que o #8 já estava em <code>dev</code>. Por isso o conteúdo deles ainda não está em <code>dev</code> nem em <code>main</code>. Próximos passos: mergear o #11 em <code>dev</code> e abrir um novo PR de <code>dev</code> para <code>main</code>. A produção sai do <code>main</code>, que hoje só tem os logs.</p>
 
   <h2 id="decisoes">Decisões do Mifael</h2>
   <p class="sub">Cada item mostra o que está travado e a recomendação.</p>
@@ -158,9 +159,9 @@
   <div class="decision">
     <h3><span class="tag dec">5</span> Release e produção</h3>
     <ul>
-      <li>Levar #8, #9 e #10 juntos para <code>main</code>, ou em etapas?</li>
+      <li>Levar o que falta (#8, alertas e perfil/feedback) juntos para <code>main</code>, ou em etapas?</li>
       <li>O dev não tem acesso à Vercel de produção. Quem valida os logs depois do deploy?</li>
-      <li>Aprovar e mergear os PRs na ordem #8, #9, #10, depois o #7.</li>
+      <li>Aprovar e mergear o #11 em <code>dev</code>; depois, o novo PR de <code>dev</code> para <code>main</code>.</li>
     </ul>
     <div class="rec"><b>Recomendação:</b> levar tudo junto com as flags desligadas e ligá-las uma a uma, depois de validar cada uma.</div>
   </div>
@@ -198,7 +199,7 @@
     <li>Não existe link para compartilhar um imóvel específico.</li>
   </ul>
 
-  <footer>Gerado a partir dos PRs #1 a #10 do repositório Imobiliario3.0. Valores de custo são estimativas, calculadas com os preços publicados pela OpenAI em novembro de 2026.</footer>
+  <footer>Gerado a partir dos PRs #1 a #11 do repositório Imobiliario3.0. Valores de custo são estimativas, calculadas com os preços publicados pela OpenAI em novembro de 2026.</footer>
 </main>
 </body>
 </html>
