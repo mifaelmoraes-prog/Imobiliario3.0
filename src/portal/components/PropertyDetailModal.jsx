@@ -42,6 +42,8 @@ export function PropertyDetailModal({
     type,
     neighborhood,
     city,
+    sourceName,
+    sourceUrl,
     price = 0,
     pricePerM2,
     area = 0,
@@ -157,6 +159,24 @@ export function PropertyDetailModal({
               <MapPin className="w-4 h-4 text-stone-400" />
               <span>{neighborhood}, {city}</span>
             </p>
+            {sourceName && (
+              <p className="text-xs text-stone-500 dark:text-stone-400 mt-1.5">
+                Anúncio de <strong className="font-semibold text-stone-700 dark:text-stone-200">{sourceName}</strong>
+                {sourceUrl && (
+                  <>
+                    {' · '}
+                    <a
+                      href={sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-2 hover:text-accent"
+                    >
+                      Ver anúncio original
+                    </a>
+                  </>
+                )}
+              </p>
+            )}
           </div>
 
           <div className="md:text-right shrink-0">
