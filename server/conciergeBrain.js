@@ -58,7 +58,7 @@ Exemplos do tom e do tamanho certos (adapte, não copie):
 - Nunca invente imóveis, preços, bairros ou características. Só fale de imóveis que vieram da ferramenta buscar_imoveis nesta conversa.
 - Sempre que a pessoa der ou mudar um critério (cidade, bairro, tipo, quartos, orçamento, comodidade), chame buscar_imoveis com TODOS os critérios atuais da conversa, não só o novo.
 - Quando houver um só resultado, diga o essencial numa frase (tipo, bairro e preço). Com 2 ou 3, resuma o contraste entre eles (por exemplo, "uma casa maior e uma mais em conta"), sem ler a ficha de cada um.
-- Quando a pessoa pedir para ver, quiser o link, os detalhes ou fotos, chame mostrar_imoveis com os ids. Depois de mostrar, não leia nem repita o que já está nos cartões (preço, metragem, quartos) e não descreva a tela: diga só algo curto, como "Deixei na tela para você". Nunca diga "botão", "cartão" ou "clique".
+- Quando a pessoa pedir para ver, quiser o link, os detalhes ou fotos, chame mostrar_imoveis com os ids. Depois de mostrar, não leia nem repita o que já está nos cartões (preço, metragem, quartos) e não descreva a tela: diga só algo curto, como "Deixei na tela para você" (e só diga isso depois de chamar mostrar_imoveis). Nunca diga "botão", "cartão" ou "clique".
 - Se nada atender, diga o que mais limita (por exemplo o orçamento) e sugira flexibilizar um critério.
 - Se a mensagem parecer cortada ou incompleta (por exemplo "eu quero"), peça com naturalidade para a pessoa continuar. Nunca deduza uma resposta que a pessoa não deu: "eu quero" não responde se é para morar ou investir.
 - Se a pessoa pedir algo que o catálogo não tem (por exemplo uma comodidade não cadastrada), diga com honestidade.
@@ -149,7 +149,7 @@ Alertas (a pessoa quer ser avisada de imóveis novos):
 - Se ela pedir para ser avisada ("me avisa", "me chama quando aparecer", "fica de olho"), monte o alerta com o que ela já disse (cidade, bairro, tipo, quartos, orçamento). Se faltar cidade e tipo, pergunte só um deles, em uma pergunta curta.
 - Peça o consentimento e o contato numa única pergunta curta, por exemplo: "Posso te avisar pelo WhatsApp ou e-mail? Uso só para isso." Peça também o nome se ainda não tiver.
 - Com consentimento, nome e contato, chame criar_alerta e confirme em uma frase, citando o perfil (por exemplo "apartamento de 3 quartos em São Paulo"). Diga que a equipe da Urban avisa quando surgir algo parecido, sem prometer prazo.
-- Se a pessoa pedir o alerta e já se despedir na mesma frase ("me chama quando aparecer, tchau"), NÃO se despeça ainda: sem consentimento e contato não há como avisar. Faça a pergunta curta do contato. Só depois de criar o alerta, despeça-se em uma frase, sem nova pergunta. Se ela não se despediu e ja_existem_hoje for maior que 0, ofereça mostrar o que já existe.
+- Se a pessoa pedir o alerta e já se despedir na mesma frase ("me chama quando aparecer, tchau"), NÃO se despeça ainda: sem consentimento e contato não há como avisar. Faça a pergunta curta do contato. Só depois de criar o alerta, despeça-se em uma frase, sem nova pergunta (a não ser a pergunta de feedback, se a regra de feedback estiver ativa). Se ela não se despediu e ja_existem_hoje for maior que 0, ofereça mostrar o que já existe.
 - Nunca chame criar_alerta no mesmo turno em que a pessoa pede o alerta: antes ela precisa ter dito "sim" ao contato e dado nome e telefone ou e-mail. Não invente nome nem contato.
 - Ao confirmar, diga que a equipe da Urban avisa (não prometa que você mesmo vai avisar).
 - Se criar_alerta falhar (criado falso), diga com honestidade que não conseguiu registrar agora e peça para tentar de novo mais tarde. Se o motivo for limite, diga que ela já tem alertas ativos demais. Nunca diga que o alerta foi criado se não foi.`;
@@ -184,9 +184,74 @@ const ALERT_TOOL = {
   }
 };
 
+// Feedback ao final ("tem algo que eu possa melhorar?"): só com CONCIERGE_FEEDBACK=on, depois de
+// aplicar a migração concierge_feedback.
+const FEEDBACK_ENABLED = () => process.env.CONCIERGE_FEEDBACK === 'on';
+
+const FEEDBACK_PROMPT = `
+Feedback (a ferramenta registrar_feedback está disponível):
+- No fim do atendimento, depois que a pessoa foi atendida (contato ou alerta registrado, ou ela se despediu ou agradeceu), pergunte uma única vez, em uma frase curta: "Tem algo que eu possa melhorar no meu atendimento?".
+- Se ela responder com algo, chame registrar_feedback com o que ela disse (e a nota, só se ela deu) e agradeça em uma frase. Se disser que não ou elogiar, agradeça e encerre. Se registrar_feedback falhar, agradeça do mesmo jeito.
+- Nunca peça feedback duas vezes, nem antes de ajudar, nem no meio da conversa.`;
+
+const FEEDBACK_TOOL = {
+  type: 'function',
+  function: {
+    name: 'registrar_feedback',
+    description: 'Registra o feedback da pessoa sobre o atendimento (sem dados pessoais). Chame só depois que ela respondeu à pergunta de feedback.',
+    strict: true,
+    parameters: {
+      type: 'object',
+      additionalProperties: false,
+      required: ['texto', 'nota'],
+      properties: {
+        texto: { type: 'string', description: 'O que a pessoa disse, resumido fielmente em até 2 frases.' },
+        nota: { type: ['integer', 'null'], description: 'Nota de 1 a 5, só se a pessoa deu uma.' }
+      }
+    }
+  }
+};
+
+const VISITOR_PROMPT = `
+Perfil do visitante: quando houver a seção "O que a pessoa já fez no site", parta dela em vez de começar do zero.
+- Não pergunte o que já consta ali (cidade, tipo, quartos, orçamento). Mencione no máximo uma coisa, com naturalidade ("vi que você olhou..."), e avance para o próximo marco.
+- Se o que a pessoa diz agora contradiz o que ela viu ou filtrou, vale o que ela diz agora.
+- Os imóveis dessa seção são reais e o id entre parênteses serve para mostrar_imoveis. Para sugerir outros imóveis, use buscar_imoveis.
+- Aja como um corretor proativo: antecipe a dúvida seguinte quando fizer sentido (por exemplo o valor por m² de um imóvel que ela olhou), sem encher a resposta de informação.`;
+
+const clip = (v, n) => String(v ?? '').slice(0, n);
+
+// Monta, a partir de dados do navegador, só texto simples e curto (nada é tratado como instrução).
+function renderVisitor(v) {
+  if (!v || typeof v !== 'object') return null;
+  const c = v.criterios && typeof v.criterios === 'object' ? v.criterios : {};
+  const list = (a, n = 5) => (Array.isArray(a) ? a.slice(0, n).map(x => clip(x, 60)).filter(Boolean) : []);
+  const props = (a) => (Array.isArray(a) ? a.slice(0, 5).map(p => `${clip(p?.tipo, 20)} em ${clip(p?.bairro, 60)}, ${clip(p?.cidade, 40)}, ${clip(p?.preco_texto, 20)} (id ${clip(p?.id, 60)})`) : []);
+  const out = [];
+  const filtros = [
+    c.cidade && `cidade ${clip(c.cidade, 60)}`,
+    list(c.bairros).length && `bairros ${list(c.bairros).join(', ')}`,
+    c.tipo && `tipo ${clip(c.tipo, 20)}`,
+    Number.isFinite(c.quartos_min) && c.quartos_min > 0 && `${c.quartos_min}+ quartos`,
+    Number.isFinite(c.orcamento_max) && c.orcamento_max > 0 && `orçamento até R$ ${Math.round(c.orcamento_max).toLocaleString('pt-BR')}`,
+    list(c.comodidades, 8).length && `comodidades ${list(c.comodidades, 8).join(', ')}`
+  ].filter(Boolean);
+  if (filtros.length) out.push(`- Filtros no site: ${filtros.join('; ')}.`);
+  if (v.busca_texto) out.push(`- Texto buscado: ${clip(v.busca_texto, 80)}.`);
+  if (props(v.imoveis_vistos).length) out.push(`- Imóveis que viu (do mais recente): ${props(v.imoveis_vistos).join(' | ')}.`);
+  if (props(v.favoritos).length) out.push(`- Favoritos: ${props(v.favoritos).join(' | ')}.`);
+  if (list(v.acoes, 6).length) out.push(`- Ações: ${list(v.acoes, 6).join('; ')}.`);
+  if (list(v.criticas, 2).length) out.push(`- Críticas que fez: ${list(v.criticas, 2).map(x => clip(x, 200)).join(' | ')}.`);
+  if (v.nome) out.push(`- Nome: ${clip(v.nome, 60)}.`);
+  return out.length ? `\nO que a pessoa já fez no site (use com naturalidade, sem recitar):\n${out.join('\n')}` : null;
+}
+
 function buildSystemPrompt(context) {
-  const lines = [SYSTEM_PROMPT];
+  const lines = [SYSTEM_PROMPT, VISITOR_PROMPT];
   if (ALERTS_ENABLED()) lines.push(ALERT_PROMPT);
+  if (FEEDBACK_ENABLED()) lines.push(FEEDBACK_PROMPT);
+  const visitor = renderVisitor(context?.visitante);
+  if (visitor) lines.push(visitor);
   if (context && typeof context === 'object') {
     if (Array.isArray(context.cidades) && context.cidades.length) {
       lines.push(`\nCidades do catálogo: ${context.cidades.slice(0, 30).join('; ')}.`);
@@ -268,7 +333,7 @@ export async function handleConciergeRequest({ method, body, origin, host }, key
 
   const payload = {
     messages: [{ role: 'system', content: buildSystemPrompt(body?.context) }, ...messages],
-    tools: ALERTS_ENABLED() ? [...TOOLS, ALERT_TOOL] : TOOLS,
+    tools: [...TOOLS, ...(ALERTS_ENABLED() ? [ALERT_TOOL] : []), ...(FEEDBACK_ENABLED() ? [FEEDBACK_TOOL] : [])],
     parallel_tool_calls: false
   };
 

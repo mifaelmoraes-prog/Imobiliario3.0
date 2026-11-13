@@ -28,10 +28,12 @@ import {
 import {
   askBrain,
   buildBrainContext,
+  buildGreeting,
+  buildVisitorContext,
   isBrainAvailable,
   searchCatalog
 } from '../../services/conciergeBrainClient';
-import { saveAlert, saveLead } from '../../services/conciergeLeadsClient';
+import { saveAlert, saveFeedback, saveLead } from '../../services/conciergeLeadsClient';
 import {
   speak,
   stopSpeaking,
@@ -50,8 +52,8 @@ const getSpeechRecognition = () =>
   typeof window !== 'undefined' ? (window.SpeechRecognition || window.webkitSpeechRecognition || null) : null;
 
 export function SplitVoiceConcierge({ isOpen, onClose }) {
-  const { profile, updatePillar, setMaxBudget, addAmenities, activePillarsCount, logActivity, identifyLead } = useBuyerProfile();
-  const { properties, allProperties, selectedCity, setSelectedCity, setActivePropertyDetail } = useProperties();
+  const { profile, updatePillar, setMaxBudget, addAmenities, activePillarsCount, logActivity, identifyLead, timeline } = useBuyerProfile();
+  const { properties, allProperties, selectedCity, setSelectedCity, setActivePropertyDetail, favorites, searchQuery } = useProperties();
 
   // Bairros, cidades e comodidades vêm do próprio catálogo
   const vocabulary = useMemo(() => buildVocabulary(allProperties), [allProperties]);
@@ -102,6 +104,10 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
   allPropertiesRef.current = allProperties;
   vocabularyRef.current = vocabulary;
   selectedCityRef.current = selectedCity;
+  // O que o visitante já fez no site (filtros, imóveis vistos, favoritos, ações), sempre atual
+  const visitorSourceRef = useRef({});
+  visitorSourceRef.current = { profile, timeline, favorites, allProperties, selectedCity, searchQuery };
+  const getVisitor = () => buildVisitorContext(visitorSourceRef.current);
   const isOpenRef = useRef(isOpen);
   const voiceRepliesRef = useRef(voiceReplies);
   isOpenRef.current = isOpen;
@@ -245,6 +251,14 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
       });
       return { registrado: true, imoveis_ids: ids };
     }
+    if (call.function?.name === 'registrar_feedback') {
+      const texto = String(args.texto || '').trim().slice(0, 1000);
+      if (!texto) return { registrado: false, erro: 'falta o texto do feedback' };
+      const nota = Number.isInteger(args.nota) && args.nota >= 1 && args.nota <= 5 ? args.nota : null;
+      logActivity('CONCIERGE_FEEDBACK', 'Deixou feedback sobre o atendimento do Concierge');
+      const saved = await saveFeedback({ texto, nota });
+      return { registrado: saved.ok };
+    }
     if (call.function?.name === 'criar_alerta') {
       const name = String(args.nome || '').trim().slice(0, 120);
       const phoneDigits = String(args.telefone || '').replace(/\D/g, '');
@@ -304,7 +318,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
     let toolsRan = false;
     try {
       for (let round = 0; round < 4; round++) {
-        const reply = await askBrain(history, brainContextRef.current);
+        const reply = await askBrain(history, { ...brainContextRef.current, visitante: getVisitor() });
         history.push(reply);
         if (reply.tool_calls?.length) {
           toolsRan = true;
@@ -640,11 +654,19 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
   useEffect(() => {
     if (!isOpen || greetedRef.current) return;
     greetedRef.current = true;
+    // Se já sabemos algo do visitante, a saudação parte disso (voz neural; a gravada é a genérica)
+    const personalized = buildGreeting(getVisitor());
+    const greetingText = personalized || GREETING_TEXT;
+    if (personalized) {
+      setMessages(prev => prev.map(m => (m.id === 'msg-welcome' ? { ...m, text: personalized } : m)));
+      // O modelo precisa saber o que foi dito e perguntado na abertura
+      brainHistoryRef.current.push({ role: 'assistant', content: personalized });
+    }
     if (!voiceRepliesRef.current || !getSpeechRecognition()) return; // sem voz: fica no texto
     noSpeechCountRef.current = 0;
     conversationRef.current = true;
-    speak(GREETING_TEXT, {
-      audioUrl: GREETING_AUDIO,
+    speak(greetingText, {
+      ...(personalized ? {} : { audioUrl: GREETING_AUDIO }),
       onStart: () => setIsSpeaking(true),
       onEnd: () => {
         setIsSpeaking(false);
