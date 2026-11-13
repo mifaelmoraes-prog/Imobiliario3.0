@@ -31,7 +31,8 @@ export function PropertyCard({
     images,
     image,
     matchScore,
-    matchDetails
+    matchDetails,
+    sourceName
   } = property;
 
   const coverImage = images?.hero || image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80';
@@ -75,6 +76,13 @@ export function PropertyCard({
             <Sparkles className="w-3.5 h-3.5" />
             <span>Match {matchScore}%</span>
           </div>
+        )}
+
+        {/* Origem do anúncio: imóveis de imobiliárias parceiras mostram de quem é a foto */}
+        {sourceName && (
+          <span className="absolute bottom-3 left-3 max-w-[85%] truncate bg-white/95 dark:bg-stone-900/95 px-2.5 py-1 rounded-full text-[11px] font-semibold text-stone-700 dark:text-stone-200 shadow-sm border border-stone-200/50">
+            Anúncio: {sourceName}
+          </span>
         )}
 
         {/* Botão de Favoritar Acessível (44x44px) */}

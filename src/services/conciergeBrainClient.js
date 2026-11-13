@@ -91,6 +91,12 @@ const summarize = (p, match) => ({
   preco: p.price,
   // Valor pronto para citar: o modelo copia em vez de converter (evita erro de número)
   preco_texto: `R$ ${Number(p.price || 0).toLocaleString('pt-BR')}`,
+  // Mesmo cálculo do cartão do site (preço ÷ área); pronto para citar, sem o modelo fazer conta
+  ...(p.condoFee > 0 ? { condominio_texto: `R$ ${Number(p.condoFee).toLocaleString('pt-BR')} por mês` } : {}),
+  ...(p.iptuMonthly > 0 ? { iptu_texto: `R$ ${Number(p.iptuMonthly).toLocaleString('pt-BR')} por mês` } : {}),
+  ...(p.price > 0 && p.area > 0
+    ? { preco_m2_texto: `R$ ${Math.round(p.price / p.area).toLocaleString('pt-BR')} por m²` }
+    : {}),
   quartos: p.bedrooms,
   suites: p.suites,
   area_m2: p.area,
@@ -192,4 +198,88 @@ export function searchCatalog(args, { allProperties, vocabulary }) {
   }
   if (avisos.length) result.avisos = avisos;
   return { result, criteria };
+}
+
+// ---------------------------------------------------------------------------
+// Perfil do visitante: o que ele já fez no site, para o Concierge não começar do zero
+// ---------------------------------------------------------------------------
+
+const ACTION_LABELS = {
+  MORTGAGE_SIMULATION: 'simulou financiamento',
+  WHATSAPP_CLICK: 'clicou para falar no WhatsApp',
+  SCHEDULE_VISIT: 'pediu visita',
+  DOSSIER_DOWNLOAD: 'baixou o dossiê',
+  PREREQUISITES_ANALYSIS: 'analisou pré-requisitos de um imóvel'
+};
+
+const brief = (p) => ({
+  id: p.id,
+  tipo: p.type,
+  bairro: p.neighborhood,
+  cidade: p.city,
+  preco_texto: `R$ ${Number(p.price || 0).toLocaleString('pt-BR')}`
+});
+
+/**
+ * Resume filtros, imóveis vistos, favoritos e ações do visitante (dados que o próprio site já
+ * guarda no navegador). Devolve null se ainda não há nada relevante.
+ */
+export function buildVisitorContext({ profile, timeline = [], favorites = [], allProperties = [], selectedCity = '', searchQuery = '' }) {
+  const byId = new Map(allProperties.map(p => [p.id, p]));
+  const neighborhoods = profile?.location?.neighborhoods || [];
+  // A cidade padrão do perfil não foi escolhida pela pessoa: vale o filtro de cidade do site
+  // ou, se houver bairros, a cidade deles.
+  const cidade = selectedCity || (neighborhoods.length ? profile?.location?.city : null) || null;
+  const tipo = profile?.typology?.propertyType;
+  const maxBudget = profile?.budget?.maxBudget;
+
+  const criterios = {
+    cidade,
+    bairros: neighborhoods.slice(0, 5),
+    tipo: tipo && tipo !== 'Todos' ? tipo : null,
+    quartos_min: profile?.typology?.minBedrooms > 0 ? profile.typology.minBedrooms : null,
+    orcamento_max: maxBudget > 0 && maxBudget < NO_BUDGET ? maxBudget : null,
+    comodidades: (profile?.lifestyle?.amenities || []).slice(0, 8)
+  };
+  const hasCriterios = Boolean(criterios.cidade || criterios.bairros.length || criterios.tipo ||
+    criterios.quartos_min || criterios.orcamento_max || criterios.comodidades.length);
+
+  // A linha do tempo vem da mais recente para a mais antiga
+  const vistosIds = [];
+  timeline.forEach(e => {
+    const id = e?.metadata?.propertyId;
+    if (e?.type === 'VIEW_PROPERTY' && id && !vistosIds.includes(id)) vistosIds.push(id);
+  });
+  const imoveis_vistos = vistosIds.map(id => byId.get(id)).filter(Boolean).slice(0, 5).map(brief);
+  const favoritos = favorites.map(id => byId.get(id)).filter(Boolean).slice(0, 5).map(brief);
+
+  const acoes = [...new Set(timeline.map(e => ACTION_LABELS[e?.type]).filter(Boolean))];
+  const criticas = timeline.filter(e => e?.type === 'PROPERTY_CRITICISM').slice(0, 2)
+    .map(e => String(e.description || '').slice(0, 200));
+  const busca_texto = String(searchQuery || '').trim().slice(0, 80) || null;
+  const nome = profile?.metadata?.isIdentified && profile.metadata.leadName
+    ? String(profile.metadata.leadName).trim().slice(0, 60) : null;
+
+  if (!hasCriterios && !imoveis_vistos.length && !favoritos.length && !acoes.length && !criticas.length && !busca_texto) return null;
+  return { criterios, busca_texto, imoveis_vistos, favoritos, acoes, criticas, nome };
+}
+
+const TYPE_PLURAL = { Casa: 'casas', Apartamento: 'apartamentos', Cobertura: 'coberturas' };
+
+/** Saudação personalizada quando já sabemos algo do visitante; null mantém a saudação padrão. */
+export function buildGreeting(visitor) {
+  if (!visitor) return null;
+  const c = visitor.criterios || {};
+  const first = visitor.nome ? ` ${visitor.nome.split(' ')[0]}` : '';
+  const hi = `Olá${first}! Sou o Concierge da Urban Real State.`;
+  const local = c.bairros?.[0] || c.cidade || null;
+  if (c.tipo || local) {
+    return `${hi} Vi que você está de olho em ${TYPE_PLURAL[c.tipo] || 'imóveis'}${local ? ` em ${local}` : ''}. Quer que eu mostre as melhores opções ou prefere ajustar algo?`;
+  }
+  const last = visitor.imoveis_vistos?.[0] || visitor.favoritos?.[0];
+  if (last?.tipo && last?.bairro) {
+    const kind = String(last.tipo).toLowerCase();
+    return `${hi} Vi que você olhou ${kind === 'apartamento' ? 'um' : 'uma'} ${kind} em ${last.bairro}. Quer ver opções parecidas?`;
+  }
+  return null;
 }
