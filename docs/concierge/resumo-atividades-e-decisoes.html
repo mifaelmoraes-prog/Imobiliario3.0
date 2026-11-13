@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concierge: resumo e decisões</title>
+<style>
+  :root {
+    --bg: #faf8f5; --surface: #ffffff; --ink: #1c1b19; --muted: #6a665f; --line: #e6e1d8;
+    --accent: #c2410c; --accent-soft: #fdeee6; --ok: #1f7a4d; --ok-soft: #e4f4ea;
+    --warn: #8a5a00; --warn-soft: #fff3d6; --code: #f1ede6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141311; --surface: #1d1b18; --ink: #efece6; --muted: #a39e94; --line: #34312c;
+      --accent: #f08a57; --accent-soft: #34211a; --ok: #6cc48f; --ok-soft: #17291f;
+      --warn: #e6b455; --warn-soft: #2f2610; --code: #26231f;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 920px; margin: 0 auto; padding: 32px 16px 72px; }
+  header { padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+  .eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }
+  h1 { font-size: clamp(26px, 5vw, 36px); line-height: 1.15; margin: 6px 0 8px; }
+  .lead { color: var(--muted); margin: 0; max-width: 62ch; }
+  h2 { font-size: 22px; margin: 44px 0 6px; }
+  h3 { font-size: 17px; margin: 22px 0 6px; }
+  p { margin: 8px 0; }
+  .sub { color: var(--muted); margin-top: 0; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin: 16px 0; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .card b { display: block; font-size: 26px; line-height: 1.1; }
+  .card span { color: var(--muted); font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--code); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  tr:last-child td { border-bottom: 0; }
+  .table-wrap { overflow-x: auto; }
+  .tag { display: inline-block; padding: 2px 9px; border-radius: 99px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .tag.ok { background: var(--ok-soft); color: var(--ok); }
+  .tag.wait { background: var(--warn-soft); color: var(--warn); }
+  .tag.dec { background: var(--accent-soft); color: var(--accent); }
+  ul { padding-left: 20px; margin: 8px 0; }
+  li { margin: 4px 0; }
+  code { background: var(--code); border-radius: 5px; padding: 1px 6px; font-size: .9em; }
+  .decision { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 12px; padding: 14px 18px; margin: 14px 0; }
+  .decision h3 { margin-top: 0; }
+  .decision .rec { background: var(--accent-soft); border-radius: 8px; padding: 8px 12px; margin-top: 10px; font-size: 15px; }
+  .note { background: var(--warn-soft); border-radius: 10px; padding: 10px 14px; color: var(--ink); }
+  ol.steps li { margin: 6px 0; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">Urban Real State · Concierge Digital</div>
+    <h1>Resumo das atividades e decisões pendentes</h1>
+    <p class="lead">O que foi entregue no Concierge (conversa por voz e texto com um "corretor sênior") e o que só avança com uma decisão do Mifael. Atualizado em 13/11/2026.</p>
+  </header>
+
+  <h2>Em uma página</h2>
+  <div class="grid">
+    <div class="card"><b>10 PRs</b><span>5 mergeados antes, o #6 já em <code>dev</code> e 4 abertos (#7, #8, #9, #10), todos com os checks passando.</span></div>
+    <div class="card"><b>Só ChatGPT</b><span>Voz Marin (OpenAI) e modelo <code>gpt-5.4-mini</code>, por custo. O Gemini ficou fora dos testes.</span></div>
+    <div class="card"><b>~US$ 0,04 a 0,06</b><span>por conversa de 6 turnos. É estimativa; o log de uso já permite medir.</span></div>
+    <div class="card"><b>2 flags desligadas</b><span>Alertas e feedback só entram em produção quando o time decidir e a base estiver pronta.</span></div>
+  </div>
+  <p>As partes que dependem de decisão estão na seção <a href="#decisoes">Decisões do Mifael</a>. Tudo o mais já está pronto ou em revisão.</p>
+
+  <h2>O que foi entregue</h2>
+  <h3>Conversa e voz</h3>
+  <ul>
+    <li>Concierge conversa por voz e por texto; o catálogo real (175 imóveis) é a única fonte de imóveis, preços e bairros.</li>
+    <li>Cérebro com IA e ferramentas: buscar imóveis, mostrar cartões, registrar interesse e fechar com um corretor (pede consentimento antes de nome e contato).</li>
+    <li>Ao abrir, o Concierge cumprimenta por voz e já liga o microfone, sem o visitante clicar.</li>
+    <li>Voz única durante o atendimento (Marin), sem trocar de voz no meio; se a cota da voz acaba, segue com a voz do navegador.</li>
+    <li>Respostas curtas, uma pergunta por vez, sem repetir pergunta e sem descrever a tela ("Deixei na tela para você").</li>
+    <li>Aluguel é explicado com educação: o catálogo é só de venda.</li>
+    <li>Perguntas fora do roteiro (valor por m², condomínio, IPTU, financiamento) têm resposta ou o honesto "o corretor confirma", sem se perder.</li>
+  </ul>
+  <h3>Corretor que conhece o visitante</h3>
+  <ul>
+    <li>O Concierge recebe o que a pessoa já fez no site: filtros, imóveis vistos, favoritos e ações (simulou financiamento, pediu visita, clicou no WhatsApp). Não começa do zero.</li>
+    <li>Saudação personalizada quando há perfil: "Vi que você está de olho em casas em…".</li>
+    <li>Feedback no fim: "Tem algo que eu possa melhorar no meu atendimento?", registrado de forma anônima.</li>
+  </ul>
+  <h3>Alertas e contatos</h3>
+  <ul>
+    <li>"Quando aparecer outros aptos de 3 dorm em SP me chama, tchau": o Concierge pede consentimento e contato mesmo que a pessoa se despeça, e registra o alerta.</li>
+    <li>Contatos de corretor e alertas passam a ser gravados no Supabase (antes ficavam só no navegador do visitante).</li>
+    <li><b>Fase 1 só registra.</b> O aviso automático ao cliente ainda não existe.</li>
+  </ul>
+  <h3>Custo e operação</h3>
+  <ul>
+    <li>Log de uso por chamada (<code>[concierge-usage]</code> e <code>[tts-usage]</code>) para medir o gasto real.</li>
+    <li>Cotas: fila de modelos de reserva e a voz que para de tentar quando a cota acaba, em vez de falhar a cada fala.</li>
+  </ul>
+
+  <h2>Estado dos PRs</h2>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>PR</th><th>O que leva</th><th>Base</th><th>Estado</th></tr></thead>
+    <tbody>
+      <tr><td>#1 a #5</td><td>Base do Concierge: voz, vocabulário do catálogo, cérebro, saudação por voz e correções de cota e voz única</td><td>dev</td><td><span class="tag ok">mergeados</span></td></tr>
+      <tr><td>#6</td><td>Logs de uso de tokens e voz</td><td>dev</td><td><span class="tag ok">mergeado em dev</span></td></tr>
+      <tr><td>#8</td><td>Perguntas fora do roteiro (valor por m²) e perda de contexto</td><td>dev</td><td><span class="tag wait">aberto · checks ok</span></td></tr>
+      <tr><td>#9</td><td>Alertas (fase 1) e contatos no Supabase</td><td>#8</td><td><span class="tag wait">aberto · checks ok</span></td></tr>
+      <tr><td>#10</td><td>Perfil do visitante, saudação personalizada e feedback</td><td>#9</td><td><span class="tag wait">aberto · checks ok</span></td></tr>
+      <tr><td>#7</td><td>Release <code>dev</code> → <code>main</code>: hoje leva só os logs (#6) e cresce conforme #8, #9 e #10 entram em <code>dev</code></td><td>main</td><td><span class="tag wait">aberto · checks ok</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">Ordem de merge: #8, depois #9, depois #10. O GitHub passa cada um para <code>dev</code> quando o anterior é mergeado; em seguida o #7 leva tudo para <code>main</code>. A produção sai do <code>main</code>.</p>
+
+  <h2 id="decisoes">Decisões do Mifael</h2>
+  <p class="sub">Cada item mostra o que está travado e a recomendação.</p>
+
+  <div class="decision">
+    <h3><span class="tag dec">1</span> Alertas: quem avisa, por qual canal e quando</h3>
+    <ul>
+      <li><b>Quem recebe o aviso:</b> o cliente, o corretor, ou os dois?</li>
+      <li><b>Canal:</b> e-mail é simples e barato; WhatsApp exige o serviço oficial da Meta (modelos aprovados, custo por mensagem e prazo de aprovação).</li>
+      <li><b>Quando "aparece imóvel novo":</b> o catálogo é um arquivo atualizado por scraping, então só há novidade quando alguém atualiza e faz deploy. Dá para avisar a cada deploy ou numa rotina própria?</li>
+      <li><b>Na fase 1:</b> quem consulta a tabela de alertas e responde às pessoas? Sem isso, não ligar o alerta em produção.</li>
+    </ul>
+    <div class="rec"><b>Recomendação:</b> e-mail ao cliente e aviso ao corretor na fase 2; WhatsApp só depois. Enquanto não houver o aviso automático, manter <code>CONCIERGE_ALERTS</code> desligado.</div>
+  </div>
+
+  <div class="decision">
+    <h3><span class="tag dec">2</span> Para onde vão os contatos do fechamento</h3>
+    <p>Os contatos agora são gravados numa tabela do Supabase. Falta definir quem acompanha e como o corretor é avisado (painel, e-mail ou WhatsApp) e em quanto tempo deve responder.</p>
+    <div class="rec"><b>Recomendação:</b> começar por um aviso por e-mail ao corretor responsável a cada contato novo.</div>
+  </div>
+
+  <div class="decision">
+    <h3><span class="tag dec">3</span> Privacidade e LGPD</h3>
+    <ul>
+      <li>O resumo do que o visitante fez no site e a conversa passam a ir para a OpenAI.</li>
+      <li>Contatos e alertas ficam guardados no Supabase com consentimento registrado.</li>
+      <li>Falta: texto da política de privacidade, prazo de guarda dos dados e um caminho para o cliente cancelar o alerta.</li>
+    </ul>
+    <div class="rec"><b>Recomendação:</b> revisar a política antes de ligar alertas e feedback em produção.</div>
+  </div>
+
+  <div class="decision">
+    <h3><span class="tag dec">4</span> O que o Concierge pode e não pode responder</h3>
+    <p>O objetivo é um corretor melhor que um humano, sem ser chato. Hoje ele responde preço, valor por m², condomínio e IPTU. Sobre financiamento, documentação, permuta e data de entrega, diz que "o corretor confirma", porque o catálogo não tem esses dados.</p>
+    <ul>
+      <li>Esses dados serão incluídos no catálogo, ou o corretor continua sendo a fonte?</li>
+      <li>Há assuntos que o Concierge deve evitar ou encaminhar sempre a um corretor?</li>
+      <li>Aluguel: continuar só com venda e oferecer um corretor?</li>
+    </ul>
+    <div class="rec"><b>Recomendação:</b> o Mifael listar 10 perguntas reais de clientes; elas viram o roteiro de teste de qualidade.</div>
+  </div>
+
+  <div class="decision">
+    <h3><span class="tag dec">5</span> Release e produção</h3>
+    <ul>
+      <li>Levar #8, #9 e #10 juntos para <code>main</code>, ou em etapas?</li>
+      <li>O dev não tem acesso à Vercel de produção. Quem valida os logs depois do deploy?</li>
+      <li>Aprovar e mergear os PRs na ordem #8, #9, #10, depois o #7.</li>
+    </ul>
+    <div class="rec"><b>Recomendação:</b> levar tudo junto com as flags desligadas e ligá-las uma a uma, depois de validar cada uma.</div>
+  </div>
+
+  <div class="decision">
+    <h3><span class="tag dec">6</span> Custo e conta da OpenAI</h3>
+    <ul>
+      <li>Colocar créditos na conta; sem eles a cota gratuita acaba em poucas conversas.</li>
+      <li>Criar um projeto separado para o Concierge, com limite mensal de gasto.</li>
+      <li>Confirmar que a chave "de dev" não custa mais: a cobrança é pelo modelo e pelo volume, não pelo tipo da chave.</li>
+    </ul>
+    <div class="rec"><b>Recomendação:</b> projeto separado com teto de gasto; depois de 1 semana, comparar o custo real (logs) com a estimativa.</div>
+  </div>
+
+  <h2>Antes de ligar em produção</h2>
+  <ol class="steps">
+    <li>Aplicar no Supabase as migrações <code>20261113120000_concierge_alertas.sql</code> e <code>20261113130000_concierge_feedback.sql</code> (hoje as tabelas não existem lá).</li>
+    <li>Conferir <code>OPENAI_API_KEY</code> na Vercel (nunca uma variável <code>VITE_</code>).</li>
+    <li>Fazer o deploy com as flags desligadas e validar os logs <code>[concierge-usage]</code> e <code>[tts-usage]</code>.</li>
+    <li>Ligar <code>CONCIERGE_FEEDBACK=on</code> e testar; ligar <code>CONCIERGE_ALERTS=on</code> só depois da decisão 1. Mudar variável exige novo deploy.</li>
+  </ol>
+
+  <h2>O que ainda não foi testado</h2>
+  <ul>
+    <li>Gravação com sucesso no Supabase real: as tabelas ainda não existem lá. O SQL foi testado num Postgres local (permissões, limites e consentimento).</li>
+    <li>Microfone real do Chrome, Safari e celular. Os testes usaram voz simulada.</li>
+    <li>O custo real por conversa: os números acima são estimativa.</li>
+  </ul>
+
+  <h2>Limitações conhecidas</h2>
+  <ul>
+    <li>As rotas <code>/api/tts</code> e <code>/api/concierge</code> são públicas, protegidas por checagem de origem e limites de tamanho, sem limite de uso por pessoa.</li>
+    <li>O navegador grava alertas e contatos direto no Supabase com a chave pública (só inserção, com validações e limite de 5 alertas por contato). Um endpoint próprio com chave de serviço seria mais robusto.</li>
+    <li>O consentimento é registrado por regra do prompt e validação, não por um clique do cliente.</li>
+    <li>Não existe link para compartilhar um imóvel específico.</li>
+  </ul>
+
+  <footer>Gerado a partir dos PRs #1 a #10 do repositório Imobiliario3.0. Valores de custo são estimativas, calculadas com os preços publicados pela OpenAI em novembro de 2026.</footer>
+</main>
+</body>
+</html>
