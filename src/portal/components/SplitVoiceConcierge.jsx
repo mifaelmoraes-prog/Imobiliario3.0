@@ -28,9 +28,12 @@ import {
 import {
   askBrain,
   buildBrainContext,
+  buildGreeting,
+  buildVisitorContext,
   isBrainAvailable,
   searchCatalog
 } from '../../services/conciergeBrainClient';
+import { saveAlert, saveFeedback, saveLead } from '../../services/conciergeLeadsClient';
 import {
   speak,
   stopSpeaking,
@@ -49,8 +52,8 @@ const getSpeechRecognition = () =>
   typeof window !== 'undefined' ? (window.SpeechRecognition || window.webkitSpeechRecognition || null) : null;
 
 export function SplitVoiceConcierge({ isOpen, onClose }) {
-  const { profile, updatePillar, setMaxBudget, addAmenities, activePillarsCount, logActivity, identifyLead } = useBuyerProfile();
-  const { properties, allProperties, selectedCity, setSelectedCity, setActivePropertyDetail } = useProperties();
+  const { profile, updatePillar, setMaxBudget, addAmenities, activePillarsCount, logActivity, identifyLead, timeline } = useBuyerProfile();
+  const { properties, allProperties, selectedCity, setSelectedCity, setActivePropertyDetail, favorites, searchQuery } = useProperties();
 
   // Bairros, cidades e comodidades vêm do próprio catálogo
   const vocabulary = useMemo(() => buildVocabulary(allProperties), [allProperties]);
@@ -101,6 +104,10 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
   allPropertiesRef.current = allProperties;
   vocabularyRef.current = vocabulary;
   selectedCityRef.current = selectedCity;
+  // O que o visitante já fez no site (filtros, imóveis vistos, favoritos, ações), sempre atual
+  const visitorSourceRef = useRef({});
+  visitorSourceRef.current = { profile, timeline, favorites, allProperties, selectedCity, searchQuery };
+  const getVisitor = () => buildVisitorContext(visitorSourceRef.current);
   const isOpenRef = useRef(isOpen);
   const voiceRepliesRef = useRef(voiceReplies);
   isOpenRef.current = isOpen;
@@ -180,7 +187,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
   };
 
   // Executa uma ferramenta pedida pelo modelo; devolve o conteúdo da resposta da ferramenta
-  const runTool = (call) => {
+  const runTool = async (call) => {
     let args = {};
     try {
       args = JSON.parse(call.function?.arguments || '{}');
@@ -230,7 +237,74 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
         sender: 'concierge',
         notice: `Contato registrado: ${name} · ${phone || email}${when}`
       }]);
+      // Envia para a equipe (melhor esforço: o atendimento segue mesmo se a gravação falhar)
+      saveLead({
+        nome: name,
+        telefone: phone || null,
+        email: email || null,
+        melhor_horario: args.melhor_horario ? String(args.melhor_horario).slice(0, 120) : null,
+        imoveis_ids: ids,
+        finalidade: ['morar', 'investir'].includes(args.finalidade) ? args.finalidade : null,
+        prazo: args.prazo ? String(args.prazo).slice(0, 120) : null,
+        observacoes: args.observacoes ? String(args.observacoes).slice(0, 500) : null,
+        consentimento: true // o modelo só chama esta ferramenta depois do aceite
+      });
       return { registrado: true, imoveis_ids: ids };
+    }
+    if (call.function?.name === 'registrar_feedback') {
+      const texto = String(args.texto || '').trim().slice(0, 1000);
+      if (!texto) return { registrado: false, erro: 'falta o texto do feedback' };
+      const nota = Number.isInteger(args.nota) && args.nota >= 1 && args.nota <= 5 ? args.nota : null;
+      logActivity('CONCIERGE_FEEDBACK', 'Deixou feedback sobre o atendimento do Concierge');
+      const saved = await saveFeedback({ texto, nota });
+      return { registrado: saved.ok };
+    }
+    if (call.function?.name === 'criar_alerta') {
+      const name = String(args.nome || '').trim().slice(0, 120);
+      const phoneDigits = String(args.telefone || '').replace(/\D/g, '');
+      const phone = phoneDigits.length >= 8 ? String(args.telefone).trim().slice(0, 40) : '';
+      const email = /\S+@\S+\.\S+/.test(args.email || '') ? String(args.email).trim().slice(0, 120) : '';
+      if (args.consentimento !== true) return { criado: false, erro: 'a pessoa ainda não aceitou ser avisada' };
+      if (!name) return { criado: false, erro: 'falta o nome' };
+      if (!phone && !email) return { criado: false, erro: 'falta um telefone (com DDD) ou e-mail válido' };
+
+      // Mesmo resolvedor da busca: normaliza cidade, bairros e comodidades e conta o que já existe
+      const { result, criteria } = searchCatalog(args, {
+        allProperties: allPropertiesRef.current,
+        vocabulary: vocabularyRef.current
+      });
+      const cidade = criteria.city?.label || (args.cidade ? String(args.cidade).slice(0, 80) : null);
+      const tipo = ['Casa', 'Apartamento', 'Cobertura'].includes(args.tipo) ? args.tipo : null;
+      if (!cidade && !tipo && criteria.neighborhoods.length === 0) {
+        return { criado: false, erro: 'falta pelo menos cidade, bairro ou tipo de imóvel' };
+      }
+      const saved = await saveAlert({
+        nome: name,
+        telefone: phone || null,
+        email: email || null,
+        cidade,
+        bairros: criteria.neighborhoods,
+        tipo,
+        quartos_min: criteria.minBedrooms || null,
+        orcamento_max: criteria.maxBudget < 10000000 ? criteria.maxBudget : null,
+        comodidades: criteria.amenities,
+        observacoes: args.observacoes ? String(args.observacoes).slice(0, 500) : null,
+        consentimento: true
+      });
+      if (!saved.ok) return { criado: false, motivo: saved.motivo };
+
+      identifyLead({ leadName: name, leadPhone: phone, leadEmail: email });
+      logActivity('CONCIERGE_ALERT', `Pediu alerta de imóveis pelo Concierge: ${[tipo, criteria.minBedrooms ? `${criteria.minBedrooms}+ quartos` : '', cidade].filter(Boolean).join(', ')}`, {
+        channel: 'concierge'
+      });
+      const profile = [tipo || 'Imóvel', criteria.minBedrooms ? `${criteria.minBedrooms}+ quartos` : null, cidade, ...criteria.neighborhoods.slice(0, 2)]
+        .filter(Boolean).join(' · ');
+      setMessages(prev => [...prev, {
+        id: newId('alert'),
+        sender: 'concierge',
+        notice: `Alerta criado: ${profile} · ${phone || email}`
+      }]);
+      return { criado: true, ja_existem_hoje: result.total_compativeis };
     }
     return { erro: `ferramenta desconhecida: ${call.function?.name}` };
   };
@@ -244,13 +318,13 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
     let toolsRan = false;
     try {
       for (let round = 0; round < 4; round++) {
-        const reply = await askBrain(history, brainContextRef.current);
+        const reply = await askBrain(history, { ...brainContextRef.current, visitante: getVisitor() });
         history.push(reply);
         if (reply.tool_calls?.length) {
           toolsRan = true;
-          reply.tool_calls.forEach(call => {
-            history.push({ role: 'tool', tool_call_id: call.id, content: JSON.stringify(runTool(call)) });
-          });
+          for (const call of reply.tool_calls) {
+            history.push({ role: 'tool', tool_call_id: call.id, content: JSON.stringify(await runTool(call)) });
+          }
           continue;
         }
         const answer = (reply.content || '').trim();
@@ -580,11 +654,19 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
   useEffect(() => {
     if (!isOpen || greetedRef.current) return;
     greetedRef.current = true;
+    // Se já sabemos algo do visitante, a saudação parte disso (voz neural; a gravada é a genérica)
+    const personalized = buildGreeting(getVisitor());
+    const greetingText = personalized || GREETING_TEXT;
+    if (personalized) {
+      setMessages(prev => prev.map(m => (m.id === 'msg-welcome' ? { ...m, text: personalized } : m)));
+      // O modelo precisa saber o que foi dito e perguntado na abertura
+      brainHistoryRef.current.push({ role: 'assistant', content: personalized });
+    }
     if (!voiceRepliesRef.current || !getSpeechRecognition()) return; // sem voz: fica no texto
     noSpeechCountRef.current = 0;
     conversationRef.current = true;
-    speak(GREETING_TEXT, {
-      audioUrl: GREETING_AUDIO,
+    speak(greetingText, {
+      ...(personalized ? {} : { audioUrl: GREETING_AUDIO }),
       onStart: () => setIsSpeaking(true),
       onEnd: () => {
         setIsSpeaking(false);
