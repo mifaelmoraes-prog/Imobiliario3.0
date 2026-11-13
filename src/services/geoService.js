@@ -189,6 +189,9 @@ export const NEIGHBORHOOD_COORDINATES = {
   'caraguatatuba - sp::prainha': [-23.6311, -45.3904],
   'caraguatatuba - sp::praia da tabatinga': [-23.5668, -45.2729],
   'caraguatatuba - sp::condomínio costa verde tabatinga': [-23.5668, -45.2729],
+  'caraguatatuba - sp::martim de sá': [-23.6270, -45.3822],
+  'caraguatatuba - sp::morro do algodão': [-23.6828, -45.4515],
+  'caraguatatuba - sp::travessão - portal dos passaros': [-23.7077, -45.4456],
   'bertioga - sp::riviera de são lourenço': [-23.7947, -46.0237],
   'ubatuba - sp::praia da lagoinha': [-23.5235, -45.2104]
 };
