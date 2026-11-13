@@ -62,7 +62,7 @@ Exemplos do tom e do tamanho certos (adapte, não copie):
 - Se nada atender, diga o que mais limita (por exemplo o orçamento) e sugira flexibilizar um critério.
 - Se a mensagem parecer cortada ou incompleta (por exemplo "eu quero"), peça com naturalidade para a pessoa continuar. Nunca deduza uma resposta que a pessoa não deu: "eu quero" não responde se é para morar ou investir.
 - Se a pessoa pedir algo que o catálogo não tem (por exemplo uma comodidade não cadastrada), diga com honestidade.
-- Se a pessoa perguntar algo fora do roteiro, responda em uma frase se a ferramenta trouxe o dado (valor por m² está em preco_m2_texto; copie, não calcule; área, quartos, vagas e preço também). Se o dado não existe (condomínio, IPTU, financiamento, documentação, aceita permuta, data de entrega), diga com honestidade que você não tem essa informação aqui e que o corretor confirma. Depois volte ao próximo marco com uma pergunta curta. Nunca diga que não entendeu uma pergunta clara, nunca invente números e nunca perca o fio da conversa.
+- Se a pessoa perguntar algo fora do roteiro, responda em uma frase se a ferramenta trouxe o dado (valor por m² está em preco_m2_texto, condomínio em condominio_texto e IPTU em iptu_texto: copie, não calcule; área, quartos, vagas e preço também). Se o dado não existe ou o campo não veio (financiamento, documentação, aceita permuta, data de entrega, ou condomínio e IPTU sem campo), diga com honestidade que você não tem essa informação aqui e que o corretor confirma. Depois volte ao próximo marco com uma pergunta curta. Nunca diga que não entendeu uma pergunta clara, nunca invente números e nunca perca o fio da conversa.
 - O catálogo tem apenas imóveis à venda. Se a pessoa falar em aluguel, diga com gentileza que no momento trabalhamos só com venda, não use o valor do aluguel como orçamento de compra e pergunte se ela tem interesse em comprar; se não tiver, ofereça que um corretor a ajude.
 - Respostas curtas ou soltas ("não", "dessa vez", "sim") devem ser lidas no contexto da sua última pergunta. Se não fizerem sentido, peça para a pessoa repetir, sem listar campos.
 
@@ -140,8 +140,53 @@ const TOOLS = [
   }
 ];
 
+// Alertas ("me avisa quando aparecer"): só entram com CONCIERGE_ALERTS=on, depois de aplicar a
+// migração do Supabase. Fase 1 só registra o pedido; o aviso automático vem na fase 2.
+const ALERTS_ENABLED = () => process.env.CONCIERGE_ALERTS === 'on';
+
+const ALERT_PROMPT = `
+Alertas (a pessoa quer ser avisada de imóveis novos):
+- Se ela pedir para ser avisada ("me avisa", "me chama quando aparecer", "fica de olho"), monte o alerta com o que ela já disse (cidade, bairro, tipo, quartos, orçamento). Se faltar cidade e tipo, pergunte só um deles, em uma pergunta curta.
+- Peça o consentimento e o contato numa única pergunta curta, por exemplo: "Posso te avisar pelo WhatsApp ou e-mail? Uso só para isso." Peça também o nome se ainda não tiver.
+- Com consentimento, nome e contato, chame criar_alerta e confirme em uma frase, citando o perfil (por exemplo "apartamento de 3 quartos em São Paulo"). Diga que a equipe da Urban avisa quando surgir algo parecido, sem prometer prazo.
+- Se a pessoa pedir o alerta e já se despedir na mesma frase ("me chama quando aparecer, tchau"), NÃO se despeça ainda: sem consentimento e contato não há como avisar. Faça a pergunta curta do contato. Só depois de criar o alerta, despeça-se em uma frase, sem nova pergunta. Se ela não se despediu e ja_existem_hoje for maior que 0, ofereça mostrar o que já existe.
+- Nunca chame criar_alerta no mesmo turno em que a pessoa pede o alerta: antes ela precisa ter dito "sim" ao contato e dado nome e telefone ou e-mail. Não invente nome nem contato.
+- Ao confirmar, diga que a equipe da Urban avisa (não prometa que você mesmo vai avisar).
+- Se criar_alerta falhar (criado falso), diga com honestidade que não conseguiu registrar agora e peça para tentar de novo mais tarde. Se o motivo for limite, diga que ela já tem alertas ativos demais. Nunca diga que o alerta foi criado se não foi.`;
+
+const ALERT_TOOL = {
+  type: 'function',
+  function: {
+    name: 'criar_alerta',
+    description:
+      'Registra um alerta para a equipe avisar a pessoa quando surgirem imóveis com este perfil. ' +
+      'Só chame depois que a pessoa aceitou ser avisada e informou nome e telefone ou e-mail. ' +
+      'Envie os critérios da conversa; use null ou lista vazia para o que não foi definido.',
+    strict: true,
+    parameters: {
+      type: 'object',
+      additionalProperties: false,
+      required: ['nome', 'telefone', 'email', 'consentimento', 'cidade', 'bairros', 'tipo', 'quartos_min', 'orcamento_max', 'comodidades', 'observacoes'],
+      properties: {
+        nome: { type: 'string' },
+        telefone: { type: ['string', 'null'], description: 'Telefone ou WhatsApp, como a pessoa disse.' },
+        email: { type: ['string', 'null'] },
+        consentimento: { type: 'boolean', description: 'true só se a pessoa aceitou ser avisada por esse contato.' },
+        cidade: { type: ['string', 'null'] },
+        bairros: { type: 'array', items: { type: 'string' } },
+        tipo: { type: ['string', 'null'], enum: ['Casa', 'Apartamento', 'Cobertura', null] },
+        quartos_min: { type: ['integer', 'null'] },
+        orcamento_max: { type: ['number', 'null'] },
+        comodidades: { type: 'array', items: { type: 'string' } },
+        observacoes: { type: ['string', 'null'], description: 'Resumo curto do que a pessoa busca.' }
+      }
+    }
+  }
+};
+
 function buildSystemPrompt(context) {
   const lines = [SYSTEM_PROMPT];
+  if (ALERTS_ENABLED()) lines.push(ALERT_PROMPT);
   if (context && typeof context === 'object') {
     if (Array.isArray(context.cidades) && context.cidades.length) {
       lines.push(`\nCidades do catálogo: ${context.cidades.slice(0, 30).join('; ')}.`);
@@ -223,7 +268,7 @@ export async function handleConciergeRequest({ method, body, origin, host }, key
 
   const payload = {
     messages: [{ role: 'system', content: buildSystemPrompt(body?.context) }, ...messages],
-    tools: TOOLS,
+    tools: ALERTS_ENABLED() ? [...TOOLS, ALERT_TOOL] : TOOLS,
     parallel_tool_calls: false
   };
 
