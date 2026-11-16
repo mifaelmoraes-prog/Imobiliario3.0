@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revisão e roteiro de entrega</title>
+<style>
+  :root {
+    --bg: #faf8f5; --surface: #ffffff; --ink: #1c1b19; --muted: #6a665f; --line: #e6e1d8;
+    --accent: #c2410c; --accent-soft: #fdeee6; --ok: #1f7a4d; --ok-soft: #e4f4ea;
+    --warn: #8a5a00; --warn-soft: #fff3d6; --bad: #a32020; --bad-soft: #fbe6e6; --code: #f1ede6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141311; --surface: #1d1b18; --ink: #efece6; --muted: #a39e94; --line: #34312c;
+      --accent: #f08a57; --accent-soft: #34211a; --ok: #6cc48f; --ok-soft: #17291f;
+      --warn: #e6b455; --warn-soft: #2f2610; --bad: #f08a8a; --bad-soft: #351a1a; --code: #26231f;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 32px 16px 72px; }
+  header { padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+  .eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }
+  h1 { font-size: clamp(26px, 5vw, 36px); line-height: 1.15; margin: 6px 0 8px; }
+  .lead { color: var(--muted); margin: 0; max-width: 66ch; }
+  h2 { font-size: 22px; margin: 44px 0 6px; }
+  h3 { font-size: 17px; margin: 22px 0 6px; }
+  p { margin: 8px 0; }
+  .sub { color: var(--muted); margin-top: 0; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin: 16px 0; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .card b { display: block; font-size: 24px; line-height: 1.15; }
+  .card span { color: var(--muted); font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--code); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  tr:last-child td { border-bottom: 0; }
+  .table-wrap { overflow-x: auto; }
+  .tag { display: inline-block; padding: 2px 9px; border-radius: 99px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .tag.ok { background: var(--ok-soft); color: var(--ok); }
+  .tag.wait { background: var(--warn-soft); color: var(--warn); }
+  .tag.bad { background: var(--bad-soft); color: var(--bad); }
+  .tag.dec { background: var(--accent-soft); color: var(--accent); }
+  ul, ol { padding-left: 20px; margin: 8px 0; }
+  li { margin: 4px 0; }
+  code { background: var(--code); border-radius: 5px; padding: 1px 6px; font-size: .9em; }
+  .phase { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 12px; padding: 14px 18px; margin: 14px 0; }
+  .phase h3 { margin-top: 0; }
+  .note { background: var(--warn-soft); border-radius: 10px; padding: 10px 14px; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">Urban Real State · Revisão do projeto</div>
+    <h1>Estado atual e roteiro até a entrega</h1>
+    <p class="lead">Revisão do código, do plano de arquitetura e da matriz de gaps, feita em 16/11/2026 sobre a <code>main</code> (commit <code>f42c565</code>). Mostra o que já funciona, o que ainda é demonstração e a ordem sugerida para chegar a um produto entregável.</p>
+  </header>
+
+  <h2>Em uma página</h2>
+  <div class="grid">
+    <div class="card"><b>Portal + Concierge</b><span>Funcionam: busca, cards, ficha, mapa, voz, perfil do visitante. Alertas e feedback prontos, com as flags desligadas.</span></div>
+    <div class="card"><b>CRM e login</b><span>Ainda são demonstração: qualquer e-mail entra como corretor, e os leads são fixos no código.</span></div>
+    <div class="card"><b>Integrações</b><span>Feeds XML, webhooks e WhatsApp são simulados; as rotas não existem.</span></div>
+    <div class="card"><b>195 imóveis</b><span>175 antigos, com dados e fotos genéricos, e 20 de parceiras (sem autorização formal).</span></div>
+  </div>
+  <p>O que depende de decisão do Mifael já está no documento anterior (<code>resumo-atividades-e-decisoes.html</code>). Aqui estão as lacunas técnicas e de produto, e a ordem para fechá-las.</p>
+
+  <h2>Situação por área</h2>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Área</th><th>Situação</th><th>O que foi encontrado</th></tr></thead>
+    <tbody>
+      <tr><td>Portal público</td><td><span class="tag ok">funciona</span></td><td>Busca, filtros, cards com R$/m², ficha com custos, mapa, favoritos, perfil, simulador de financiamento, saída com dossiê (impressão).</td></tr>
+      <tr><td>Concierge</td><td><span class="tag ok">funciona</span></td><td>Voz neural, modelo <code>gpt-5.4-mini</code> com ferramentas, perfil do visitante, saudação personalizada. Microfone real e Safari/celular ainda não testados.</td></tr>
+      <tr><td>Alertas e feedback</td><td><span class="tag wait">pronto, desligado</span></td><td>Dependem de aplicar as migrações no Supabase. Na fase 1 o alerta só registra; o aviso ao cliente não existe.</td></tr>
+      <tr><td>Login do corretor</td><td><span class="tag bad">demonstração</span></td><td>Qualquer e-mail entra, sem senha nem servidor, guardado em <code>localStorage</code>. É o gap crítico GAP-10.1 da matriz.</td></tr>
+      <tr><td>CRM (Kanban, dashboard, comissões)</td><td><span class="tag bad">demonstração</span></td><td>Cinco oportunidades fixas no código; tudo vai no pacote público do site. Os contatos reais do Concierge ficam no Supabase, sem tela para o corretor.</td></tr>
+      <tr><td>Integrações</td><td><span class="tag bad">simulado</span></td><td>Os feeds <code>/api/feeds/zap.xml</code> não existem (só há <code>api/concierge.js</code> e <code>api/tts.js</code>). Webhooks e WhatsApp rodam com <code>setTimeout</code>.</td></tr>
+      <tr><td>Catálogo antigo (175)</td><td><span class="tag bad">dados genéricos</span></td><td>Comodidades idênticas nos 175. As fotos de "quarto" e "lazer" são de banco de imagens (Unsplash) e a de "cozinha" repete a capa. Condomínio 0 em 105 imóveis. LQS fixo em 94 para todos.</td></tr>
+      <tr><td>Catálogo novo (20)</td><td><span class="tag wait">amostra</span></td><td>Dados reais de 4 imobiliárias, com origem visível. Sem rotina de atualização e sem autorização das fontes.</td></tr>
+      <tr><td>APIs públicas</td><td><span class="tag bad">sem proteção de uso</span></td><td><code>/api/concierge</code> e <code>/api/tts</code> checam a origem só quando o cabeçalho existe e não limitam o uso. Quem chama sem o cabeçalho gasta a chave da OpenAI.</td></tr>
+      <tr><td>Supabase</td><td><span class="tag wait">atenção</span></td><td>A URL e a chave pública estão como valor padrão no código. Só é seguro se todas as tabelas tiverem RLS. As duas migrações não foram aplicadas.</td></tr>
+      <tr><td>Qualidade de código</td><td><span class="tag bad">sem rede de segurança</span></td><td>Sem testes, sem lint, sem CI além do deploy. Pacote único de 976 KB (224 KB comprimido). <code>SplitVoiceConcierge.jsx</code> tem 987 linhas. <code>npm audit</code>: 0 vulnerabilidades.</td></tr>
+      <tr><td>Privacidade e direitos</td><td><span class="tag bad">pendente</span></td><td>Sem política de privacidade, prazo de guarda ou cancelamento de alerta. Resumo da navegação vai à OpenAI. Anúncios e fotos de terceiros sem autorização.</td></tr>
+      <tr><td>Processo</td><td><span class="tag wait">limpeza</span></td><td>12 branches antigas. Um PR empilhado já ficou fora de <code>dev</code> (corrigido no #11).</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Roteiro sugerido</h2>
+  <p class="sub">Premissa: "entrega" = portal com Concierge vendável (A), depois operação de leads (B), catálogo real (C) e CRM com integrações (D). Os prazos são estimativas.</p>
+
+  <div class="phase">
+    <h3><span class="tag dec">A</span> Publicável com segurança · 1 a 2 semanas</h3>
+    <ol>
+      <li><b>Proteger as APIs:</b> limite de uso por IP, exigência de origem ou token curto e teto de gasto no projeto da OpenAI.</li>
+      <li><b>Tirar o CRM de demonstração da produção</b> (atrás de flag) ou bloqueá-lo de verdade.</li>
+      <li><b>Limpar o catálogo antigo:</b> remover as fotos de banco de imagens, as comodidades iguais e o LQS fixo; não exibir "R$ 0" de condomínio ou IPTU quando o dado não existe.</li>
+      <li><b>Rede de segurança:</b> testes do parser, do cérebro e do mapa, lint e CI no GitHub.</li>
+      <li><b>Supabase:</b> aplicar as migrações, conferir o RLS e ligar o feedback.</li>
+      <li><b>Teste real de voz</b> no Chrome, Safari, Android e iPhone.</li>
+      <li><b>Decisões do Mifael:</b> autorização das imobiliárias, privacidade e canal dos alertas.</li>
+    </ol>
+  </div>
+
+  <div class="phase">
+    <h3><span class="tag dec">B</span> Operação de leads · 2 a 3 semanas</h3>
+    <ul>
+      <li>Login real com Supabase Auth e papéis (corretor, gestor, admin).</li>
+      <li>Tela do corretor lendo contatos e alertas reais, com status e responsável.</li>
+      <li>Aviso por e-mail ao corretor a cada contato novo; alertas fase 2, avisando o cliente.</li>
+    </ul>
+  </div>
+
+  <div class="phase">
+    <h3><span class="tag dec">C</span> Catálogo real · 2 a 4 semanas</h3>
+    <ul>
+      <li>Catálogo no Supabase, com fotos no Storage e otimização de imagens.</li>
+      <li>Ingestão por feed ou API em vez de coleta pontual (a Quadra usa uma plataforma de CRM que costuma ter integração).</li>
+      <li>Rotina de atualização e baixa de imóveis vendidos.</li>
+    </ul>
+  </div>
+
+  <div class="phase">
+    <h3><span class="tag dec">D</span> CRM e integrações · 4 semanas ou mais</h3>
+    <ul>
+      <li>Pipeline persistido, distribuição automática de leads e comissões reais.</li>
+      <li>Feeds XML para portais, webhooks do Meta e Google Ads e WhatsApp Cloud API.</li>
+    </ul>
+  </div>
+
+  <h2>O que não foi verificado</h2>
+  <ul>
+    <li>O site em produção: domínio, variáveis de ambiente e logs da Vercel.</li>
+    <li>O Supabase real: se as tabelas existem e se há RLS em todas.</li>
+    <li>Os gaps de UX e acessibilidade da matriz (GAP-01 a 09): não foram reauditados, o estado deles é desconhecido.</li>
+    <li>Celular, Safari e o microfone real.</li>
+  </ul>
+  <p class="note">Os números de esforço são estimativas e dependem de quem executa, das decisões do Mifael e do acesso à Vercel e ao Supabase de produção.</p>
+
+  <footer>Revisão feita sobre o repositório Imobiliario3.0, branch <code>main</code>, em 16/11/2026. Complementa o documento de resumo e decisões.</footer>
+</main>
+</body>
+</html>
