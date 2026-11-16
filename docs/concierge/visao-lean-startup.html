@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visão Lean Startup para o Concierge</title>
+<style>
+  :root {
+    --bg: #faf8f5; --surface: #ffffff; --ink: #1c1b19; --muted: #6a665f; --line: #e6e1d8;
+    --accent: #c2410c; --accent-soft: #fdeee6; --ok: #1f7a4d; --ok-soft: #e4f4ea;
+    --warn: #8a5a00; --warn-soft: #fff3d6; --bad: #a32020; --bad-soft: #fbe6e6; --code: #f1ede6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141311; --surface: #1d1b18; --ink: #efece6; --muted: #a39e94; --line: #34312c;
+      --accent: #f08a57; --accent-soft: #34211a; --ok: #6cc48f; --ok-soft: #17291f;
+      --warn: #e6b455; --warn-soft: #2f2610; --bad: #f08a8a; --bad-soft: #351a1a; --code: #26231f;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 32px 16px 72px; }
+  header { padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+  .eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }
+  h1 { font-size: clamp(26px, 5vw, 36px); line-height: 1.15; margin: 6px 0 8px; }
+  .lead { color: var(--muted); margin: 0; max-width: 66ch; }
+  h2 { font-size: 22px; margin: 44px 0 6px; }
+  h3 { font-size: 17px; margin: 22px 0 6px; }
+  p { margin: 8px 0; }
+  .sub { color: var(--muted); margin-top: 0; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin: 16px 0; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .card b { display: block; font-size: 20px; line-height: 1.2; margin-bottom: 4px; }
+  .card span { color: var(--muted); font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--code); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  tr:last-child td { border-bottom: 0; }
+  .table-wrap { overflow-x: auto; }
+  .tag { display: inline-block; padding: 2px 9px; border-radius: 99px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .tag.ok { background: var(--ok-soft); color: var(--ok); }
+  .tag.wait { background: var(--warn-soft); color: var(--warn); }
+  .tag.bad { background: var(--bad-soft); color: var(--bad); }
+  .tag.dec { background: var(--accent-soft); color: var(--accent); }
+  ul, ol { padding-left: 20px; margin: 8px 0; }
+  li { margin: 4px 0; }
+  code { background: var(--code); border-radius: 5px; padding: 1px 6px; font-size: .9em; }
+  pre { background: var(--code); border-radius: 10px; padding: 12px 14px; overflow-x: auto; font-size: 13.5px; line-height: 1.5; }
+  pre code { background: none; padding: 0; }
+  .phase { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 12px; padding: 14px 18px; margin: 14px 0; }
+  .phase h3 { margin-top: 0; }
+  .note { background: var(--warn-soft); border-radius: 10px; padding: 10px 14px; }
+  .loop { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 16px 0; }
+  .loop .card { border-top: 4px solid var(--accent); }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">Urban Real State · Proposta de método</div>
+    <h1>Visão Lean Startup para o Concierge</h1>
+    <p class="lead">Como aplicar o ciclo construir, medir e aprender (Eric Ries, <em>A Startup Enxuta</em>) ao projeto: quais hipóteses testar, o que medir, o que construir primeiro e como a IA entra como camada de aprendizado. Documento de proposta, para o Mifael aprovar ou ajustar.</p>
+  </header>
+
+  <h2>Em uma página</h2>
+  <div class="grid">
+    <div class="card"><b>O Concierge já é um MVP</b><span>É o que o livro chama de MVP de concierge: entregar o valor "à mão" (aqui, pela IA) para aprender antes de automatizar tudo.</span></div>
+    <div class="card"><b>Falta medir</b><span>Há leads, alertas e feedback gravados, mas nenhum registro do caminho do visitante nem como comparar duas versões.</span></div>
+    <div class="card"><b>Uma aposta de risco</b><span>Alguém deixa telefone ou e-mail depois de conversar com a IA? Se não, o resto do roteiro perde o sentido.</span></div>
+    <div class="card"><b>Ciclo de 2 semanas</b><span>Eventos do funil, um painel simples e a leitura a fundo das conversas dos primeiros visitantes reais.</span></div>
+  </div>
+
+  <h2>Os conceitos do livro, no projeto</h2>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Conceito</th><th>O que significa</th><th>No Urban Real State</th></tr></thead>
+    <tbody>
+      <tr><td>Aprendizado validado</td><td>Progresso é saber algo novo e comprovado sobre o cliente, e não só entregar funcionalidades.</td><td>Cada PR do Concierge passa a responder a uma hipótese. "Entregamos o alerta" vira "descobrimos se o alerta traz o visitante de volta".</td></tr>
+      <tr><td>Hipótese de valor</td><td>O produto entrega valor a quem o usa?</td><td>Conversar por voz leva a mais pedidos de contato do que navegar sozinho.</td></tr>
+      <tr><td>Hipótese de crescimento</td><td>Como novos clientes vão descobrir o produto?</td><td>Anúncios de parceiras com a origem visível geram leads. Alertas trazem de volta quem saiu.</td></tr>
+      <tr><td>MVP</td><td>A menor versão que permite fechar um ciclo de aprendizado.</td><td>Concierge com 195 imóveis, voz e contato. Alertas e feedback são o próximo passo, com as flags desligadas até a medição existir.</td></tr>
+      <tr><td>Contabilidade da inovação</td><td>Métricas acionáveis, por coorte, no lugar de números de vaidade.</td><td>Painel com taxa de lead por coorte semanal, e não "visitas totais".</td></tr>
+      <tr><td>Teste dividido (A/B)</td><td>Duas versões ao mesmo tempo, para isolar o efeito de uma mudança.</td><td>Saudação personalizada contra genérica. Momento do pedido de contato.</td></tr>
+      <tr><td>Pivotar ou perseverar</td><td>Decidir, com critério definido de antemão, se muda de rumo ou segue.</td><td>Reunião semanal com a regra escrita antes do experimento (seção 8).</td></tr>
+      <tr><td>Cinco porquês</td><td>Perguntar "por quê?" até a causa-raiz de uma falha.</td><td>Conversa sem contato vira um motivo classificado: sem imóvel, preço, desconfiança ou falha técnica.</td></tr>
+      <tr><td>Genchi Genbutsu</td><td>Ir ver o cliente de perto.</td><td>No começo, ler as conversas uma a uma. Com pouco tráfego, isso ensina mais do que estatística.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>1. Hipóteses a validar</h2>
+  <p class="sub">Os critérios de sucesso são sugestões iniciais, sem dado real por trás. O Mifael ajusta com o que conhece do mercado.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>#</th><th>Tipo</th><th>Hipótese</th><th>Métrica</th><th>Critério sugerido</th></tr></thead>
+    <tbody>
+      <tr><td>H1</td><td><span class="tag dec">valor · maior risco</span></td><td>Depois de conversar com a IA, o visitante deixa um contato.</td><td>Sessões com Concierge que terminam em lead ou alerta ÷ sessões com Concierge</td><td>Perseverar acima de 5%. Abaixo de 2% em 4 semanas, rever a abordagem.</td></tr>
+      <tr><td>H2</td><td><span class="tag dec">valor</span></td><td>Quem usa o Concierge pede mais contato do que quem só navega.</td><td>Taxa de lead com Concierge contra sem Concierge (mesma semana)</td><td>Pelo menos 2 vezes maior.</td></tr>
+      <tr><td>H3</td><td><span class="tag dec">valor</span></td><td>A saudação personalizada aumenta o engajamento.</td><td>Sessões com 3 ou mais mensagens, por variante</td><td>Melhora de 20% ou mais, com amostra suficiente.</td></tr>
+      <tr><td>H4</td><td><span class="tag dec">crescimento</span></td><td>O alerta de imóvel traz o visitante de volta.</td><td>Alertas que geram nova visita ou contato em 14 dias</td><td>Definir após a fase 2 dos alertas (aviso ao cliente).</td></tr>
+      <tr><td>H5</td><td><span class="tag dec">crescimento</span></td><td>Imóveis de parceiras com origem visível geram leads.</td><td>Leads por imóvel, por origem (RIV, ZUL, QUA, ISR)</td><td>Comparar com o catálogo antigo; decidir quais fontes ampliar.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note"><b>Cuidado com o volume.</b> Com pouco tráfego, um teste A/B não alcança significância. No início, o critério é qualitativo (ler as conversas) e os números apontam onde olhar. O teste estatístico só passa a valer quando houver centenas de sessões por variante.</p>
+
+  <h2>2. O que já existe e o que falta</h2>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Peça</th><th>Estado</th><th>Observação</th></tr></thead>
+    <tbody>
+      <tr><td>Leads, alertas e feedback</td><td><span class="tag ok">existe</span></td><td>Tabelas <code>concierge_leads</code>, <code>concierge_alertas</code>, <code>concierge_feedback</code>, com RLS só de inserção. Migrações ainda não aplicadas no Supabase real.</td></tr>
+      <tr><td>Perfil do visitante</td><td><span class="tag ok">existe</span></td><td>Saudação personalizada e contexto para o modelo.</td></tr>
+      <tr><td>Log de uso do servidor</td><td><span class="tag wait">parcial</span></td><td><code>CONCIERGE_LOG_USAGE</code> registra consumo, não o caminho do visitante.</td></tr>
+      <tr><td>Eventos do funil</td><td><span class="tag bad">falta</span></td><td>Sem eles, nenhuma hipótese pode ser medida.</td></tr>
+      <tr><td>Variantes por visitante</td><td><span class="tag bad">falta</span></td><td>As flags atuais (<code>CONCIERGE_ALERTS</code>, <code>CONCIERGE_FEEDBACK</code>) valem para todos os visitantes ao mesmo tempo.</td></tr>
+      <tr><td>Painel de métricas</td><td><span class="tag bad">falta</span></td><td>As telas do CRM são demonstração com dados fixos. O painel real pode ocupar o lugar de uma delas.</td></tr>
+      <tr><td>Rotina de aprendizado</td><td><span class="tag bad">falta</span></td><td>Reunião semanal, registro de decisões e critério de pivô.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>3. Funil e eventos</h2>
+  <p class="sub">Um evento por passo do funil, gravado numa tabela nova que aceita só inserção do navegador, no mesmo padrão das outras.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Evento</th><th>Quando dispara</th><th>Responde a</th></tr></thead>
+    <tbody>
+      <tr><td><code>sessao_iniciada</code></td><td>Visitante carrega o portal</td><td>Base de todas as taxas</td></tr>
+      <tr><td><code>concierge_aberto</code></td><td>Abre o painel do Concierge</td><td>H2: quem usa</td></tr>
+      <tr><td><code>primeira_mensagem</code></td><td>Fala ou digita a primeira vez</td><td>Saudação (H3)</td></tr>
+      <tr><td><code>imoveis_mostrados</code></td><td>Concierge exibe imóveis na tela</td><td>A busca entrega valor?</td></tr>
+      <tr><td><code>imovel_aberto</code></td><td>Abre a ficha de um imóvel (com id e origem)</td><td>H5: origem</td></tr>
+      <tr><td><code>interesse_registrado</code></td><td>Ferramenta <code>registrar_interesse</code></td><td>Intenção</td></tr>
+      <tr><td><code>lead_criado</code> · <code>alerta_criado</code></td><td>Contato deixado</td><td>H1 e H2</td></tr>
+      <tr><td><code>feedback_enviado</code></td><td>Nota ou texto no fim da conversa</td><td>Satisfação</td></tr>
+      <tr><td><code>busca_sem_resultado</code></td><td>Busca que não achou imóvel (só os critérios, sem texto livre)</td><td>Demanda para o catálogo</td></tr>
+      <tr><td><code>sessao_retornou</code></td><td>Mesmo visitante, outro dia</td><td>H4</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+<pre><code>-- Esboço (a migração real passa pelo mesmo teste com PGlite das anteriores)
+create table public.concierge_eventos (
+  id uuid primary key default gen_random_uuid(),
+  created_at timestamptz not null default now(),
+  visitante_id uuid not null,            -- sorteado no navegador, sem dado pessoal
+  sessao_id uuid not null,
+  evento text not null check (char_length(evento) &lt;= 40),
+  variante text check (variante is null or char_length(variante) &lt;= 40),
+  imovel_id text check (imovel_id is null or char_length(imovel_id) &lt;= 40),
+  dados jsonb not null default '{}'      -- só campos curtos e sem texto livre
+    check (pg_column_size(dados) &lt;= 1024)
+);
+-- RLS: anon só INSERE, em colunas liberadas; ninguém lê pelo navegador.</code></pre>
+
+  <h2>4. Experimentos</h2>
+  <div class="phase">
+    <h3>Como a variante é atribuída</h3>
+    <ul>
+      <li>Na primeira visita, o navegador sorteia a variante e guarda no <code>localStorage</code>, para o mesmo visitante ver sempre a mesma versão.</li>
+      <li>A variante vai junto em todo evento (coluna <code>variante</code>), o que permite comparar as duas metades depois.</li>
+      <li>As flags de servidor continuam como interruptor geral ("liga ou desliga para todos"). A variante por visitante é uma segunda camada, por cima.</li>
+    </ul>
+  </div>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Experimento</th><th>Variante A</th><th>Variante B</th><th>Hipótese</th></tr></thead>
+    <tbody>
+      <tr><td>E1 · saudação</td><td>Genérica</td><td>Personalizada pelo perfil</td><td>H3</td></tr>
+      <tr><td>E2 · pedido de contato</td><td>Concierge oferece o contato ao fim da conversa</td><td>Oferece após o visitante ver 2 imóveis</td><td>H1</td></tr>
+      <tr><td>E3 · origem do anúncio</td><td>Chip "Anúncio: X" visível</td><td>Sem chip (só se as parceiras autorizarem os dois formatos)</td><td>H5</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>5. A camada de IA como motor de aprendizado</h2>
+  <div class="grid">
+    <div class="card"><b>Demanda sem resposta</b><span>Agrupa as buscas sem resultado ("3 quartos em Bertioga até 1 milhão") e produz a fila do que raspar ou pedir às parceiras em seguida. O catálogo cresce pela demanda, não por palpite.</span></div>
+    <div class="card"><b>Síntese semanal</b><span>Resume os textos de <code>concierge_feedback</code> (e, com consentimento, as conversas) em temas recorrentes, com exemplos, para a reunião de aprendizado.</span></div>
+    <div class="card"><b>Cinco porquês automáticos</b><span>Classifica por que a conversa terminou sem contato: sem imóvel, preço, desconfiança ou falha técnica. Agrupa e conta.</span></div>
+    <div class="card"><b>Ajuda a decidir, não decide</b><span>A IA propõe temas e hipóteses. Quem escolhe o que construir é a equipe, com a leitura das conversas na mão.</span></div>
+  </div>
+
+  <h2>6. Painel de contabilidade da inovação</h2>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Mostrar (acionável)</th><th>Evitar (vaidade)</th></tr></thead>
+    <tbody>
+      <tr><td>Taxa de lead por coorte semanal (quem chegou na semana N)</td><td>Visitas totais acumuladas</td></tr>
+      <tr><td>Funil com a queda entre cada passo e a variante vencedora</td><td>Mensagens enviadas ao Concierge</td></tr>
+      <tr><td>Leads por origem do anúncio</td><td>Número de imóveis no catálogo</td></tr>
+      <tr><td>Buscas sem resultado, ordenadas por frequência</td><td>Tempo médio na página, sem contexto</td></tr>
+      <tr><td>Custo de IA por lead (<code>CONCIERGE_LOG_USAGE</code> ÷ leads)</td><td>Custo total isolado</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Onde mostrar: uma tela do CRM, hoje feita de dados fixos, passa a ler as consultas reais, visível só para quem tem papel de gestor. Isso depende do login real da fase B do roteiro; até lá, as consultas podem rodar no painel do Supabase.</p>
+
+  <h2>7. Ciclo 1 · construir, medir, aprender</h2>
+  <div class="loop">
+    <div class="card"><b>Construir</b><span>Tabela de eventos, instrumentação do funil, variante por visitante e consulta de funil. Sem o texto das conversas.</span></div>
+    <div class="card"><b>Medir</b><span>Convidar um grupo pequeno de visitantes reais (corretores, clientes conhecidos, tráfego pago de teste) por 1 a 2 semanas.</span></div>
+    <div class="card"><b>Aprender</b><span>Ler cada conversa possível, calcular H1 e H2, registrar o que mudou na nossa compreensão e decidir pivotar ou perseverar.</span></div>
+  </div>
+  <div class="phase">
+    <h3>Duas semanas, em ordem</h3>
+    <ol>
+      <li><b>Pré-requisitos mínimos</b> (da fase A do roteiro): proteger as APIs, aplicar as migrações no Supabase, aviso de privacidade. Sem isso, não há tráfego real para medir.</li>
+      <li><b>Instrumentar:</b> migração de eventos, cliente de eventos, disparos nos pontos da tabela da seção 3.</li>
+      <li><b>Variante:</b> sorteio estável por visitante e E1 (saudação).</li>
+      <li><b>Consulta do funil</b> no Supabase, com a taxa por coorte e por variante.</li>
+      <li><b>Rodar</b> o grupo piloto e ler as conversas permitidas.</li>
+      <li><b>Reunião de aprendizado:</b> decidir conforme as regras da seção 8 e escolher a hipótese do ciclo 2.</li>
+    </ol>
+  </div>
+
+  <h2>8. Regras de pivotar ou perseverar</h2>
+  <p class="sub">Escritas antes do experimento, para não decidir pelo humor do dia.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Se acontecer</th><th>Decisão</th><th>Exemplo de ação</th></tr></thead>
+    <tbody>
+      <tr><td>H1 acima do critério</td><td><span class="tag ok">perseverar</span></td><td>Investir em B (operação de leads) e no aviso ao cliente (alertas fase 2).</td></tr>
+      <tr><td>H1 baixa, mas o feedback aponta falta de imóveis</td><td><span class="tag wait">ajustar</span></td><td>Priorizar o catálogo (fase C) antes de mexer no Concierge.</td></tr>
+      <tr><td>H1 baixa e as conversas mostram desconfiança</td><td><span class="tag wait">ajustar</span></td><td>Reforçar a origem do anúncio, prova social, canal humano visível.</td></tr>
+      <tr><td>H1 baixa por 2 ciclos seguidos sem causa clara</td><td><span class="tag bad">pivotar</span></td><td>Reavaliar o público (investidor, não morador), o canal (WhatsApp no lugar do site) ou o produto.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>9. Como isso encaixa no roteiro A–D</h2>
+  <ul>
+    <li><b>Fase A</b> encolhe ao mínimo necessário para ter tráfego real: proteger as APIs, aplicar migrações e RLS, aviso de privacidade. Testes, CI e limpeza do catálogo antigo entram em lotes pequenos ao longo dos ciclos, em vez de bloquear tudo.</li>
+    <li><b>Fases B, C e D</b> deixam de ser uma sequência fixa e passam a ser priorizadas pelo que o ciclo ensina (leads sem atendimento pedem B; buscas sem resultado pedem C).</li>
+    <li>O roteiro original continua valendo como mapa. O que muda é que cada fase só avança com uma evidência.</li>
+  </ul>
+
+  <h2>10. Riscos e cuidados</h2>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Risco</th><th>Cuidado</th></tr></thead>
+    <tbody>
+      <tr><td>LGPD: registrar comportamento e conversas</td><td>Começar só com eventos anônimos, sem texto livre e sem dado pessoal. Registrar texto das conversas só com base legal e aviso claros, após a decisão de privacidade do Mifael.</td></tr>
+      <tr><td>Pouco tráfego, conclusão falsa</td><td>Tratar números pequenos como pista, não como prova. Ler as conversas. Declarar o tamanho da amostra em cada conclusão.</td></tr>
+      <tr><td>Medir antes de proteger</td><td>Sem proteção das APIs, tráfego aberto pode gastar a chave da OpenAI. Teto de gasto e limite de uso antes de convidar visitantes.</td></tr>
+      <tr><td>Métricas de vaidade voltarem</td><td>Cada número do painel precisa ligar a uma decisão. Se não ligar, sai.</td></tr>
+      <tr><td>Dados de terceiros</td><td>H5 depende de as parceiras aceitarem a exibição dos anúncios. Sem autorização formal, o experimento E3 não deve rodar.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Decisões que dependem do Mifael</h2>
+  <ol>
+    <li><b>Hipótese de maior risco:</b> concorda com H1 (alguém deixa contato depois de conversar com a IA)? Os critérios de sucesso da seção 1 servem?</li>
+    <li><b>Grupo piloto:</b> quem será convidado no ciclo 1, e por qual canal?</li>
+    <li><b>Privacidade:</b> pode-se registrar os eventos anônimos do funil? E, depois, o texto das conversas, com qual aviso?</li>
+    <li><b>Cadência:</b> reunião semanal de aprendizado, com quem participa e quem registra as decisões?</li>
+    <li><b>Parceiras:</b> ok para testar com e sem o chip de origem (E3)?</li>
+  </ol>
+
+  <h2>O que não foi verificado</h2>
+  <ul>
+    <li>Nenhum número de tráfego, conversão ou custo: ainda não há dados reais. Os critérios são propostas de partida, não metas calculadas.</li>
+    <li>O Supabase real e o site em produção, como no documento de revisão anterior.</li>
+    <li>O esboço da tabela de eventos não foi aplicado nem testado; a versão real passará pelo mesmo teste das migrações anteriores.</li>
+  </ul>
+
+  <footer>Urban Real State · Proposta Lean Startup · 16/11/2026 · baseada em <em>A Startup Enxuta</em> (Eric Ries). Complementa <code>revisao-projeto-e-roteiro-entrega.html</code> e <code>resumo-atividades-e-decisoes.html</code>.</footer>
+</main>
+</body>
+</html>
