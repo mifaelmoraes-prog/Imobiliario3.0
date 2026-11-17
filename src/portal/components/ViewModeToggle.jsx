@@ -20,7 +20,7 @@ const MODOS = [
     descricao: 'Visualização em mapa',
     Icone: Map,
     ativo: 'bg-emerald-600 text-white shadow-sm',
-    inativo: 'text-emerald-600 dark:text-emerald-400 hover:bg-emerald-600/10'
+    inativo: 'text-emerald-700 dark:text-emerald-400 hover:bg-emerald-600/10'
   }
 ];
 

@@ -1,6 +1,7 @@
 import React, { useMemo, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
+import 'leaflet/dist/leaflet.css'; // vem no pacote do mapa, só quando ele é aberto (antes: <link> do unpkg em toda página)
 import { formatCurrencyBRL } from '../../design-system/SliderRange';
 import { getPropertyCoordinates, getMapViewport, CAPITAL_CENTERS } from '../../services/geoService';
 import { useProperties } from '../../context/PropertyContext';
