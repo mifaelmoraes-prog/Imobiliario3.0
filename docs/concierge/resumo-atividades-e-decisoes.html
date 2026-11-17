@@ -52,6 +52,8 @@
   .decision .rec { background: var(--accent-soft); border-radius: 8px; padding: 8px 12px; margin-top: 10px; font-size: 15px; }
   .urgent { background: var(--bad-soft); border: 1px solid var(--bad); border-radius: 12px; padding: 14px 18px; margin: 18px 0; }
   .urgent h2 { margin: 0 0 6px; font-size: 19px; color: var(--bad); }
+  .resolvido { background: var(--ok-soft); border: 1px solid var(--ok); border-radius: 12px; padding: 14px 18px; margin: 18px 0; }
+  .resolvido h2 { margin: 0 0 6px; font-size: 19px; color: var(--ok); }
   .note { background: var(--warn-soft); border-radius: 10px; padding: 10px 14px; color: var(--ink); }
   ol.steps li { margin: 6px 0; }
   footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 14px; }
@@ -65,10 +67,11 @@
     <p class="lead">O que foi entregue no portal e no Concierge (conversa por voz e texto com um "corretor sênior") e o que só avança com uma decisão ou uma ação do time. <b>Atualizado em 17/11/2026</b>, com a produção na <code>main</code> em <code>d8d5fde</code>.</p>
   </header>
 
-  <div class="urgent">
-    <h2>Ação urgente: os contatos de corretor não estão chegando à equipe</h2>
-    <p>Conferi o Supabase de produção em 17/11: as tabelas <code>concierge_leads</code>, <code>concierge_alertas</code> e <code>concierge_feedback</code> <b>não existem</b> (só a <code>concierge_acessos</code> existe). Quando um visitante pede contato com um corretor, a gravação falha e <b>o contato se perde</b>. Desde o PR #34 o Concierge avisa o visitante com sinceridade ("não consegui enviar seu contato à equipe agora"), em vez de prometer um retorno que não vai acontecer.</p>
-    <p><b>Para resolver:</b> aplicar no Supabase (SQL Editor) as migrações <code>20261113120000_concierge_alertas.sql</code> (cria alertas e contatos) e <code>20261113130000_concierge_feedback.sql</code>, nessa ordem. Ambas estão em <code>supabase/migrations/</code>, podem ser rodadas mais de uma vez, e eu confiro de fora quando forem aplicadas.</p>
+  <div class="resolvido">
+    <h2>Resolvido em 17/11: os contatos de corretor voltaram a ser salvos</h2>
+    <p>Até 17/11 as tabelas <code>concierge_leads</code>, <code>concierge_alertas</code> e <code>concierge_feedback</code> não existiam no Supabase de produção, e todo pedido de contato se perdia. As tabelas foram criadas e <b>o caminho de sucesso foi testado em produção</b>: um pedido de contato de teste mostrou "Contato registrado" e a gravação foi aceita. Conferi também que o site só consegue inserir, nunca ler (o acesso é da equipe, pelo painel do Supabase).</p>
+    <p><b>Há uma linha de teste para apagar</b> no Table Editor da <code>concierge_leads</code>: telefone <code>(11) 90000-0000</code> (nome "Teste Automatizado"). O site não consegue apagá-la.</p>
+    <p><b>O que continua em aberto:</b> ninguém é avisado quando chega um contato novo. Hoje alguém precisa abrir a tabela no Supabase todos os dias (decisão 2).</p>
   </div>
 
   <h2>Em uma página</h2>
@@ -78,7 +81,7 @@
     <div class="card"><b>59 testes</b><span>Rodam sozinhos no GitHub em todo PR (testes e build), junto com a prévia da Vercel.</span></div>
     <div class="card"><b>Celular ~89</b><span>Nota de desempenho no Lighthouse (antes 85). SEO 100, acessibilidade 96, desktop 97.</span></div>
     <div class="card"><b>UF no ar</b><span>O site já registra de qual estado vem cada acesso (só país, UF e hora). Responde "alguém do ES acessou?".</span></div>
-    <div class="card bad"><b>0 contatos</b><span>Salvos desde que as tabelas não existem. Ver a ação urgente acima.</span></div>
+    <div class="card"><b>Contatos salvos</b><span>Tabelas criadas em 17/11 e gravação testada em produção. Falta o aviso ao corretor (decisão 2).</span></div>
   </div>
   <p>As partes que dependem de decisão estão em <a href="#decisoes">Decisões do Mifael</a>. O que dá para fazer sem decisão de ninguém já foi feito.</p>
 
@@ -123,7 +126,7 @@
   <h3>Alertas e contatos</h3>
   <ul>
     <li>"Quando aparecer outros aptos de 3 dorm em SP me chama, tchau": o Concierge pede consentimento e contato mesmo que a pessoa se despeça, e registra o alerta (flag desligada).</li>
-    <li>Contatos de corretor e alertas são gravados no Supabase, <b>mas as tabelas ainda não existem lá</b> (ver a ação urgente).</li>
+    <li>Contatos de corretor e alertas são gravados no Supabase. As tabelas foram criadas em 17/11, e a gravação do contato foi testada em produção.</li>
     <li><b>Fase 1 só registra.</b> O aviso automático ao cliente ainda não existe.</li>
   </ul>
   <h3>Custo e operação</h3>
@@ -201,9 +204,9 @@
   </div>
 
   <div class="decision">
-    <h3><span class="tag dec">2</span> Para onde vão os contatos do fechamento <span class="tag bad">mais urgente agora</span></h3>
-    <p>Os contatos são gravados numa tabela do Supabase (que ainda precisa ser criada). Falta definir quem acompanha, como o corretor é avisado (painel, e-mail ou WhatsApp) e em quanto tempo deve responder. Sem isso, mesmo com a tabela criada, ninguém sabe que há um contato novo.</p>
-    <div class="rec"><b>Recomendação:</b> aplicar as migrações já e começar por um aviso por e-mail ao corretor responsável a cada contato novo. Enquanto o aviso não existir, alguém precisa abrir a tabela no Supabase todos os dias.</div>
+    <h3><span class="tag dec">2</span> Para onde vão os contatos do fechamento <span class="tag wait">mais importante agora</span></h3>
+    <p>Os contatos já são gravados numa tabela do Supabase (<code>concierge_leads</code>). Falta definir quem acompanha, como o corretor é avisado (painel, e-mail ou WhatsApp) e em quanto tempo deve responder. Sem isso, ninguém sabe que há um contato novo, e um visitante que pediu retorno pode esperar sem resposta.</p>
+    <div class="rec"><b>Recomendação:</b> começar por um aviso por e-mail ao corretor responsável a cada contato novo. Enquanto o aviso não existir, alguém precisa abrir a tabela no Supabase todos os dias.</div>
   </div>
 
   <div class="decision">
@@ -286,17 +289,17 @@
 
   <h2>Próximos passos, em ordem</h2>
   <ol class="steps">
-    <li><b>Aplicar no Supabase</b> as migrações <code>20261113120000_concierge_alertas.sql</code> e <code>20261113130000_concierge_feedback.sql</code>. Sem isso nenhum contato chega à equipe.</li>
+    <li><b>Feito em 17/11:</b> as migrações de contatos, alertas e feedback foram aplicadas no Supabase. <b>Falta apagar a linha de teste</b> da <code>concierge_leads</code> (telefone <code>(11) 90000-0000</code>).</li>
     <li><b>Configurar o teto de gasto</b> nas contas da OpenAI e do Google.</li>
     <li><b>Marcar o CI como obrigatório</b> nas regras de proteção da <code>main</code> e da <code>dev</code>.</li>
     <li><b>Passar à equipe os dados da política</b> (empresa, e-mail do encarregado e prazo de guarda) e pedir a revisão jurídica.</li>
     <li><b>Decidir</b> o CRM de demonstração (8), a indexação (9) e o aviso de contato ao corretor (2).</li>
-    <li>Depois de aplicadas as migrações, ligar <code>CONCIERGE_FEEDBACK=on</code> e testar; ligar <code>CONCIERGE_ALERTS=on</code> só depois da decisão 1. Mudar variável exige novo deploy. (<code>TRACK_ACCESS_REGION</code> já está ligada.)</li>
+    <li>Com as tabelas criadas, já dá para ligar <code>CONCIERGE_FEEDBACK=on</code> e testar; ligar <code>CONCIERGE_ALERTS=on</code> só depois da decisão 1. Mudar variável exige novo deploy. (<code>TRACK_ACCESS_REGION</code> já está ligada.)</li>
   </ol>
 
   <h2>O que ainda não foi testado</h2>
   <ul>
-    <li><b>Gravação com sucesso no Supabase real:</b> as tabelas de contatos, alertas e feedback não existem lá. O SQL foi testado num Postgres local (permissões, limites e consentimento) e a falha real foi testada em produção, mas o caminho de sucesso só será testado depois de aplicar as migrações.</li>
+    <li><b>Alertas e feedback no Supabase real:</b> só a gravação do contato foi testada em produção (com sucesso, em 17/11). Alertas e feedback têm as tabelas criadas, mas as flags estão desligadas e eles não foram exercitados no banco real.</li>
     <li>Microfone real do Chrome, Safari e celular. Os testes usaram voz simulada, e o celular foi simulado pelo Lighthouse e por uma tela emulada.</li>
     <li>O custo real por conversa: os números são estimativa. O painel da Vercel e os logs de produção não foram consultados.</li>
     <li>O RLS do Supabase: só se confirmou, por fora, quais tabelas existem; as políticas não foram lidas no painel.</li>
