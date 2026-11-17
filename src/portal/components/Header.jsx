@@ -28,7 +28,7 @@ export function Header({
                   URBAN <span className="text-accent font-light">REAL STATE</span>
                 </span>
                 {/* Selo neutro e discreto conforme GAP-01.2 */}
-                <span className="text-[10px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded bg-stone-100 dark:bg-stone-800 text-stone-500 border border-stone-200 dark:border-stone-700">
+                <span className="text-[10px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 border border-stone-200 dark:border-stone-700">
                   Demo
                 </span>
               </div>

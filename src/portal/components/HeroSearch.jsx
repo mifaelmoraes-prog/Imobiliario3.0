@@ -90,7 +90,7 @@ export function HeroSearch({ onTriggerVoice }) {
       {/* Fileira Única de Cidades (Ref. UX Tópico 03 / GAP-03.1) */}
       {availableCities.length > 0 && (
         <div className="flex items-center justify-center flex-wrap gap-1.5 text-xs">
-          <span className="text-stone-400 font-medium mr-1 flex items-center gap-1">
+          <span className="text-stone-500 font-medium mr-1 flex items-center gap-1">
             <MapPin className="w-3 h-3" /> Cidades:
           </span>
           <button
