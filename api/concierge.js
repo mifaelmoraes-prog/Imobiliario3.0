@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     }
   }
   const result = await handleConciergeRequest(
-    { method: req.method, body, origin: req.headers.origin, host: req.headers.host },
+    { method: req.method, body, origin: req.headers.origin, host: req.headers.host, headers: req.headers },
     { openai: process.env.OPENAI_API_KEY }
   );
   res.status(result.status);

@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     }
   }
   const result = await handleTtsRequest(
-    { method: req.method, body, origin: req.headers.origin, host: req.headers.host },
+    { method: req.method, body, origin: req.headers.origin, host: req.headers.host, headers: req.headers },
     { gemini: process.env.GEMINI_API_KEY, openai: process.env.OPENAI_API_KEY }
   );
   res.status(result.status);

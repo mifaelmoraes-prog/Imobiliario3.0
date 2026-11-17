@@ -25,6 +25,8 @@ function reasoningFor(model) {
   if (REASONING_EFFORT === 'none' && /^gpt-5(-|$)/.test(model)) return 'minimal';
   return REASONING_EFFORT;
 }
+import { guardRequest } from './guard.js';
+
 const MAX_MESSAGES = 60;
 const MAX_CONTENT_CHARS = 8000;
 
@@ -317,7 +319,7 @@ function logUsage(model, usage, msg) {
   }));
 }
 
-export async function handleConciergeRequest({ method, body, origin, host }, keys = {}) {
+export async function handleConciergeRequest({ method, body, origin, host, headers }, keys = {}) {
   const json = (status, payload) => ({
     status,
     headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
@@ -325,7 +327,13 @@ export async function handleConciergeRequest({ method, body, origin, host }, key
   });
 
   if (method !== 'POST') return json(405, { error: 'method_not_allowed' });
-  if (origin && host && new URL(origin).host !== host) return json(403, { error: 'forbidden' });
+  // Só a própria página, e com limite de uso por visitante (ver server/guard.js)
+  const blocked = guardRequest({ origin, host, headers }, { name: 'concierge', limit: 60 });
+  if (blocked) {
+    const reply = json(blocked.status, { error: blocked.error });
+    if (blocked.retryAfter) reply.headers['Retry-After'] = String(blocked.retryAfter);
+    return reply;
+  }
   if (!keys.openai) return json(503, { error: 'brain_unconfigured' });
 
   const messages = sanitizeMessages(body?.messages);
