@@ -138,6 +138,14 @@ export function PublicPortalPage({
             © {new Date().getFullYear()} Urban Real State. Todos os direitos reservados.
           </div>
           <div className="flex items-center gap-4">
+            <a
+              href="/privacidade.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-stone-600 dark:text-stone-300 underline underline-offset-2 hover:text-stone-900 dark:hover:text-white transition-colors"
+            >
+              Política de Privacidade
+            </a>
             <button
               onClick={onOpenLoginModal}
               className="text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 transition-colors"
