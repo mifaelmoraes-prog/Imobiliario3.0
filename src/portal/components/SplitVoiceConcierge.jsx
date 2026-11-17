@@ -34,6 +34,7 @@ import {
   searchCatalog
 } from '../../services/conciergeBrainClient';
 import { saveAlert, saveFeedback, saveLead } from '../../services/conciergeLeadsClient';
+import { leadOutcome } from '../../services/conciergeLeadOutcome';
 import {
   speak,
   stopSpeaking,
@@ -223,22 +224,9 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
         .filter(id => allPropertiesRef.current.some(p => p.id === id))
         .slice(0, 5);
       identifyLead({ leadName: name, leadPhone: phone, leadEmail: email });
-      logActivity('VISIT_REQUEST', `Pediu contato de corretor pelo Concierge${args.melhor_horario ? ` (${args.melhor_horario})` : ''}`, {
-        propertyIds: ids,
-        preferredTime: args.melhor_horario || null,
-        purpose: args.finalidade || null,
-        timeline: args.prazo || null,
-        notes: args.observacoes || null,
-        channel: 'concierge'
-      });
-      const when = args.melhor_horario ? ` · ${args.melhor_horario}` : '';
-      setMessages(prev => [...prev, {
-        id: newId('lead'),
-        sender: 'concierge',
-        notice: `Contato registrado: ${name} · ${phone || email}${when}`
-      }]);
-      // Envia para a equipe (melhor esforço: o atendimento segue mesmo se a gravação falhar)
-      saveLead({
+      // Envia para a equipe e ESPERA o resultado: o aviso ao visitante só diz "registrado" se a
+      // gravação deu certo (antes o resultado era ignorado, e uma falha prometia um retorno falso)
+      const saved = await saveLead({
         nome: name,
         telefone: phone || null,
         email: email || null,
@@ -249,7 +237,24 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
         observacoes: args.observacoes ? String(args.observacoes).slice(0, 500) : null,
         consentimento: true // o modelo só chama esta ferramenta depois do aceite
       });
-      return { registrado: true, imoveis_ids: ids };
+      const when = args.melhor_horario ? ` · ${args.melhor_horario}` : '';
+      const outcome = leadOutcome(saved, { name, contato: phone || email, quando: when, ids });
+      if (outcome.registrado) {
+        logActivity('VISIT_REQUEST', `Pediu contato de corretor pelo Concierge${args.melhor_horario ? ` (${args.melhor_horario})` : ''}`, {
+          propertyIds: ids,
+          preferredTime: args.melhor_horario || null,
+          purpose: args.finalidade || null,
+          timeline: args.prazo || null,
+          notes: args.observacoes || null,
+          channel: 'concierge'
+        });
+      }
+      setMessages(prev => [...prev, {
+        id: newId('lead'),
+        sender: 'concierge',
+        notice: outcome.notice
+      }]);
+      return outcome.result;
     }
     if (call.function?.name === 'registrar_feedback') {
       const texto = String(args.texto || '').trim().slice(0, 1000);

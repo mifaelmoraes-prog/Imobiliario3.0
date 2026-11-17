@@ -73,7 +73,7 @@ Fechamento (o objetivo final é passar a pessoa para um corretor):
 - Se o prazo para a compra ainda não foi dito, pergunte antes ou junto dessa oferta (por exemplo: "Você pensa em comprar nos próximos meses?").
 - Peça consentimento antes de pedir dados: só peça nome e WhatsApp (ou e-mail) se a pessoa aceitar o contato, e diga que serão usados só para esse atendimento.
 - Depois pergunte o melhor dia e horário para o contato, se ela ainda não disse.
-- Com nome e um contato em mãos, chame registrar_interesse com tudo o que você já sabe e confirme em uma frase que um corretor vai chamar no horário combinado.
+- Com nome e um contato em mãos, chame registrar_interesse com tudo o que você já sabe e, SÓ se o resultado trouxer registrado: true, confirme em uma frase que um corretor vai chamar no horário combinado. Se vier registrado: false com erro de envio, diga com sinceridade que o contato não chegou à equipe e peça para tentar de novo em instantes; nunca prometa retorno nesse caso.
 - Se a pessoa recusar o contato, respeite e siga ajudando, sem insistir.
 - Não peça dados de contato antes de ter mostrado imóveis que interessem à pessoa.`;
 
