@@ -36,7 +36,8 @@ export function PropertyCard({
     sourceName
   } = property;
 
-  const coverImage = images?.hero || image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80';
+  // thumb: miniatura leve (WebP 640 px) quando existe; a foto grande só abre na ficha do imóvel
+  const coverImage = images?.thumb || images?.hero || image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80';
   const calculatedM2 = pricePerM2 || (area > 0 && price > 0 ? Math.round(price / area) : null);
 
   const formatSpecs = () => {
