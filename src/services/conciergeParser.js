@@ -199,7 +199,10 @@ export function extractLocationAndLifestyle(text, vocabulary) {
     if (a.keys.some(k => findWord(haystack, k) >= 0)) result.amenities.push(a.label);
   });
   Object.entries(UNSUPPORTED_AMENITIES).forEach(([label, keys]) => {
-    if (keys.some(k => findWord(haystack, k) >= 0)) result.unsupportedAmenities.push(label);
+    // Só é "não suportada" se o catálogo realmente não a registra: com imóveis que têm piscina,
+    // pedir piscina não pode gerar também o aviso de que ela não existe.
+    const noCatalogo = vocabulary.amenities.some(a => normalizeText(a.label) === normalizeText(label));
+    if (!noCatalogo && keys.some(k => findWord(haystack, k) >= 0)) result.unsupportedAmenities.push(label);
   });
 
   return result;
