@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Header } from '../components/Header';
 import { HeroSearch } from '../components/HeroSearch';
 import { ProfileCompactStrip } from '../components/ProfileCompactStrip';
 import { ProfileDrawer } from '../components/ProfileDrawer';
 import { PropertyGrid } from '../components/PropertyGrid';
-import { PropertyMap } from '../components/PropertyMap';
 import { PropertyDetailModal } from '../components/PropertyDetailModal';
 import { SplitVoiceConcierge } from '../components/SplitVoiceConcierge';
 import { CriticismModal } from '../components/CriticismModal';
@@ -13,6 +12,9 @@ import { FinanceSimulatorModal } from '../components/FinanceSimulatorModal';
 import { PrerequisitesModal } from '../components/PrerequisitesModal';
 import { useProperties } from '../../context/PropertyContext';
 import { useBuyerProfile } from '../../context/BuyerProfileContext';
+
+// O mapa (Leaflet) só é carregado quando o visitante abre a visualização em mapa.
+const PropertyMap = lazy(() => import('../components/PropertyMap').then(m => ({ default: m.PropertyMap })));
 
 export function PublicPortalPage({
   onNavigateToCrm,
@@ -117,13 +119,15 @@ export function PublicPortalPage({
             onOpenDrawer={() => setIsDrawerOpen(true)}
           />
         ) : (
-          <PropertyMap
-            properties={properties}
-            onSelectProperty={(prop) => {
-              setActivePropertyDetail(prop);
-              logActivity('VIEW_PROPERTY', `Visualizou no mapa: ${prop.title}`, { propertyId: prop.id });
-            }}
-          />
+          <Suspense fallback={<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16"><div className="h-[680px] rounded-2xl border border-stone-200 dark:border-stone-800 flex items-center justify-center text-sm text-stone-500">Carregando mapa…</div></div>}>
+            <PropertyMap
+              properties={properties}
+              onSelectProperty={(prop) => {
+                setActivePropertyDetail(prop);
+                logActivity('VIEW_PROPERTY', `Visualizou no mapa: ${prop.title}`, { propertyId: prop.id });
+              }}
+            />
+          </Suspense>
         )}
       </main>
 
