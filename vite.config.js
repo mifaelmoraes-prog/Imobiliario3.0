@@ -8,7 +8,7 @@ const SERVER_ENV_KEYS = [
   'GEMINI_API_KEY', 'GEMINI_TTS_MODEL', 'GEMINI_TTS_VOICE',
   'OPENAI_API_KEY', 'OPENAI_TTS_MODEL', 'OPENAI_TTS_VOICE',
   'OPENAI_CHAT_MODEL', 'OPENAI_CHAT_REASONING', 'OPENAI_CHAT_FALLBACK_MODELS',
-  'CONCIERGE_ALERTS', 'CONCIERGE_FEEDBACK'
+  'CONCIERGE_ALERTS', 'CONCIERGE_FEEDBACK', 'TRACK_ACCESS_REGION'
 ];
 
 const DEV_ROUTES = {
@@ -19,6 +19,10 @@ const DEV_ROUTES = {
   '/api/concierge': async (req) => {
     const { handleConciergeRequest } = await import('./server/conciergeBrain.js');
     return handleConciergeRequest(req, { openai: process.env.OPENAI_API_KEY });
+  },
+  '/api/regiao': async (req) => {
+    const { handleRegiaoRequest } = await import('./server/regiao.js');
+    return handleRegiaoRequest(req, process.env);
   }
 };
 
@@ -40,7 +44,7 @@ function devApi(env) {
           } catch {
             // corpo inválido vira 400 no handler
           }
-          const result = await handle({ method: req.method, body, origin: req.headers.origin, host: req.headers.host });
+          const result = await handle({ method: req.method, body, origin: req.headers.origin, host: req.headers.host, headers: req.headers });
           res.statusCode = result.status;
           Object.entries(result.headers).forEach(([k, v]) => res.setHeader(k, v));
           res.end(result.body);

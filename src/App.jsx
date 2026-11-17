@@ -4,6 +4,7 @@ import { PropertyProvider } from './context/PropertyContext';
 import { PublicPortalPage } from './portal/pages/PublicPortalPage';
 import { CrmModule } from './crm/CrmModule';
 import { LoginModal } from './crm/auth/LoginModal';
+import { registrarAcesso } from './services/acessoClient';
 
 const AUTH_STORAGE_KEY = 'urban_real_state_auth_user_v3';
 const THEME_STORAGE_KEY = 'urban_real_state_theme_v3';
@@ -30,6 +31,11 @@ export function AppContent() {
       return false;
     }
   });
+
+  // Registra de qual estado (UF) veio o acesso; não faz nada se o servidor não ligou a flag
+  useEffect(() => {
+    registrarAcesso();
+  }, []);
 
   useEffect(() => {
     if (isDark) {

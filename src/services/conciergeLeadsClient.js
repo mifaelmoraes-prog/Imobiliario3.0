@@ -30,3 +30,6 @@ export const saveLead = (row) => insertRow('concierge_leads', row);
 
 /** Feedback anônimo sobre o atendimento (texto e nota opcional). */
 export const saveFeedback = (row) => insertRow('concierge_feedback', row);
+
+/** Acesso ao site por estado (só país e UF, sem identificador). */
+export const saveAcesso = (row) => insertRow('concierge_acessos', row);
