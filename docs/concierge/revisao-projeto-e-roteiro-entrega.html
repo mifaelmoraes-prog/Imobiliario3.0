@@ -44,7 +44,7 @@
   .tag.dec { background: var(--accent-soft); color: var(--accent); }
   ul, ol { padding-left: 20px; margin: 8px 0; }
   li { margin: 4px 0; }
-  code { background: var(--code); border-radius: 5px; padding: 1px 6px; font-size: .9em; }
+  code { background: var(--code); border-radius: 5px; padding: 1px 6px; font-size: .9em; overflow-wrap: anywhere; }
   .phase { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 12px; padding: 14px 18px; margin: 14px 0; }
   .phase h3 { margin-top: 0; }
   .note { background: var(--warn-soft); border-radius: 10px; padding: 10px 14px; }
@@ -56,17 +56,35 @@
   <header>
     <div class="eyebrow">Urban Real State · Revisão do projeto</div>
     <h1>Estado atual e roteiro até a entrega</h1>
-    <p class="lead">Revisão do código, do plano de arquitetura e da matriz de gaps, feita em 16/11/2026 sobre a <code>main</code> (commit <code>f42c565</code>). Mostra o que já funciona, o que ainda é demonstração e a ordem sugerida para chegar a um produto entregável.</p>
+    <p class="lead">Revisão do código, do plano de arquitetura e da matriz de gaps, feita em 16/11/2026 sobre a <code>main</code> (commit <code>f42c565</code>) e <b>atualizada em 17/11/2026</b> sobre a <code>main</code> em <code>5049450</code>. Mostra o que já funciona, o que ainda é demonstração e a ordem sugerida para chegar a um produto entregável.</p>
   </header>
 
   <h2>Em uma página</h2>
   <div class="grid">
-    <div class="card"><b>Portal + Concierge</b><span>Funcionam: busca, cards, ficha, mapa, voz, perfil do visitante. Alertas e feedback prontos, com as flags desligadas.</span></div>
-    <div class="card"><b>CRM e login</b><span>Ainda são demonstração: qualquer e-mail entra como corretor, e os leads são fixos no código.</span></div>
+    <div class="card"><b>Portal + Concierge</b><span>Funcionam: busca, cards, ficha, mapa, voz, perfil do visitante. Mais rápidos e protegidos desde 17/11. <b>Mas os contatos de corretor não estão sendo salvos:</b> faltam as tabelas no Supabase.</span></div>
+    <div class="card"><b>CRM e login</b><span>Ainda são demonstração: três contas de um clique, sem senha, e os leads são fixos no código. O código só é baixado por quem abre o CRM.</span></div>
     <div class="card"><b>Integrações</b><span>Feeds XML, webhooks e WhatsApp são simulados; as rotas não existem.</span></div>
-    <div class="card"><b>195 imóveis</b><span>175 antigos, com dados e fotos genéricos, e 20 de parceiras (sem autorização formal).</span></div>
+    <div class="card"><b>195 imóveis</b><span>175 antigos, limpos de dado inventado mas sem origem, e 20 de parceiras (sem autorização formal). Nenhum é de imobiliária do ES.</span></div>
   </div>
   <p>O que depende de decisão do Mifael já está no documento anterior (<code>resumo-atividades-e-decisoes.html</code>). Aqui estão as lacunas técnicas e de produto, e a ordem para fechá-las.</p>
+
+  <h2>Atualização de 17/11: o que já foi entregue</h2>
+  <p class="sub">Tudo abaixo está na <code>main</code> e publicado em produção (<code>imobiliario3-0.vercel.app</code>), com o CI e a prévia da Vercel verdes em cada PR.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Item</th><th>Situação</th><th>PRs</th><th>Resultado medido</th></tr></thead>
+    <tbody>
+      <tr><td>Proteger as APIs</td><td><span class="tag wait">feito, falta o teto de gasto</span></td><td>#20, #21</td><td>Sem a origem da própria página: 403. Limite por IP a cada 10 minutos (60 no Concierge, 120 na voz): 429. Testado em produção. O teto de gasto nas contas da OpenAI e do Google só o dono pode configurar.</td></tr>
+      <tr><td>Limpar o catálogo antigo</td><td><span class="tag ok">feito</span></td><td>#24, #25</td><td>Comodidades, vocações, descrições de cômodos, fotos do Unsplash e selo LQS fixo removidos dos 175 antigos. A ficha mostra "não informado" no lugar de "R$ 0".</td></tr>
+      <tr><td>Rede de segurança</td><td><span class="tag wait">testes e CI feitos; falta lint</span></td><td>#22, #23</td><td>16 testes (APIs e catálogo) e CI no GitHub rodando testes e build em todo PR. Falta marcar o CI como obrigatório nas regras de proteção e criar o lint.</td></tr>
+      <tr><td>Peso do site</td><td><span class="tag ok">feito</span></td><td>#26, #27, #30, #31</td><td>Pacote inicial de 976 KB para 640 KB (224 KB para 160 KB comprimido), com CRM e mapa carregados sob demanda. Miniaturas WebP nos cards de parceiras: 3,2 MB para 569 KB.</td></tr>
+      <tr><td>Auditoria Lighthouse</td><td><span class="tag ok">feito</span></td><td>#28, #29</td><td>SEO de 83 para 100, acessibilidade de 94 para 96, desktop 97, celular cerca de 89 (LCP de 3,1 s). <code>/robots.txt</code> válido.</td></tr>
+      <tr><td>Acessos por estado (UF)</td><td><span class="tag ok">no ar</span></td><td>#16, #17</td><td>Registra só país, UF e hora, sem IP. Flag ligada em produção e a tabela existe; o site envia os registros. A consulta no Supabase responde "alguém do ES acessou?".</td></tr>
+      <tr><td>Botão lista/mapa</td><td><span class="tag ok">feito</span></td><td>#18, #19</td><td>Dá para voltar do mapa à lista sem recarregar a página; botões com rótulos e cores.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note"><b>Atenção, achado de 17/11:</b> três das quatro tabelas do Concierge <b>não existem</b> no Supabase de produção. <code>concierge_leads</code>, <code>concierge_alertas</code> e <code>concierge_feedback</code> respondem "tabela não encontrada"; só a <code>concierge_acessos</code> existe. Na prática, quando um visitante deixa nome e telefone para um corretor, o Concierge mostra "Contato registrado", mas a gravação falha em silêncio e o contato <b>não chega à equipe</b>. Aplicar no Supabase as migrações <code>20261113120000_concierge_alertas.sql</code> (alertas e contatos) e <code>20261113130000_concierge_feedback.sql</code> resolve. É a ação mais urgente.</p>
 
   <h2>Situação por área</h2>
   <div class="table-wrap">
@@ -75,15 +93,16 @@
     <tbody>
       <tr><td>Portal público</td><td><span class="tag ok">funciona</span></td><td>Busca, filtros, cards com R$/m², ficha com custos, mapa, favoritos, perfil, simulador de financiamento, saída com dossiê (impressão).</td></tr>
       <tr><td>Concierge</td><td><span class="tag ok">funciona</span></td><td>Voz neural, modelo <code>gpt-5.4-mini</code> com ferramentas, perfil do visitante, saudação personalizada. Microfone real e Safari/celular ainda não testados.</td></tr>
-      <tr><td>Alertas e feedback</td><td><span class="tag wait">pronto, desligado</span></td><td>Dependem de aplicar as migrações no Supabase. Na fase 1 o alerta só registra; o aviso ao cliente não existe.</td></tr>
+      <tr><td>Alertas e feedback</td><td><span class="tag bad">tabelas ausentes em produção</span></td><td>As migrações não foram aplicadas: as tabelas de alertas e de feedback respondem "não encontrada" (verificado em 17/11). As flags estão desligadas, então esses dois recursos não são afetados. Na fase 1 o alerta só registra; o aviso ao cliente não existe.</td></tr>
+      <tr><td>Contatos de corretor (leads)</td><td><span class="tag bad">não estão sendo salvos</span></td><td>A tabela <code>concierge_leads</code> não existe em produção. O Concierge confirma "Contato registrado" ao visitante, mas a gravação é disparada sem esperar o resultado e falha em silêncio: o contato só fica no navegador do visitante. Corrigir aplicando a migração; depois, o aviso ao visitante deveria depender do resultado da gravação.</td></tr>
       <tr><td>Login do corretor</td><td><span class="tag bad">demonstração</span></td><td>Qualquer e-mail entra, sem senha nem servidor, guardado em <code>localStorage</code>. É o gap crítico GAP-10.1 da matriz.</td></tr>
-      <tr><td>CRM (Kanban, dashboard, comissões)</td><td><span class="tag bad">demonstração</span></td><td>Cinco oportunidades fixas no código; tudo vai no pacote público do site. Os contatos reais do Concierge ficam no Supabase, sem tela para o corretor.</td></tr>
+      <tr><td>CRM (Kanban, dashboard, comissões)</td><td><span class="tag bad">demonstração</span></td><td>Cinco oportunidades fixas no código. Desde 17/11 o código do CRM só é baixado por quem o abre (carregamento sob demanda), mas o acesso continua aberto: o login tem três contas de demonstração de um clique, sem senha. Os contatos reais do Concierge ficariam no Supabase, sem tela para o corretor.</td></tr>
       <tr><td>Integrações</td><td><span class="tag bad">simulado</span></td><td>Os feeds <code>/api/feeds/zap.xml</code> não existem (só há <code>api/concierge.js</code> e <code>api/tts.js</code>). Webhooks e WhatsApp rodam com <code>setTimeout</code>.</td></tr>
-      <tr><td>Catálogo antigo (175)</td><td><span class="tag bad">dados genéricos</span></td><td>Comodidades idênticas nos 175. As fotos de "quarto" e "lazer" são de banco de imagens (Unsplash) e a de "cozinha" repete a capa. Condomínio 0 em 105 imóveis. LQS fixo em 94 para todos.</td></tr>
+      <tr><td>Catálogo antigo (175)</td><td><span class="tag wait">limpo, mas sem origem</span></td><td>Em 17/11 foram removidos os dados inventados (comodidades idênticas, textos de cômodos, fotos do Unsplash, selo LQS fixo, "R$ 0" de condomínio). Continuam sem nome da imobiliária nem link do anúncio, com uma foto só, e os 25 de Vitória não são de imobiliárias do ES.</td></tr>
       <tr><td>Catálogo novo (20)</td><td><span class="tag wait">amostra</span></td><td>Dados reais de 4 imobiliárias, com origem visível. Sem rotina de atualização e sem autorização das fontes.</td></tr>
-      <tr><td>APIs públicas</td><td><span class="tag bad">sem proteção de uso</span></td><td><code>/api/concierge</code> e <code>/api/tts</code> checam a origem só quando o cabeçalho existe e não limitam o uso. Quem chama sem o cabeçalho gasta a chave da OpenAI.</td></tr>
-      <tr><td>Supabase</td><td><span class="tag wait">atenção</span></td><td>A URL e a chave pública estão como valor padrão no código. Só é seguro se todas as tabelas tiverem RLS. As duas migrações não foram aplicadas.</td></tr>
-      <tr><td>Qualidade de código</td><td><span class="tag bad">sem rede de segurança</span></td><td>Sem testes, sem lint, sem CI além do deploy. Pacote único de 976 KB (224 KB comprimido). <code>SplitVoiceConcierge.jsx</code> tem 987 linhas. <code>npm audit</code>: 0 vulnerabilidades.</td></tr>
+      <tr><td>APIs públicas</td><td><span class="tag wait">protegidas, falta o teto de gasto</span></td><td>Desde 17/11, <code>/api/concierge</code> e <code>/api/tts</code> exigem a origem da própria página e limitam o uso por IP (contador por instância da função). Quem não é navegador ainda pode forjar o cabeçalho: a proteção de verdade é o teto de gasto nas contas da OpenAI e do Google, que está pendente.</td></tr>
+      <tr><td>Supabase</td><td><span class="tag bad">migrações pendentes</span></td><td>A URL e a chave pública continuam como valor padrão no código. Só é seguro se todas as tabelas tiverem RLS. Em 17/11 só <code>concierge_acessos</code> existia; as migrações de alertas, contatos e feedback não foram aplicadas.</td></tr>
+      <tr><td>Qualidade de código</td><td><span class="tag wait">testes e CI, sem lint</span></td><td>16 testes e CI no GitHub (testes e build em todo PR). Pacote inicial de 640 KB (160 KB comprimido), com CRM e mapa sob demanda. Sem lint. <code>SplitVoiceConcierge.jsx</code> tem 987 linhas. <code>npm audit</code>: 0 vulnerabilidades.</td></tr>
       <tr><td>Privacidade e direitos</td><td><span class="tag bad">pendente</span></td><td>Sem política de privacidade, prazo de guarda ou cancelamento de alerta. Resumo da navegação vai à OpenAI. Anúncios e fotos de terceiros sem autorização.</td></tr>
       <tr><td>Processo</td><td><span class="tag wait">limpeza</span></td><td>12 branches antigas. Um PR empilhado já ficou fora de <code>dev</code> (corrigido no #11).</td></tr>
     </tbody>
@@ -96,13 +115,13 @@
   <div class="phase">
     <h3><span class="tag dec">A</span> Publicável com segurança · 1 a 2 semanas</h3>
     <ol>
-      <li><b>Proteger as APIs:</b> limite de uso por IP, exigência de origem ou token curto e teto de gasto no projeto da OpenAI.</li>
-      <li><b>Tirar o CRM de demonstração da produção</b> (atrás de flag) ou bloqueá-lo de verdade.</li>
-      <li><b>Limpar o catálogo antigo:</b> remover as fotos de banco de imagens, as comodidades iguais e o LQS fixo; não exibir "R$ 0" de condomínio ou IPTU quando o dado não existe.</li>
-      <li><b>Rede de segurança:</b> testes do parser, do cérebro e do mapa, lint e CI no GitHub.</li>
-      <li><b>Supabase:</b> aplicar as migrações, conferir o RLS e ligar o feedback.</li>
-      <li><b>Teste real de voz</b> no Chrome, Safari, Android e iPhone.</li>
-      <li><b>Decisões do Mifael:</b> autorização das imobiliárias, privacidade e canal dos alertas.</li>
+      <li><span class="tag wait">feito, falta o teto</span> <b>Proteger as APIs:</b> limite de uso por IP e exigência de origem estão no ar (#20). Falta o teto de gasto no projeto da OpenAI e do Google.</li>
+      <li><span class="tag bad">pendente · decisão</span> <b>Tirar o CRM de demonstração da produção</b> (atrás de flag) ou bloqueá-lo de verdade. Hoje abre por um clique em contas de demonstração.</li>
+      <li><span class="tag ok">feito</span> <b>Limpar o catálogo antigo:</b> fotos de banco de imagens, comodidades iguais e LQS fixo removidos; "não informado" no lugar de "R$ 0" (#24).</li>
+      <li><span class="tag wait">feito, falta lint</span> <b>Rede de segurança:</b> 16 testes e CI no GitHub (#22). Faltam testes do parser, do cérebro e do mapa, e o lint.</li>
+      <li><span class="tag bad">urgente</span> <b>Supabase:</b> aplicar as migrações de alertas, contatos e feedback (hoje os contatos de corretor não são salvos), conferir o RLS e só então ligar o feedback.</li>
+      <li><span class="tag bad">pendente</span> <b>Teste real de voz</b> no Chrome, Safari, Android e iPhone.</li>
+      <li><span class="tag bad">pendente · decisão</span> <b>Decisões do Mifael:</b> autorização das imobiliárias, privacidade (inclui a política) e canal dos alertas. Novas: indexar ou não o site (<code>robots.txt</code>) e manter ou fechar o CRM de demonstração.</li>
     </ol>
   </div>
 
@@ -134,14 +153,14 @@
 
   <h2>O que não foi verificado</h2>
   <ul>
-    <li>O site em produção: domínio, variáveis de ambiente e logs da Vercel.</li>
-    <li>O Supabase real: se as tabelas existem e se há RLS em todas.</li>
-    <li>Os gaps de UX e acessibilidade da matriz (GAP-01 a 09): não foram reauditados, o estado deles é desconhecido.</li>
-    <li>Celular, Safari e o microfone real.</li>
+    <li>As variáveis de ambiente e os logs da Vercel (o site em produção foi medido por fora, com Lighthouse e chamadas às rotas, mas o painel da Vercel não foi consultado).</li>
+    <li>O RLS do Supabase: em 17/11 só se confirmou, por fora, quais tabelas existem (apenas <code>concierge_acessos</code>); as políticas não foram lidas no painel.</li>
+    <li>Os gaps de UX da matriz (GAP-01 a 09): a acessibilidade automática foi medida (96), mas os gaps de UX não foram reauditados.</li>
+    <li>Celular, Safari e o microfone reais (o celular foi apenas simulado pelo Lighthouse e por uma tela emulada).</li>
   </ul>
   <p class="note">Os números de esforço são estimativas e dependem de quem executa, das decisões do Mifael e do acesso à Vercel e ao Supabase de produção.</p>
 
-  <footer>Revisão feita sobre o repositório Imobiliario3.0, branch <code>main</code>, em 16/11/2026. Complementa o documento de resumo e decisões.</footer>
+  <footer>Revisão feita sobre o repositório Imobiliario3.0, branch <code>main</code>, em 16/11/2026 e atualizada em 17/11/2026 (commit <code>5049450</code>). Complementa o documento de resumo e decisões.</footer>
 </main>
 </body>
 </html>
