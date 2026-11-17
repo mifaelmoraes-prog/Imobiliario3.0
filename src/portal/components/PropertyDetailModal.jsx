@@ -17,7 +17,6 @@ import {
   Calendar, 
   Calculator, 
   ThumbsDown,
-  ShieldCheck,
   Check
 } from 'lucide-react';
 
@@ -73,9 +72,6 @@ export function PropertyDetailModal({
 
   const calculatedM2 = pricePerM2 || (area > 0 && price > 0 ? Math.round(price / area) : null);
   const totalMonthlyHolding = (condoFee || 0) + (iptuMonthly || 0);
-
-  // Listing Quality Score (LQS) simulado / auditado (US-06)
-  const lqsScore = 94; // Ex.: 94/100
 
   const handleWhatsAppContact = () => {
     const text = encodeURIComponent(
@@ -147,10 +143,6 @@ export function PropertyDetailModal({
               <span className="text-xs font-semibold px-2 py-0.5 rounded bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 uppercase tracking-wider">
                 {type || 'Imóvel'}
               </span>
-              <span className="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400 border border-emerald-200 flex items-center gap-1">
-                <ShieldCheck className="w-3 h-3" />
-                <span>LQS {lqsScore}/100</span>
-              </span>
             </div>
             <h1 className="text-xl sm:text-2xl font-bold text-stone-900 dark:text-white leading-tight">
               {title}
@@ -188,11 +180,13 @@ export function PropertyDetailModal({
                 R$ {calculatedM2.toLocaleString('pt-BR')}/m²
               </span>
             )}
-            {totalMonthlyHolding > 0 && (
-              <span className="text-xs text-stone-500 block mt-1">
-                Condomínio: R$ {condoFee} · IPTU: R$ {iptuMonthly}/mês
-              </span>
-            )}
+            {/* Valor 0 ou ausente significa "a fonte não informou", não "R$ 0" */}
+            <span className="text-xs text-stone-500 block mt-1">
+              {[
+                condoFee > 0 ? `Condomínio: R$ ${Number(condoFee).toLocaleString('pt-BR')}/mês` : 'Condomínio: não informado',
+                iptuMonthly > 0 ? `IPTU: R$ ${Number(iptuMonthly).toLocaleString('pt-BR')}/mês` : 'IPTU: não informado'
+              ].join(' · ')}
+            </span>
           </div>
         </div>
 
