@@ -5,6 +5,7 @@ import { formatCurrencyBRL } from '../../design-system/SliderRange';
 import { getPropertyCoordinates, getMapViewport, CAPITAL_CENTERS } from '../../services/geoService';
 import { useProperties } from '../../context/PropertyContext';
 import { MapPin, Navigation, Maximize2, Bed, Car } from 'lucide-react';
+import { ViewModeToggle } from './ViewModeToggle';
 
 /**
  * Controlador de Câmera / Viewport Reativo do Mapa
@@ -100,6 +101,11 @@ export function PropertyMap({ onSelectProperty }) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
       
+      {/* Alternador Lista / Mapa: sem ele, ao abrir o mapa não haveria como voltar à lista */}
+      <div className="mb-3 flex justify-end">
+        <ViewModeToggle />
+      </div>
+
       {/* Barra Flutuante de Cidades sobre o Mapa */}
       <div className="mb-3 flex flex-wrap items-center justify-between gap-3 bg-white dark:bg-stone-850 p-3 rounded-xl border border-stone-200 dark:border-stone-800 shadow-card text-xs">
         <div className="flex items-center gap-1.5 font-semibold text-stone-700 dark:text-stone-300">
