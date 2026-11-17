@@ -6,6 +6,7 @@
  */
 import { GoogleGenAI } from '@google/genai';
 import { synthesizeOpenAI } from './openaiTts.js';
+import { guardRequest } from './guard.js';
 
 const MODEL = process.env.GEMINI_TTS_MODEL || 'gemini-3.8-flash-lite-tts';
 const VOICE = process.env.GEMINI_TTS_VOICE || 'Sulafat'; // "Warm"
@@ -101,7 +102,7 @@ async function synthesizeWith(provider, text, keys) {
  * @param keys { gemini?: string, openai?: string }
  * @returns {{ status: number, headers: object, body: Buffer|string }}
  */
-export async function handleTtsRequest({ method, body, origin, host }, keys = {}) {
+export async function handleTtsRequest({ method, body, origin, host, headers }, keys = {}) {
   const json = (status, payload) => ({
     status,
     headers: { 'Content-Type': 'application/json' },
@@ -109,8 +110,13 @@ export async function handleTtsRequest({ method, body, origin, host }, keys = {}
   });
 
   if (method !== 'POST') return json(405, { error: 'method_not_allowed' });
-  // Só aceita chamadas da própria página (evita uso da chave por outros sites)
-  if (origin && host && new URL(origin).host !== host) return json(403, { error: 'forbidden' });
+  // Só a própria página, e com limite de uso por visitante (ver server/guard.js)
+  const blocked = guardRequest({ origin, host, headers }, { name: 'tts', limit: 120 });
+  if (blocked) {
+    const reply = json(blocked.status, { error: blocked.error });
+    if (blocked.retryAfter) reply.headers['Retry-After'] = String(blocked.retryAfter);
+    return reply;
+  }
   const primary = pickProvider(keys);
   if (!primary) return json(503, { error: 'tts_unconfigured' });
 
