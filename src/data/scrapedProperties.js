@@ -4572,7 +4572,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/riv-eng-v-sl9-1.jpg",
       "kitchen": "/assets/imoveis/riv-eng-v-sl9-2.jpg",
       "bedroom": "/assets/imoveis/riv-eng-v-sl9-3.jpg",
-      "leisure": "/assets/imoveis/riv-eng-v-sl9-4.jpg"
+      "leisure": "/assets/imoveis/riv-eng-v-sl9-4.jpg",
+      "thumb": "/assets/imoveis/riv-eng-v-sl9-1-card.webp"
     },
     "description": "Casa em Condomínio Fechado a Venda no Engenho a 250 Metros da praia com Escritura Definitiva Da casa: 03 Dormitórios sendo 01 suite Sala 02 ambientes Área de Lazer Varanda Churrasqueira Depósito Lavabo 02 Vagas de veículos Do condomínio: Zeladoria Portaria Piscina",
     "amenities": [
@@ -4610,7 +4611,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/riv-v100114-1.jpg",
       "kitchen": "/assets/imoveis/riv-v100114-2.jpg",
       "bedroom": "/assets/imoveis/riv-v100114-3.jpg",
-      "leisure": "/assets/imoveis/riv-v100114-4.jpg"
+      "leisure": "/assets/imoveis/riv-v100114-4.jpg",
+      "thumb": "/assets/imoveis/riv-v100114-1-card.webp"
     },
     "description": "Com localização privilegiada, esta residência moderna e sofisticada oferece todo o conforto e elegância que você procura no litoral. São 3 suítes, sala ampla, cozinha planejada, além de uma incrível área gourmet com churrasqueira e piscina privativa, perfeitas para momentos de lazer e convivência.Do Imóvel:03 dormitórios sendo 3 suítes com ar condicionado e móveis planejados5 banheiros Sala de estar Cozinha planejadaÁrea gourmet com churrasqueira Piscina privativa.Casa construída e revestida com…",
     "amenities": [
@@ -4646,7 +4648,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/riv-v2500019-1.jpg",
       "kitchen": "/assets/imoveis/riv-v2500019-2.jpg",
       "bedroom": "/assets/imoveis/riv-v2500019-3.jpg",
-      "leisure": "/assets/imoveis/riv-v2500019-4.jpg"
+      "leisure": "/assets/imoveis/riv-v2500019-4.jpg",
+      "thumb": "/assets/imoveis/riv-v2500019-1-card.webp"
     },
     "description": "Apartamento localizado a apenas 100 metros da praia, com vista para o mar e excelente padrão de conforto. O imóvel conta com ambientes amplos, varanda gourmet e está inserido em condomínio completo, oferecendo praticidade, segurança e qualidade de vida em uma das regiões mais valorizadas da cidade.",
     "amenities": [
@@ -4682,7 +4685,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/riv-v03462p-1.jpg",
       "kitchen": "/assets/imoveis/riv-v03462p-2.jpg",
       "bedroom": "/assets/imoveis/riv-v03462p-3.jpg",
-      "leisure": "/assets/imoveis/riv-v03462p-4.jpg"
+      "leisure": "/assets/imoveis/riv-v03462p-4.jpg",
+      "thumb": "/assets/imoveis/riv-v03462p-1-card.webp"
     },
     "description": "Apartamento frente mar à venda na Prainha, em Caraguatatuba, com 77 m² de área privativa e excelente localização. Mobiliado e com varanda envidraçada, o imóvel oferece conforto, praticidade e uma estrutura completa de lazer, além de acesso particular e direto à praia.",
     "amenities": [
@@ -4717,7 +4721,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/riv-v2500266-1.jpg",
       "kitchen": "/assets/imoveis/riv-v2500266-2.jpg",
       "bedroom": "/assets/imoveis/riv-v2500266-3.jpg",
-      "leisure": "/assets/imoveis/riv-v2500266-4.jpg"
+      "leisure": "/assets/imoveis/riv-v2500266-4.jpg",
+      "thumb": "/assets/imoveis/riv-v2500266-1-card.webp"
     },
     "description": "Sobrado de alto padrão localizado na exclusiva Praia de Tabatinga, em Caraguatatuba. Situado a apenas 50 metros do mar, o imóvel oferece ambientes amplos com living integrado e fino acabamento, sendo entregue completamente mobiliado. Inserido em um condomínio residencial familiar e seguro, este sobrado une sofisticação e qualidade de vida em uma região de altíssimo desenvolvimento imobiliário e valorização. imóvel:04 SuítesSala AmplaCozinha Americana05 Banheiros (send…",
     "amenities": [
@@ -4753,7 +4758,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/zul-mar-081-1.jpg",
       "kitchen": "/assets/imoveis/zul-mar-081-2.jpg",
       "bedroom": "/assets/imoveis/zul-mar-081-3.jpg",
-      "leisure": "/assets/imoveis/zul-mar-081-4.jpg"
+      "leisure": "/assets/imoveis/zul-mar-081-4.jpg",
+      "thumb": "/assets/imoveis/zul-mar-081-1-card.webp"
     },
     "description": "Casa de condomínio na Praia de Maresias, São Sebastião, com 131,52 m² e 3 suítes, à venda por R$ 3.000.000. Com arquitetura contemporânea e linhas marcantes, esta residência combina design funcional, conforto e integração entre os ambientes. O projeto valoriza a iluminação natural por meio de amplas esquadrias, enquanto a combinação de concreto aparente, madeira e serralheria preta confere um visual moderno e elegante.",
     "amenities": [
@@ -4787,7 +4793,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/zul-juq-045-1.jpg",
       "kitchen": "/assets/imoveis/zul-juq-045-2.jpg",
       "bedroom": "/assets/imoveis/zul-juq-045-3.jpg",
-      "leisure": "/assets/imoveis/zul-juq-045-4.jpg"
+      "leisure": "/assets/imoveis/zul-juq-045-4.jpg",
+      "thumb": "/assets/imoveis/zul-juq-045-1-card.webp"
     },
     "description": "Casa de condomínio na Praia de Juquehy, São Sebastião, com 177 m² e 2 suítes, à venda por R$ 4.400.000. Com arquitetura contemporânea tropical, esta casa valoriza ambientes integrados, ampla entrada de luz natural e uma área gourmet harmoniosamente conectada aos espaços de convivência, criando uma atmosfera leve, agradável e muito funcional para viver o litoral.",
     "amenities": [
@@ -4820,7 +4827,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/zul-sah-017-1.jpg",
       "kitchen": "/assets/imoveis/zul-sah-017-2.jpg",
       "bedroom": "/assets/imoveis/zul-sah-017-3.jpg",
-      "leisure": "/assets/imoveis/zul-sah-017-4.jpg"
+      "leisure": "/assets/imoveis/zul-sah-017-4.jpg",
+      "thumb": "/assets/imoveis/zul-sah-017-1-card.webp"
     },
     "description": "Casa de condomínio na Praia Barra do Sahy, São Sebastião, com 300 m² e 5 suítes, à venda por R$ 4.850.000. Arquitetura contemporânea com ambientes amplos e iluminados, projetados para proporcionar conforto, privacidade e bem-estar. A integração entre os espaços internos e externos valoriza a luz natural e cria uma atmosfera acolhedora, ideal para desfrutar o melhor do litoral.",
     "amenities": [],
@@ -4851,7 +4859,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/zul-cam-039-1.jpg",
       "kitchen": "/assets/imoveis/zul-cam-039-2.jpg",
       "bedroom": "/assets/imoveis/zul-cam-039-3.jpg",
-      "leisure": "/assets/imoveis/zul-cam-039-4.jpg"
+      "leisure": "/assets/imoveis/zul-cam-039-4.jpg",
+      "thumb": "/assets/imoveis/zul-cam-039-1-card.webp"
     },
     "description": "Casa de condomínio na Praia de Camburi, São Sebastião, com 73 m² e 2 suítes, à venda por R$ 1.500.000. Uma casa charmosa e funcional em condomínio fechado na Praia de Camburi, pensada para quem valoriza praticidade, conforto e uma excelente localização no litoral. A poucos minutos da praia, o imóvel combina ambientes bem distribuídos com uma área externa convidativa, perfeita para aproveitar os dias de sol com leveza e privacidade.",
     "amenities": [
@@ -4886,7 +4895,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/zul-mar-045-1.jpg",
       "kitchen": "/assets/imoveis/zul-mar-045-2.jpg",
       "bedroom": "/assets/imoveis/zul-mar-045-3.jpg",
-      "leisure": "/assets/imoveis/zul-mar-045-4.jpg"
+      "leisure": "/assets/imoveis/zul-mar-045-4.jpg",
+      "thumb": "/assets/imoveis/zul-mar-045-1-card.webp"
     },
     "description": "Casa pé na areia em condomínio na Praia de Maresias, São Sebastião, com 294 m² e 5 suítes, à venda por R$ 6.000.000. Uma casa belíssima, sofisticada e de muito bom gosto, com uma decoração clássica e minimalista que valoriza tons de branco, madeira e toques sutis em azul. Os ambientes são amplos, bem ventilados e extremamente harmônicos, criando uma atmosfera elegante e acolhedora em todos os espaços.",
     "amenities": [
@@ -4919,7 +4929,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/qua-212324-1.jpg",
       "kitchen": "/assets/imoveis/qua-212324-2.jpg",
       "bedroom": "/assets/imoveis/qua-212324-3.jpg",
-      "leisure": "/assets/imoveis/qua-212324-4.jpg"
+      "leisure": "/assets/imoveis/qua-212324-4.jpg",
+      "thumb": "/assets/imoveis/qua-212324-1-card.webp"
     },
     "description": "Apartamento de 190 m² no Condomínio DSGN Lorena No Condomínio DSGN Lorena, apartamento de 190 m², totalmente decorado, com projeto de interiores que contempla a integração entre os ambientes e o aproveitamento dos espaços. A área social dispõe de living amplo, lavabo e cozinha. A área íntima conta com 3 suítes. O imóvel possui ainda área de serviço e 3 vagas de garagem.",
     "amenities": [
@@ -4957,7 +4968,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/qua-212322-1.jpg",
       "kitchen": "/assets/imoveis/qua-212322-2.jpg",
       "bedroom": "/assets/imoveis/qua-212322-3.jpg",
-      "leisure": "/assets/imoveis/qua-212322-4.jpg"
+      "leisure": "/assets/imoveis/qua-212322-4.jpg",
+      "thumb": "/assets/imoveis/qua-212322-1-card.webp"
     },
     "description": "Apartamento de 427 m² no Jardim Guedala Apartamento no Jardim Guedala com 427,67 m² de área privativa, entregue em contrapiso, com planta que permite a personalização dos ambientes. A área social dispõe de living para três ambientes, sacada e lavabo. Na área íntima, são quatro suítes. O imóvel conta ainda com cozinha, lavanderia independente e dependência de serviço.",
     "amenities": [
@@ -4995,7 +5007,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/qua-210543-1.jpg",
       "kitchen": "/assets/imoveis/qua-210543-2.jpg",
       "bedroom": "/assets/imoveis/qua-210543-3.jpg",
-      "leisure": "/assets/imoveis/qua-210543-4.jpg"
+      "leisure": "/assets/imoveis/qua-210543-4.jpg",
+      "thumb": "/assets/imoveis/qua-210543-1-card.webp"
     },
     "description": "Cobertura com piscina privativa na Riviera de São Lourenço Cobertura nova com 252 m² de área construída, composta por 4 suítes, sala para 2 ambientes, lavabo, cozinha e área de serviço. A área externa conta com piscina privativa e varanda gourmet com churrasqueira. O condomínio dispõe de serviço de praia, piscinas adulto com prainha, piscina infantil com recreação, academia, sauna, salão de festas gourmet, churrasqueira, salão de jogos, quadra, playground e brinquedoteca.",
     "amenities": [
@@ -5035,7 +5048,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/qua-210824-1.jpg",
       "kitchen": "/assets/imoveis/qua-210824-2.jpg",
       "bedroom": "/assets/imoveis/qua-210824-3.jpg",
-      "leisure": "/assets/imoveis/qua-210824-4.jpg"
+      "leisure": "/assets/imoveis/qua-210824-4.jpg",
+      "thumb": "/assets/imoveis/qua-210824-1-card.webp"
     },
     "description": "Casa em condomínio fechado em Ubatuba Casa no Condomínio Lagoinha, em Ubatuba, a poucos passos da praia e cercada pela natureza. Com 359 m² de área construída em um terreno de 380 m², a residência apresenta 5 suítes amplas, 3 salas integradas, cozinha funcional, área de serviço, 2 lavabos e banheiros bem planejados. A área de lazer é um destaque à parte, com espaço gourmet equipado com churrasqueira, sauna e piscina privativa. A propriedade conta ainda com 4 vagas de garagem.",
     "amenities": [
@@ -5075,7 +5089,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/qua-cv0596-1.jpg",
       "kitchen": "/assets/imoveis/qua-cv0596-2.jpg",
       "bedroom": "/assets/imoveis/qua-cv0596-3.jpg",
-      "leisure": "/assets/imoveis/qua-cv0596-4.jpg"
+      "leisure": "/assets/imoveis/qua-cv0596-4.jpg",
+      "thumb": "/assets/imoveis/qua-cv0596-1-card.webp"
     },
     "description": "Apartamento no Condomínio Costa Verde Tabatinga Apartamento novo recém-reformado localizado no Setor Praça II com 3 suítes, sendo 1 suíte reversível. Com 97m², o imóvel possui uma cozinha planejada e uma sala de jantar integrada que proporciona um ambiente acolhedor. A varanda conta com uma vista privilegiada para o mar e o pôr do sol.",
     "amenities": [
@@ -5114,7 +5129,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/isr-ca2223-1.jpg",
       "kitchen": "/assets/imoveis/isr-ca2223-2.jpg",
       "bedroom": "/assets/imoveis/isr-ca2223-3.jpg",
-      "leisure": "/assets/imoveis/isr-ca2223-4.jpg"
+      "leisure": "/assets/imoveis/isr-ca2223-4.jpg",
+      "thumb": "/assets/imoveis/isr-ca2223-1-card.webp"
     },
     "description": "Casa na Martim de Sá, com terreno de 130,16 m².",
     "amenities": [],
@@ -5145,7 +5161,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/isr-ap0005-1.jpg",
       "kitchen": "/assets/imoveis/isr-ap0005-2.jpg",
       "bedroom": "/assets/imoveis/isr-ap0005-3.jpg",
-      "leisure": "/assets/imoveis/isr-ap0005-4.jpg"
+      "leisure": "/assets/imoveis/isr-ap0005-4.jpg",
+      "thumb": "/assets/imoveis/isr-ap0005-1-card.webp"
     },
     "description": "Apartamento de alto padrão com vista para o mar à venda no Indaiá, Caraguatatuba – Calabasas Condominium Resort Apartamento moderno no exclusivo Calabasas Condominium Resort, no Indaiá. Construído em 2021, com 257 m² de área total e 144 m² de área útil, em andar alto e com vista privilegiada para o mar.",
     "amenities": [
@@ -5185,7 +5202,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/isr-ca1559-1.jpg",
       "kitchen": "/assets/imoveis/isr-ca1559-2.jpg",
       "bedroom": "/assets/imoveis/isr-ca1559-3.jpg",
-      "leisure": "/assets/imoveis/isr-ca1559-4.jpg"
+      "leisure": "/assets/imoveis/isr-ca1559-4.jpg",
+      "thumb": "/assets/imoveis/isr-ca1559-1-card.webp"
     },
     "description": "Casa de posse no Morro do Algodão, com 210 m² de área útil em terreno de 250 m².",
     "amenities": [
@@ -5218,7 +5236,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/isr-cac0140-1.jpg",
       "kitchen": "/assets/imoveis/isr-cac0140-2.jpg",
       "bedroom": "/assets/imoveis/isr-cac0140-3.jpg",
-      "leisure": "/assets/imoveis/isr-cac0140-4.jpg"
+      "leisure": "/assets/imoveis/isr-cac0140-4.jpg",
+      "thumb": "/assets/imoveis/isr-cac0140-1-card.webp"
     },
     "description": "Residência nova e muito bem acabada no Portal dos Pássaros, loteamento seguro com câmeras em todas as ruas e vigilância 24 horas.",
     "amenities": [
@@ -5251,7 +5270,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/isr-st0002-1.jpg",
       "kitchen": "/assets/imoveis/isr-st0002-2.jpg",
       "bedroom": "/assets/imoveis/isr-st0002-3.jpg",
-      "leisure": "/assets/imoveis/isr-st0002-4.jpg"
+      "leisure": "/assets/imoveis/isr-st0002-4.jpg",
+      "thumb": "/assets/imoveis/isr-st0002-1-card.webp"
     },
     "description": "Studio de 36 m² totalmente mobiliado, planejado com máxima eficiência, em localização privilegiada perto do mar, do comércio e dos serviços locais. Ótimo como investimento ou refúgio no litoral norte.",
     "amenities": [

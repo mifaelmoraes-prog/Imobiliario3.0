@@ -64,6 +64,17 @@ test('campos de texto inventado não existem mais no catálogo', () => {
   assert.deepEqual(comInventado.map(descreve), []);
 });
 
+test('imóveis de parceiras têm miniatura leve para os cards', () => {
+  const LIMITE_KB = 80; // a foto original tem 1000 px e até 220 KB; o card mostra ~340 px
+  for (const p of IMOVEIS.filter(x => x.sourceName)) {
+    assert.ok(p.images?.thumb, `miniatura ausente em ${descreve(p)}`);
+    const arquivo = path.join(PUBLIC_DIR, p.images.thumb);
+    assert.ok(fs.existsSync(arquivo), `arquivo da miniatura não existe: ${p.images.thumb}`);
+    const kb = fs.statSync(arquivo).size / 1024;
+    assert.ok(kb <= LIMITE_KB, `miniatura de ${descreve(p)} tem ${Math.round(kb)} KB (limite ${LIMITE_KB} KB)`);
+  }
+});
+
 test('imóveis de parceiras identificam a origem e têm link do anúncio', () => {
   for (const p of IMOVEIS.filter(x => x.sourceName)) {
     assert.match(p.sourceUrl || '', /^https:\/\//, `link do anúncio ausente em ${descreve(p)}`);

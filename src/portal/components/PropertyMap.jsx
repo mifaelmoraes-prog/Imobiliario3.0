@@ -178,7 +178,7 @@ export function PropertyMap({ onSelectProperty }) {
                     {/* Foto de Capa */}
                     <div className="relative aspect-[16/10] rounded-lg overflow-hidden mb-2 bg-stone-100">
                       <img
-                        src={prop.images?.hero || prop.image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=400&q=80'}
+                        src={prop.images?.thumb || prop.images?.hero || prop.image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=400&q=80'}
                         alt={prop.title}
                         className="w-full h-full object-cover"
                         onError={(e) => {
