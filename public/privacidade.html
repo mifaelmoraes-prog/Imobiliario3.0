@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade — Urban Real State</title>
+<meta name="description" content="Como o Urban Real State trata os dados de quem usa o portal e conversa com o Concierge, e como exercer seus direitos pela LGPD.">
+<style>
+  :root {
+    --bg: #fafaf8; --surface: #ffffff; --ink: #1c1917; --muted: #57534e; --line: #e7e5e4;
+    --accent: #c2410c; --code: #f5f5f4; --mark: #fef3c7; --mark-ink: #78350f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141311; --surface: #1c1a17; --ink: #f5f5f4; --muted: #a8a29e; --line: #34312c;
+      --accent: #f08a57; --code: #26231f; --mark: #3b2f0d; --mark-ink: #fcd34d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 820px; margin: 0 auto; padding: 28px 16px 72px; }
+  a { color: var(--accent); }
+  .voltar { display: inline-block; margin-bottom: 18px; font-size: 14px; }
+  h1 { font-size: clamp(26px, 5vw, 34px); line-height: 1.2; margin: 0 0 6px; }
+  h2 { font-size: 20px; margin: 36px 0 8px; }
+  p, li { color: var(--ink); }
+  .sub { color: var(--muted); margin: 0 0 18px; }
+  ul { padding-left: 20px; }
+  li { margin: 5px 0; }
+  .aviso { background: var(--mark); color: var(--mark-ink); border-radius: 12px; padding: 12px 16px; margin: 18px 0 8px; font-size: 15px; }
+  mark { background: var(--mark); color: var(--mark-ink); padding: 1px 6px; border-radius: 5px; font-weight: 600; }
+  .tabela { overflow-x: auto; margin: 10px 0; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--code); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  tr:last-child td { border-bottom: 0; }
+  code { background: var(--code); border-radius: 5px; padding: 1px 6px; font-size: .9em; overflow-wrap: anywhere; }
+  footer { margin-top: 44px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <a class="voltar" href="/">← Voltar ao portal</a>
+  <h1>Política de Privacidade</h1>
+  <p class="sub">Urban Real State · vigente desde 17/11/2026 · versão provisória</p>
+
+  <p class="aviso"><b>Versão provisória.</b> Este é um modelo padrão, ainda sem revisão jurídica. Os trechos destacados <mark>assim</mark> precisam ser preenchidos pela empresa responsável antes do lançamento oficial.</p>
+
+  <h2>1. Quem é o responsável pelos seus dados</h2>
+  <p>O responsável (controlador) pelo tratamento dos dados descritos aqui é <mark>[razão social e CNPJ da empresa]</mark>, que opera o portal Urban Real State. Para falar sobre privacidade, escreva para <mark>[e-mail do encarregado de dados (DPO)]</mark>.</p>
+
+  <h2>2. Quais dados tratamos, para quê e onde ficam</h2>
+  <div class="tabela">
+  <table>
+    <thead><tr><th>Dado</th><th>Quando</th><th>Para quê</th><th>Onde fica</th></tr></thead>
+    <tbody>
+      <tr><td>Mensagens da conversa com o Concierge, e um resumo da sua navegação (critérios de busca, texto buscado, imóveis vistos, favoritos, ações no site e o nome, se você o informou)</td><td>Quando você usa o Concierge</td><td>Entender o que você procura e indicar imóveis do catálogo</td><td>Enviado ao nosso servidor e à OpenAI para gerar a resposta. Não gravamos a conversa em nosso banco de dados</td></tr>
+      <tr><td>Nome, telefone e/ou e-mail, melhor horário, imóveis de interesse, finalidade e prazo</td><td>Só se você pedir contato com um corretor e aceitar</td><td>Nossa equipe entrar em contato com você</td><td>Banco de dados no Supabase (tabela de contatos)</td></tr>
+      <tr><td>Nome, telefone e/ou e-mail e os critérios do alerta (cidade, bairros, tipo, quartos, orçamento, comodidades)</td><td>Só se você pedir um alerta de imóveis e aceitar</td><td>Avisar quando houver imóveis compatíveis</td><td>Banco de dados no Supabase (tabela de alertas)</td></tr>
+      <tr><td>Texto e nota do feedback</td><td>Se você quiser opinar sobre o atendimento</td><td>Melhorar o Concierge</td><td>Banco de dados no Supabase. É anônimo: não pedimos nome nem contato</td></tr>
+      <tr><td>País e estado (UF) de onde vem o acesso, e a hora</td><td>Ao abrir o portal</td><td>Estatística de acessos por região</td><td>Banco de dados no Supabase. Não guardamos seu IP nem um identificador seu</td></tr>
+      <tr><td>Voz</td><td>Se você falar com o Concierge ou com a busca por voz</td><td>Transformar sua fala em texto e responder em áudio</td><td>O reconhecimento é feito pelo seu navegador (o fabricante dele pode processar o áudio). O texto da resposta vai a um serviço de voz (OpenAI ou Google) para virar áudio</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Não pedimos CPF, dados bancários nem senhas em nenhuma parte do portal público. Evite escrever esse tipo de dado na conversa com o Concierge.</p>
+
+  <h2>3. O que fica no seu dispositivo</h2>
+  <p>O portal guarda no próprio navegador (armazenamento local, não são cookies de rastreamento): o tema claro ou escuro, seus imóveis favoritos, o perfil de busca que você montou, a linha do tempo das suas ações no portal, a preferência de respostas por voz e um aviso de que a mensagem de saída já foi exibida. Isso fica só no seu aparelho e você pode apagar limpando os dados do site no navegador. Uma parte desse conteúdo (o resumo da navegação) é enviada quando você usa o Concierge, como descrito acima.</p>
+
+  <h2>4. Com quem compartilhamos</h2>
+  <p>Usamos prestadores de serviço (operadores) para o portal funcionar. Eles tratam os dados só para esse fim:</p>
+  <ul>
+    <li><b>Vercel</b>: hospedagem do portal. Registra dados técnicos de acesso, como o IP, para o serviço funcionar e se manter seguro.</li>
+    <li><b>Supabase</b>: banco de dados dos contatos, alertas, feedback e estatística de acesso por região.</li>
+    <li><b>OpenAI</b>: inteligência artificial do Concierge (conversa) e, quando configurado, voz.</li>
+    <li><b>Google</b>: voz neural (quando configurada) e as fontes de letra do portal.</li>
+    <li><b>OpenStreetMap</b>: imagens do mapa, carregadas quando você abre a visualização em mapa (seu IP é visto por esse serviço).</li>
+  </ul>
+  <p>Não vendemos seus dados. Links externos (como o do WhatsApp ou o do anúncio original) abrem serviços de terceiros, regidos pelas políticas deles.</p>
+
+  <h2>5. Anúncios de imóveis de terceiros</h2>
+  <p>Parte dos imóveis exibidos vem de imobiliárias parceiras. Nesses casos o card informa a origem do anúncio e a ficha traz o link para o anúncio original. Os dados e as fotos desses imóveis pertencem às respectivas imobiliárias.</p>
+
+  <h2>6. Bases legais (LGPD, art. 7º)</h2>
+  <ul>
+    <li><b>Consentimento:</b> para registrar seu pedido de contato, seu alerta e seu feedback. Você pode retirá-lo a qualquer momento.</li>
+    <li><b>Legítimo interesse:</b> para manter o portal funcionando e seguro, melhorar o serviço e gerar estatísticas de acesso sem identificar você.</li>
+  </ul>
+
+  <h2>7. Por quanto tempo guardamos</h2>
+  <p>Contatos e alertas ficam guardados pelo tempo necessário ao atendimento e por <mark>[prazo de guarda a definir]</mark>, e depois são eliminados. O feedback e a estatística de acesso não identificam você. Você pode pedir a exclusão do seu contato ou alerta a qualquer momento.</p>
+
+  <h2>8. Transferência internacional</h2>
+  <p>Alguns prestadores acima (como OpenAI, Google, Vercel e Supabase) podem tratar dados fora do Brasil. Procuramos prestadores que adotam medidas de segurança adequadas, conforme a LGPD.</p>
+
+  <h2>9. Seus direitos</h2>
+  <p>Pela Lei Geral de Proteção de Dados (Lei 13.709/2018), você pode pedir, a qualquer momento:</p>
+  <ul>
+    <li>confirmação de que tratamos seus dados e acesso a eles;</li>
+    <li>correção de dados incompletos, inexatos ou desatualizados;</li>
+    <li>anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desacordo com a lei;</li>
+    <li>portabilidade dos dados, quando aplicável;</li>
+    <li>informação sobre com quem compartilhamos seus dados;</li>
+    <li>eliminação dos dados tratados com base no seu consentimento, e a retirada desse consentimento.</li>
+  </ul>
+  <p>Para exercer esses direitos, escreva para <mark>[e-mail do encarregado de dados (DPO)]</mark>, informando o telefone ou e-mail que você usou. Se achar que seus direitos não foram respeitados, você também pode reclamar à Autoridade Nacional de Proteção de Dados (ANPD).</p>
+
+  <h2>10. Segurança</h2>
+  <p>O portal usa conexão segura (HTTPS). O navegador do visitante só consegue enviar dados ao banco, nunca lê-los: o acesso aos contatos é restrito à equipe. Mesmo assim, nenhum sistema é totalmente livre de risco, e trabalhamos para reduzi-lo continuamente.</p>
+
+  <h2>11. Menores de idade</h2>
+  <p>O portal não é destinado a menores de 18 anos, e não coletamos dados de menores de forma intencional.</p>
+
+  <h2>12. Mudanças nesta política</h2>
+  <p>Podemos atualizar esta política. A data de vigência no topo mostra a versão atual.</p>
+
+  <footer>Urban Real State · Política de Privacidade (versão provisória) · 17/11/2026</footer>
+</main>
+</body>
+</html>
