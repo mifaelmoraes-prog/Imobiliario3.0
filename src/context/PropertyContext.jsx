@@ -23,7 +23,7 @@ export function PropertyProvider({ children }) {
     try {
       const saved = localStorage.getItem(FAVORITES_STORAGE_KEY);
       return saved ? JSON.parse(saved) : [];
-    } catch (e) {
+    } catch {
       return [];
     }
   });

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal } from '../../design-system/Modal';
 import { Button } from '../../design-system/Button';
 import { formatCurrencyBRL } from '../../design-system/SliderRange';
@@ -6,7 +6,7 @@ import { useBuyerProfile } from '../../context/BuyerProfileContext';
 import { CheckCircle2, AlertCircle, FileCheck, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export function PrerequisitesModal({ property, isOpen, onClose, onOpenWhatsApp }) {
-  const { profile, logActivity } = useBuyerProfile();
+  const { logActivity } = useBuyerProfile();
 
   if (!property) return null;
 

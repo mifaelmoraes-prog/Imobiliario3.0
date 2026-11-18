@@ -27,11 +27,8 @@ export function PropertyDetailModal({
   onOpenCriticism,
   onOpenFinanceSimulator
 }) {
-  const { profile, logActivity } = useBuyerProfile();
+  const { logActivity } = useBuyerProfile();
   const [selectedPhoto, setSelectedPhoto] = useState(0);
-  const [leadName, setLeadName] = useState('');
-  const [leadPhone, setLeadPhone] = useState('');
-  const [isScheduled, setIsScheduled] = useState(false);
 
   if (!property) return null;
 
@@ -71,7 +68,6 @@ export function PropertyDetailModal({
   }
 
   const calculatedM2 = pricePerM2 || (area > 0 && price > 0 ? Math.round(price / area) : null);
-  const totalMonthlyHolding = (condoFee || 0) + (iptuMonthly || 0);
 
   const handleWhatsAppContact = () => {
     const text = encodeURIComponent(
@@ -81,15 +77,6 @@ export function PropertyDetailModal({
     window.open(`https://wa.me/5541999999999?text=${text}`, '_blank');
   };
 
-  const handleScheduleVisit = (e) => {
-    e.preventDefault();
-    setIsScheduled(true);
-    logActivity('SCHEDULE_VISIT', `Visita solicitada para ${title} por ${leadName || 'Comprador'}`, {
-      propertyId: id,
-      leadName,
-      leadPhone
-    });
-  };
 
   return (
     <Modal

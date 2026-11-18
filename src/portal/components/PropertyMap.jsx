@@ -29,7 +29,7 @@ function MapViewController({ selectedCity, properties }) {
           const bounds = L.latLngBounds(points);
           map.fitBounds(bounds, { padding: [50, 50], maxZoom: 13, duration: 1.2 });
         }
-      } catch (err) {
+      } catch {
         map.setView([-24.8, -47.0], 6);
       }
     }

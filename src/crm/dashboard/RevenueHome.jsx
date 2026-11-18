@@ -15,12 +15,10 @@ import {
 } from 'lucide-react';
 import { formatCurrencyBRL } from '../../design-system/SliderRange';
 import { useBuyerProfile } from '../../context/BuyerProfileContext';
-import { useProperties } from '../../context/PropertyContext';
 import { Button } from '../../design-system/Button';
 
 export function RevenueHome({ onNavigateTab }) {
   const { timeline, profile } = useBuyerProfile();
-  const { properties } = useProperties();
 
   // Métricas executivas consolidadas
   const vgvTotal = 28450000;
