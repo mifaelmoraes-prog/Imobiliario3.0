@@ -12,9 +12,13 @@ import {
   DollarSign 
 } from 'lucide-react';
 
-export function PropertyBuyersView({ property, onBack }) {
-  if (!property) return null;
+// O retorno antecipado fica fora do componente com hooks: chamar useMemo depois dele muda a ordem dos hooks.
+export function PropertyBuyersView(props) {
+  if (!props.property) return null;
+  return <PropertyBuyersContent {...props} />;
+}
 
+function PropertyBuyersContent({ property, onBack }) {
   // Mock de Compradores Candidatos da Carteira BIH
   const candidates = useMemo(() => [
     {
