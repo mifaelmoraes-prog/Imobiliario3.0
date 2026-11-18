@@ -25,7 +25,7 @@ export function ExitIntentModal({ isOpen, onClose }) {
 
     try {
       sessionStorage.setItem('urban_exit_intent_shown_v3', 'true');
-    } catch (err) {}
+    } catch { /* sessionStorage indisponível: o modal pode reaparecer, sem prejuízo */ }
 
     identifyLead({ leadName: name, leadPhone: phone });
     logActivity('DOSSIER_DOWNLOAD', `Dossiê baixado por ${name} (${phone}) com ${selectedDossierProperties.length} imóveis`);
