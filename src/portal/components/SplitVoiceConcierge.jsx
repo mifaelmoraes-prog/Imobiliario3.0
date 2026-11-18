@@ -33,7 +33,7 @@ import {
   isBrainAvailable,
   searchCatalog
 } from '../../services/conciergeBrainClient';
-import { saveAlert, saveFeedback, saveLead } from '../../services/conciergeLeadsClient';
+import { avisarContato, saveAlert, saveFeedback, saveLead } from '../../services/conciergeLeadsClient';
 import { leadOutcome } from '../../services/conciergeLeadOutcome';
 import {
   speak,
@@ -226,7 +226,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
       identifyLead({ leadName: name, leadPhone: phone, leadEmail: email });
       // Envia para a equipe e ESPERA o resultado: o aviso ao visitante só diz "registrado" se a
       // gravação deu certo (antes o resultado era ignorado, e uma falha prometia um retorno falso)
-      const saved = await saveLead({
+      const lead = {
         nome: name,
         telefone: phone || null,
         email: email || null,
@@ -236,7 +236,9 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
         prazo: args.prazo ? String(args.prazo).slice(0, 120) : null,
         observacoes: args.observacoes ? String(args.observacoes).slice(0, 500) : null,
         consentimento: true // o modelo só chama esta ferramenta depois do aceite
-      });
+      };
+      const saved = await saveLead(lead);
+      if (saved?.ok) avisarContato(lead); // sem await: o aviso por e-mail não atrasa a resposta
       const when = args.melhor_horario ? ` · ${args.melhor_horario}` : '';
       const outcome = leadOutcome(saved, { name, contato: phone || email, quando: when, ids });
       if (outcome.registrado) {
