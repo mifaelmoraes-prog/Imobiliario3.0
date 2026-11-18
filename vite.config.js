@@ -8,7 +8,8 @@ const SERVER_ENV_KEYS = [
   'GEMINI_API_KEY', 'GEMINI_TTS_MODEL', 'GEMINI_TTS_VOICE',
   'OPENAI_API_KEY', 'OPENAI_TTS_MODEL', 'OPENAI_TTS_VOICE',
   'OPENAI_CHAT_MODEL', 'OPENAI_CHAT_REASONING', 'OPENAI_CHAT_FALLBACK_MODELS',
-  'CONCIERGE_ALERTS', 'CONCIERGE_FEEDBACK', 'TRACK_ACCESS_REGION'
+  'CONCIERGE_ALERTS', 'CONCIERGE_FEEDBACK', 'TRACK_ACCESS_REGION',
+  'LEAD_NOTIFY_EMAIL', 'LEAD_NOTIFY_FROM', 'RESEND_API_KEY'
 ];
 
 const DEV_ROUTES = {
@@ -19,6 +20,10 @@ const DEV_ROUTES = {
   '/api/concierge': async (req) => {
     const { handleConciergeRequest } = await import('./server/conciergeBrain.js');
     return handleConciergeRequest(req, { openai: process.env.OPENAI_API_KEY });
+  },
+  '/api/aviso-contato': async (req) => {
+    const { handleAvisoContatoRequest } = await import('./server/avisoContato.js');
+    return handleAvisoContatoRequest(req, process.env);
   },
   '/api/regiao': async (req) => {
     const { handleRegiaoRequest } = await import('./server/regiao.js');
