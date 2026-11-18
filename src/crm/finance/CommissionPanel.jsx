@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { formatCurrencyBRL } from '../../design-system/SliderRange';
 import { DollarSign, CheckCircle2, Clock, Users, ArrowUpRight } from 'lucide-react';
 
