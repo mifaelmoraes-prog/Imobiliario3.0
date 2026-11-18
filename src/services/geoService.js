@@ -253,7 +253,7 @@ export function getPropertyCoordinates(property) {
 /**
  * Calcula o centro e zoom ideais para o mapa com base na cidade selecionada e imóveis.
  */
-export function getMapViewport(selectedCity, properties = []) {
+export function getMapViewport(selectedCity, _properties = []) {
   if (selectedCity && selectedCity !== 'Todas') {
     const cityClean = selectedCity.toLowerCase().trim();
     const cityKey = Object.keys(CAPITAL_CENTERS).find(c => cityClean.includes(c));

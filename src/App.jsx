@@ -20,7 +20,7 @@ export function AppContent() {
     try {
       const saved = localStorage.getItem(AUTH_STORAGE_KEY);
       return saved ? JSON.parse(saved) : null;
-    } catch (e) {
+    } catch {
       return null;
     }
   });
@@ -29,7 +29,7 @@ export function AppContent() {
   const [isDark, setIsDark] = useState(() => {
     try {
       return localStorage.getItem(THEME_STORAGE_KEY) === 'dark';
-    } catch (e) {
+    } catch {
       return false;
     }
   });

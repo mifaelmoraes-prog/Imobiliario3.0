@@ -7,7 +7,7 @@ import { FileDown, MessageSquare, Check, Sparkles } from 'lucide-react';
 import { formatCurrencyBRL } from '../../design-system/SliderRange';
 
 export function ExitIntentModal({ isOpen, onClose }) {
-  const { profile, identifyLead, logActivity } = useBuyerProfile();
+  const { identifyLead, logActivity } = useBuyerProfile();
   const { properties, favorites } = useProperties();
 
   const [name, setName] = useState('');

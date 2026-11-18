@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Search, Mic, MapPin, X } from 'lucide-react';
 import { useProperties } from '../../context/PropertyContext';
-import { useBuyerProfile } from '../../context/BuyerProfileContext';
 
 export function HeroSearch({ onTriggerVoice }) {
   const { searchQuery, setSearchQuery, selectedCity, setSelectedCity, availableCities } = useProperties();
-  const { profile } = useBuyerProfile();
   const [isListening, setIsListening] = useState(false);
 
   const handleVoiceInput = () => {

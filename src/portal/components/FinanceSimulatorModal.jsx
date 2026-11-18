@@ -6,11 +6,11 @@ import { useBuyerProfile } from '../../context/BuyerProfileContext';
 import { Calculator, Check, ArrowRight } from 'lucide-react';
 
 export function FinanceSimulatorModal({ property, isOpen, onClose }) {
-  const { profile, logActivity } = useBuyerProfile();
+  const { logActivity } = useBuyerProfile();
 
   const propertyPrice = property?.price || 1200000;
   const [downPayment, setDownPayment] = useState(propertyPrice * 0.2); // 20% de entrada padrão
-  const [annualInterestRate, setAnnualInterestRate] = useState(10.5); // 10.5% a.a.
+  const [annualInterestRate] = useState(10.5); // 10.5% a.a.
   const [termYears, setTermYears] = useState(30); // 30 anos (360 meses)
   const [system, setSystem] = useState('SAC'); // 'SAC' | 'PRICE'
 
