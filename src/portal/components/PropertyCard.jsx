@@ -60,6 +60,8 @@ export function PropertyCard({
           src={coverImage}
           alt={title || 'Foto do imóvel'}
           loading={priority ? 'eager' : 'lazy'}
+          // React 18 ainda não conhece fetchPriority (só a forma minúscula chega ao DOM)
+          // eslint-disable-next-line react/no-unknown-property
           fetchpriority={priority ? 'high' : undefined}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
           onError={(e) => {
