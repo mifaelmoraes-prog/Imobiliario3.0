@@ -76,12 +76,12 @@
 
   <h2>Em uma página</h2>
   <div class="grid">
-    <div class="card"><b>37 PRs</b><span>36 mergeados e 1 aberto (#15, com os documentos de revisão e de Lean Startup, aguardando o Mifael). <code>dev</code> e <code>main</code> estão iguais.</span></div>
+    <div class="card"><b>47 PRs</b><span>46 mergeados e 1 aberto (#15, com os documentos de revisão e de Lean Startup, aguardando o Mifael). <code>dev</code> e <code>main</code> estão iguais.</span></div>
     <div class="card"><b>195 imóveis</b><span>175 do catálogo antigo, limpos de dado inventado, e 20 de imobiliárias parceiras, com a origem visível. Nenhum é do Espírito Santo.</span></div>
-    <div class="card"><b>59 testes</b><span>Rodam sozinhos no GitHub em todo PR (testes e build), junto com a prévia da Vercel.</span></div>
+    <div class="card"><b>73 testes</b><span>Rodam sozinhos no GitHub em todo PR, junto com a verificação de código (lint), o build e a prévia da Vercel.</span></div>
     <div class="card"><b>Celular ~89</b><span>Nota de desempenho no Lighthouse (antes 85). SEO 100, acessibilidade 96, desktop 97.</span></div>
     <div class="card"><b>UF no ar</b><span>O site já registra de qual estado vem cada acesso (só país, UF e hora). Responde "alguém do ES acessou?".</span></div>
-    <div class="card"><b>Contatos salvos</b><span>Tabelas criadas em 17/11 e gravação testada em produção. Falta o aviso ao corretor (decisão 2).</span></div>
+    <div class="card"><b>Contatos salvos</b><span>Tabelas criadas em 17/11 e gravação testada em produção. O aviso por e-mail ao Mifael está pronto, mas desligado até configurar o Resend (decisão 2).</span></div>
   </div>
   <p>As partes que dependem de decisão estão em <a href="#decisoes">Decisões do Mifael</a>. O que dá para fazer sem decisão de ninguém já foi feito.</p>
 
@@ -102,6 +102,9 @@
       <tr><td>Política de privacidade</td><td>#32, #33</td><td>Página <code>/privacidade.html</code> e link no rodapé. <b>Versão provisória</b>, sem revisão jurídica, com 4 campos a preencher (ver decisão 3).</td></tr>
       <tr><td>Aviso de contato honesto</td><td>#34, #35</td><td>O Concierge só diz "contato registrado" se a gravação deu certo. Testado em produção com a falha real.</td></tr>
       <tr><td>Testes dos serviços</td><td>#36, #37</td><td>40 testes novos (parser, compatibilidade, mapa, busca). Revelaram e corrigiram um defeito: o Concierge por regras dizia que o catálogo não registra piscina, churrasqueira e academia, que existem em 12, 6 e 1 imóveis.</td></tr>
+      <tr><td>Verificação de código (lint)</td><td>#40, #41, #44, #45</td><td>ESLint no CI: erros bloqueiam o PR e os avisos têm teto de 14. Achou e corrigiu um defeito no CRM (um recurso do React chamado fora de ordem na tela de compradores de um imóvel) e removeu código morto do modal do imóvel.</td></tr>
+      <tr><td>Aviso por e-mail de contato</td><td>#42, #43</td><td>Quando o visitante pede um corretor, a equipe recebe um e-mail (Resend) depois que o contato é gravado. Rota só da própria página, com limite de uso. <b>Desligado</b> até configurar a chave; o Resend entrou na política de privacidade.</td></tr>
+      <tr><td>Testes do servidor</td><td>#46, #47</td><td>8 testes da rota do cérebro do Concierge: entradas inválidas, ferramentas por flag, troca de modelo quando um falha. Não mudou o site.</td></tr>
     </tbody>
   </table>
   </div>
@@ -183,11 +186,11 @@
       <tr><td>#6 a #12</td><td>Logs de uso, perguntas fora do roteiro, alertas e contatos, perfil do visitante, feedback, a recuperação dos PRs empilhados (#11) e a primeira versão deste documento</td><td><span class="tag ok">mergeados</span></td></tr>
       <tr><td>#13, #14</td><td>Os 20 imóveis de parceiras e o release de tudo para <code>main</code></td><td><span class="tag ok">mergeados · em produção</span></td></tr>
       <tr><td>#15</td><td>Documentos: revisão do projeto e roteiro até a entrega (atualizada em 17/11) e visão Lean Startup</td><td><span class="tag wait">aberto · aguardando o Mifael</span></td></tr>
-      <tr><td>#16 a #37</td><td>11 pares de PR e release, listados em "O que mudou desde 13/11"</td><td><span class="tag ok">mergeados · em produção</span></td></tr>
+      <tr><td>#16 a #47</td><td>16 pares de PR e release, listados em "O que mudou desde 13/11" (inclui os documentos de status #38 e #39)</td><td><span class="tag ok">mergeados · em produção</span></td></tr>
     </tbody>
   </table>
   </div>
-  <p class="note">Hoje <code>dev</code> e <code>main</code> estão iguais (<code>d8d5fde</code>), e a produção (<code>imobiliario3-0.vercel.app</code>) sai da <code>main</code>. O fluxo de cada mudança é: PR para <code>dev</code>, com CI e prévia da Vercel; depois um release de <code>dev</code> para <code>main</code>. Um alerta: o check do CI ainda não é obrigatório nas regras de proteção, então ele avisa mas não impede um merge com falha.</p>
+  <p class="note">Em 18/11 <code>dev</code> e <code>main</code> estavam iguais (<code>4677558</code>), e a produção (<code>imobiliario3-0.vercel.app</code>) sai da <code>main</code>. O fluxo de cada mudança é: PR para <code>dev</code>, com CI e prévia da Vercel; depois um release de <code>dev</code> para <code>main</code>. Um alerta: o check do CI ainda não é obrigatório nas regras de proteção, então ele avisa mas não impede um merge com falha.</p>
 
   <h2 id="decisoes">Decisões do Mifael</h2>
   <p class="sub">Cada item mostra o que está travado e a recomendação.</p>
@@ -205,8 +208,8 @@
 
   <div class="decision">
     <h3><span class="tag dec">2</span> Para onde vão os contatos do fechamento <span class="tag wait">mais importante agora</span></h3>
-    <p>Os contatos já são gravados numa tabela do Supabase (<code>concierge_leads</code>). Falta definir quem acompanha, como o corretor é avisado (painel, e-mail ou WhatsApp) e em quanto tempo deve responder. Sem isso, ninguém sabe que há um contato novo, e um visitante que pediu retorno pode esperar sem resposta.</p>
-    <div class="rec"><b>Recomendação:</b> começar por um aviso por e-mail ao corretor responsável a cada contato novo. Enquanto o aviso não existir, alguém precisa abrir a tabela no Supabase todos os dias.</div>
+    <p>Os contatos já são gravados numa tabela do Supabase (<code>concierge_leads</code>), e o aviso por e-mail já está construído: por enquanto vai para o Mifael, e o destino muda numa variável da Vercel (<code>LEAD_NOTIFY_EMAIL</code>), sem mexer no código. Falta ligar o envio (conta no Resend e duas variáveis) e definir quem acompanha depois, e em quanto tempo o corretor deve responder. Sem o envio ligado, ninguém sabe que há um contato novo.</p>
+    <div class="rec"><b>Recomendação:</b> ligar o aviso agora, com o Mifael como destino, e trocar para o corretor responsável quando houver definição. Enquanto o envio não estiver ligado, alguém precisa abrir a tabela no Supabase todos os dias.</div>
   </div>
 
   <div class="decision">
@@ -290,6 +293,7 @@
   <h2>Próximos passos, em ordem</h2>
   <ol class="steps">
     <li><b>Feito em 17/11:</b> as migrações de contatos, alertas e feedback foram aplicadas no Supabase. <b>Falta apagar a linha de teste</b> da <code>concierge_leads</code> (telefone <code>(11) 90000-0000</code>).</li>
+    <li><b>Ligar o aviso por e-mail:</b> criar a conta no Resend (com o e-mail do Mifael, pois sem domínio verificado o Resend só entrega ao dono da conta) e definir <code>RESEND_API_KEY</code> e <code>LEAD_NOTIFY_EMAIL</code> na Vercel, com novo deploy. Depois, um contato de teste confirma a entrega (e cria outra linha de teste para apagar).</li>
     <li><b>Configurar o teto de gasto</b> nas contas da OpenAI e do Google.</li>
     <li><b>Marcar o CI como obrigatório</b> nas regras de proteção da <code>main</code> e da <code>dev</code>.</li>
     <li><b>Passar à equipe os dados da política</b> (empresa, e-mail do encarregado e prazo de guarda) e pedir a revisão jurídica.</li>
@@ -299,6 +303,7 @@
 
   <h2>O que ainda não foi testado</h2>
   <ul>
+    <li><b>Envio real do e-mail de contato:</b> a rota está no ar e responde "desligado", e o envio foi testado só com o Resend simulado. Falta a chave para ver o e-mail chegar.</li>
     <li><b>Alertas e feedback no Supabase real:</b> só a gravação do contato foi testada em produção (com sucesso, em 17/11). Alertas e feedback têm as tabelas criadas, mas as flags estão desligadas e eles não foram exercitados no banco real.</li>
     <li>Microfone real do Chrome, Safari e celular. Os testes usaram voz simulada, e o celular foi simulado pelo Lighthouse e por uma tela emulada.</li>
     <li>O custo real por conversa: os números são estimativa. O painel da Vercel e os logs de produção não foram consultados.</li>
@@ -317,7 +322,7 @@
     <li>Sem lint no projeto.</li>
   </ul>
 
-  <footer>Atualizado em 17/11/2026 a partir dos PRs #1 a #37 do repositório Imobiliario3.0 (produção em <code>main</code> <code>d8d5fde</code>). Notas do Lighthouse e demais medições são do próprio dia e podem variar. Valores de custo são estimativas, calculadas com os preços publicados pela OpenAI em novembro de 2026.</footer>
+  <footer>Atualizado em 18/11/2026 a partir dos PRs #1 a #47 do repositório Imobiliario3.0 (produção em <code>main</code> <code>4677558</code>). Notas do Lighthouse e demais medições são do próprio dia e podem variar. Valores de custo são estimativas, calculadas com os preços publicados pela OpenAI em novembro de 2026.</footer>
 </main>
 </body>
 </html>
