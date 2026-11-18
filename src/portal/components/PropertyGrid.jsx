@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PropertyCard } from './PropertyCard';
-import { LayoutGrid, Map, ArrowUpDown, SearchX } from 'lucide-react';
+import { ArrowUpDown, SearchX } from 'lucide-react';
+import { ViewModeToggle } from './ViewModeToggle';
 import { useProperties } from '../../context/PropertyContext';
 import { useBuyerProfile } from '../../context/BuyerProfileContext';
 
@@ -14,9 +15,7 @@ export function PropertyGrid({
     favorites,
     toggleFavorite,
     sortOrder,
-    setSortOrder,
-    viewMode,
-    setViewMode
+    setSortOrder
   } = useProperties();
 
   const { resetProfile } = useBuyerProfile();
@@ -38,7 +37,7 @@ export function PropertyGrid({
           <span>imóveis selecionados</span>
         </div>
 
-        <div className="flex items-center gap-2 self-end sm:self-auto">
+        <div className="flex flex-wrap items-center justify-end gap-2 self-end sm:self-auto">
           {/* Alternador de Ordenação */}
           <div className="relative flex items-center bg-white dark:bg-stone-850 border border-stone-200 dark:border-stone-700 rounded-lg px-2.5 py-1.5 shadow-sm text-xs">
             <ArrowUpDown className="w-3.5 h-3.5 text-stone-400 mr-1.5" />
@@ -55,31 +54,8 @@ export function PropertyGrid({
             </select>
           </div>
 
-          {/* Alternador Grade / Mapa */}
-          <div className="flex items-center bg-white dark:bg-stone-850 border border-stone-200 dark:border-stone-700 rounded-lg p-0.5 shadow-sm">
-            <button
-              onClick={() => setViewMode('grid')}
-              aria-label="Visualização em grade"
-              className={`p-1.5 rounded-md transition-colors ${
-                viewMode === 'grid'
-                  ? 'bg-stone-100 dark:bg-stone-700 text-stone-900 dark:text-white'
-                  : 'text-stone-400 hover:text-stone-700'
-              }`}
-            >
-              <LayoutGrid className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => setViewMode('map')}
-              aria-label="Visualização em mapa"
-              className={`p-1.5 rounded-md transition-colors ${
-                viewMode === 'map'
-                  ? 'bg-stone-100 dark:bg-stone-700 text-stone-900 dark:text-white'
-                  : 'text-stone-400 hover:text-stone-700'
-              }`}
-            >
-              <Map className="w-4 h-4" />
-            </button>
-          </div>
+          {/* Alternador Lista / Mapa (também aparece na tela do mapa) */}
+          <ViewModeToggle />
         </div>
       </div>
 
@@ -113,10 +89,11 @@ export function PropertyGrid({
       ) : (
         /* Grade de Cards */
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {displayedProperties.map((property) => (
+          {displayedProperties.map((property, index) => (
             <PropertyCard
               key={property.id}
               property={property}
+              priority={index < 2}
               isFavorite={favorites.includes(property.id)}
               onToggleFavorite={toggleFavorite}
               onSelectProperty={onSelectProperty}

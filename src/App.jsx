@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { BuyerProfileProvider } from './context/BuyerProfileContext';
 import { PropertyProvider } from './context/PropertyContext';
 import { PublicPortalPage } from './portal/pages/PublicPortalPage';
-import { CrmModule } from './crm/CrmModule';
 import { LoginModal } from './crm/auth/LoginModal';
+import { registrarAcesso } from './services/acessoClient';
+
+// O CRM só é carregado quando alguém entra nele: a maioria dos visitantes nunca abre.
+const CrmModule = lazy(() => import('./crm/CrmModule').then(m => ({ default: m.CrmModule })));
 
 const AUTH_STORAGE_KEY = 'urban_real_state_auth_user_v3';
 const THEME_STORAGE_KEY = 'urban_real_state_theme_v3';
@@ -30,6 +33,11 @@ export function AppContent() {
       return false;
     }
   });
+
+  // Registra de qual estado (UF) veio o acesso; não faz nada se o servidor não ligou a flag
+  useEffect(() => {
+    registrarAcesso();
+  }, []);
 
   useEffect(() => {
     if (isDark) {
@@ -78,11 +86,13 @@ export function AppContent() {
           isDark={isDark}
         />
       ) : (
-        <CrmModule
-          currentUser={currentUser}
-          onLogout={handleLogout}
-          onBackToPortal={() => setCurrentView('portal')}
-        />
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-sm text-stone-500">Carregando painel…</div>}>
+          <CrmModule
+            currentUser={currentUser}
+            onLogout={handleLogout}
+            onBackToPortal={() => setCurrentView('portal')}
+          />
+        </Suspense>
       )}
 
       {/* Gate de Autenticação RBAC */}

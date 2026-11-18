@@ -15,7 +15,8 @@ export function PropertyCard({
   isFavorite = false,
   onToggleFavorite,
   onSelectProperty,
-  onAnalyzePrerequisites
+  onAnalyzePrerequisites,
+  priority = false // true nos primeiros cards: a foto vem primeiro (LCP), sem carregamento preguiçoso
 }) {
   const {
     id,
@@ -35,7 +36,8 @@ export function PropertyCard({
     sourceName
   } = property;
 
-  const coverImage = images?.hero || image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80';
+  // thumb: miniatura leve (WebP 640 px) quando existe; a foto grande só abre na ficha do imóvel
+  const coverImage = images?.thumb || images?.hero || image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80';
   const calculatedM2 = pricePerM2 || (area > 0 && price > 0 ? Math.round(price / area) : null);
 
   const formatSpecs = () => {
@@ -57,7 +59,8 @@ export function PropertyCard({
         <img
           src={coverImage}
           alt={title || 'Foto do imóvel'}
-          loading="lazy"
+          loading={priority ? 'eager' : 'lazy'}
+          fetchpriority={priority ? 'high' : undefined}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
           onError={(e) => {
             e.target.src = 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80';
@@ -131,9 +134,9 @@ export function PropertyCard({
           </p>
 
           {/* Título Resumido */}
-          <h3 className="text-xs font-medium text-stone-700 dark:text-stone-300 line-clamp-1 mb-3">
+          <h2 className="text-xs font-medium text-stone-700 dark:text-stone-300 line-clamp-1 mb-3">
             {title}
-          </h3>
+          </h2>
         </div>
 
         {/* Rodapé com Link Discreto de Pré-Requisitos (GAP-04.1 / Ref. UX Tópico 04) */}
@@ -150,7 +153,7 @@ export function PropertyCard({
           <button
             type="button"
             onClick={() => onSelectProperty(property)}
-            className="text-stone-400 hover:text-stone-700 dark:hover:text-stone-200"
+            className="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-200"
           >
             Ver detalhes
           </button>

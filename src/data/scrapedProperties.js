@@ -20,29 +20,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 22,
     "image": "/assets/imoveis/sao-paulo_casa_residencial_2906985267.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2906985267.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_casa_residencial_2906985267.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2906985267.jpg"
     },
     "description": "Excelente casa localizada no bairro Jardim Nossa Senhora do Carmo em São Paulo (SP). Imóvel completo com 217m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jardim Nossa Senhora do Carmo.",
-      "outdoor": "Quintal privativo de 217m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2907905684",
@@ -65,29 +46,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 7,
     "image": "/assets/imoveis/sao-paulo_casa_residencial_2907905684.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907905684.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_casa_residencial_2907905684.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907905684.jpg"
     },
     "description": "Excelente casa localizada no bairro Rio Pequeno em São Paulo (SP). Imóvel completo com 80m² de área útil, 2 dormitórios, 3 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Rio Pequeno.",
-      "outdoor": "Quintal privativo de 80m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2907857515",
@@ -110,29 +72,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 8,
     "image": "/assets/imoveis/sao-paulo_casa_residencial_2907857515.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907857515.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_casa_residencial_2907857515.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907857515.jpg"
     },
     "description": "Excelente casa localizada no bairro Vila Robertina em São Paulo (SP). Imóvel completo com 77m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Vila Robertina.",
-      "outdoor": "Quintal privativo de 77m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2907900250",
@@ -155,29 +98,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 13,
     "image": "/assets/imoveis/sao-paulo_casa_residencial_2907900250.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907900250.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_casa_residencial_2907900250.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907900250.jpg"
     },
     "description": "Excelente casa localizada no bairro Vila Matilde em São Paulo (SP). Imóvel completo com 91m² de área útil, 2 dormitórios, 1 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Vila Matilde.",
-      "outdoor": "Quintal privativo de 91m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2907709417",
@@ -200,29 +124,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 18,
     "image": "/assets/imoveis/sao-paulo_casa_residencial_2907709417.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907709417.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_casa_residencial_2907709417.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907709417.jpg"
     },
     "description": "Excelente casa localizada no bairro Jardim Pinheiros em São Paulo (SP). Imóvel completo com 125m² de área útil, 3 dormitórios, 4 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jardim Pinheiros.",
-      "outdoor": "Quintal privativo de 125m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2907810742",
@@ -245,29 +150,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 18,
     "image": "/assets/imoveis/sao-paulo_casa_residencial_2907810742.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907810742.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_casa_residencial_2907810742.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907810742.jpg"
     },
     "description": "Excelente casa localizada no bairro Jardim Colonial em São Paulo (SP). Imóvel completo com 160m² de área útil, 3 dormitórios, 1 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jardim Colonial.",
-      "outdoor": "Quintal privativo de 160m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2907810735",
@@ -290,29 +176,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 14,
     "image": "/assets/imoveis/sao-paulo_casa_residencial_2907810735.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907810735.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_casa_residencial_2907810735.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907810735.jpg"
     },
     "description": "Excelente casa localizada no bairro Jardim Edilene em São Paulo (SP). Imóvel completo com 77m² de área útil, 1 dormitórios, 2 banheiros e 6 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jardim Edilene.",
-      "outdoor": "Quintal privativo de 77m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2907812928",
@@ -335,29 +202,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 16,
     "image": "/assets/imoveis/sao-paulo_casa_residencial_2907812928.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907812928.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_casa_residencial_2907812928.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907812928.jpg"
     },
     "description": "Excelente casa localizada no bairro Jardim Angelina em São Paulo (SP). Imóvel completo com 80m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jardim Angelina.",
-      "outdoor": "Quintal privativo de 80m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2906790617",
@@ -380,29 +228,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 10,
     "image": "/assets/imoveis/sao-paulo_casa_residencial_2906790617.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2906790617.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_casa_residencial_2906790617.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2906790617.jpg"
     },
     "description": "Excelente casa localizada no bairro Vila Ema em São Paulo (SP). Imóvel completo com 200m² de área útil, 3 dormitórios, 3 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Vila Ema.",
-      "outdoor": "Quintal privativo de 200m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2907812939",
@@ -425,29 +254,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 11,
     "image": "/assets/imoveis/sao-paulo_casa_residencial_2907812939.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907812939.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_casa_residencial_2907812939.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907812939.jpg"
     },
     "description": "Excelente casa localizada no bairro Jardim Presidente em São Paulo (SP). Imóvel completo com 100m² de área útil, 3 dormitórios, 3 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jardim Presidente.",
-      "outdoor": "Quintal privativo de 100m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2749616125",
@@ -470,29 +280,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 3,
     "image": "/assets/imoveis/sao-paulo_casa_residencial_2749616125.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2749616125.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_casa_residencial_2749616125.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2749616125.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de São Paulo em São Paulo (SP). Imóvel completo com 145m² de área útil, 3 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de São Paulo.",
-      "outdoor": "Quintal privativo de 145m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2907578331",
@@ -515,29 +306,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 3,
     "image": "/assets/imoveis/sao-paulo_casa_residencial_2907578331.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907578331.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_casa_residencial_2907578331.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907578331.jpg"
     },
     "description": "Excelente casa localizada no bairro Jardim Felicidade (Zona Oeste) em São Paulo (SP). Imóvel completo com 163m² de área útil, 3 dormitórios, 3 banheiros e 4 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jardim Felicidade (Zona Oeste).",
-      "outdoor": "Quintal privativo de 163m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2908666755",
@@ -560,29 +332,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 4,
     "image": "/assets/imoveis/sao-paulo_casa_residencial_2908666755.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2908666755.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_casa_residencial_2908666755.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2908666755.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de São Paulo em São Paulo (SP). Imóvel completo com 245m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de São Paulo.",
-      "outdoor": "Quintal privativo de 245m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2907814713",
@@ -605,29 +358,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 13,
     "image": "/assets/imoveis/sao-paulo_casa_residencial_2907814713.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907814713.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_casa_residencial_2907814713.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2907814713.jpg"
     },
     "description": "Excelente casa localizada no bairro Jordanópolis em São Paulo (SP). Imóvel completo com 100m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jordanópolis.",
-      "outdoor": "Quintal privativo de 100m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2906777226",
@@ -650,29 +384,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 6,
     "image": "/assets/imoveis/sao-paulo_casa_residencial_2906777226.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2906777226.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_casa_residencial_2906777226.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_casa_residencial_2906777226.jpg"
     },
     "description": "Excelente casa localizada no bairro Parque Mandaqui em São Paulo (SP). Imóvel completo com 140m² de área útil, 3 dormitórios, 3 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Parque Mandaqui.",
-      "outdoor": "Quintal privativo de 140m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2908042745",
@@ -695,24 +410,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 12,
     "image": "/assets/imoveis/sao-paulo_apartamento_residencial_2908042745.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908042745.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_apartamento_residencial_2908042745.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908042745.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Jardim Prudência em São Paulo (SP). Imóvel completo com 45m² de área útil, 2 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2856535176",
@@ -735,24 +436,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 17,
     "image": "/assets/imoveis/sao-paulo_apartamento_residencial_2856535176.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2856535176.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_apartamento_residencial_2856535176.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2856535176.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Bela Vista em São Paulo (SP). Imóvel completo com 43m² de área útil, 1 dormitórios, 1 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2908182948",
@@ -775,24 +462,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 7,
     "image": "/assets/imoveis/sao-paulo_apartamento_residencial_2908182948.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908182948.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_apartamento_residencial_2908182948.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908182948.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Real Parque em São Paulo (SP). Imóvel completo com 44m² de área útil, 2 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2908049213",
@@ -815,24 +488,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 17,
     "image": "/assets/imoveis/sao-paulo_apartamento_residencial_2908049213.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908049213.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_apartamento_residencial_2908049213.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908049213.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Jardim Adhemar de Barros em São Paulo (SP). Imóvel completo com 42m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2908057222",
@@ -855,24 +514,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 10,
     "image": "/assets/imoveis/sao-paulo_apartamento_residencial_2908057222.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908057222.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_apartamento_residencial_2908057222.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908057222.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Parque Munhoz em São Paulo (SP). Imóvel completo com 59m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2908045739",
@@ -895,24 +540,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 4,
     "image": "/assets/imoveis/sao-paulo_apartamento_residencial_2908045739.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908045739.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_apartamento_residencial_2908045739.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908045739.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Parque Imperial em São Paulo (SP). Imóvel completo com 45m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2908043629",
@@ -935,24 +566,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 21,
     "image": "/assets/imoveis/sao-paulo_apartamento_residencial_2908043629.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908043629.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_apartamento_residencial_2908043629.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908043629.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Brás em São Paulo (SP). Imóvel completo com 48m² de área útil, 2 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2908054421",
@@ -975,24 +592,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 15,
     "image": "/assets/imoveis/sao-paulo_apartamento_residencial_2908054421.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908054421.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_apartamento_residencial_2908054421.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908054421.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Lapa de Baixo em São Paulo (SP). Imóvel completo com 42m² de área útil, 2 dormitórios, 1 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2852801744",
@@ -1015,24 +618,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 11,
     "image": "/assets/imoveis/sao-paulo_apartamento_residencial_2852801744.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2852801744.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_apartamento_residencial_2852801744.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2852801744.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Chácara Califórnia em São Paulo (SP). Imóvel completo com 69m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SP-2908184784",
@@ -1055,24 +644,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 12,
     "image": "/assets/imoveis/sao-paulo_apartamento_residencial_2908184784.jpg",
     "images": {
-      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908184784.jpg",
-      "kitchen": "/assets/imoveis/sao-paulo_apartamento_residencial_2908184784.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/sao-paulo_apartamento_residencial_2908184784.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Jardim Miriam em São Paulo (SP). Imóvel completo com 40m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2908174894",
@@ -1095,29 +670,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 4,
     "image": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908174894.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908174894.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908174894.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908174894.jpg"
     },
     "description": "Excelente casa localizada no bairro Senador Vasconcelos em Rio de Janeiro (RJ). Imóvel completo com 90m² de área útil, 3 dormitórios, 3 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Senador Vasconcelos.",
-      "outdoor": "Quintal privativo de 90m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2908872415",
@@ -1140,29 +696,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 6,
     "image": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908872415.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908872415.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908872415.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908872415.jpg"
     },
     "description": "Excelente casa localizada no bairro Piedade em Rio de Janeiro (RJ). Imóvel completo com 245m² de área útil, 3 dormitórios, 1 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Piedade.",
-      "outdoor": "Quintal privativo de 245m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2908211434",
@@ -1185,29 +722,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 22,
     "image": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908211434.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908211434.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908211434.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908211434.jpg"
     },
     "description": "Excelente casa localizada no bairro Realengo em Rio de Janeiro (RJ). Imóvel completo com 100m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Realengo.",
-      "outdoor": "Quintal privativo de 100m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2908015373",
@@ -1230,29 +748,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 19,
     "image": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908015373.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908015373.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908015373.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908015373.jpg"
     },
     "description": "Excelente casa localizada no bairro Campo Grande em Rio de Janeiro (RJ). Imóvel completo com 94m² de área útil, 2 dormitórios, 3 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Campo Grande.",
-      "outdoor": "Quintal privativo de 94m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2907960443",
@@ -1275,29 +774,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 6,
     "image": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907960443.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907960443.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907960443.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907960443.jpg"
     },
     "description": "Excelente casa localizada no bairro Sepetiba em Rio de Janeiro (RJ). Imóvel completo com 85m² de área útil, 2 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Sepetiba.",
-      "outdoor": "Quintal privativo de 85m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2908874216",
@@ -1320,29 +800,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908874216.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908874216.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908874216.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908874216.jpg"
     },
     "description": "Excelente casa localizada no bairro Quintino Bocaiúva em Rio de Janeiro (RJ). Imóvel completo com 600m² de área útil, 3 dormitórios, 3 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Quintino Bocaiúva.",
-      "outdoor": "Quintal privativo de 600m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2908873734",
@@ -1365,29 +826,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908873734.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908873734.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908873734.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908873734.jpg"
     },
     "description": "Excelente casa localizada no bairro Marechal Hermes em Rio de Janeiro (RJ). Imóvel completo com 92m² de área útil, 2 dormitórios, 3 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Marechal Hermes.",
-      "outdoor": "Quintal privativo de 92m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2908231656",
@@ -1410,29 +852,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 14,
     "image": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908231656.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908231656.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908231656.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908231656.jpg"
     },
     "description": "Excelente casa localizada no bairro Campo Grande em Rio de Janeiro (RJ). Imóvel completo com 85m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Campo Grande.",
-      "outdoor": "Quintal privativo de 85m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2907836421",
@@ -1455,29 +878,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 21,
     "image": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907836421.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907836421.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907836421.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907836421.jpg"
     },
     "description": "Excelente casa localizada no bairro Recreio dos Bandeirantes em Rio de Janeiro (RJ). Imóvel completo com 220m² de área útil, 4 dormitórios, 4 banheiros e 4 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Recreio dos Bandeirantes.",
-      "outdoor": "Quintal privativo de 220m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2908872234",
@@ -1500,29 +904,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 18,
     "image": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908872234.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908872234.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908872234.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908872234.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Rio de Janeiro em Rio de Janeiro (RJ). Imóvel completo com 115m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Rio de Janeiro.",
-      "outdoor": "Quintal privativo de 115m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2908009437",
@@ -1545,29 +930,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 20,
     "image": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908009437.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908009437.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908009437.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908009437.jpg"
     },
     "description": "Excelente casa localizada no bairro Pechincha em Rio de Janeiro (RJ). Imóvel completo com 140m² de área útil, 3 dormitórios, 3 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Pechincha.",
-      "outdoor": "Quintal privativo de 140m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2906902717",
@@ -1590,29 +956,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 7,
     "image": "/assets/imoveis/rio-de-janeiro_casa_residencial_2906902717.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2906902717.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_casa_residencial_2906902717.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2906902717.jpg"
     },
     "description": "Excelente casa localizada no bairro Santíssimo em Rio de Janeiro (RJ). Imóvel completo com 100m² de área útil, 2 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Santíssimo.",
-      "outdoor": "Quintal privativo de 100m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2908872722",
@@ -1635,29 +982,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 20,
     "image": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908872722.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908872722.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908872722.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2908872722.jpg"
     },
     "description": "Excelente casa localizada no bairro Engenho de Dentro em Rio de Janeiro (RJ). Imóvel completo com 220m² de área útil, 3 dormitórios, 4 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Engenho de Dentro.",
-      "outdoor": "Quintal privativo de 220m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2907904216",
@@ -1680,29 +1008,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 7,
     "image": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907904216.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907904216.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907904216.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907904216.jpg"
     },
     "description": "Excelente casa localizada no bairro Campo Grande em Rio de Janeiro (RJ). Imóvel completo com 90m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Campo Grande.",
-      "outdoor": "Quintal privativo de 90m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2907797237",
@@ -1725,29 +1034,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 17,
     "image": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907797237.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907797237.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907797237.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_casa_residencial_2907797237.jpg"
     },
     "description": "Excelente casa localizada no bairro Curicica em Rio de Janeiro (RJ). Imóvel completo com 120m² de área útil, 3 dormitórios, 3 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Curicica.",
-      "outdoor": "Quintal privativo de 120m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2908666762",
@@ -1770,24 +1060,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 22,
     "image": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908666762.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908666762.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908666762.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908666762.jpg"
     },
     "description": "Excelente cobertura localizada no bairro Taquara em Rio de Janeiro (RJ). Imóvel completo com 140m² de área útil, 2 dormitórios, 3 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2882553888",
@@ -1810,24 +1086,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 17,
     "image": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2882553888.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2882553888.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2882553888.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2882553888.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Barra Olímpica em Rio de Janeiro (RJ). Imóvel completo com 264m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2908013443",
@@ -1850,24 +1112,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 21,
     "image": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908013443.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908013443.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908013443.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908013443.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Campo Grande em Rio de Janeiro (RJ). Imóvel completo com 50m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2907989719",
@@ -1890,24 +1138,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 13,
     "image": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2907989719.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2907989719.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2907989719.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2907989719.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Santa Cruz em Rio de Janeiro (RJ). Imóvel completo com 50m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2908160420",
@@ -1930,24 +1164,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908160420.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908160420.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908160420.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908160420.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Bangu em Rio de Janeiro (RJ). Imóvel completo com 60m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2907847934",
@@ -1970,24 +1190,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 7,
     "image": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2907847934.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2907847934.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2907847934.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2907847934.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Madureira em Rio de Janeiro (RJ). Imóvel completo com 79m² de área útil, 2 dormitórios, 1 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2908504913",
@@ -2010,24 +1216,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 11,
     "image": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908504913.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908504913.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908504913.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908504913.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Pilares em Rio de Janeiro (RJ). Imóvel completo com 60m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2897498178",
@@ -2050,24 +1242,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 8,
     "image": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2897498178.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2897498178.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2897498178.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2897498178.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Jacarepaguá em Rio de Janeiro (RJ). Imóvel completo com 81m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2883025181",
@@ -2090,24 +1268,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 10,
     "image": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2883025181.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2883025181.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2883025181.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2883025181.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Botafogo em Rio de Janeiro (RJ). Imóvel completo com 99m² de área útil, 1 dormitórios, 1 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RJ-2908871924",
@@ -2130,24 +1294,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 16,
     "image": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908871924.jpg",
     "images": {
-      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908871924.jpg",
-      "kitchen": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908871924.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/rio-de-janeiro_apartamento_residencial_2908871924.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Méier em Rio de Janeiro (RJ). Imóvel completo com 74m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2782846725",
@@ -2170,29 +1320,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 12,
     "image": "/assets/imoveis/belo-horizonte_casa_residencial_2782846725.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2782846725.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_casa_residencial_2782846725.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2782846725.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Belo Horizonte em Belo Horizonte (MG). Imóvel completo com 115m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Belo Horizonte.",
-      "outdoor": "Quintal privativo de 115m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908151737",
@@ -2215,29 +1346,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 17,
     "image": "/assets/imoveis/belo-horizonte_casa_residencial_2908151737.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908151737.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_casa_residencial_2908151737.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908151737.jpg"
     },
     "description": "Excelente casa localizada no bairro Santa Terezinha em Belo Horizonte (MG). Imóvel completo com 80m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Santa Terezinha.",
-      "outdoor": "Quintal privativo de 80m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908061520",
@@ -2260,29 +1372,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 12,
     "image": "/assets/imoveis/belo-horizonte_casa_residencial_2908061520.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908061520.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_casa_residencial_2908061520.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908061520.jpg"
     },
     "description": "Excelente casa localizada no bairro Penha em Belo Horizonte (MG). Imóvel completo com 153m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Penha.",
-      "outdoor": "Quintal privativo de 153m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908056050",
@@ -2305,29 +1398,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 9,
     "image": "/assets/imoveis/belo-horizonte_casa_residencial_2908056050.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908056050.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_casa_residencial_2908056050.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908056050.jpg"
     },
     "description": "Excelente casa localizada no bairro Goiânia em Belo Horizonte (MG). Imóvel completo com 360m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Goiânia.",
-      "outdoor": "Quintal privativo de 360m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2907901863",
@@ -2350,29 +1424,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 21,
     "image": "/assets/imoveis/belo-horizonte_casa_residencial_2907901863.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2907901863.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_casa_residencial_2907901863.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2907901863.jpg"
     },
     "description": "Excelente casa localizada no bairro Itapoã em Belo Horizonte (MG). Imóvel completo com 200m² de área útil, 3 dormitórios, 3 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Itapoã.",
-      "outdoor": "Quintal privativo de 200m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2849269442",
@@ -2395,29 +1450,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 16,
     "image": "/assets/imoveis/belo-horizonte_casa_residencial_2849269442.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2849269442.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_casa_residencial_2849269442.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2849269442.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Belo Horizonte em Belo Horizonte (MG). Imóvel completo com 193m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Belo Horizonte.",
-      "outdoor": "Quintal privativo de 193m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2897929199",
@@ -2440,29 +1476,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 22,
     "image": "/assets/imoveis/belo-horizonte_casa_residencial_2897929199.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2897929199.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_casa_residencial_2897929199.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2897929199.jpg"
     },
     "description": "Excelente casa localizada no bairro Santa Mônica em Belo Horizonte (MG). Imóvel completo com 122m² de área útil, 2 dormitórios, 1 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Santa Mônica.",
-      "outdoor": "Quintal privativo de 122m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908125917",
@@ -2485,29 +1502,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 10,
     "image": "/assets/imoveis/belo-horizonte_casa_residencial_2908125917.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908125917.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_casa_residencial_2908125917.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908125917.jpg"
     },
     "description": "Excelente casa localizada no bairro Jardim Alvorada em Belo Horizonte (MG). Imóvel completo com 360m² de área útil, 5 dormitórios, 4 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jardim Alvorada.",
-      "outdoor": "Quintal privativo de 360m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908058836",
@@ -2530,29 +1528,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/belo-horizonte_casa_residencial_2908058836.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908058836.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_casa_residencial_2908058836.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908058836.jpg"
     },
     "description": "Excelente casa localizada no bairro São Gabriel em Belo Horizonte (MG). Imóvel completo com 223m² de área útil, 4 dormitórios, 4 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em São Gabriel.",
-      "outdoor": "Quintal privativo de 223m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908060251",
@@ -2575,29 +1554,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 7,
     "image": "/assets/imoveis/belo-horizonte_casa_residencial_2908060251.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908060251.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_casa_residencial_2908060251.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908060251.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Belo Horizonte em Belo Horizonte (MG). Imóvel completo com 296m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Belo Horizonte.",
-      "outdoor": "Quintal privativo de 296m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908021549",
@@ -2620,29 +1580,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 7,
     "image": "/assets/imoveis/belo-horizonte_casa_residencial_2908021549.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908021549.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_casa_residencial_2908021549.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908021549.jpg"
     },
     "description": "Excelente casa localizada no bairro São Salvador em Belo Horizonte (MG). Imóvel completo com 130m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em São Salvador.",
-      "outdoor": "Quintal privativo de 130m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908131264",
@@ -2665,29 +1606,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 6,
     "image": "/assets/imoveis/belo-horizonte_casa_residencial_2908131264.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908131264.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_casa_residencial_2908131264.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908131264.jpg"
     },
     "description": "Excelente casa localizada no bairro Canaã em Belo Horizonte (MG). Imóvel completo com 92m² de área útil, 3 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Canaã.",
-      "outdoor": "Quintal privativo de 92m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908061363",
@@ -2710,29 +1632,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 15,
     "image": "/assets/imoveis/belo-horizonte_casa_residencial_2908061363.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908061363.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_casa_residencial_2908061363.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908061363.jpg"
     },
     "description": "Excelente casa localizada no bairro Dom Joaquim em Belo Horizonte (MG). Imóvel completo com 360m² de área útil, 3 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Dom Joaquim.",
-      "outdoor": "Quintal privativo de 360m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908060563",
@@ -2755,29 +1658,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 15,
     "image": "/assets/imoveis/belo-horizonte_casa_residencial_2908060563.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908060563.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_casa_residencial_2908060563.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908060563.jpg"
     },
     "description": "Excelente casa localizada no bairro Renascença em Belo Horizonte (MG). Imóvel completo com 300m² de área útil, 3 dormitórios, 2 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Renascença.",
-      "outdoor": "Quintal privativo de 300m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908058858",
@@ -2800,29 +1684,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 17,
     "image": "/assets/imoveis/belo-horizonte_casa_residencial_2908058858.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908058858.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_casa_residencial_2908058858.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_casa_residencial_2908058858.jpg"
     },
     "description": "Excelente casa localizada no bairro Pompéia em Belo Horizonte (MG). Imóvel completo com 120m² de área útil, 3 dormitórios, 2 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Pompéia.",
-      "outdoor": "Quintal privativo de 120m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908061917",
@@ -2845,24 +1710,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 14,
     "image": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908061917.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908061917.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908061917.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908061917.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Esplanada em Belo Horizonte (MG). Imóvel completo com 89m² de área útil, 3 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2852717862",
@@ -2885,24 +1736,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 12,
     "image": "/assets/imoveis/belo-horizonte_apartamento_residencial_2852717862.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2852717862.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_apartamento_residencial_2852717862.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2852717862.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Califórnia em Belo Horizonte (MG). Imóvel completo com 198m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908100232",
@@ -2925,24 +1762,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 4,
     "image": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908100232.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908100232.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908100232.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908100232.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Buritis em Belo Horizonte (MG). Imóvel completo com 98m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2898611657",
@@ -2965,24 +1788,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 21,
     "image": "/assets/imoveis/belo-horizonte_apartamento_residencial_2898611657.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2898611657.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_apartamento_residencial_2898611657.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2898611657.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Camargos em Belo Horizonte (MG). Imóvel completo com 48m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2904183848",
@@ -3005,24 +1814,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 6,
     "image": "/assets/imoveis/belo-horizonte_apartamento_residencial_2904183848.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2904183848.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_apartamento_residencial_2904183848.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2904183848.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Cidade Nova em Belo Horizonte (MG). Imóvel completo com 117m² de área útil, 3 dormitórios, 3 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908453545",
@@ -3045,24 +1840,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 18,
     "image": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908453545.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908453545.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908453545.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908453545.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Coração de Jesus em Belo Horizonte (MG). Imóvel completo com 70m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908101215",
@@ -3085,24 +1866,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 9,
     "image": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908101215.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908101215.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908101215.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908101215.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Havaí em Belo Horizonte (MG). Imóvel completo com 55m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2908161761",
@@ -3125,24 +1892,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 13,
     "image": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908161761.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908161761.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908161761.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2908161761.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Cardoso (Barreiro) em Belo Horizonte (MG). Imóvel completo com 77m² de área útil, 3 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2872134874",
@@ -3165,24 +1918,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 3,
     "image": "/assets/imoveis/belo-horizonte_apartamento_residencial_2872134874.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2872134874.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_apartamento_residencial_2872134874.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2872134874.jpg"
     },
     "description": "Excelente apartamento localizada no bairro São Luiz em Belo Horizonte (MG). Imóvel completo com 124m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-MG-2907728520",
@@ -3205,24 +1944,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 15,
     "image": "/assets/imoveis/belo-horizonte_apartamento_residencial_2907728520.jpg",
     "images": {
-      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2907728520.jpg",
-      "kitchen": "/assets/imoveis/belo-horizonte_apartamento_residencial_2907728520.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/belo-horizonte_apartamento_residencial_2907728520.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Lourdes em Belo Horizonte (MG). Imóvel completo com 85m² de área útil, 2 dormitórios, 3 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2908800921",
@@ -3245,29 +1970,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 9,
     "image": "/assets/imoveis/vitoria_casa_residencial_2908800921.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_casa_residencial_2908800921.jpg",
-      "kitchen": "/assets/imoveis/vitoria_casa_residencial_2908800921.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_casa_residencial_2908800921.jpg"
     },
     "description": "Excelente casa localizada no bairro Centro em Vitória (ES). Imóvel completo com 400m² de área útil, 5 dormitórios, 4 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Centro.",
-      "outdoor": "Quintal privativo de 400m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2908036328",
@@ -3290,29 +1996,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 8,
     "image": "/assets/imoveis/vitoria_casa_residencial_2908036328.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_casa_residencial_2908036328.jpg",
-      "kitchen": "/assets/imoveis/vitoria_casa_residencial_2908036328.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_casa_residencial_2908036328.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Vitória em Vitória (ES). Imóvel completo com 115m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Vitória.",
-      "outdoor": "Quintal privativo de 115m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2901487414",
@@ -3335,29 +2022,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 21,
     "image": "/assets/imoveis/vitoria_casa_residencial_2901487414.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_casa_residencial_2901487414.jpg",
-      "kitchen": "/assets/imoveis/vitoria_casa_residencial_2901487414.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_casa_residencial_2901487414.jpg"
     },
     "description": "Excelente casa localizada no bairro Jardim Camburi em Vitória (ES). Imóvel completo com 180m² de área útil, 3 dormitórios, 3 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jardim Camburi.",
-      "outdoor": "Quintal privativo de 180m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2903768702",
@@ -3380,29 +2048,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/vitoria_casa_residencial_2903768702.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_casa_residencial_2903768702.jpg",
-      "kitchen": "/assets/imoveis/vitoria_casa_residencial_2903768702.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_casa_residencial_2903768702.jpg"
     },
     "description": "Excelente casa localizada no bairro Jardim Camburi em Vitória (ES). Imóvel completo com 110m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jardim Camburi.",
-      "outdoor": "Quintal privativo de 110m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2857503867",
@@ -3425,29 +2074,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/vitoria_casa_residencial_2857503867.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_casa_residencial_2857503867.jpg",
-      "kitchen": "/assets/imoveis/vitoria_casa_residencial_2857503867.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_casa_residencial_2857503867.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Vitória em Vitória (ES). Imóvel completo com 115m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Vitória.",
-      "outdoor": "Quintal privativo de 115m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2908631329",
@@ -3470,29 +2100,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 17,
     "image": "/assets/imoveis/vitoria_casa_residencial_2908631329.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_casa_residencial_2908631329.jpg",
-      "kitchen": "/assets/imoveis/vitoria_casa_residencial_2908631329.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_casa_residencial_2908631329.jpg"
     },
     "description": "Excelente casa localizada no bairro Jardim Camburi em Vitória (ES). Imóvel completo com 200m² de área útil, 4 dormitórios, 5 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jardim Camburi.",
-      "outdoor": "Quintal privativo de 200m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2902137221",
@@ -3515,29 +2126,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 19,
     "image": "/assets/imoveis/vitoria_casa_residencial_2902137221.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_casa_residencial_2902137221.jpg",
-      "kitchen": "/assets/imoveis/vitoria_casa_residencial_2902137221.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_casa_residencial_2902137221.jpg"
     },
     "description": "Excelente casa localizada no bairro Centro em Vitória (ES). Imóvel completo com 137m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Centro.",
-      "outdoor": "Quintal privativo de 137m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2905480526",
@@ -3560,29 +2152,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 20,
     "image": "/assets/imoveis/vitoria_casa_residencial_2905480526.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_casa_residencial_2905480526.jpg",
-      "kitchen": "/assets/imoveis/vitoria_casa_residencial_2905480526.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_casa_residencial_2905480526.jpg"
     },
     "description": "Excelente casa localizada no bairro Jucutuquara em Vitória (ES). Imóvel completo com 350m² de área útil, 4 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jucutuquara.",
-      "outdoor": "Quintal privativo de 350m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2800725041",
@@ -3605,29 +2178,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 19,
     "image": "/assets/imoveis/vitoria_casa_residencial_2800725041.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_casa_residencial_2800725041.jpg",
-      "kitchen": "/assets/imoveis/vitoria_casa_residencial_2800725041.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_casa_residencial_2800725041.jpg"
     },
     "description": "Excelente casa localizada no bairro Bento Ferreira em Vitória (ES). Imóvel completo com 518m² de área útil, 4 dormitórios, 3 banheiros e 7 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bento Ferreira.",
-      "outdoor": "Quintal privativo de 518m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2874933606",
@@ -3650,29 +2204,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 18,
     "image": "/assets/imoveis/vitoria_casa_residencial_2874933606.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_casa_residencial_2874933606.jpg",
-      "kitchen": "/assets/imoveis/vitoria_casa_residencial_2874933606.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_casa_residencial_2874933606.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Vitória em Vitória (ES). Imóvel completo com 115m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Vitória.",
-      "outdoor": "Quintal privativo de 115m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2736288013",
@@ -3695,29 +2230,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 14,
     "image": "/assets/imoveis/vitoria_casa_residencial_2736288013.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_casa_residencial_2736288013.jpg",
-      "kitchen": "/assets/imoveis/vitoria_casa_residencial_2736288013.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_casa_residencial_2736288013.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Vitória em Vitória (ES). Imóvel completo com 115m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Vitória.",
-      "outdoor": "Quintal privativo de 115m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2907385145",
@@ -3740,29 +2256,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 19,
     "image": "/assets/imoveis/vitoria_casa_residencial_2907385145.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_casa_residencial_2907385145.jpg",
-      "kitchen": "/assets/imoveis/vitoria_casa_residencial_2907385145.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_casa_residencial_2907385145.jpg"
     },
     "description": "Excelente casa localizada no bairro Itararé em Vitória (ES). Imóvel completo com 390m² de área útil, 4 dormitórios, 5 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Itararé.",
-      "outdoor": "Quintal privativo de 390m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2901122696",
@@ -3785,29 +2282,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 4,
     "image": "/assets/imoveis/vitoria_casa_residencial_2901122696.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_casa_residencial_2901122696.jpg",
-      "kitchen": "/assets/imoveis/vitoria_casa_residencial_2901122696.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_casa_residencial_2901122696.jpg"
     },
     "description": "Excelente casa localizada no bairro República em Vitória (ES). Imóvel completo com 217m² de área útil, 4 dormitórios, 2 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em República.",
-      "outdoor": "Quintal privativo de 217m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2872058671",
@@ -3830,29 +2308,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 16,
     "image": "/assets/imoveis/vitoria_casa_residencial_2872058671.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_casa_residencial_2872058671.jpg",
-      "kitchen": "/assets/imoveis/vitoria_casa_residencial_2872058671.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_casa_residencial_2872058671.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Vitória em Vitória (ES). Imóvel completo com 115m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Vitória.",
-      "outdoor": "Quintal privativo de 115m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2908186336",
@@ -3875,29 +2334,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/vitoria_casa_residencial_2908186336.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_casa_residencial_2908186336.jpg",
-      "kitchen": "/assets/imoveis/vitoria_casa_residencial_2908186336.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_casa_residencial_2908186336.jpg"
     },
     "description": "Excelente casa localizada no bairro Jardim Camburi em Vitória (ES). Imóvel completo com 170m² de área útil, 3 dormitórios, 3 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jardim Camburi.",
-      "outdoor": "Quintal privativo de 170m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2907856219",
@@ -3920,24 +2360,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 21,
     "image": "/assets/imoveis/vitoria_apartamento_residencial_2907856219.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2907856219.jpg",
-      "kitchen": "/assets/imoveis/vitoria_apartamento_residencial_2907856219.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2907856219.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Jardim Camburi em Vitória (ES). Imóvel completo com 66m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2908193123",
@@ -3960,24 +2386,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/vitoria_apartamento_residencial_2908193123.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2908193123.jpg",
-      "kitchen": "/assets/imoveis/vitoria_apartamento_residencial_2908193123.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2908193123.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Santa Lúcia em Vitória (ES). Imóvel completo com 106m² de área útil, 3 dormitórios, 3 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2908224919",
@@ -4000,24 +2412,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 7,
     "image": "/assets/imoveis/vitoria_apartamento_residencial_2908224919.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2908224919.jpg",
-      "kitchen": "/assets/imoveis/vitoria_apartamento_residencial_2908224919.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2908224919.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Bento Ferreira em Vitória (ES). Imóvel completo com 105m² de área útil, 2 dormitórios, 3 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2901647609",
@@ -4040,24 +2438,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 12,
     "image": "/assets/imoveis/vitoria_apartamento_residencial_2901647609.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2901647609.jpg",
-      "kitchen": "/assets/imoveis/vitoria_apartamento_residencial_2901647609.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2901647609.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Jardim da Penha em Vitória (ES). Imóvel completo com 68m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2907951214",
@@ -4080,24 +2464,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 18,
     "image": "/assets/imoveis/vitoria_apartamento_residencial_2907951214.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2907951214.jpg",
-      "kitchen": "/assets/imoveis/vitoria_apartamento_residencial_2907951214.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2907951214.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Enseada do Suá em Vitória (ES). Imóvel completo com 108m² de área útil, 3 dormitórios, 3 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2908140821",
@@ -4120,24 +2490,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 21,
     "image": "/assets/imoveis/vitoria_apartamento_residencial_2908140821.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2908140821.jpg",
-      "kitchen": "/assets/imoveis/vitoria_apartamento_residencial_2908140821.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2908140821.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Praia do Canto em Vitória (ES). Imóvel completo com 75m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2826653775",
@@ -4160,24 +2516,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 12,
     "image": "/assets/imoveis/vitoria_apartamento_residencial_2826653775.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2826653775.jpg",
-      "kitchen": "/assets/imoveis/vitoria_apartamento_residencial_2826653775.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2826653775.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Mata da Praia em Vitória (ES). Imóvel completo com 150m² de área útil, 4 dormitórios, 5 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2907350723",
@@ -4200,24 +2542,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 7,
     "image": "/assets/imoveis/vitoria_apartamento_residencial_2907350723.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2907350723.jpg",
-      "kitchen": "/assets/imoveis/vitoria_apartamento_residencial_2907350723.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2907350723.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Jardim Camburi em Vitória (ES). Imóvel completo com 112m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2907668642",
@@ -4240,24 +2568,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 8,
     "image": "/assets/imoveis/vitoria_apartamento_residencial_2907668642.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2907668642.jpg",
-      "kitchen": "/assets/imoveis/vitoria_apartamento_residencial_2907668642.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2907668642.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Barro Vermelho em Vitória (ES). Imóvel completo com 99m² de área útil, 2 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-ES-2766149019",
@@ -4280,24 +2594,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 6,
     "image": "/assets/imoveis/vitoria_apartamento_residencial_2766149019.jpg",
     "images": {
-      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2766149019.jpg",
-      "kitchen": "/assets/imoveis/vitoria_apartamento_residencial_2766149019.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/vitoria_apartamento_residencial_2766149019.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Jardim Camburi em Vitória (ES). Imóvel completo com 95m² de área útil, 3 dormitórios, 3 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2908006638",
@@ -4320,29 +2620,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 3,
     "image": "/assets/imoveis/curitiba_casa_residencial_2908006638.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_casa_residencial_2908006638.jpg",
-      "kitchen": "/assets/imoveis/curitiba_casa_residencial_2908006638.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_casa_residencial_2908006638.jpg"
     },
     "description": "Excelente casa localizada no bairro Lindóia em Curitiba (PR). Imóvel completo com 98m² de área útil, 3 dormitórios, 1 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Lindóia.",
-      "outdoor": "Quintal privativo de 98m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2893070630",
@@ -4365,29 +2646,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 7,
     "image": "/assets/imoveis/curitiba_casa_residencial_2893070630.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_casa_residencial_2893070630.jpg",
-      "kitchen": "/assets/imoveis/curitiba_casa_residencial_2893070630.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_casa_residencial_2893070630.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Curitiba em Curitiba (PR). Imóvel completo com 115m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Curitiba.",
-      "outdoor": "Quintal privativo de 115m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2908092342",
@@ -4410,29 +2672,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 4,
     "image": "/assets/imoveis/curitiba_casa_residencial_2908092342.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_casa_residencial_2908092342.jpg",
-      "kitchen": "/assets/imoveis/curitiba_casa_residencial_2908092342.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_casa_residencial_2908092342.jpg"
     },
     "description": "Excelente casa localizada no bairro Cidade Industrial em Curitiba (PR). Imóvel completo com 76m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Cidade Industrial.",
-      "outdoor": "Quintal privativo de 76m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2907746529",
@@ -4455,29 +2698,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 9,
     "image": "/assets/imoveis/curitiba_casa_residencial_2907746529.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_casa_residencial_2907746529.jpg",
-      "kitchen": "/assets/imoveis/curitiba_casa_residencial_2907746529.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_casa_residencial_2907746529.jpg"
     },
     "description": "Excelente casa localizada no bairro Sítio Cercado em Curitiba (PR). Imóvel completo com 96m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Sítio Cercado.",
-      "outdoor": "Quintal privativo de 96m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2907778574",
@@ -4500,29 +2724,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 22,
     "image": "/assets/imoveis/curitiba_casa_residencial_2907778574.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_casa_residencial_2907778574.jpg",
-      "kitchen": "/assets/imoveis/curitiba_casa_residencial_2907778574.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_casa_residencial_2907778574.jpg"
     },
     "description": "Excelente casa localizada no bairro Cidade Industrial em Curitiba (PR). Imóvel completo com 89m² de área útil, 2 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Cidade Industrial.",
-      "outdoor": "Quintal privativo de 89m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2908225824",
@@ -4545,29 +2750,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 19,
     "image": "/assets/imoveis/curitiba_casa_residencial_2908225824.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_casa_residencial_2908225824.jpg",
-      "kitchen": "/assets/imoveis/curitiba_casa_residencial_2908225824.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_casa_residencial_2908225824.jpg"
     },
     "description": "Excelente casa localizada no bairro Parolin em Curitiba (PR). Imóvel completo com 150m² de área útil, 3 dormitórios, 3 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Parolin.",
-      "outdoor": "Quintal privativo de 150m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2907581324",
@@ -4590,29 +2776,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 17,
     "image": "/assets/imoveis/curitiba_casa_residencial_2907581324.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_casa_residencial_2907581324.jpg",
-      "kitchen": "/assets/imoveis/curitiba_casa_residencial_2907581324.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_casa_residencial_2907581324.jpg"
     },
     "description": "Excelente casa localizada no bairro Sítio Cercado em Curitiba (PR). Imóvel completo com 69m² de área útil, 2 dormitórios, 2 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Sítio Cercado.",
-      "outdoor": "Quintal privativo de 69m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2907918225",
@@ -4635,29 +2802,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 20,
     "image": "/assets/imoveis/curitiba_casa_residencial_2907918225.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_casa_residencial_2907918225.jpg",
-      "kitchen": "/assets/imoveis/curitiba_casa_residencial_2907918225.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_casa_residencial_2907918225.jpg"
     },
     "description": "Excelente casa localizada no bairro Cajuru em Curitiba (PR). Imóvel completo com 165m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Cajuru.",
-      "outdoor": "Quintal privativo de 165m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2908223560",
@@ -4680,29 +2828,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 16,
     "image": "/assets/imoveis/curitiba_casa_residencial_2908223560.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_casa_residencial_2908223560.jpg",
-      "kitchen": "/assets/imoveis/curitiba_casa_residencial_2908223560.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_casa_residencial_2908223560.jpg"
     },
     "description": "Excelente casa localizada no bairro Sítio Cercado em Curitiba (PR). Imóvel completo com 116m² de área útil, 3 dormitórios, 3 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Sítio Cercado.",
-      "outdoor": "Quintal privativo de 116m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2907903051",
@@ -4725,29 +2854,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/curitiba_casa_residencial_2907903051.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_casa_residencial_2907903051.jpg",
-      "kitchen": "/assets/imoveis/curitiba_casa_residencial_2907903051.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_casa_residencial_2907903051.jpg"
     },
     "description": "Excelente casa localizada no bairro Tatuquara em Curitiba (PR). Imóvel completo com 45m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Tatuquara.",
-      "outdoor": "Quintal privativo de 45m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2868587406",
@@ -4770,29 +2880,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 7,
     "image": "/assets/imoveis/curitiba_casa_residencial_2868587406.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_casa_residencial_2868587406.jpg",
-      "kitchen": "/assets/imoveis/curitiba_casa_residencial_2868587406.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_casa_residencial_2868587406.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Curitiba em Curitiba (PR). Imóvel completo com 93m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Curitiba.",
-      "outdoor": "Quintal privativo de 93m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2907011040",
@@ -4815,29 +2906,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 14,
     "image": "/assets/imoveis/curitiba_casa_residencial_2907011040.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_casa_residencial_2907011040.jpg",
-      "kitchen": "/assets/imoveis/curitiba_casa_residencial_2907011040.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_casa_residencial_2907011040.jpg"
     },
     "description": "Excelente casa localizada no bairro Cidade Industrial em Curitiba (PR). Imóvel completo com 130m² de área útil, 4 dormitórios, 3 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Cidade Industrial.",
-      "outdoor": "Quintal privativo de 130m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2907709642",
@@ -4860,29 +2932,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 15,
     "image": "/assets/imoveis/curitiba_casa_residencial_2907709642.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_casa_residencial_2907709642.jpg",
-      "kitchen": "/assets/imoveis/curitiba_casa_residencial_2907709642.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_casa_residencial_2907709642.jpg"
     },
     "description": "Excelente casa localizada no bairro Lindóia em Curitiba (PR). Imóvel completo com 86m² de área útil, 3 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Lindóia.",
-      "outdoor": "Quintal privativo de 86m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2907556036",
@@ -4905,29 +2958,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 20,
     "image": "/assets/imoveis/curitiba_casa_residencial_2907556036.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_casa_residencial_2907556036.jpg",
-      "kitchen": "/assets/imoveis/curitiba_casa_residencial_2907556036.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_casa_residencial_2907556036.jpg"
     },
     "description": "Excelente casa localizada no bairro Pilarzinho em Curitiba (PR). Imóvel completo com 99m² de área útil, 3 dormitórios, 2 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Pilarzinho.",
-      "outdoor": "Quintal privativo de 99m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2907919522",
@@ -4950,29 +2984,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 10,
     "image": "/assets/imoveis/curitiba_casa_residencial_2907919522.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_casa_residencial_2907919522.jpg",
-      "kitchen": "/assets/imoveis/curitiba_casa_residencial_2907919522.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_casa_residencial_2907919522.jpg"
     },
     "description": "Excelente casa localizada no bairro Umbará em Curitiba (PR). Imóvel completo com 110m² de área útil, 3 dormitórios, 4 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Umbará.",
-      "outdoor": "Quintal privativo de 110m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2907996992",
@@ -4995,24 +3010,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 14,
     "image": "/assets/imoveis/curitiba_apartamento_residencial_2907996992.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2907996992.jpg",
-      "kitchen": "/assets/imoveis/curitiba_apartamento_residencial_2907996992.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2907996992.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Bacacheri em Curitiba (PR). Imóvel completo com 64m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2906972239",
@@ -5035,24 +3036,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 18,
     "image": "/assets/imoveis/curitiba_apartamento_residencial_2906972239.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2906972239.jpg",
-      "kitchen": "/assets/imoveis/curitiba_apartamento_residencial_2906972239.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2906972239.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Guaíra em Curitiba (PR). Imóvel completo com 43m² de área útil, 1 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2876431479",
@@ -5075,24 +3062,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 4,
     "image": "/assets/imoveis/curitiba_apartamento_residencial_2876431479.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2876431479.jpg",
-      "kitchen": "/assets/imoveis/curitiba_apartamento_residencial_2876431479.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2876431479.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Novo Mundo em Curitiba (PR). Imóvel completo com 64m² de área útil, 3 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2908201879",
@@ -5115,24 +3088,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 21,
     "image": "/assets/imoveis/curitiba_apartamento_residencial_2908201879.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2908201879.jpg",
-      "kitchen": "/assets/imoveis/curitiba_apartamento_residencial_2908201879.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2908201879.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Hauer em Curitiba (PR). Imóvel completo com 51m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2908095366",
@@ -5155,24 +3114,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 17,
     "image": "/assets/imoveis/curitiba_apartamento_residencial_2908095366.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2908095366.jpg",
-      "kitchen": "/assets/imoveis/curitiba_apartamento_residencial_2908095366.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2908095366.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Mercês em Curitiba (PR). Imóvel completo com 52m² de área útil, 1 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2908092129",
@@ -5195,24 +3140,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/curitiba_apartamento_residencial_2908092129.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2908092129.jpg",
-      "kitchen": "/assets/imoveis/curitiba_apartamento_residencial_2908092129.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2908092129.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Cidade Industrial em Curitiba (PR). Imóvel completo com 73m² de área útil, 3 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2907707619",
@@ -5235,24 +3166,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 18,
     "image": "/assets/imoveis/curitiba_apartamento_residencial_2907707619.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2907707619.jpg",
-      "kitchen": "/assets/imoveis/curitiba_apartamento_residencial_2907707619.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2907707619.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Água Verde em Curitiba (PR). Imóvel completo com 56m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2908201198",
@@ -5275,24 +3192,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 11,
     "image": "/assets/imoveis/curitiba_apartamento_residencial_2908201198.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2908201198.jpg",
-      "kitchen": "/assets/imoveis/curitiba_apartamento_residencial_2908201198.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2908201198.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Santa Cândida em Curitiba (PR). Imóvel completo com 45m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2847492032",
@@ -5315,24 +3218,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 18,
     "image": "/assets/imoveis/curitiba_apartamento_residencial_2847492032.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2847492032.jpg",
-      "kitchen": "/assets/imoveis/curitiba_apartamento_residencial_2847492032.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2847492032.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Batel em Curitiba (PR). Imóvel completo com 199m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-PR-2907749145",
@@ -5355,24 +3244,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/curitiba_apartamento_residencial_2907749145.jpg",
     "images": {
-      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2907749145.jpg",
-      "kitchen": "/assets/imoveis/curitiba_apartamento_residencial_2907749145.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/curitiba_apartamento_residencial_2907749145.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Xaxim em Curitiba (PR). Imóvel completo com 75m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2907961552",
@@ -5395,29 +3270,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/florianopolis_casa_residencial_2907961552.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_casa_residencial_2907961552.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_casa_residencial_2907961552.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_casa_residencial_2907961552.jpg"
     },
     "description": "Excelente casa localizada no bairro São João do Rio Vermelho em Florianópolis (SC). Imóvel completo com 50m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em São João do Rio Vermelho.",
-      "outdoor": "Quintal privativo de 50m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2908080970",
@@ -5440,29 +3296,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 6,
     "image": "/assets/imoveis/florianopolis_casa_residencial_2908080970.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_casa_residencial_2908080970.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_casa_residencial_2908080970.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_casa_residencial_2908080970.jpg"
     },
     "description": "Excelente casa localizada no bairro São João do Rio Vermelho em Florianópolis (SC). Imóvel completo com 75m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em São João do Rio Vermelho.",
-      "outdoor": "Quintal privativo de 75m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2907960322",
@@ -5485,29 +3322,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/florianopolis_casa_residencial_2907960322.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_casa_residencial_2907960322.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_casa_residencial_2907960322.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_casa_residencial_2907960322.jpg"
     },
     "description": "Excelente casa localizada no bairro Santo Antônio de Lisboa em Florianópolis (SC). Imóvel completo com 55m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Santo Antônio de Lisboa.",
-      "outdoor": "Quintal privativo de 55m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2908019832",
@@ -5530,29 +3348,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 16,
     "image": "/assets/imoveis/florianopolis_casa_residencial_2908019832.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_casa_residencial_2908019832.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_casa_residencial_2908019832.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_casa_residencial_2908019832.jpg"
     },
     "description": "Excelente casa localizada no bairro Ingleses do Rio Vermelho em Florianópolis (SC). Imóvel completo com 168m² de área útil, 4 dormitórios, 5 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Ingleses do Rio Vermelho.",
-      "outdoor": "Quintal privativo de 168m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2908363217",
@@ -5575,29 +3374,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 14,
     "image": "/assets/imoveis/florianopolis_casa_residencial_2908363217.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_casa_residencial_2908363217.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_casa_residencial_2908363217.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_casa_residencial_2908363217.jpg"
     },
     "description": "Excelente casa localizada no bairro Ingleses do Rio Vermelho em Florianópolis (SC). Imóvel completo com 85m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Ingleses do Rio Vermelho.",
-      "outdoor": "Quintal privativo de 85m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2905157025",
@@ -5620,29 +3400,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 21,
     "image": "/assets/imoveis/florianopolis_casa_residencial_2905157025.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_casa_residencial_2905157025.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_casa_residencial_2905157025.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_casa_residencial_2905157025.jpg"
     },
     "description": "Excelente casa localizada no bairro Jurerê Internacional em Florianópolis (SC). Imóvel completo com 470m² de área útil, 4 dormitórios, 6 banheiros e 4 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jurerê Internacional.",
-      "outdoor": "Quintal privativo de 470m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2907960321",
@@ -5665,29 +3426,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 7,
     "image": "/assets/imoveis/florianopolis_casa_residencial_2907960321.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_casa_residencial_2907960321.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_casa_residencial_2907960321.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_casa_residencial_2907960321.jpg"
     },
     "description": "Excelente casa localizada no bairro Santo Antônio de Lisboa em Florianópolis (SC). Imóvel completo com 100m² de área útil, 2 dormitórios, 1 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Santo Antônio de Lisboa.",
-      "outdoor": "Quintal privativo de 100m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2778890215",
@@ -5710,29 +3452,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 16,
     "image": "/assets/imoveis/florianopolis_casa_residencial_2778890215.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_casa_residencial_2778890215.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_casa_residencial_2778890215.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_casa_residencial_2778890215.jpg"
     },
     "description": "Excelente casa localizada no bairro Jurerê em Florianópolis (SC). Imóvel completo com 536m² de área útil, 5 dormitórios, 7 banheiros e 4 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Jurerê.",
-      "outdoor": "Quintal privativo de 536m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2907749343",
@@ -5755,29 +3478,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/florianopolis_casa_residencial_2907749343.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_casa_residencial_2907749343.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_casa_residencial_2907749343.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_casa_residencial_2907749343.jpg"
     },
     "description": "Excelente casa localizada no bairro Campeche em Florianópolis (SC). Imóvel completo com 120m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Campeche.",
-      "outdoor": "Quintal privativo de 120m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2885725388",
@@ -5800,29 +3504,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 7,
     "image": "/assets/imoveis/florianopolis_casa_residencial_2885725388.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_casa_residencial_2885725388.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_casa_residencial_2885725388.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_casa_residencial_2885725388.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Florianópolis em Florianópolis (SC). Imóvel completo com 115m² de área útil, 3 dormitórios, 4 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Florianópolis.",
-      "outdoor": "Quintal privativo de 115m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2876065480",
@@ -5845,29 +3530,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 6,
     "image": "/assets/imoveis/florianopolis_casa_residencial_2876065480.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_casa_residencial_2876065480.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_casa_residencial_2876065480.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_casa_residencial_2876065480.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Florianópolis em Florianópolis (SC). Imóvel completo com 150m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Florianópolis.",
-      "outdoor": "Quintal privativo de 150m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2907100128",
@@ -5890,29 +3556,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 20,
     "image": "/assets/imoveis/florianopolis_casa_residencial_2907100128.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_casa_residencial_2907100128.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_casa_residencial_2907100128.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_casa_residencial_2907100128.jpg"
     },
     "description": "Excelente casa localizada no bairro Ingleses do Rio Vermelho em Florianópolis (SC). Imóvel completo com 65m² de área útil, 2 dormitórios, 1 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Ingleses do Rio Vermelho.",
-      "outdoor": "Quintal privativo de 65m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2642585302",
@@ -5935,29 +3582,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/florianopolis_casa_residencial_2642585302.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_casa_residencial_2642585302.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_casa_residencial_2642585302.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_casa_residencial_2642585302.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Florianópolis em Florianópolis (SC). Imóvel completo com 115m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Florianópolis.",
-      "outdoor": "Quintal privativo de 115m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2500235439",
@@ -5980,29 +3608,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 11,
     "image": "/assets/imoveis/florianopolis_casa_residencial_2500235439.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_casa_residencial_2500235439.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_casa_residencial_2500235439.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_casa_residencial_2500235439.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Florianópolis em Florianópolis (SC). Imóvel completo com 115m² de área útil, 3 dormitórios, 1 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Florianópolis.",
-      "outdoor": "Quintal privativo de 115m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2884470389",
@@ -6025,29 +3634,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/florianopolis_casa_residencial_2884470389.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_casa_residencial_2884470389.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_casa_residencial_2884470389.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_casa_residencial_2884470389.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Florianópolis em Florianópolis (SC). Imóvel completo com 115m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Florianópolis.",
-      "outdoor": "Quintal privativo de 115m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2841095515",
@@ -6070,24 +3660,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 22,
     "image": "/assets/imoveis/florianopolis_apartamento_residencial_2841095515.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2841095515.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_apartamento_residencial_2841095515.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2841095515.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Jurerê em Florianópolis (SC). Imóvel completo com 99m² de área útil, 1 dormitórios, 1 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2907960418",
@@ -6110,24 +3686,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 12,
     "image": "/assets/imoveis/florianopolis_apartamento_residencial_2907960418.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2907960418.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_apartamento_residencial_2907960418.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2907960418.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Santo Antônio de Lisboa em Florianópolis (SC). Imóvel completo com 70m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2907988966",
@@ -6150,24 +3712,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 3,
     "image": "/assets/imoveis/florianopolis_apartamento_residencial_2907988966.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2907988966.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_apartamento_residencial_2907988966.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2907988966.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Itacorubi em Florianópolis (SC). Imóvel completo com 56m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2908045966",
@@ -6190,24 +3738,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/florianopolis_apartamento_residencial_2908045966.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2908045966.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_apartamento_residencial_2908045966.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2908045966.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Coqueiros em Florianópolis (SC). Imóvel completo com 80m² de área útil, 3 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2907955542",
@@ -6230,24 +3764,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 14,
     "image": "/assets/imoveis/florianopolis_apartamento_residencial_2907955542.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2907955542.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_apartamento_residencial_2907955542.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2907955542.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Ingleses do Rio Vermelho em Florianópolis (SC). Imóvel completo com 50m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2907850057",
@@ -6270,24 +3790,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 15,
     "image": "/assets/imoveis/florianopolis_apartamento_residencial_2907850057.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2907850057.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_apartamento_residencial_2907850057.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2907850057.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Ingleses do Rio Vermelho em Florianópolis (SC). Imóvel completo com 71m² de área útil, 2 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2907092024",
@@ -6310,24 +3816,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 12,
     "image": "/assets/imoveis/florianopolis_apartamento_residencial_2907092024.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2907092024.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_apartamento_residencial_2907092024.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2907092024.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Ingleses do Rio Vermelho em Florianópolis (SC). Imóvel completo com 66m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2827402326",
@@ -6350,24 +3842,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 15,
     "image": "/assets/imoveis/florianopolis_apartamento_residencial_2827402326.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2827402326.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_apartamento_residencial_2827402326.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2827402326.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Agronômica em Florianópolis (SC). Imóvel completo com 70m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2871185491",
@@ -6390,24 +3868,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 12,
     "image": "/assets/imoveis/florianopolis_apartamento_residencial_2871185491.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2871185491.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_apartamento_residencial_2871185491.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2871185491.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Bairro Nobre de Florianópolis em Florianópolis (SC). Imóvel completo com 70m² de área útil, 3 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-SC-2907914118",
@@ -6430,24 +3894,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 20,
     "image": "/assets/imoveis/florianopolis_apartamento_residencial_2907914118.jpg",
     "images": {
-      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2907914118.jpg",
-      "kitchen": "/assets/imoveis/florianopolis_apartamento_residencial_2907914118.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/florianopolis_apartamento_residencial_2907914118.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Abraão em Florianópolis (SC). Imóvel completo com 70m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2884282388",
@@ -6470,29 +3920,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 11,
     "image": "/assets/imoveis/porto-alegre_casa_residencial_2884282388.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2884282388.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_casa_residencial_2884282388.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2884282388.jpg"
     },
     "description": "Excelente casa localizada no bairro Ponta Grossa em Porto Alegre (RS). Imóvel completo com 179m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Ponta Grossa.",
-      "outdoor": "Quintal privativo de 179m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2900864802",
@@ -6515,29 +3946,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 7,
     "image": "/assets/imoveis/porto-alegre_casa_residencial_2900864802.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2900864802.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_casa_residencial_2900864802.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2900864802.jpg"
     },
     "description": "Excelente casa localizada no bairro Nonoai em Porto Alegre (RS). Imóvel completo com 247m² de área útil, 4 dormitórios, 3 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Nonoai.",
-      "outdoor": "Quintal privativo de 247m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2820040801",
@@ -6560,29 +3972,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 9,
     "image": "/assets/imoveis/porto-alegre_casa_residencial_2820040801.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2820040801.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_casa_residencial_2820040801.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2820040801.jpg"
     },
     "description": "Excelente casa localizada no bairro Ipanema em Porto Alegre (RS). Imóvel completo com 267m² de área útil, 4 dormitórios, 3 banheiros e 4 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Ipanema.",
-      "outdoor": "Quintal privativo de 267m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2883607012",
@@ -6605,29 +3998,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 15,
     "image": "/assets/imoveis/porto-alegre_casa_residencial_2883607012.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2883607012.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_casa_residencial_2883607012.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2883607012.jpg"
     },
     "description": "Excelente casa localizada no bairro Chácara das Pedras em Porto Alegre (RS). Imóvel completo com 295m² de área útil, 3 dormitórios, 2 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Chácara das Pedras.",
-      "outdoor": "Quintal privativo de 295m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2894895990",
@@ -6650,29 +4024,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 6,
     "image": "/assets/imoveis/porto-alegre_casa_residencial_2894895990.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2894895990.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_casa_residencial_2894895990.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2894895990.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Porto Alegre em Porto Alegre (RS). Imóvel completo com 115m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Porto Alegre.",
-      "outdoor": "Quintal privativo de 115m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2890843093",
@@ -6695,29 +4050,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 8,
     "image": "/assets/imoveis/porto-alegre_casa_residencial_2890843093.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2890843093.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_casa_residencial_2890843093.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2890843093.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Porto Alegre em Porto Alegre (RS). Imóvel completo com 291m² de área útil, 3 dormitórios, 4 banheiros e 8 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Porto Alegre.",
-      "outdoor": "Quintal privativo de 291m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2898904899",
@@ -6740,29 +4076,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 12,
     "image": "/assets/imoveis/porto-alegre_casa_residencial_2898904899.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2898904899.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_casa_residencial_2898904899.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2898904899.jpg"
     },
     "description": "Excelente casa localizada no bairro Azenha em Porto Alegre (RS). Imóvel completo com 213m² de área útil, 1 dormitórios, 1 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Azenha.",
-      "outdoor": "Quintal privativo de 213m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2908083149",
@@ -6785,29 +4102,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 17,
     "image": "/assets/imoveis/porto-alegre_casa_residencial_2908083149.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2908083149.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_casa_residencial_2908083149.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2908083149.jpg"
     },
     "description": "Excelente casa localizada no bairro Farrapos em Porto Alegre (RS). Imóvel completo com 70m² de área útil, 2 dormitórios, 2 banheiros e 3 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Farrapos.",
-      "outdoor": "Quintal privativo de 70m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2883382911",
@@ -6830,29 +4128,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 22,
     "image": "/assets/imoveis/porto-alegre_casa_residencial_2883382911.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2883382911.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_casa_residencial_2883382911.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2883382911.jpg"
     },
     "description": "Excelente casa localizada no bairro Ipanema em Porto Alegre (RS). Imóvel completo com 226m² de área útil, 3 dormitórios, 3 banheiros e 4 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Ipanema.",
-      "outdoor": "Quintal privativo de 226m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2902385910",
@@ -6875,29 +4154,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 22,
     "image": "/assets/imoveis/porto-alegre_casa_residencial_2902385910.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2902385910.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_casa_residencial_2902385910.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2902385910.jpg"
     },
     "description": "Excelente casa localizada no bairro São Sebastião em Porto Alegre (RS). Imóvel completo com 160m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em São Sebastião.",
-      "outdoor": "Quintal privativo de 160m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2881428900",
@@ -6920,29 +4180,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 3,
     "image": "/assets/imoveis/porto-alegre_casa_residencial_2881428900.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2881428900.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_casa_residencial_2881428900.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2881428900.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Porto Alegre em Porto Alegre (RS). Imóvel completo com 144m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Porto Alegre.",
-      "outdoor": "Quintal privativo de 144m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2808009005",
@@ -6965,29 +4206,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 20,
     "image": "/assets/imoveis/porto-alegre_casa_residencial_2808009005.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2808009005.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_casa_residencial_2808009005.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2808009005.jpg"
     },
     "description": "Excelente casa localizada no bairro Guarujá em Porto Alegre (RS). Imóvel completo com 122m² de área útil, 3 dormitórios, 3 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Guarujá.",
-      "outdoor": "Quintal privativo de 122m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2889831485",
@@ -7010,29 +4232,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 21,
     "image": "/assets/imoveis/porto-alegre_casa_residencial_2889831485.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2889831485.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_casa_residencial_2889831485.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2889831485.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Porto Alegre em Porto Alegre (RS). Imóvel completo com 115m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Porto Alegre.",
-      "outdoor": "Quintal privativo de 115m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2892043808",
@@ -7055,29 +4258,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 11,
     "image": "/assets/imoveis/porto-alegre_casa_residencial_2892043808.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2892043808.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_casa_residencial_2892043808.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2892043808.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Porto Alegre em Porto Alegre (RS). Imóvel completo com 255m² de área útil, 3 dormitórios, 4 banheiros e 4 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Porto Alegre.",
-      "outdoor": "Quintal privativo de 255m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2881296849",
@@ -7100,29 +4284,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 12,
     "image": "/assets/imoveis/porto-alegre_casa_residencial_2881296849.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2881296849.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_casa_residencial_2881296849.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_casa_residencial_2881296849.jpg"
     },
     "description": "Excelente casa localizada no bairro Bairro Nobre de Porto Alegre em Porto Alegre (RS). Imóvel completo com 115m² de área útil, 3 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ],
-    "roomBreakdown": {
-      "masterSuite": "Suíte Principal ampla com closet e iluminação natural em Bairro Nobre de Porto Alegre.",
-      "outdoor": "Quintal privativo de 115m² integrado à varanda gourmet e área de lazer.",
-      "livingRoom": "Living espaçoso para 2 ou 3 ambientes com acabamento de alto padrão."
-    }
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2870391773",
@@ -7145,24 +4310,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 5,
     "image": "/assets/imoveis/porto-alegre_apartamento_residencial_2870391773.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2870391773.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_apartamento_residencial_2870391773.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2870391773.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Jardim Itu em Porto Alegre (RS). Imóvel completo com 52m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2874559881",
@@ -7185,24 +4336,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 15,
     "image": "/assets/imoveis/porto-alegre_apartamento_residencial_2874559881.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2874559881.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_apartamento_residencial_2874559881.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2874559881.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Jardim Botânico em Porto Alegre (RS). Imóvel completo com 98m² de área útil, 2 dormitórios, 1 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2890414411",
@@ -7225,24 +4362,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 22,
     "image": "/assets/imoveis/porto-alegre_apartamento_residencial_2890414411.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2890414411.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_apartamento_residencial_2890414411.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2890414411.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Bairro Nobre de Porto Alegre em Porto Alegre (RS). Imóvel completo com 70m² de área útil, 2 dormitórios, 1 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2885466383",
@@ -7265,24 +4388,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 10,
     "image": "/assets/imoveis/porto-alegre_apartamento_residencial_2885466383.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2885466383.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_apartamento_residencial_2885466383.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2885466383.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Bairro Nobre de Porto Alegre em Porto Alegre (RS). Imóvel completo com 60m² de área útil, 3 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2884041817",
@@ -7305,24 +4414,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 16,
     "image": "/assets/imoveis/porto-alegre_apartamento_residencial_2884041817.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2884041817.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_apartamento_residencial_2884041817.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2884041817.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Cavalhada em Porto Alegre (RS). Imóvel completo com 61m² de área útil, 3 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2882638751",
@@ -7345,24 +4440,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 22,
     "image": "/assets/imoveis/porto-alegre_apartamento_residencial_2882638751.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2882638751.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_apartamento_residencial_2882638751.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2882638751.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Jardim do Salso em Porto Alegre (RS). Imóvel completo com 74m² de área útil, 2 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2880169981",
@@ -7385,24 +4466,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 14,
     "image": "/assets/imoveis/porto-alegre_apartamento_residencial_2880169981.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2880169981.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_apartamento_residencial_2880169981.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2880169981.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Jardim Itu em Porto Alegre (RS). Imóvel completo com 60m² de área útil, 3 dormitórios, 2 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2874121510",
@@ -7425,24 +4492,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 3,
     "image": "/assets/imoveis/porto-alegre_apartamento_residencial_2874121510.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2874121510.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_apartamento_residencial_2874121510.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2874121510.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Azenha em Porto Alegre (RS). Imóvel completo com 45m² de área útil, 1 dormitórios, 4 banheiros e 1 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2864816170",
@@ -7465,24 +4518,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 18,
     "image": "/assets/imoveis/porto-alegre_apartamento_residencial_2864816170.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2864816170.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_apartamento_residencial_2864816170.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2864816170.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Moinhos de Vento em Porto Alegre (RS). Imóvel completo com 167m² de área útil, 2 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "VIVA-RS-2814214817",
@@ -7505,24 +4544,10 @@ export const SCRAPED_PROPERTIES = [
     "daysOnMarket": 13,
     "image": "/assets/imoveis/porto-alegre_apartamento_residencial_2814214817.jpg",
     "images": {
-      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2814214817.jpg",
-      "kitchen": "/assets/imoveis/porto-alegre_apartamento_residencial_2814214817.jpg",
-      "bedroom": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "leisure": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "hero": "/assets/imoveis/porto-alegre_apartamento_residencial_2814214817.jpg"
     },
     "description": "Excelente apartamento localizada no bairro Higienópolis em Porto Alegre (RS). Imóvel completo com 62m² de área útil, 2 dormitórios, 2 banheiros e 2 vaga(s) de garagem.",
-    "amenities": [
-      "Varanda Gourmet",
-      "Sol da Manhã",
-      "Rua Silenciosa",
-      "Segurança 24h",
-      "Cozinha Americana"
-    ],
-    "subjectiveVocations": [
-      "☀️ Sol da Manhã (Varanda Ensolarada)",
-      "🖥️ Home Office Panorâmico Silencioso",
-      "🍳 Cozinha Gourmet para Recepções"
-    ]
+    "amenities": []
   },
   {
     "id": "RIV-ENG-V-SL9",
@@ -7547,7 +4572,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/riv-eng-v-sl9-1.jpg",
       "kitchen": "/assets/imoveis/riv-eng-v-sl9-2.jpg",
       "bedroom": "/assets/imoveis/riv-eng-v-sl9-3.jpg",
-      "leisure": "/assets/imoveis/riv-eng-v-sl9-4.jpg"
+      "leisure": "/assets/imoveis/riv-eng-v-sl9-4.jpg",
+      "thumb": "/assets/imoveis/riv-eng-v-sl9-1-card.webp"
     },
     "description": "Casa em Condomínio Fechado a Venda no Engenho a 250 Metros da praia com Escritura Definitiva Da casa: 03 Dormitórios sendo 01 suite Sala 02 ambientes Área de Lazer Varanda Churrasqueira Depósito Lavabo 02 Vagas de veículos Do condomínio: Zeladoria Portaria Piscina",
     "amenities": [
@@ -7585,7 +4611,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/riv-v100114-1.jpg",
       "kitchen": "/assets/imoveis/riv-v100114-2.jpg",
       "bedroom": "/assets/imoveis/riv-v100114-3.jpg",
-      "leisure": "/assets/imoveis/riv-v100114-4.jpg"
+      "leisure": "/assets/imoveis/riv-v100114-4.jpg",
+      "thumb": "/assets/imoveis/riv-v100114-1-card.webp"
     },
     "description": "Com localização privilegiada, esta residência moderna e sofisticada oferece todo o conforto e elegância que você procura no litoral. São 3 suítes, sala ampla, cozinha planejada, além de uma incrível área gourmet com churrasqueira e piscina privativa, perfeitas para momentos de lazer e convivência.Do Imóvel:03 dormitórios sendo 3 suítes com ar condicionado e móveis planejados5 banheiros Sala de estar Cozinha planejadaÁrea gourmet com churrasqueira Piscina privativa.Casa construída e revestida com…",
     "amenities": [
@@ -7621,7 +4648,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/riv-v2500019-1.jpg",
       "kitchen": "/assets/imoveis/riv-v2500019-2.jpg",
       "bedroom": "/assets/imoveis/riv-v2500019-3.jpg",
-      "leisure": "/assets/imoveis/riv-v2500019-4.jpg"
+      "leisure": "/assets/imoveis/riv-v2500019-4.jpg",
+      "thumb": "/assets/imoveis/riv-v2500019-1-card.webp"
     },
     "description": "Apartamento localizado a apenas 100 metros da praia, com vista para o mar e excelente padrão de conforto. O imóvel conta com ambientes amplos, varanda gourmet e está inserido em condomínio completo, oferecendo praticidade, segurança e qualidade de vida em uma das regiões mais valorizadas da cidade.",
     "amenities": [
@@ -7657,7 +4685,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/riv-v03462p-1.jpg",
       "kitchen": "/assets/imoveis/riv-v03462p-2.jpg",
       "bedroom": "/assets/imoveis/riv-v03462p-3.jpg",
-      "leisure": "/assets/imoveis/riv-v03462p-4.jpg"
+      "leisure": "/assets/imoveis/riv-v03462p-4.jpg",
+      "thumb": "/assets/imoveis/riv-v03462p-1-card.webp"
     },
     "description": "Apartamento frente mar à venda na Prainha, em Caraguatatuba, com 77 m² de área privativa e excelente localização. Mobiliado e com varanda envidraçada, o imóvel oferece conforto, praticidade e uma estrutura completa de lazer, além de acesso particular e direto à praia.",
     "amenities": [
@@ -7692,7 +4721,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/riv-v2500266-1.jpg",
       "kitchen": "/assets/imoveis/riv-v2500266-2.jpg",
       "bedroom": "/assets/imoveis/riv-v2500266-3.jpg",
-      "leisure": "/assets/imoveis/riv-v2500266-4.jpg"
+      "leisure": "/assets/imoveis/riv-v2500266-4.jpg",
+      "thumb": "/assets/imoveis/riv-v2500266-1-card.webp"
     },
     "description": "Sobrado de alto padrão localizado na exclusiva Praia de Tabatinga, em Caraguatatuba. Situado a apenas 50 metros do mar, o imóvel oferece ambientes amplos com living integrado e fino acabamento, sendo entregue completamente mobiliado. Inserido em um condomínio residencial familiar e seguro, este sobrado une sofisticação e qualidade de vida em uma região de altíssimo desenvolvimento imobiliário e valorização. imóvel:04 SuítesSala AmplaCozinha Americana05 Banheiros (send…",
     "amenities": [
@@ -7728,7 +4758,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/zul-mar-081-1.jpg",
       "kitchen": "/assets/imoveis/zul-mar-081-2.jpg",
       "bedroom": "/assets/imoveis/zul-mar-081-3.jpg",
-      "leisure": "/assets/imoveis/zul-mar-081-4.jpg"
+      "leisure": "/assets/imoveis/zul-mar-081-4.jpg",
+      "thumb": "/assets/imoveis/zul-mar-081-1-card.webp"
     },
     "description": "Casa de condomínio na Praia de Maresias, São Sebastião, com 131,52 m² e 3 suítes, à venda por R$ 3.000.000. Com arquitetura contemporânea e linhas marcantes, esta residência combina design funcional, conforto e integração entre os ambientes. O projeto valoriza a iluminação natural por meio de amplas esquadrias, enquanto a combinação de concreto aparente, madeira e serralheria preta confere um visual moderno e elegante.",
     "amenities": [
@@ -7762,7 +4793,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/zul-juq-045-1.jpg",
       "kitchen": "/assets/imoveis/zul-juq-045-2.jpg",
       "bedroom": "/assets/imoveis/zul-juq-045-3.jpg",
-      "leisure": "/assets/imoveis/zul-juq-045-4.jpg"
+      "leisure": "/assets/imoveis/zul-juq-045-4.jpg",
+      "thumb": "/assets/imoveis/zul-juq-045-1-card.webp"
     },
     "description": "Casa de condomínio na Praia de Juquehy, São Sebastião, com 177 m² e 2 suítes, à venda por R$ 4.400.000. Com arquitetura contemporânea tropical, esta casa valoriza ambientes integrados, ampla entrada de luz natural e uma área gourmet harmoniosamente conectada aos espaços de convivência, criando uma atmosfera leve, agradável e muito funcional para viver o litoral.",
     "amenities": [
@@ -7795,7 +4827,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/zul-sah-017-1.jpg",
       "kitchen": "/assets/imoveis/zul-sah-017-2.jpg",
       "bedroom": "/assets/imoveis/zul-sah-017-3.jpg",
-      "leisure": "/assets/imoveis/zul-sah-017-4.jpg"
+      "leisure": "/assets/imoveis/zul-sah-017-4.jpg",
+      "thumb": "/assets/imoveis/zul-sah-017-1-card.webp"
     },
     "description": "Casa de condomínio na Praia Barra do Sahy, São Sebastião, com 300 m² e 5 suítes, à venda por R$ 4.850.000. Arquitetura contemporânea com ambientes amplos e iluminados, projetados para proporcionar conforto, privacidade e bem-estar. A integração entre os espaços internos e externos valoriza a luz natural e cria uma atmosfera acolhedora, ideal para desfrutar o melhor do litoral.",
     "amenities": [],
@@ -7826,7 +4859,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/zul-cam-039-1.jpg",
       "kitchen": "/assets/imoveis/zul-cam-039-2.jpg",
       "bedroom": "/assets/imoveis/zul-cam-039-3.jpg",
-      "leisure": "/assets/imoveis/zul-cam-039-4.jpg"
+      "leisure": "/assets/imoveis/zul-cam-039-4.jpg",
+      "thumb": "/assets/imoveis/zul-cam-039-1-card.webp"
     },
     "description": "Casa de condomínio na Praia de Camburi, São Sebastião, com 73 m² e 2 suítes, à venda por R$ 1.500.000. Uma casa charmosa e funcional em condomínio fechado na Praia de Camburi, pensada para quem valoriza praticidade, conforto e uma excelente localização no litoral. A poucos minutos da praia, o imóvel combina ambientes bem distribuídos com uma área externa convidativa, perfeita para aproveitar os dias de sol com leveza e privacidade.",
     "amenities": [
@@ -7861,7 +4895,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/zul-mar-045-1.jpg",
       "kitchen": "/assets/imoveis/zul-mar-045-2.jpg",
       "bedroom": "/assets/imoveis/zul-mar-045-3.jpg",
-      "leisure": "/assets/imoveis/zul-mar-045-4.jpg"
+      "leisure": "/assets/imoveis/zul-mar-045-4.jpg",
+      "thumb": "/assets/imoveis/zul-mar-045-1-card.webp"
     },
     "description": "Casa pé na areia em condomínio na Praia de Maresias, São Sebastião, com 294 m² e 5 suítes, à venda por R$ 6.000.000. Uma casa belíssima, sofisticada e de muito bom gosto, com uma decoração clássica e minimalista que valoriza tons de branco, madeira e toques sutis em azul. Os ambientes são amplos, bem ventilados e extremamente harmônicos, criando uma atmosfera elegante e acolhedora em todos os espaços.",
     "amenities": [
@@ -7894,7 +4929,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/qua-212324-1.jpg",
       "kitchen": "/assets/imoveis/qua-212324-2.jpg",
       "bedroom": "/assets/imoveis/qua-212324-3.jpg",
-      "leisure": "/assets/imoveis/qua-212324-4.jpg"
+      "leisure": "/assets/imoveis/qua-212324-4.jpg",
+      "thumb": "/assets/imoveis/qua-212324-1-card.webp"
     },
     "description": "Apartamento de 190 m² no Condomínio DSGN Lorena No Condomínio DSGN Lorena, apartamento de 190 m², totalmente decorado, com projeto de interiores que contempla a integração entre os ambientes e o aproveitamento dos espaços. A área social dispõe de living amplo, lavabo e cozinha. A área íntima conta com 3 suítes. O imóvel possui ainda área de serviço e 3 vagas de garagem.",
     "amenities": [
@@ -7932,7 +4968,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/qua-212322-1.jpg",
       "kitchen": "/assets/imoveis/qua-212322-2.jpg",
       "bedroom": "/assets/imoveis/qua-212322-3.jpg",
-      "leisure": "/assets/imoveis/qua-212322-4.jpg"
+      "leisure": "/assets/imoveis/qua-212322-4.jpg",
+      "thumb": "/assets/imoveis/qua-212322-1-card.webp"
     },
     "description": "Apartamento de 427 m² no Jardim Guedala Apartamento no Jardim Guedala com 427,67 m² de área privativa, entregue em contrapiso, com planta que permite a personalização dos ambientes. A área social dispõe de living para três ambientes, sacada e lavabo. Na área íntima, são quatro suítes. O imóvel conta ainda com cozinha, lavanderia independente e dependência de serviço.",
     "amenities": [
@@ -7970,7 +5007,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/qua-210543-1.jpg",
       "kitchen": "/assets/imoveis/qua-210543-2.jpg",
       "bedroom": "/assets/imoveis/qua-210543-3.jpg",
-      "leisure": "/assets/imoveis/qua-210543-4.jpg"
+      "leisure": "/assets/imoveis/qua-210543-4.jpg",
+      "thumb": "/assets/imoveis/qua-210543-1-card.webp"
     },
     "description": "Cobertura com piscina privativa na Riviera de São Lourenço Cobertura nova com 252 m² de área construída, composta por 4 suítes, sala para 2 ambientes, lavabo, cozinha e área de serviço. A área externa conta com piscina privativa e varanda gourmet com churrasqueira. O condomínio dispõe de serviço de praia, piscinas adulto com prainha, piscina infantil com recreação, academia, sauna, salão de festas gourmet, churrasqueira, salão de jogos, quadra, playground e brinquedoteca.",
     "amenities": [
@@ -8010,7 +5048,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/qua-210824-1.jpg",
       "kitchen": "/assets/imoveis/qua-210824-2.jpg",
       "bedroom": "/assets/imoveis/qua-210824-3.jpg",
-      "leisure": "/assets/imoveis/qua-210824-4.jpg"
+      "leisure": "/assets/imoveis/qua-210824-4.jpg",
+      "thumb": "/assets/imoveis/qua-210824-1-card.webp"
     },
     "description": "Casa em condomínio fechado em Ubatuba Casa no Condomínio Lagoinha, em Ubatuba, a poucos passos da praia e cercada pela natureza. Com 359 m² de área construída em um terreno de 380 m², a residência apresenta 5 suítes amplas, 3 salas integradas, cozinha funcional, área de serviço, 2 lavabos e banheiros bem planejados. A área de lazer é um destaque à parte, com espaço gourmet equipado com churrasqueira, sauna e piscina privativa. A propriedade conta ainda com 4 vagas de garagem.",
     "amenities": [
@@ -8050,7 +5089,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/qua-cv0596-1.jpg",
       "kitchen": "/assets/imoveis/qua-cv0596-2.jpg",
       "bedroom": "/assets/imoveis/qua-cv0596-3.jpg",
-      "leisure": "/assets/imoveis/qua-cv0596-4.jpg"
+      "leisure": "/assets/imoveis/qua-cv0596-4.jpg",
+      "thumb": "/assets/imoveis/qua-cv0596-1-card.webp"
     },
     "description": "Apartamento no Condomínio Costa Verde Tabatinga Apartamento novo recém-reformado localizado no Setor Praça II com 3 suítes, sendo 1 suíte reversível. Com 97m², o imóvel possui uma cozinha planejada e uma sala de jantar integrada que proporciona um ambiente acolhedor. A varanda conta com uma vista privilegiada para o mar e o pôr do sol.",
     "amenities": [
@@ -8089,7 +5129,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/isr-ca2223-1.jpg",
       "kitchen": "/assets/imoveis/isr-ca2223-2.jpg",
       "bedroom": "/assets/imoveis/isr-ca2223-3.jpg",
-      "leisure": "/assets/imoveis/isr-ca2223-4.jpg"
+      "leisure": "/assets/imoveis/isr-ca2223-4.jpg",
+      "thumb": "/assets/imoveis/isr-ca2223-1-card.webp"
     },
     "description": "Casa na Martim de Sá, com terreno de 130,16 m².",
     "amenities": [],
@@ -8120,7 +5161,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/isr-ap0005-1.jpg",
       "kitchen": "/assets/imoveis/isr-ap0005-2.jpg",
       "bedroom": "/assets/imoveis/isr-ap0005-3.jpg",
-      "leisure": "/assets/imoveis/isr-ap0005-4.jpg"
+      "leisure": "/assets/imoveis/isr-ap0005-4.jpg",
+      "thumb": "/assets/imoveis/isr-ap0005-1-card.webp"
     },
     "description": "Apartamento de alto padrão com vista para o mar à venda no Indaiá, Caraguatatuba – Calabasas Condominium Resort Apartamento moderno no exclusivo Calabasas Condominium Resort, no Indaiá. Construído em 2021, com 257 m² de área total e 144 m² de área útil, em andar alto e com vista privilegiada para o mar.",
     "amenities": [
@@ -8160,7 +5202,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/isr-ca1559-1.jpg",
       "kitchen": "/assets/imoveis/isr-ca1559-2.jpg",
       "bedroom": "/assets/imoveis/isr-ca1559-3.jpg",
-      "leisure": "/assets/imoveis/isr-ca1559-4.jpg"
+      "leisure": "/assets/imoveis/isr-ca1559-4.jpg",
+      "thumb": "/assets/imoveis/isr-ca1559-1-card.webp"
     },
     "description": "Casa de posse no Morro do Algodão, com 210 m² de área útil em terreno de 250 m².",
     "amenities": [
@@ -8193,7 +5236,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/isr-cac0140-1.jpg",
       "kitchen": "/assets/imoveis/isr-cac0140-2.jpg",
       "bedroom": "/assets/imoveis/isr-cac0140-3.jpg",
-      "leisure": "/assets/imoveis/isr-cac0140-4.jpg"
+      "leisure": "/assets/imoveis/isr-cac0140-4.jpg",
+      "thumb": "/assets/imoveis/isr-cac0140-1-card.webp"
     },
     "description": "Residência nova e muito bem acabada no Portal dos Pássaros, loteamento seguro com câmeras em todas as ruas e vigilância 24 horas.",
     "amenities": [
@@ -8226,7 +5270,8 @@ export const SCRAPED_PROPERTIES = [
       "hero": "/assets/imoveis/isr-st0002-1.jpg",
       "kitchen": "/assets/imoveis/isr-st0002-2.jpg",
       "bedroom": "/assets/imoveis/isr-st0002-3.jpg",
-      "leisure": "/assets/imoveis/isr-st0002-4.jpg"
+      "leisure": "/assets/imoveis/isr-st0002-4.jpg",
+      "thumb": "/assets/imoveis/isr-st0002-1-card.webp"
     },
     "description": "Studio de 36 m² totalmente mobiliado, planejado com máxima eficiência, em localização privilegiada perto do mar, do comércio e dos serviços locais. Ótimo como investimento ou refúgio no litoral norte.",
     "amenities": [

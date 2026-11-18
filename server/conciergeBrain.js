@@ -25,6 +25,8 @@ function reasoningFor(model) {
   if (REASONING_EFFORT === 'none' && /^gpt-5(-|$)/.test(model)) return 'minimal';
   return REASONING_EFFORT;
 }
+import { guardRequest } from './guard.js';
+
 const MAX_MESSAGES = 60;
 const MAX_CONTENT_CHARS = 8000;
 
@@ -71,7 +73,7 @@ Fechamento (o objetivo final é passar a pessoa para um corretor):
 - Se o prazo para a compra ainda não foi dito, pergunte antes ou junto dessa oferta (por exemplo: "Você pensa em comprar nos próximos meses?").
 - Peça consentimento antes de pedir dados: só peça nome e WhatsApp (ou e-mail) se a pessoa aceitar o contato, e diga que serão usados só para esse atendimento.
 - Depois pergunte o melhor dia e horário para o contato, se ela ainda não disse.
-- Com nome e um contato em mãos, chame registrar_interesse com tudo o que você já sabe e confirme em uma frase que um corretor vai chamar no horário combinado.
+- Com nome e um contato em mãos, chame registrar_interesse com tudo o que você já sabe e, SÓ se o resultado trouxer registrado: true, confirme em uma frase que um corretor vai chamar no horário combinado. Se vier registrado: false com erro de envio, diga com sinceridade que o contato não chegou à equipe e peça para tentar de novo em instantes; nunca prometa retorno nesse caso.
 - Se a pessoa recusar o contato, respeite e siga ajudando, sem insistir.
 - Não peça dados de contato antes de ter mostrado imóveis que interessem à pessoa.`;
 
@@ -317,7 +319,7 @@ function logUsage(model, usage, msg) {
   }));
 }
 
-export async function handleConciergeRequest({ method, body, origin, host }, keys = {}) {
+export async function handleConciergeRequest({ method, body, origin, host, headers }, keys = {}) {
   const json = (status, payload) => ({
     status,
     headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
@@ -325,7 +327,13 @@ export async function handleConciergeRequest({ method, body, origin, host }, key
   });
 
   if (method !== 'POST') return json(405, { error: 'method_not_allowed' });
-  if (origin && host && new URL(origin).host !== host) return json(403, { error: 'forbidden' });
+  // Só a própria página, e com limite de uso por visitante (ver server/guard.js)
+  const blocked = guardRequest({ origin, host, headers }, { name: 'concierge', limit: 60 });
+  if (blocked) {
+    const reply = json(blocked.status, { error: blocked.error });
+    if (blocked.retryAfter) reply.headers['Retry-After'] = String(blocked.retryAfter);
+    return reply;
+  }
   if (!keys.openai) return json(503, { error: 'brain_unconfigured' });
 
   const messages = sanitizeMessages(body?.messages);

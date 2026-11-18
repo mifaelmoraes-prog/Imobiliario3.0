@@ -4,8 +4,8 @@
  * ferramentas sobre o catálogo local (mesmo motor de match do site), para que o
  * modelo só fale de imóveis reais.
  */
-import { calculatePropertyMatch } from './smartMatchEngine';
-import { normalizeText } from './conciergeParser';
+import { calculatePropertyMatch } from './smartMatchEngine.js';
+import { normalizeText } from './conciergeParser.js';
 
 const BRAIN_ENDPOINT = '/api/concierge';
 const BRAIN_TIMEOUT_MS = 20000;
