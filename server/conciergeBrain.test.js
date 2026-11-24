@@ -59,6 +59,17 @@ test('resposta: devolve o modelo e a mensagem, e o prompt de sistema vai à fren
   assert.equal(enviado.parallel_tool_calls, false);
 });
 
+test('o prompt traz o roteiro de região sem imóveis e a regra de não esquecer o contexto', async () => {
+  const chamadas = simularOpenAI([resposta('ok')]);
+  await handleConciergeRequest(req({ messages: OI }), KEYS);
+  const sistema = chamadas[0].body.messages[0].content;
+  assert.match(sistema, /regiao_sem_imoveis/);
+  assert.match(sistema, /chame buscar_imoveis antes de responder/);
+  assert.match(sistema, /no máximo 2 alternativas/);
+  assert.match(sistema, /não repita nenhuma pergunta/);
+  assert.match(sistema, /Nunca mostre imóveis de outro lugar/);
+});
+
 test('ferramentas: alertas e feedback só entram quando as flags estão ligadas', async () => {
   const nomes = async () => {
     const chamadas = simularOpenAI([resposta('ok')]);
