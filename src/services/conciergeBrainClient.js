@@ -104,6 +104,56 @@ const summarize = (p, match) => ({
   ...(match?.whyNot?.length ? { o_que_nao_atende: match.whyNot } : {})
 });
 
+const MAX_ALTERNATIVES = 4;
+
+/** Região (cidade ou bairro) que não está no catálogo: o roteiro de resposta do Concierge. */
+function buildRegionNotAvailable(args, { city, allProperties, criteria, avisos }) {
+  const asked = String((args.bairros || []).length ? args.bairros[0] : args.cidade).trim().slice(0, 80);
+  const regiaoPedida = city && (args.bairros || []).length ? `${asked} (${city.shortLabel})` : asked;
+  const count = (list) => list.reduce((m, k) => m.set(k, (m.get(k) || 0) + 1), new Map());
+
+  const result = {
+    total_compativeis: 0,
+    regiao_sem_imoveis: true,
+    regiao_pedida: regiaoPedida,
+    criterios_aplicados: {
+      cidade: city?.label || null,
+      bairros: [],
+      tipo: criteria.propertyType !== 'Todos' ? criteria.propertyType : null,
+      quartos_min: criteria.minBedrooms || null,
+      orcamento_max: criteria.maxBudget < NO_BUDGET ? criteria.maxBudget : null,
+      comodidades: criteria.amenities
+    },
+    imoveis: []
+  };
+
+  if (city) {
+    // Cidade existe, o bairro não: oferece os bairros dela que têm imóveis
+    const cityKey = normalizeText(city.shortLabel);
+    const porBairro = count(allProperties
+      .filter(p => normalizeText((p.city || '').split('-')[0]) === cityKey && p.neighborhood && !/^bairro nobre de /.test(normalizeText(p.neighborhood)))
+      .map(p => p.neighborhood));
+    result.bairros_com_imoveis = [...porBairro]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, MAX_ALTERNATIVES)
+      .map(([bairro, imoveis]) => ({ bairro, imoveis }));
+  } else {
+    const porCidade = count(allProperties.filter(p => p.city).map(p => p.city));
+    result.cidades_com_imoveis = [...porCidade]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, MAX_ALTERNATIVES)
+      .map(([cidade, imoveis]) => ({ cidade, imoveis }));
+  }
+
+  result.orientacao =
+    `Não há imóveis em ${regiaoPedida} no catálogo. Diga isso com clareza e gentileza logo no início, sem apresentar imóveis de outro lugar como se atendessem o pedido. ` +
+    'Ofereça no máximo 2 das alternativas listadas e pergunte se a pessoa quer ver. ' +
+    'Mantenha tudo o que ela já disse (tipo, quartos, orçamento, finalidade, prazo) e use isso na busca da alternativa, sem repetir perguntas. ' +
+    'Se ela não quiser as alternativas, ofereça que um corretor procure opções nessa região e entre em contato; com o consentimento dela, use registrar_interesse e escreva a região desejada em observacoes.';
+  if (avisos.length) result.avisos = avisos;
+  return result;
+}
+
 /**
  * Executa buscar_imoveis sobre o catálogo.
  * @returns {{ result: object, criteria: object }} result vai para o modelo;
@@ -167,6 +217,14 @@ export function searchCatalog(args, { allProperties, vocabulary }) {
     budget: { maxBudget: criteria.maxBudget },
     lifestyle: { amenities }
   };
+
+  // Região pedida que o catálogo não tem: confirma que não há imóveis em vez de listar outro lugar
+  // como se atendesse, e devolve o que existe para a conversa seguir sem perder o que já foi dito.
+  const cidadePedidaSemImoveis = Boolean(args.cidade) && !resolveCity(args.cidade, vocabulary);
+  const bairroPedidoSemImoveis = (args.bairros || []).length > 0 && neighborhoods.length === 0;
+  if (cidadePedidaSemImoveis || bairroPedidoSemImoveis) {
+    return { result: buildRegionNotAvailable(args, { city, allProperties, criteria, avisos }), criteria: { ...criteria, foraDaRegiao: true } };
+  }
 
   const cityFilter = (city?.shortLabel || '').toLowerCase();
   const pool = cityFilter

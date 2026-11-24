@@ -50,13 +50,69 @@ test('busca: o bairro dito sozinho define a cidade', () => {
   assert.deepEqual(criteria.neighborhoods, ['Batel']);
 });
 
-test('busca: cidade, bairro e comodidade fora do catálogo viram avisos, não filtros', () => {
-  const { result } = buscar({ cidade: 'Atlantis', bairros: ['Lugar Nenhum'], comodidades: ['heliponto'] });
-  assert.equal(result.avisos.length, 3);
-  assert.match(result.avisos[0], /Cidade "Atlantis" não está no catálogo/);
-  assert.match(result.avisos[1], /Bairro "Lugar Nenhum" não está no catálogo/);
-  assert.match(result.avisos[2], /Comodidade "heliponto" não está cadastrada/);
-  assert.equal(result.total_compativeis, CATALOGO.length, 'sem critério válido, nada é filtrado');
+test('busca: comodidade fora do catálogo vira aviso, não filtro', () => {
+  const { result } = buscar({ cidade: 'Florianópolis', comodidades: ['heliponto'] });
+  assert.equal(result.avisos.length, 1);
+  assert.match(result.avisos[0], /Comodidade "heliponto" não está cadastrada/);
+  assert.equal(result.total_compativeis, 3, 'sem filtro válido de comodidade, a cidade continua valendo');
+});
+
+// Roteiro de região sem imóveis (pedido do Mifael): confirmar que não há, sem mostrar outro lugar
+// como se atendesse, e manter o resto do que a pessoa já disse.
+test('região: cidade fora do catálogo confirma que não há imóveis e não lista outra cidade', () => {
+  const { result, criteria } = buscar({ cidade: 'Atlantis', tipo: 'Casa', quartos_min: 3, orcamento_max: 2_500_000 });
+  assert.equal(result.regiao_sem_imoveis, true);
+  assert.equal(result.regiao_pedida, 'Atlantis');
+  assert.equal(result.total_compativeis, 0);
+  assert.deepEqual(result.imoveis, [], 'nenhum imóvel de outra cidade como se atendesse');
+  assert.equal(result.mais_proximos, undefined);
+  assert.deepEqual(result.cidades_com_imoveis.map(c => c.cidade), ['Florianópolis - SC', 'Curitiba - PR']);
+  assert.equal(result.cidades_com_imoveis[0].imoveis, 3);
+  assert.match(result.orientacao, /Atlantis/);
+  assert.match(result.orientacao, /registrar_interesse/);
+  // o contexto da conversa segue nos critérios devolvidos
+  assert.equal(result.criterios_aplicados.tipo, 'Casa');
+  assert.equal(result.criterios_aplicados.quartos_min, 3);
+  assert.equal(result.criterios_aplicados.orcamento_max, 2_500_000);
+  assert.equal(criteria.foraDaRegiao, true, 'o navegador não deve apagar o filtro que a pessoa já tinha');
+});
+
+test('região: bairro fora do catálogo numa cidade que tem imóveis oferece os bairros que existem', () => {
+  const { result, criteria } = buscar({ cidade: 'Florianópolis', bairros: ['Lugar Nenhum'], tipo: 'Casa' });
+  assert.equal(result.regiao_sem_imoveis, true);
+  assert.match(result.regiao_pedida, /Lugar Nenhum/);
+  assert.match(result.regiao_pedida, /Florianópolis/);
+  assert.deepEqual(result.imoveis, []);
+  assert.deepEqual(result.bairros_com_imoveis, [{ bairro: 'Jurerê Internacional', imoveis: 3 }]);
+  assert.equal(result.cidades_com_imoveis, undefined);
+  assert.equal(criteria.foraDaRegiao, true);
+});
+
+test('região: bairros genéricos do catálogo antigo não são oferecidos como alternativa', () => {
+  const catalogo = [...CATALOGO, casa('G1', { neighborhood: 'Bairro Nobre de Florianópolis' })];
+  const { result } = searchCatalog({ cidade: 'Florianópolis', bairros: ['Lugar Nenhum'] }, { allProperties: catalogo, vocabulary: buildVocabulary(catalogo) });
+  assert.deepEqual(result.bairros_com_imoveis.map(b => b.bairro), ['Jurerê Internacional']);
+});
+
+test('região: bairro dito sozinho e desconhecido também confirma que não há', () => {
+  const { result } = buscar({ bairros: ['Moema'] });
+  assert.equal(result.regiao_sem_imoveis, true);
+  assert.equal(result.regiao_pedida, 'Moema');
+  assert.deepEqual(result.imoveis, []);
+  assert.ok(result.cidades_com_imoveis.length > 0);
+});
+
+test('região: com um bairro conhecido e outro não, a busca segue com o que existe e avisa', () => {
+  const { result, criteria } = buscar({ cidade: 'Florianópolis', bairros: ['Jurerê Internacional', 'Lugar Nenhum'] });
+  assert.equal(result.regiao_sem_imoveis, undefined);
+  assert.equal(result.total_compativeis, 3);
+  assert.match(result.avisos[0], /Bairro "Lugar Nenhum" não está no catálogo/);
+  assert.equal(criteria.foraDaRegiao, undefined);
+});
+
+test('região: cidade conhecida por sigla ou estado continua funcionando', () => {
+  assert.equal(buscar({ cidade: 'Curitiba - PR' }).result.total_compativeis, 1);
+  assert.equal(buscar({ cidade: 'Paraná' }).result.total_compativeis, 1);
 });
 
 test('busca: orçamento baixo demais ou absurdo não é usado e manda confirmar com a pessoa', () => {

@@ -200,7 +200,8 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
         allProperties: allPropertiesRef.current,
         vocabulary: vocabularyRef.current
       });
-      applyCriteria(criteria);
+      // Região que o catálogo não tem: não mexe nos filtros da tela, para a pessoa não perder o que já escolheu
+      if (!criteria.foraDaRegiao) applyCriteria(criteria);
       return result;
     }
     if (call.function?.name === 'mostrar_imoveis') {
