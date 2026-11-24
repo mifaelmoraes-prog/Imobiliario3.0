@@ -68,6 +68,9 @@ test('o prompt traz o roteiro de região sem imóveis e a regra de não esquecer
   assert.match(sistema, /no máximo 2 alternativas/);
   assert.match(sistema, /não repita nenhuma pergunta/);
   assert.match(sistema, /Nunca mostre imóveis de outro lugar/);
+  assert.match(sistema, /exatamente como a pessoa falou/);
+  const busca = chamadas[0].body.tools.find(t => t.function.name === 'buscar_imoveis');
+  assert.match(busca.function.parameters.properties.cidade.description, /mesmo que não esteja na lista/);
 });
 
 test('ferramentas: alertas e feedback só entram quando as flags estão ligadas', async () => {
