@@ -4,7 +4,11 @@
  * a chave OPENAI_API_KEY nunca vai para o navegador.
  */
 const MODEL = process.env.OPENAI_TTS_MODEL || 'gpt-4o-mini-tts';
-const VOICE = process.env.OPENAI_TTS_VOICE || 'marin'; // a preferida da equipe entre as da OpenAI
+// Voz única do atendimento, masculina como o avatar. Fica fixa no código, sem variável de ambiente:
+// trocar de voz no meio do atendimento (ou entrar uma voz feminina do nada) é o que o Mifael pediu
+// para nunca acontecer. A saudação gravada em public/audio usa esta mesma voz.
+export const VOZ_DO_ATENDIMENTO = 'cedar';
+const VOICE = VOZ_DO_ATENDIMENTO;
 const INSTRUCTIONS =
   'Fale em português do Brasil, com sotaque brasileiro. Tom acolhedor, natural e profissional, ' +
   'em ritmo de conversa, como um corretor de imóveis atencioso.';

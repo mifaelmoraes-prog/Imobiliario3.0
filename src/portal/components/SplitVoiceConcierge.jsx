@@ -35,6 +35,10 @@ import {
 import { avisarContato, saveAlert, saveFeedback, saveLead } from '../../services/conciergeLeadsClient';
 import { leadOutcome } from '../../services/conciergeLeadOutcome';
 import { esperaFimDaFala } from '../../services/fimDaFala';
+import { avatarDaEpoca } from '../../services/avatarDaEpoca';
+
+// Imagem do avatar escolhida uma vez ao carregar (no Natal, a versão de gorro)
+const AVATAR_SRC = avatarDaEpoca(new Date(), typeof window !== 'undefined' ? window.location.search : '');
 import {
   speak,
   stopSpeaking,
@@ -47,7 +51,7 @@ const VOICE_REPLIES_KEY = 'concierge_voice_replies';
 // Saudação falada ao abrir: o áudio fica pronto em public/ (voz Marin), sem esperar a voz neural.
 // Se mudar o texto, gere o áudio de novo com a mesma frase.
 const GREETING_TEXT = 'Olá! Aqui é o atendimento da Urban Real State. Me conta: que tipo de imóvel você está procurando, e em qual região?';
-const GREETING_AUDIO = '/audio/atendimento-saudacao.mp3';
+const GREETING_AUDIO = '/audio/atendimento-saudacao-cedar.mp3';
 
 const getSpeechRecognition = () =>
   typeof window !== 'undefined' ? (window.SpeechRecognition || window.webkitSpeechRecognition || null) : null;
@@ -719,7 +723,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
                 className={`flex gap-3 ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 {m.sender === 'concierge' && (
-                  <img src="/assets/atendimento-avatar.webp" alt="" width="32" height="32" className="w-8 h-8 rounded-full object-cover shrink-0 shadow-sm mt-0.5" />
+                  <img src={AVATAR_SRC} alt="" width="32" height="32" className="w-8 h-8 rounded-full object-cover shrink-0 shadow-sm mt-0.5" />
                 )}
                 {m.notice ? (
                   <div className="inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-200 dark:border-emerald-800">
@@ -791,7 +795,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
             ))}
             {isThinking && (
               <div className="flex gap-3 justify-start" role="status" aria-label="Atendimento respondendo">
-                <img src="/assets/atendimento-avatar.webp" alt="" width="32" height="32" className="w-8 h-8 rounded-full object-cover shrink-0 shadow-sm" />
+                <img src={AVATAR_SRC} alt="" width="32" height="32" className="w-8 h-8 rounded-full object-cover shrink-0 shadow-sm" />
                 <div className="px-4 py-3 rounded-2xl rounded-bl-none bg-white dark:bg-stone-800 border border-stone-200/70 dark:border-stone-700/70 shadow-sm flex items-center gap-1">
                   {[0, 150, 300].map(delay => (
                     <span
