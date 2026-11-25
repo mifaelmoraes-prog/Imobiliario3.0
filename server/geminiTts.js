@@ -72,13 +72,10 @@ export async function synthesize(text, apiKey) {
  * Escolhe o provedor: TTS_PROVIDER=gemini|openai; sem isso, usa o que tiver chave
  * (OpenAI primeiro: começa a falar em ~1,5 s, contra ~4,5 s do Gemini).
  */
+// Uma voz só no atendimento: sempre a da OpenAI (VOZ_DO_ATENDIMENTO). O Gemini tem outra voz e
+// não entra nem como reserva; sem a chave da OpenAI, o atendimento responde só por texto.
 function pickProvider(keys) {
-  const wanted = (process.env.TTS_PROVIDER || '').toLowerCase();
-  if (wanted === 'openai' && keys.openai) return 'openai';
-  if (wanted === 'gemini' && keys.gemini) return 'gemini';
-  if (keys.openai) return 'openai';
-  if (keys.gemini) return 'gemini';
-  return null;
+  return keys.openai ? 'openai' : null;
 }
 
 // Provedor → timestamp até quando pular (cota esgotada)
@@ -126,12 +123,8 @@ export async function handleTtsRequest({ method, body, origin, host, headers }, 
   // Uma conversa fala com uma voz só: depois da primeira fala, o navegador fixa o
   // provedor (body.provider) e o servidor não troca de provedor no meio dela.
   // Se o fixado estiver sem cota, o navegador passa para a voz do navegador.
-  const pinned = ['openai', 'gemini'].includes(body?.provider) && keys[body.provider] ? body.provider : null;
-  // Trocar de provedor sozinho trocaria a voz no meio do atendimento, e o Gemini leva de 11 a 20 s
-  // por fala (medido): só vale como reserva se for pedido (TTS_ALLOW_PROVIDER_FALLBACK=1).
-  const backup = primary === 'gemini' ? 'openai' : 'gemini';
-  const allowFallback = process.env.TTS_ALLOW_PROVIDER_FALLBACK === '1' && keys[backup];
-  const order = pinned ? [pinned] : allowFallback ? [primary, backup] : [primary];
+  // Sem troca de provedor: outro provedor teria outra voz
+  const order = [primary];
   const available = order.filter(name => !isExhausted(name));
   const exhaustedReply = () => {
     const wait = Math.max(...order.map(name => Math.ceil(((exhaustedUntil.get(name) || 0) - Date.now()) / 1000)), 30);
