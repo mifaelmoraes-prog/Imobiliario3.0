@@ -100,10 +100,12 @@ export function Header({
             size="md"
             icon={Sparkles}
             onClick={onOpenConcierge}
-            ariaLabel="Abrir Concierge Digital de Imóveis"
+            ariaLabel="Abrir o atendimento humanizado"
             className="shadow-md shadow-accent/20"
           >
-            Concierge
+            {/* No celular o nome inteiro quebra em duas linhas e espreme o logo */}
+            <span className="sm:hidden">Atendimento</span>
+            <span className="hidden sm:inline">Atendimento Humanizado</span>
           </Button>
         </div>
 

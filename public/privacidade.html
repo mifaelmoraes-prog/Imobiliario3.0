@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Política de Privacidade — Urban Real State</title>
-<meta name="description" content="Como o Urban Real State trata os dados de quem usa o portal e conversa com o Concierge, e como exercer seus direitos pela LGPD.">
+<meta name="description" content="Como o Urban Real State trata os dados de quem usa o portal e conversa com o assistente virtual de atendimento, e como exercer seus direitos pela LGPD.">
 <style>
   :root {
     --bg: #fafaf8; --surface: #ffffff; --ink: #1c1917; --muted: #57534e; --line: #e7e5e4;
@@ -54,19 +54,19 @@
   <table>
     <thead><tr><th>Dado</th><th>Quando</th><th>Para quê</th><th>Onde fica</th></tr></thead>
     <tbody>
-      <tr><td>Mensagens da conversa com o Concierge, e um resumo da sua navegação (critérios de busca, texto buscado, imóveis vistos, favoritos, ações no site e o nome, se você o informou)</td><td>Quando você usa o Concierge</td><td>Entender o que você procura e indicar imóveis do catálogo</td><td>Enviado ao nosso servidor e à OpenAI para gerar a resposta. Não gravamos a conversa em nosso banco de dados</td></tr>
+      <tr><td>Mensagens da conversa com o assistente virtual de atendimento, e um resumo da sua navegação (critérios de busca, texto buscado, imóveis vistos, favoritos, ações no site e o nome, se você o informou)</td><td>Quando você usa o assistente virtual de atendimento</td><td>Entender o que você procura e indicar imóveis do catálogo</td><td>Enviado ao nosso servidor e à OpenAI para gerar a resposta. Não gravamos a conversa em nosso banco de dados</td></tr>
       <tr><td>Nome, telefone e/ou e-mail, melhor horário, imóveis de interesse, finalidade e prazo</td><td>Só se você pedir contato com um corretor e aceitar</td><td>Nossa equipe entrar em contato com você</td><td>Banco de dados no Supabase (tabela de contatos)</td></tr>
       <tr><td>Nome, telefone e/ou e-mail e os critérios do alerta (cidade, bairros, tipo, quartos, orçamento, comodidades)</td><td>Só se você pedir um alerta de imóveis e aceitar</td><td>Avisar quando houver imóveis compatíveis</td><td>Banco de dados no Supabase (tabela de alertas)</td></tr>
-      <tr><td>Texto e nota do feedback</td><td>Se você quiser opinar sobre o atendimento</td><td>Melhorar o Concierge</td><td>Banco de dados no Supabase. É anônimo: não pedimos nome nem contato</td></tr>
+      <tr><td>Texto e nota do feedback</td><td>Se você quiser opinar sobre o atendimento</td><td>Melhorar o atendimento</td><td>Banco de dados no Supabase. É anônimo: não pedimos nome nem contato</td></tr>
       <tr><td>País e estado (UF) de onde vem o acesso, e a hora</td><td>Ao abrir o portal</td><td>Estatística de acessos por região</td><td>Banco de dados no Supabase. Não guardamos seu IP nem um identificador seu</td></tr>
-      <tr><td>Voz</td><td>Se você falar com o Concierge ou com a busca por voz</td><td>Transformar sua fala em texto e responder em áudio</td><td>O reconhecimento é feito pelo seu navegador (o fabricante dele pode processar o áudio). O texto da resposta vai a um serviço de voz (OpenAI ou Google) para virar áudio</td></tr>
+      <tr><td>Voz</td><td>Se você falar com o assistente virtual de atendimento ou com a busca por voz</td><td>Transformar sua fala em texto e responder em áudio</td><td>O reconhecimento é feito pelo seu navegador (o fabricante dele pode processar o áudio). O texto da resposta vai a um serviço de voz (OpenAI ou Google) para virar áudio</td></tr>
     </tbody>
   </table>
   </div>
-  <p>Não pedimos CPF, dados bancários nem senhas em nenhuma parte do portal público. Evite escrever esse tipo de dado na conversa com o Concierge.</p>
+  <p>Não pedimos CPF, dados bancários nem senhas em nenhuma parte do portal público. Evite escrever esse tipo de dado na conversa com o assistente virtual de atendimento.</p>
 
   <h2>3. O que fica no seu dispositivo</h2>
-  <p>O portal guarda no próprio navegador (armazenamento local, não são cookies de rastreamento): o tema claro ou escuro, seus imóveis favoritos, o perfil de busca que você montou, a linha do tempo das suas ações no portal, a preferência de respostas por voz e um aviso de que a mensagem de saída já foi exibida. Isso fica só no seu aparelho e você pode apagar limpando os dados do site no navegador. Uma parte desse conteúdo (o resumo da navegação) é enviada quando você usa o Concierge, como descrito acima.</p>
+  <p>O portal guarda no próprio navegador (armazenamento local, não são cookies de rastreamento): o tema claro ou escuro, seus imóveis favoritos, o perfil de busca que você montou, a linha do tempo das suas ações no portal, a preferência de respostas por voz e um aviso de que a mensagem de saída já foi exibida. Isso fica só no seu aparelho e você pode apagar limpando os dados do site no navegador. Uma parte desse conteúdo (o resumo da navegação) é enviada quando você usa o assistente virtual de atendimento, como descrito acima.</p>
 
   <h2>4. Com quem compartilhamos</h2>
   <p>Usamos prestadores de serviço (operadores) para o portal funcionar. Eles tratam os dados só para esse fim:</p>
@@ -74,7 +74,7 @@
     <li><b>Vercel</b>: hospedagem do portal. Registra dados técnicos de acesso, como o IP, para o serviço funcionar e se manter seguro.</li>
     <li><b>Supabase</b>: banco de dados dos contatos, alertas, feedback e estatística de acesso por região.</li>
     <li><b>Resend</b>: envio do e-mail que avisa nossa equipe quando você pede contato de um corretor. O e-mail leva os dados que você informou no pedido.</li>
-    <li><b>OpenAI</b>: inteligência artificial do Concierge (conversa) e, quando configurado, voz.</li>
+    <li><b>OpenAI</b>: inteligência artificial do assistente de atendimento (conversa) e, quando configurado, voz.</li>
     <li><b>Google</b>: voz neural (quando configurada) e as fontes de letra do portal.</li>
     <li><b>OpenStreetMap</b>: imagens do mapa, carregadas quando você abre a visualização em mapa (seu IP é visto por esse serviço).</li>
   </ul>

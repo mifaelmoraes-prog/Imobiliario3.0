@@ -329,7 +329,7 @@ export function buildGreeting(visitor) {
   if (!visitor) return null;
   const c = visitor.criterios || {};
   const first = visitor.nome ? ` ${visitor.nome.split(' ')[0]}` : '';
-  const hi = `Olá${first}! Sou o Concierge da Urban Real State.`;
+  const hi = `Olá${first}! Aqui é o atendimento da Urban Real State.`;
   const local = c.bairros?.[0] || c.cidade || null;
   if (c.tipo || local) {
     return `${hi} Vi que você está de olho em ${TYPE_PLURAL[c.tipo] || 'imóveis'}${local ? ` em ${local}` : ''}. Quer que eu mostre as melhores opções ou prefere ajustar algo?`;
