@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PropertyCard } from './PropertyCard';
-import { ArrowUpDown, SearchX } from 'lucide-react';
+import { ArrowUpDown, SearchX, Info } from 'lucide-react';
 import { ViewModeToggle } from './ViewModeToggle';
 import { useProperties } from '../../context/PropertyContext';
 import { useBuyerProfile } from '../../context/BuyerProfileContext';
@@ -12,6 +12,7 @@ export function PropertyGrid({
 }) {
   const {
     properties,
+    searchNotice,
     favorites,
     toggleFavorite,
     sortOrder,
@@ -27,6 +28,14 @@ export function PropertyGrid({
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
       
+      {/* Aviso da busca por frase: só venda, ou região sem imóveis com opções parecidas */}
+      {searchNotice && (
+        <div role="status" className="mb-4 flex items-start gap-3 rounded-xl border border-accent/30 bg-accent/5 dark:bg-accent/10 px-4 py-3 text-sm text-stone-800 dark:text-stone-100">
+          <Info className="w-5 h-5 text-accent shrink-0 mt-0.5" aria-hidden="true" />
+          <p>{searchNotice}</p>
+        </div>
+      )}
+
       {/* Barra de Controles e Ordenação */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pt-2">
         <div className="flex items-center gap-2 text-xs sm:text-sm text-stone-500 font-medium">
