@@ -4,6 +4,10 @@ import { useBuyerProfile } from '../../context/BuyerProfileContext';
 import { useProperties } from '../../context/PropertyContext';
 import { buildVisitorContext } from '../../services/conciergeBrainClient';
 import { buildAvatarTip } from '../../services/avatarTips';
+import { avatarDaEpoca } from '../../services/avatarDaEpoca';
+
+// Imagem do avatar escolhida uma vez ao carregar (no Natal, a versão de gorro)
+const AVATAR_SRC = avatarDaEpoca(new Date(), typeof window !== 'undefined' ? window.location.search : '');
 
 // Avatar do atendimento (pedido do Paulo, "estilo o Clip do Word"): fica no canto da tela e puxa
 // conversa sozinho com um balão que usa o que a pessoa já filtrou, viu e buscou. Só texto: o
@@ -116,7 +120,7 @@ export function AtendimentoAvatar({ onOpen, hidden }) {
         title="Atendimento Humanizado"
         className="relative shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full ring-4 ring-white dark:ring-stone-800 shadow-xl shadow-accent/30 transition-transform motion-safe:hover:scale-105 focus:outline-none focus-visible:ring-accent"
       >
-        <img src="/assets/atendimento-avatar.webp" alt="" width="64" height="64" className="w-full h-full rounded-full object-cover" />
+        <img src={AVATAR_SRC} alt="" width="64" height="64" className="w-full h-full rounded-full object-cover" />
         <span className="absolute bottom-0.5 right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-stone-800" aria-hidden="true" />
       </button>
     </div>
