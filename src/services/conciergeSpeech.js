@@ -1,32 +1,13 @@
 /**
  * conciergeSpeech.js
- * Voz de saída do Concierge em pt-BR: voz neural Gemini (via /api/tts) com
- * fallback para a voz do navegador (speechSynthesis).
+ * Voz de saída do atendimento em pt-BR: sempre a mesma voz neural (OpenAI, via /api/tts).
+ * Não há reserva na voz do navegador: ela muda de computador para computador (pode ser
+ * feminina, robótica…) e trocaria a voz no meio da conversa. Sem a voz neural, responde só
+ * por texto.
  */
 
 export const isSpeechSynthesisSupported = () =>
   typeof window !== 'undefined' && 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
-
-// Prefere vozes pt-BR de melhor qualidade quando o sistema as oferece.
-const PREFERRED_VOICES = [/google/i, /natural|neural|premium|enhanced|aprimorad/i, /luciana/i, /francisca|thalita|maria/i];
-
-export function pickVoice() {
-  if (!isSpeechSynthesisSupported()) return null;
-  const voices = window.speechSynthesis.getVoices();
-  const ptBR = voices.filter(v => /^pt[-_]br/i.test(v.lang));
-  const pool = ptBR.length ? ptBR : voices.filter(v => /^pt/i.test(v.lang));
-  for (const re of PREFERRED_VOICES) {
-    const match = pool.find(v => re.test(v.name));
-    if (match) return match;
-  }
-  return pool[0] || null;
-}
-
-// A lista de vozes carrega de forma assíncrona no Chrome; pede cedo para aquecer.
-if (isSpeechSynthesisSupported()) {
-  window.speechSynthesis.getVoices();
-  window.speechSynthesis.addEventListener?.('voiceschanged', () => window.speechSynthesis.getVoices());
-}
 
 /** "a", "a e b", "a, b e c" */
 export function joinPt(items) {
@@ -67,17 +48,10 @@ function splitSentences(text) {
 }
 
 let currentToken = 0;
-let watchdog = null;
 let currentAudio = null;
 let currentFetch = null;
 
-function clearWatchdog() {
-  if (watchdog) clearInterval(watchdog);
-  watchdog = null;
-}
-
 function stopAll() {
-  clearWatchdog();
   currentFetch?.abort();
   currentFetch = null;
   if (currentAudio) {
@@ -89,11 +63,11 @@ function stopAll() {
 }
 
 // ---------------------------------------------------------------------------
-// Voz neural (Gemini TTS via /api/tts). Sem chave configurada, o servidor
-// responde 503 e o Concierge passa a usar só a voz do navegador.
+// Voz neural (OpenAI, via /api/tts). Sem chave configurada, o servidor
+// responde 503 e o atendimento passa a responder só por texto.
 // ---------------------------------------------------------------------------
 const NEURAL_ENDPOINT = '/api/tts';
-// O Gemini leva 3,5 a 5,5 s por trecho; abaixo disso a voz cairia na do navegador
+// Tempo máximo por trecho de áudio; passou disso, a resposta fica só no texto
 const NEURAL_TIMEOUT_MS = 9000;
 let neuralAvailable = import.meta.env?.VITE_NEURAL_TTS !== 'off';
 const audioCache = new Map(); // texto falado → object URL
@@ -103,7 +77,7 @@ export const isNeuralVoiceAvailable = () => neuralAvailable;
 
 // Uma conversa fala com uma voz só: o provedor da primeira fala fica fixo, e o servidor
 // não troca de voz no meio. Sem cota ou com erro, a voz neural fica em pausa e a
-// conversa segue na voz do navegador, sem esperar cada resposta falhar de novo.
+// conversa segue só no texto, sem esperar cada resposta falhar de novo.
 let sessionProvider = null;
 let neuralDownUntil = 0;
 const markNeuralDown = (seconds) => {
@@ -149,54 +123,11 @@ async function fetchNeuralAudio(text, signal) {
   return url;
 }
 
-// Voz do navegador, em frases curtas (evita o corte de falas longas do Chrome).
-function speakWithBrowser(spoken, token, { onStart, onEnd }) {
-  if (!isSpeechSynthesisSupported()) {
-    if (token === currentToken) {
-      currentToken++;
-      onEnd?.();
-    }
-    return;
-  }
-  const synth = window.speechSynthesis;
-  synth.cancel();
-  synth.resume(); // destrava o Chrome quando ficou pausado
-
-  const chunks = splitSentences(spoken);
-  let started = false;
-  const finish = () => {
-    if (token !== currentToken) return;
-    currentToken++;
-    clearWatchdog();
-    onEnd?.();
-  };
-  if (chunks.length === 0) return finish();
-
-  const voice = pickVoice();
-  chunks.forEach((chunk, i) => {
-    const utterance = new SpeechSynthesisUtterance(chunk);
-    utterance.lang = voice?.lang || 'pt-BR';
-    if (voice) utterance.voice = voice;
-    utterance.rate = 1.05;
-    utterance.onstart = () => {
-      if (token === currentToken && !started) {
-        started = true;
-        onStart?.();
-      }
-    };
-    if (i === chunks.length - 1) utterance.onend = finish;
-    utterance.onerror = (e) => {
-      if (e.error !== 'interrupted' && e.error !== 'canceled') finish();
-    };
-    synth.speak(utterance);
-  });
-
-  // Rede de segurança: alguns navegadores não disparam onend.
-  const startedAt = Date.now();
-  watchdog = setInterval(() => {
-    if (token !== currentToken) return clearWatchdog();
-    if (Date.now() - startedAt > 1500 && !synth.speaking && !synth.pending) finish();
-  }, 500);
+// Sem a voz neural: não fala com outra voz; encerra e a resposta fica só no texto.
+function finishSilently(token, { onEnd }) {
+  if (token !== currentToken) return;
+  currentToken++;
+  onEnd?.();
 }
 
 // Cada trecho é uma requisição de voz, e a cota é pequena: respostas curtas (as normais)
@@ -245,15 +176,15 @@ function speakWithNeural(spoken, token, callbacks) {
   let started = false;
   let next = fetchWithTimeout(chunks[0]);
 
-  // Se a voz neural falhar no meio, o restante sai na voz do navegador
-  const fallbackFrom = (i) => {
+  // Se a voz neural falhar no meio, o restante fica só no texto (nunca em outra voz)
+  const fallbackFrom = () => {
     if (token !== currentToken) return;
     currentAudio = null;
     if (!started) {
       started = true;
       onStart?.();
     }
-    speakWithBrowser(chunks.slice(i).join(' '), token, { onEnd });
+    finishSilently(token, { onEnd });
   };
 
   const playAt = (i) => {
@@ -297,9 +228,9 @@ function speakWithNeural(spoken, token, callbacks) {
 }
 
 /**
- * Fala o texto em pt-BR: voz neural (Gemini) quando disponível, senão a do
- * navegador. onEnd é chamado uma única vez quando a fala termina (ou falha);
- * não é chamado se stopSpeaking() ou outro speak() interromper.
+ * Fala o texto em pt-BR sempre com a voz do atendimento (neural). Sem ela, não fala:
+ * a resposta fica só no texto. onEnd é chamado uma única vez quando a fala termina (ou
+ * falha); não é chamado se stopSpeaking() ou outro speak() interromper.
  */
 export function speak(text, { onStart, onEnd, audioUrl } = {}) {
   const token = ++currentToken;
@@ -313,7 +244,7 @@ export function speak(text, { onStart, onEnd, audioUrl } = {}) {
   const speakText = () => {
     if (token !== currentToken) return;
     if (isNeuralUsable()) speakWithNeural(spoken, token, { onStart, onEnd });
-    else speakWithBrowser(spoken, token, { onStart, onEnd });
+    else finishSilently(token, { onEnd });
   };
   if (!audioUrl) return speakText();
 
@@ -345,5 +276,5 @@ export function stopSpeaking() {
   stopAll();
 }
 
-/** Alguma forma de fala disponível (neural ou do navegador). */
-export const canSpeak = () => neuralAvailable || isSpeechSynthesisSupported();
+/** A voz do atendimento está disponível (só a neural; não há voz de reserva). */
+export const canSpeak = () => neuralAvailable;
