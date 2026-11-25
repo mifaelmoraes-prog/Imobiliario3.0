@@ -16,7 +16,6 @@ import {
   Mic,
   MicOff,
   Send,
-  Sparkles,
   CheckCircle2,
   User,
   ArrowRight,
@@ -718,9 +717,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
                 className={`flex gap-3 ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 {m.sender === 'concierge' && (
-                  <div className="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
-                    <Sparkles className="w-4 h-4" />
-                  </div>
+                  <img src="/assets/atendimento-avatar.webp" alt="" width="32" height="32" className="w-8 h-8 rounded-full object-cover shrink-0 shadow-sm mt-0.5" />
                 )}
                 {m.notice ? (
                   <div className="inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-200 dark:border-emerald-800">
@@ -792,9 +789,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
             ))}
             {isThinking && (
               <div className="flex gap-3 justify-start" role="status" aria-label="Atendimento respondendo">
-                <div className="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <Sparkles className="w-4 h-4" />
-                </div>
+                <img src="/assets/atendimento-avatar.webp" alt="" width="32" height="32" className="w-8 h-8 rounded-full object-cover shrink-0 shadow-sm" />
                 <div className="px-4 py-3 rounded-2xl rounded-bl-none bg-white dark:bg-stone-800 border border-stone-200/70 dark:border-stone-700/70 shadow-sm flex items-center gap-1">
                   {[0, 150, 300].map(delay => (
                     <span
