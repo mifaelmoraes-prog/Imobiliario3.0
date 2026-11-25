@@ -46,8 +46,8 @@ import {
 const VOICE_REPLIES_KEY = 'concierge_voice_replies';
 // Saudação falada ao abrir: o áudio fica pronto em public/ (voz Marin), sem esperar a voz neural.
 // Se mudar o texto, gere o áudio de novo com a mesma frase.
-const GREETING_TEXT = 'Olá! Sou o Concierge da Urban Real State. Me conta: que tipo de imóvel você está procurando, e em qual região?';
-const GREETING_AUDIO = '/audio/concierge-saudacao.mp3';
+const GREETING_TEXT = 'Olá! Aqui é o atendimento da Urban Real State. Me conta: que tipo de imóvel você está procurando, e em qual região?';
+const GREETING_AUDIO = '/audio/atendimento-saudacao.mp3';
 
 const getSpeechRecognition = () =>
   typeof window !== 'undefined' ? (window.SpeechRecognition || window.webkitSpeechRecognition || null) : null;
@@ -701,8 +701,8 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
       onClose={onClose}
       maxWidth="max-w-5xl"
       showCloseButton={true}
-      title="Concierge Digital Imobiliário"
-      subtitle="Atendimento multimodal: fale ou digite enquanto seus 4 pilares se organizam ao vivo"
+      title="Atendimento Humanizado"
+      subtitle="Fale ou digite: o assistente virtual entende o que você procura e um corretor continua com você"
     >
       {/* Layout Dividido em Tempo Real (Ref. UX Tópico 06 / GAP-06.1 e GAP-06.2) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-[520px]">
@@ -791,7 +791,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
               </div>
             ))}
             {isThinking && (
-              <div className="flex gap-3 justify-start" role="status" aria-label="Concierge pensando">
+              <div className="flex gap-3 justify-start" role="status" aria-label="Atendimento respondendo">
                 <div className="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center shrink-0 shadow-sm">
                   <Sparkles className="w-4 h-4" />
                 </div>
@@ -870,7 +870,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
                 {isRecording
                   ? 'Ouvindo… fale naturalmente. Toque no microfone para parar.'
                   : isSpeaking
-                    ? 'Concierge falando… toque no microfone para interromper e responder.'
+                    ? 'Falando… toque no microfone para interromper e responder.'
                     : voiceHint || 'Dica: toque no microfone e converse; eu respondo em voz.'}
               </span>
               {canSpeak() && (
