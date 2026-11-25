@@ -34,9 +34,9 @@ export function montarAviso(c) {
     ['Finalidade', c.finalidade], ['Prazo', c.prazo], ['Imóveis de interesse', c.imoveis_ids.join(', ')], ['Observações', c.observacoes]
   ].filter(([, v]) => v);
   return {
-    subject: `Novo contato pelo Concierge: ${c.nome}`,
-    text: `Um visitante pediu contato de corretor pelo Concierge.\n\n${linhas.map(([k, v]) => `${k}: ${v}`).join('\n')}\n`,
-    html: `<p>Um visitante pediu contato de corretor pelo Concierge.</p><ul>${linhas.map(([k, v]) => `<li><b>${k}:</b> ${esc(v)}</li>`).join('')}</ul>`
+    subject: `Novo contato pelo atendimento do site: ${c.nome}`,
+    text: `Um visitante pediu contato de corretor pelo atendimento do site.\n\n${linhas.map(([k, v]) => `${k}: ${v}`).join('\n')}\n`,
+    html: `<p>Um visitante pediu contato de corretor pelo atendimento do site.</p><ul>${linhas.map(([k, v]) => `<li><b>${k}:</b> ${esc(v)}</li>`).join('')}</ul>`
   };
 }
 

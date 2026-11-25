@@ -182,7 +182,7 @@ test('saudação: sem visitante conhecido mantém a padrão (null)', () => {
 
 test('saudação: usa tipo, bairro ou cidade e só o primeiro nome', () => {
   const s = buildGreeting({ nome: 'Ana Maria', criterios: { tipo: 'Casa', bairros: ['Batel'], cidade: 'Curitiba' } });
-  assert.match(s, /^Olá Ana! Sou o Concierge da Urban Real State\./);
+  assert.match(s, /^Olá Ana! Aqui é o atendimento da Urban Real State\./);
   assert.match(s, /de olho em casas em Batel/);
   assert.match(buildGreeting({ criterios: { cidade: 'Vitória' } }), /de olho em imóveis em Vitória/);
 });
