@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState, useMemo, useEffect } from 'react';
 import { SCRAPED_PROPERTIES } from '../data/scrapedProperties';
 import { calculatePropertyMatch } from '../services/smartMatchEngine';
+import { buildVocabulary } from '../services/conciergeParser';
+import { interpretarBusca, aplicarBusca } from '../services/buscaLivre';
 import { useBuyerProfile } from './BuyerProfileContext';
 
 const PropertyContext = createContext(null);
@@ -46,7 +48,12 @@ export function PropertyProvider({ children }) {
   };
 
   // Calcula matches e filtra com reatividade limpa
-  const processedProperties = useMemo(() => {
+  // A busca do topo entende frases ("casa de aluguel em São Paulo") em vez de procurar o texto inteiro
+  const vocabulary = useMemo(() => buildVocabulary(properties), [properties]);
+  const buscaInterpretada = useMemo(() => interpretarBusca(searchQuery, vocabulary), [searchQuery, vocabulary]);
+
+  const { processedProperties, searchNotice } = useMemo(() => {
+    let aviso = null;
     let list = properties.map(prop => {
       const matchData = calculatePropertyMatch(prop, profile);
       return {
@@ -56,8 +63,12 @@ export function PropertyProvider({ children }) {
       };
     });
 
-    // Filtro por busca textual (Hero)
-    if (searchQuery.trim()) {
+    // Filtro por busca textual (Hero): critérios da frase; sem critério reconhecível, busca literal
+    if (buscaInterpretada) {
+      const r = aplicarBusca(list, buscaInterpretada);
+      list = r.imoveis;
+      aviso = r.aviso;
+    } else if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       list = list.filter(p => 
         (p.title && p.title.toLowerCase().includes(q)) ||
@@ -68,8 +79,10 @@ export function PropertyProvider({ children }) {
       );
     }
 
-    // Filtro de cidade (se selecionada)
-    if (selectedCity) {
+    // Filtro de cidade (se selecionada). Se a frase da busca já diz o lugar, ela vale mais que o
+    // botão de cidade marcado antes ("casa em São Paulo" com Vitória marcada não pode dar zero)
+    const buscaDizOLugar = Boolean(buscaInterpretada?.cidade || buscaInterpretada?.lugarDesconhecido);
+    if (selectedCity && !buscaDizOLugar) {
       list = list.filter(p => p.city && p.city.toLowerCase().includes(selectedCity.toLowerCase()));
     }
 
@@ -87,8 +100,8 @@ export function PropertyProvider({ children }) {
       return 0;
     });
 
-    return list;
-  }, [properties, profile, searchQuery, selectedCity, sortOrder]);
+    return { processedProperties: list, searchNotice: aviso };
+  }, [properties, profile, searchQuery, buscaInterpretada, selectedCity, sortOrder]);
 
   // Lista de cidades disponíveis
   const availableCities = useMemo(() => {
@@ -108,6 +121,8 @@ export function PropertyProvider({ children }) {
         rawPropertiesCount: properties.length,
         searchQuery,
         setSearchQuery,
+        // Aviso da busca por frase (aluguel, região sem imóveis), ou null
+        searchNotice,
         selectedCity,
         setSelectedCity,
         sortOrder,

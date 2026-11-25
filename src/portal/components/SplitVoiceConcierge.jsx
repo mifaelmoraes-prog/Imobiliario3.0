@@ -34,6 +34,7 @@ import {
 } from '../../services/conciergeBrainClient';
 import { avisarContato, saveAlert, saveFeedback, saveLead } from '../../services/conciergeLeadsClient';
 import { leadOutcome } from '../../services/conciergeLeadOutcome';
+import { esperaFimDaFala } from '../../services/fimDaFala';
 import {
   speak,
   stopSpeaking,
@@ -569,20 +570,20 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
     const recognition = new SpeechRecognition();
     recognition.lang = 'pt-BR';
     // Contínuo: uma pausa curta ("eu quero… investir 4 milhões") não encerra a fala.
-    // Só encerra depois de END_OF_SPEECH_MS sem nada novo.
+    // Só encerra depois de um silêncio que depende de como a frase terminou (esperaFimDaFala):
+    // com 1,6 s fixo, uma pausa para pensar fazia o atendimento responder no meio da frase.
     recognition.continuous = true;
     recognition.interimResults = true;
     recognition.maxAlternatives = 1;
 
-    const END_OF_SPEECH_MS = 1600;
     let finalText = '';
     let lastInterim = '';
     let retryAfterSilence = false;
     let hadError = false;
     let endTimer = null;
-    const scheduleEnd = () => {
+    const scheduleEnd = (textoAteAgora) => {
       clearTimeout(endTimer);
-      endTimer = setTimeout(() => recognition.stop(), END_OF_SPEECH_MS);
+      endTimer = setTimeout(() => recognition.stop(), esperaFimDaFala(textoAteAgora));
     };
 
     recognition.onstart = () => {
@@ -599,7 +600,8 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
       }
       lastInterim = interim;
       setInterimText(`${finalText}${interim}`.trim());
-      if (`${finalText}${interim}`.trim()) scheduleEnd();
+      const ateAgora = `${finalText}${interim}`.trim();
+      if (ateAgora) scheduleEnd(ateAgora);
     };
     recognition.onerror = (event) => {
       hadError = true;
