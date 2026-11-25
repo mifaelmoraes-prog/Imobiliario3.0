@@ -5,6 +5,8 @@ import { useProperties } from '../../context/PropertyContext';
 export function HeroSearch({ onTriggerVoice }) {
   const { searchQuery, setSearchQuery, selectedCity, setSelectedCity, availableCities } = useProperties();
   const [isListening, setIsListening] = useState(false);
+  // Antes os erros do microfone eram engolidos: o botão só parava, sem dizer nada
+  const [vozAviso, setVozAviso] = useState('');
 
   const handleVoiceInput = () => {
     if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
@@ -18,16 +20,33 @@ export function HeroSearch({ onTriggerVoice }) {
     recognition.continuous = false;
     recognition.interimResults = false;
 
-    recognition.onstart = () => setIsListening(true);
+    recognition.onstart = () => {
+      setVozAviso('Ouvindo… diga o que procura, por exemplo "casa com 3 quartos em Vitória".');
+      setIsListening(true);
+    };
     recognition.onend = () => setIsListening(false);
-    recognition.onerror = () => setIsListening(false);
+    recognition.onerror = (event) => {
+      setIsListening(false);
+      if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+        setVozAviso('O microfone está bloqueado. Libere o microfone no navegador ou digite a busca.');
+      } else if (event.error === 'no-speech') {
+        setVozAviso('Não ouvi nada. Toque no microfone e fale de novo.');
+      } else if (event.error !== 'aborted') {
+        setVozAviso('Não consegui usar o microfone agora. Pode digitar a busca.');
+      }
+    };
 
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
+      setVozAviso('');
       setSearchQuery(transcript);
     };
 
-    recognition.start();
+    try {
+      recognition.start();
+    } catch {
+      setVozAviso('Não consegui usar o microfone agora. Pode digitar a busca.');
+    }
   };
 
   return (
@@ -83,6 +102,11 @@ export function HeroSearch({ onTriggerVoice }) {
             <Mic className="w-5 h-5" />
           </button>
         </div>
+        {vozAviso && (
+          <p role="status" aria-live="polite" className="mt-2 text-xs sm:text-sm text-stone-600 dark:text-stone-300">
+            {vozAviso}
+          </p>
+        )}
       </div>
 
       {/* Fileira Única de Cidades (Ref. UX Tópico 03 / GAP-03.1) */}

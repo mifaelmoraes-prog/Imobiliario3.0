@@ -6,6 +6,7 @@ import { ProfileDrawer } from '../components/ProfileDrawer';
 import { PropertyGrid } from '../components/PropertyGrid';
 import { PropertyDetailModal } from '../components/PropertyDetailModal';
 import { SplitVoiceConcierge } from '../components/SplitVoiceConcierge';
+import { AtendimentoAvatar } from '../components/AtendimentoAvatar';
 import { CriticismModal } from '../components/CriticismModal';
 import { ExitIntentModal } from '../components/ExitIntentModal';
 import { FinanceSimulatorModal } from '../components/FinanceSimulatorModal';
@@ -160,6 +161,12 @@ export function PublicPortalPage({
       <ProfileDrawer
         isOpen={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
+      />
+
+      {/* Avatar do atendimento: puxa conversa com o contexto do visitante (pedido do Paulo) */}
+      <AtendimentoAvatar
+        onOpen={() => setIsConciergeOpen(true)}
+        hidden={isConciergeOpen || Boolean(activePropertyDetail)}
       />
 
       {/* Concierge Multimodal em Tela Dividida (US-02) */}
