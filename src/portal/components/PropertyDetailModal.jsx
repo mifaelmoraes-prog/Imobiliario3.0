@@ -258,7 +258,7 @@ export function PropertyDetailModal({
         {/* Descrição e Comodidades */}
         <div>
           <h3 className="text-sm font-bold text-stone-900 dark:text-white mb-2">Sobre o Imóvel</h3>
-          <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed mb-4">
+          <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed whitespace-pre-line mb-4">
             {description}
           </p>
 

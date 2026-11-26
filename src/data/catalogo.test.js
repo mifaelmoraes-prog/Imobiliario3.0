@@ -81,3 +81,12 @@ test('imóveis de parceiras identificam a origem e têm link do anúncio', () =>
     assert.ok(p.sourceCode, `código do anúncio ausente em ${descreve(p)}`);
   }
 });
+
+test('cidades com hífen no nome continuam inteiras ("Xangri-Lá - RS")', async () => {
+  const { nomeDaCidade, ufDaCidade } = await import('../services/cidade.js');
+  assert.equal(nomeDaCidade('Xangri-Lá - RS'), 'Xangri-Lá');
+  assert.equal(ufDaCidade('Xangri-Lá - RS'), 'RS');
+  assert.equal(nomeDaCidade('São Paulo - SP'), 'São Paulo');
+  assert.equal(ufDaCidade('Sem UF'), '');
+  assert.ok(IMOVEIS.some(p => p.city === 'Xangri-Lá - RS'));
+});

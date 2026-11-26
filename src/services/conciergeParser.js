@@ -2,6 +2,7 @@
  * conciergeParser.js
  * Funções puras de extração usadas pelo Concierge (US-02).
  */
+import { nomeDaCidade } from './cidade.js';
 
 // Converte "1.200.000", "1,5", "1.8", "950.000,00" em número.
 function parseBrazilianNumber(raw) {
@@ -113,7 +114,7 @@ export function buildVocabulary(properties = []) {
 
   properties.forEach(p => {
     if (p.city) {
-      const name = p.city.split('-')[0].trim();
+      const name = nomeDaCidade(p.city);
       const key = normalizeText(name);
       if (!cityMap.has(key)) {
         cityMap.set(key, { label: p.city, shortLabel: name, keys: [key, ...(CITY_ALIASES[key] || [])] });
@@ -122,7 +123,7 @@ export function buildVocabulary(properties = []) {
     if (p.neighborhood && p.city) {
       // "Jardim Felicidade (Zona Oeste)" → "jardim felicidade"
       const key = normalizeText(p.neighborhood.replace(/\(.*?\)/g, ''));
-      const cityKey = normalizeText(p.city.split('-')[0]);
+      const cityKey = normalizeText(nomeDaCidade(p.city));
       const id = `${cityKey}|${key}`;
       if (key && !PLACEHOLDER_NEIGHBORHOOD.test(key) && !neighborhoodMap.has(id)) {
         neighborhoodMap.set(id, { label: p.neighborhood, key, cityKey, ambiguous: AMBIGUOUS_NEIGHBORHOODS.has(key) });
@@ -223,6 +224,7 @@ export function extractBedrooms(text) {
 export function extractPropertyType(text) {
   const n = normalizeText(text);
   if (findWord(n, 'cobertura') >= 0) return 'Cobertura';
+  if (['terreno', 'lote'].some(k => findWord(n, k) >= 0)) return 'Terreno';
   if (['apartamento', 'apto', 'ap', 'flat'].some(k => findWord(n, k) >= 0)) return 'Apartamento';
   if (['casa', 'sobrado', 'terrea'].some(k => findWord(n, k) >= 0)) return 'Casa';
   return null;

@@ -20,7 +20,7 @@ const COMMON_AMENITIES = [
   'Mobiliado'
 ];
 
-const PROPERTY_TYPES = ['Todos', 'Apartamento', 'Casa', 'Cobertura'];
+const PROPERTY_TYPES = ['Todos', 'Apartamento', 'Casa', 'Cobertura', 'Terreno'];
 
 const POPULAR_NEIGHBORHOODS = [
   'Batel',

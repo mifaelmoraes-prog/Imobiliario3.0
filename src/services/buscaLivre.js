@@ -8,9 +8,13 @@
 import {
   normalizeText, extractLocationAndLifestyle, extractPropertyType, extractBedrooms, extractBudget
 } from './conciergeParser.js';
+import { nomeDaCidade, ufDaCidade } from './cidade.js';
 
 // Cidades do catálogo com praia (chaves normalizadas, sem a sigla do estado)
-const LITORAL = new Set(['rio de janeiro', 'vitoria', 'florianopolis', 'bertioga', 'sao sebastiao', 'caraguatatuba', 'ubatuba']);
+const LITORAL = new Set([
+  'rio de janeiro', 'vitoria', 'florianopolis', 'bertioga', 'sao sebastiao', 'caraguatatuba', 'ubatuba',
+  'xangri la', 'capao da canoa', 'osorio' // Litoral Norte do RS
+]);
 
 const ESTADOS = {
   sp: 'SP', 'sao paulo': 'SP', rj: 'RJ', 'rio de janeiro': 'RJ', mg: 'MG', 'minas gerais': 'MG', 'minas': 'MG',
@@ -21,10 +25,9 @@ const ESTADOS = {
 // Palavras que encerram o nome do lugar depois de "em/no/na" ("em Batel até 2 milhões")
 const FIM_DO_LUGAR = new Set(['ate', 'com', 'por', 'para', 'pra', 'que', 'e', 'perto', 'proximo', 'abaixo', 'acima', 'mais', 'menos', 'sem', 'tipo']);
 const CONECTIVOS = new Set(['de', 'do', 'da', 'dos', 'das']);
-const PLURAL = { Casa: 'casas', Apartamento: 'apartamentos', Cobertura: 'coberturas' };
+const PLURAL = { Casa: 'casas', Apartamento: 'apartamentos', Cobertura: 'coberturas', Terreno: 'terrenos' };
 
-const cidadeSemUf = (cidade) => normalizeText(String(cidade || '').split('-')[0]);
-const ufDaCidade = (cidade) => (String(cidade || '').split('-')[1] || '').trim().toUpperCase();
+const cidadeSemUf = (cidade) => normalizeText(nomeDaCidade(cidade));
 
 /** Trecho depois do último "em/no/na/nas/nos", até uma palavra que encerra o lugar ou um número. */
 function trechoDoLugar(n) {
