@@ -22,15 +22,24 @@ test('"casa de aluguel em São Paulo": avisa que é só venda e mostra casas à 
   assert.match(aviso, /Mostrando casas à venda em São Paulo/);
 });
 
-test('"casa de praia em Xangri-lá RS": diz que não temos e mostra casas no litoral', () => {
+test('"casa de praia em Xangri-lá RS": acha as casas de Xangri-Lá (catálogo da Amo a Praia)', () => {
   const { b, imoveis, aviso } = buscar('casa de praia em Xangri-lá RS');
-  assert.equal(b.lugarDesconhecido, 'Xangri-lá');
+  assert.equal(b.lugarDesconhecido, null);
+  assert.equal(b.cidade.shortLabel, 'Xangri-Lá');
+  assert.ok(imoveis.length > 0);
+  assert.ok(imoveis.every(p => p.type === 'Casa' && p.city === 'Xangri-Lá - RS'));
+  assert.equal(aviso, null);
+});
+
+test('"casa de praia em Tramandaí RS": diz que não temos e mostra casas no litoral', () => {
+  const { b, imoveis, aviso } = buscar('casa de praia em Tramandaí RS');
+  assert.equal(b.lugarDesconhecido, 'Tramandaí');
   assert.equal(b.uf, 'RS');
   assert.equal(b.cidade, null, 'a sigla RS não pode virar Porto Alegre');
   assert.ok(imoveis.length > 0);
   assert.ok(imoveis.every(p => p.type === 'Casa'));
   assert.ok(imoveis.every(p => !p.city.startsWith('Porto Alegre')), 'Porto Alegre não é praia');
-  assert.match(aviso, /^Ainda não temos imóveis em Xangri-lá \(RS\)\. Separamos casas com perfil parecido no litoral\./);
+  assert.match(aviso, /^Ainda não temos imóveis em Tramandaí \(RS\)\. Separamos casas com perfil parecido no litoral\./);
 });
 
 test('lugar desconhecido sem praia: prefere o mesmo estado', () => {
@@ -42,8 +51,11 @@ test('lugar desconhecido sem praia: prefere o mesmo estado', () => {
 
 test('voz em minúsculas e sem acento funciona igual', () => {
   const { b } = buscar('casa de praia em xangri la rs');
-  assert.equal(b.lugarDesconhecido, 'xangri la');
-  assert.equal(b.uf, 'RS');
+  assert.equal(b.lugarDesconhecido, null);
+  assert.equal(b.cidade.shortLabel, 'Xangri-Lá');
+  const { b: b2 } = buscar('casa de praia em tramandai rs');
+  assert.equal(b2.lugarDesconhecido, 'tramandai');
+  assert.equal(b2.uf, 'RS');
 });
 
 test('lugares que existem não viram "desconhecidos"', () => {

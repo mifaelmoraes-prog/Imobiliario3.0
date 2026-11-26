@@ -3,6 +3,7 @@ import { SCRAPED_PROPERTIES } from '../data/scrapedProperties';
 import { calculatePropertyMatch } from '../services/smartMatchEngine';
 import { buildVocabulary } from '../services/conciergeParser';
 import { interpretarBusca, aplicarBusca } from '../services/buscaLivre';
+import { nomeDaCidade } from '../services/cidade';
 import { useBuyerProfile } from './BuyerProfileContext';
 
 const PropertyContext = createContext(null);
@@ -107,9 +108,9 @@ export function PropertyProvider({ children }) {
   const availableCities = useMemo(() => {
     const set = new Set();
     properties.forEach(p => {
-      if (p.city) set.add(p.city.split('-')[0].trim());
+      if (p.city) set.add(nomeDaCidade(p.city));
     });
-    return Array.from(set).slice(0, 12);
+    return Array.from(set); // todas: com o Litoral Norte do RS passaram de 12
   }, [properties]);
 
   return (

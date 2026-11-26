@@ -6,6 +6,7 @@
  */
 import { calculatePropertyMatch } from './smartMatchEngine.js';
 import { normalizeText } from './conciergeParser.js';
+import { nomeDaCidade } from './cidade.js';
 
 const BRAIN_ENDPOINT = '/api/concierge';
 const BRAIN_TIMEOUT_MS = 20000;
@@ -63,7 +64,7 @@ export async function askBrain(messages, context, signal) {
 
 function resolveCity(name, vocabulary) {
   if (!name) return null;
-  const key = normalizeText(name.split('-')[0]);
+  const key = normalizeText(nomeDaCidade(name));
   return vocabulary.cities.find(c => c.keys.includes(key) || normalizeText(c.shortLabel) === key) || null;
 }
 
@@ -322,7 +323,7 @@ export function buildVisitorContext({ profile, timeline = [], favorites = [], al
   return { criterios, busca_texto, imoveis_vistos, favoritos, acoes, criticas, nome };
 }
 
-const TYPE_PLURAL = { Casa: 'casas', Apartamento: 'apartamentos', Cobertura: 'coberturas' };
+const TYPE_PLURAL = { Casa: 'casas', Apartamento: 'apartamentos', Cobertura: 'coberturas', Terreno: 'terrenos' };
 
 /** Saudação personalizada quando já sabemos algo do visitante; null mantém a saudação padrão. */
 export function buildGreeting(visitor) {
