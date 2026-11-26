@@ -9,12 +9,7 @@ import {
   normalizeText, extractLocationAndLifestyle, extractPropertyType, extractBedrooms, extractBudget
 } from './conciergeParser.js';
 import { nomeDaCidade, ufDaCidade } from './cidade.js';
-
-// Cidades do catálogo com praia (chaves normalizadas, sem a sigla do estado)
-const LITORAL = new Set([
-  'rio de janeiro', 'vitoria', 'florianopolis', 'bertioga', 'sao sebastiao', 'caraguatatuba', 'ubatuba',
-  'xangri la', 'capao da canoa', 'osorio' // Litoral Norte do RS
-]);
+import { ehLitoral } from './regioes.js';
 
 const ESTADOS = {
   sp: 'SP', 'sao paulo': 'SP', rj: 'RJ', 'rio de janeiro': 'RJ', mg: 'MG', 'minas gerais': 'MG', 'minas': 'MG',
@@ -127,7 +122,7 @@ const atende = (p, b, { semLugar = false } = {}) => {
   if (semLugar) return true;
   if (b.cidade && cidadeSemUf(p.city) !== normalizeText(b.cidade.shortLabel)) return false;
   if (b.bairros.length && !b.bairros.includes(p.neighborhood)) return false;
-  if (b.praia && !b.cidade && !b.bairros.length && !LITORAL.has(cidadeSemUf(p.city))) return false;
+  if (b.praia && !b.cidade && !b.bairros.length && !ehLitoral(p.city)) return false;
   return true;
 };
 
@@ -143,7 +138,7 @@ export function aplicarBusca(lista, b) {
   if (b.lugarDesconhecido) {
     // Perfil parecido: praia → cidades do litoral; senão, o mesmo estado; senão, qualquer lugar
     const base = lista.filter(p => atende(p, b, { semLugar: true }));
-    const praia = b.praia ? base.filter(p => LITORAL.has(cidadeSemUf(p.city))) : [];
+    const praia = b.praia ? base.filter(p => ehLitoral(p.city)) : [];
     const mesmoEstado = b.uf ? base.filter(p => ufDaCidade(p.city) === b.uf) : [];
     const [similares, onde] = praia.length ? [praia, ' no litoral']
       : mesmoEstado.length ? [mesmoEstado, ` no ${b.uf}`]
