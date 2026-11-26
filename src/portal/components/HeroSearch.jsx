@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Search, Mic, MapPin, X } from 'lucide-react';
+import { Search, Mic, MapPin, X, Waves } from 'lucide-react';
+import { descreverLocal } from '../../services/regioes';
 import { useProperties } from '../../context/PropertyContext';
 
 export function HeroSearch({ onTriggerVoice }) {
-  const { searchQuery, setSearchQuery, selectedCity, setSelectedCity, availableCities } = useProperties();
+  const { searchQuery, setSearchQuery } = useProperties();
   const [isListening, setIsListening] = useState(false);
   // Antes os erros do microfone eram engolidos: o botão só parava, sem dizer nada
   const [vozAviso, setVozAviso] = useState('');
@@ -109,38 +110,92 @@ export function HeroSearch({ onTriggerVoice }) {
         )}
       </div>
 
-      {/* Fileira Única de Cidades (Ref. UX Tópico 03 / GAP-03.1) */}
-      {availableCities.length > 0 && (
-        <div className="flex items-center justify-center flex-wrap gap-1.5 text-xs">
-          <span className="text-stone-500 font-medium mr-1 flex items-center gap-1">
-            <MapPin className="w-3 h-3" /> Cidades:
-          </span>
-          <button
-            onClick={() => setSelectedCity('')}
-            className={`px-2.5 py-1 rounded-full transition-colors font-medium ${
-              selectedCity === ''
-                ? 'bg-stone-900 text-white dark:bg-white dark:text-stone-900'
-                : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700'
-            }`}
-          >
-            Todas
-          </button>
-          {availableCities.map(city => (
-            <button
-              key={city}
-              onClick={() => setSelectedCity(city === selectedCity ? '' : city)}
-              className={`px-2.5 py-1 rounded-full transition-colors font-medium ${
-                selectedCity === city
-                  ? 'bg-stone-900 text-white dark:bg-white dark:text-stone-900'
-                  : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700'
-              }`}
-            >
-              {city}
-            </button>
-          ))}
-        </div>
-      )}
+      <FiltroDeLocal />
     </section>
   );
 }
 
+const chipClasse = (ativo) => `px-2.5 py-1 rounded-full transition-colors font-medium inline-flex items-center gap-1 ${
+  ativo
+    ? 'bg-stone-900 text-white dark:bg-white dark:text-stone-900'
+    : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700'
+}`;
+
+function Chip({ ativo, onClick, children, total }) {
+  return (
+    <button type="button" onClick={onClick} aria-pressed={ativo} className={chipClasse(ativo)}>
+      {children}
+      {total != null && <span className={ativo ? 'opacity-70' : 'text-stone-400'}>{total}</span>}
+    </button>
+  );
+}
+
+// Região → Estado → Litoral/Cidade (pedido do Paulo: "ocultar cidade e mostrar primeiro a região").
+// Só aparecem lugares com imóvel; a cidade fica no último nível.
+function FiltroDeLocal() {
+  const { arvoreDeLocais, local, setLocal, localAutomatico, selectedCity, setSelectedCity } = useProperties();
+  if (!arvoreDeLocais.length) return null;
+
+  const regiao = arvoreDeLocais.find(r => r.nome === local.regiao);
+  const estado = regiao?.estados.find(e => e.uf === local.uf);
+  const total = arvoreDeLocais.reduce((soma, r) => soma + r.total, 0);
+
+  const escolher = (novo) => {
+    setSelectedCity('');
+    setLocal(novo);
+  };
+  const escolherCidade = (nome) => {
+    setLocal({ regiao: local.regiao, uf: local.uf });
+    setSelectedCity(selectedCity === nome ? '' : nome);
+  };
+
+  return (
+    <div className="flex flex-col items-center gap-2 text-xs" aria-label="Filtrar por local">
+      <div className="flex items-center justify-center flex-wrap gap-1.5">
+        <span className="text-stone-500 font-medium mr-1 flex items-center gap-1">
+          <MapPin className="w-3 h-3" /> Região:
+        </span>
+        <Chip ativo={!local.regiao && !selectedCity} onClick={() => escolher({})} total={total}>Todas</Chip>
+        {arvoreDeLocais.map(r => (
+          <Chip key={r.nome} ativo={local.regiao === r.nome} onClick={() => escolher({ regiao: r.nome })} total={r.total}>
+            {r.nome}
+          </Chip>
+        ))}
+      </div>
+
+      {regiao && (
+        <div className="flex items-center justify-center flex-wrap gap-1.5">
+          <span className="text-stone-500 font-medium mr-1">Estado:</span>
+          {regiao.estados.map(e => (
+            <Chip key={e.uf} ativo={local.uf === e.uf} onClick={() => escolher(local.uf === e.uf ? { regiao: regiao.nome } : { regiao: regiao.nome, uf: e.uf })} total={e.total}>
+              {e.nome}
+            </Chip>
+          ))}
+        </div>
+      )}
+
+      {estado && (estado.cidades.length > 1 || estado.litoral > 0) && (
+        <div className="flex items-center justify-center flex-wrap gap-1.5">
+          <Chip ativo={!local.litoral && !selectedCity} onClick={() => escolher({ regiao: regiao.nome, uf: estado.uf })}>Todo o estado</Chip>
+          {estado.litoral > 0 && estado.litoral < estado.total && (
+            <Chip ativo={local.litoral && !selectedCity} onClick={() => escolher({ regiao: regiao.nome, uf: estado.uf, litoral: true })} total={estado.litoral}>
+              <Waves className="w-3 h-3" aria-hidden="true" /> Litoral
+            </Chip>
+          )}
+          {estado.cidades.length > 1 && estado.cidades.map(c => (
+            <Chip key={c.nome} ativo={selectedCity === c.nome} onClick={() => escolherCidade(c.nome)} total={c.total}>{c.nome}</Chip>
+          ))}
+        </div>
+      )}
+
+      {localAutomatico && (
+        <p role="status" className="text-stone-500 dark:text-stone-400">
+          Mostrando imóveis de {descreverLocal(local)}, perto de você.{' '}
+          <button type="button" onClick={() => escolher({})} className="font-semibold text-accent hover:underline">
+            Ver todas as regiões
+          </button>
+        </p>
+      )}
+    </div>
+  );
+}
