@@ -4,6 +4,8 @@ import { calculatePropertyMatch } from '../services/smartMatchEngine';
 import { buildVocabulary } from '../services/conciergeParser';
 import { interpretarBusca, aplicarBusca } from '../services/buscaLivre';
 import { nomeDaCidade } from '../services/cidade';
+import { filtrarPorLocal, montarArvoreDeLocais, regiaoDaUf } from '../services/regioes';
+import { lerRegiaoDoVisitante } from '../services/acessoClient';
 import { useBuyerProfile } from './BuyerProfileContext';
 
 const PropertyContext = createContext(null);
@@ -15,6 +17,15 @@ export function PropertyProvider({ children }) {
   const [properties] = useState(() => SCRAPED_PROPERTIES || []);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
+  // Região → estado (→ litoral). A cidade marcada continua em selectedCity e vale mais que isto.
+  const [local, setLocalState] = useState({ regiao: '', uf: '', litoral: false });
+  const [localAutomatico, setLocalAutomatico] = useState(false); // veio da região do visitante
+  const escolheuLocal = React.useRef(false);
+  const setLocal = (novo) => {
+    escolheuLocal.current = true;
+    setLocalAutomatico(false);
+    setLocalState({ regiao: '', uf: '', litoral: false, ...novo });
+  };
   const [sortOrder, setSortOrder] = useState('match_desc'); // 'match_desc' | 'price_asc' | 'price_desc' | 'area_desc'
   const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'map'
   const [activePropertyDetail, setActivePropertyDetail] = useState(null);
@@ -85,6 +96,8 @@ export function PropertyProvider({ children }) {
     const buscaDizOLugar = Boolean(buscaInterpretada?.cidade || buscaInterpretada?.lugarDesconhecido);
     if (selectedCity && !buscaDizOLugar) {
       list = list.filter(p => p.city && p.city.toLowerCase().includes(selectedCity.toLowerCase()));
+    } else if (!buscaDizOLugar) {
+      list = filtrarPorLocal(list, local);
     }
 
     // Ordenação
@@ -102,7 +115,24 @@ export function PropertyProvider({ children }) {
     });
 
     return { processedProperties: list, searchNotice: aviso };
-  }, [properties, profile, searchQuery, buscaInterpretada, selectedCity, sortOrder]);
+  }, [properties, profile, searchQuery, buscaInterpretada, selectedCity, local, sortOrder]);
+
+  const arvoreDeLocais = useMemo(() => montarArvoreDeLocais(properties), [properties]);
+
+  // Abre no estado do visitante (pedido do Paulo: "achar a região de acesso automaticamente"),
+  // só se a pessoa ainda não escolheu nada e o estado tem imóveis
+  useEffect(() => {
+    let cancelado = false;
+    lerRegiaoDoVisitante().then(({ uf }) => {
+      const regiao = regiaoDaUf(uf);
+      if (cancelado || !regiao || escolheuLocal.current) return;
+      const temImoveis = arvoreDeLocais.some(r => r.estados.some(e => e.uf === uf));
+      if (!temImoveis) return;
+      setLocalState({ regiao, uf, litoral: false });
+      setLocalAutomatico(true);
+    });
+    return () => { cancelado = true; };
+  }, [arvoreDeLocais]);
 
   // Lista de cidades disponíveis
   const availableCities = useMemo(() => {
@@ -125,7 +155,15 @@ export function PropertyProvider({ children }) {
         // Aviso da busca por frase (aluguel, região sem imóveis), ou null
         searchNotice,
         selectedCity,
-        setSelectedCity,
+        local,
+        setLocal,
+        localAutomatico,
+        arvoreDeLocais,
+        setSelectedCity: (cidade) => {
+          escolheuLocal.current = true;
+          setLocalAutomatico(false);
+          setSelectedCity(cidade);
+        },
         sortOrder,
         setSortOrder,
         viewMode,
