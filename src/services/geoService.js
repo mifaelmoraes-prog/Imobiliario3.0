@@ -25,7 +25,14 @@ export const CAPITAL_CENTERS = {
   'são sebastião': { center: [-23.7458, -45.6848], zoom: 11, state: 'SP' },
   'caraguatatuba': { center: [-23.6214, -45.4580], zoom: 11, state: 'SP' },
   'bertioga': { center: [-23.8486, -46.1396], zoom: 12, state: 'SP' },
-  'ubatuba': { center: [-23.3977, -45.0820], zoom: 11, state: 'SP' }
+  'ubatuba': { center: [-23.3977, -45.0820], zoom: 11, state: 'SP' },
+  // Litoral Norte do RS (Amo a Praia Imóveis)
+  'xangri-lá': { center: [-29.8000, -50.0430], zoom: 12, state: 'RS' },
+  'xangri-la': { center: [-29.8000, -50.0430], zoom: 12, state: 'RS' },
+  'capão da canoa': { center: [-29.7460, -50.0100], zoom: 12, state: 'RS' },
+  'capao da canoa': { center: [-29.7460, -50.0100], zoom: 12, state: 'RS' },
+  'osório': { center: [-29.8790, -50.0760], zoom: 12, state: 'RS' },
+  'osorio': { center: [-29.8790, -50.0760], zoom: 12, state: 'RS' }
 };
 
 // Mapeamento preciso por Cidade + Bairro
@@ -193,7 +200,15 @@ export const NEIGHBORHOOD_COORDINATES = {
   'caraguatatuba - sp::morro do algodão': [-23.6828, -45.4515],
   'caraguatatuba - sp::travessão - portal dos passaros': [-23.7077, -45.4456],
   'bertioga - sp::riviera de são lourenço': [-23.7947, -46.0237],
-  'ubatuba - sp::praia da lagoinha': [-23.5235, -45.2104]
+  'ubatuba - sp::praia da lagoinha': [-23.5235, -45.2104],
+
+  // ===================== LITORAL NORTE (RS) =====================
+  // Média das posições dos anúncios, arredondada (~100 m) para não expor o endereço
+  'capão da canoa - rs::zona nova': [-29.745, -50.025],
+  'xangri-lá - rs::atlântida': [-29.770, -50.042],
+  'capão da canoa - rs::capão novo': [-29.766, -50.020],
+  'osório - rs::atlântida sul': [-29.879, -50.076],
+  'capão da canoa - rs::parque antártica': [-29.763, -50.044]
 };
 
 /**

@@ -36,6 +36,7 @@ import { avisarContato, saveAlert, saveFeedback, saveLead } from '../../services
 import { leadOutcome } from '../../services/conciergeLeadOutcome';
 import { esperaFimDaFala } from '../../services/fimDaFala';
 import { avatarDaEpoca } from '../../services/avatarDaEpoca';
+import { nomeDaCidade } from '../../services/cidade';
 
 // Imagem do avatar escolhida uma vez ao carregar (no Natal, a versão de gorro)
 const AVATAR_SRC = avatarDaEpoca(new Date(), typeof window !== 'undefined' ? window.location.search : '');
@@ -286,7 +287,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
         vocabulary: vocabularyRef.current
       });
       const cidade = criteria.city?.label || (args.cidade ? String(args.cidade).slice(0, 80) : null);
-      const tipo = ['Casa', 'Apartamento', 'Cobertura'].includes(args.tipo) ? args.tipo : null;
+      const tipo = ['Casa', 'Apartamento', 'Cobertura', 'Terreno'].includes(args.tipo) ? args.tipo : null;
       if (!cidade && !tipo && criteria.neighborhoods.length === 0) {
         return { criado: false, erro: 'falta pelo menos cidade, bairro ou tipo de imóvel' };
       }
@@ -753,7 +754,7 @@ export function SplitVoiceConcierge({ isOpen, onClose }) {
                             </span>
                             <span className="flex items-center gap-1 text-stone-500 dark:text-stone-400 truncate">
                               <MapPin className="w-3 h-3 shrink-0" />
-                              {p.neighborhood}, {(p.city || '').split('-')[0].trim()}
+                              {p.neighborhood}, {nomeDaCidade(p.city)}
                             </span>
                             <span className="flex items-center gap-1 text-stone-500 dark:text-stone-400">
                               <BedDouble className="w-3 h-3 shrink-0" />

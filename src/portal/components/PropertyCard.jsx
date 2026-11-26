@@ -1,6 +1,7 @@
 import React from 'react';
 import { Heart, MapPin, ArrowRight, Sparkles } from 'lucide-react';
 import { formatCurrencyBRL } from '../../design-system/SliderRange';
+import { nomeDaCidade } from '../../services/cidade';
 
 /**
  * Card de Imóvel Otimizado conforme a Auditoria de UX (Tópico 04 e US-04)
@@ -127,7 +128,7 @@ export function PropertyCard({
           {/* Bairro posicionado abaixo do valor com alto contraste */}
           <div className="flex items-center gap-1 text-xs font-medium text-stone-600 dark:text-stone-300 mb-3">
             <MapPin className="w-3.5 h-3.5 text-stone-400 shrink-0" />
-            <span className="truncate">{neighborhood || 'Localização nobre'}{city ? ` · ${city.split('-')[0].trim()}` : ''}</span>
+            <span className="truncate">{neighborhood || 'Localização nobre'}{city ? ` · ${nomeDaCidade(city)}` : ''}</span>
           </div>
 
           {/* Specs em Linha Única de Texto Neutro com Plural Correto (GAP-04.2) */}

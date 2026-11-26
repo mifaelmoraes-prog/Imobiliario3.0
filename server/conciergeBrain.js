@@ -37,7 +37,7 @@ Seu objetivo é entender o que a pessoa procura, mostrar imóveis reais do catá
 
 Marcos que você quer descobrir ao longo da conversa, na ordem que surgir naturalmente:
 - localização (cidade e bairro) ou estilo de vida desejado;
-- tipo de imóvel (casa, apartamento ou cobertura) e número de quartos;
+- tipo de imóvel (casa, apartamento, cobertura ou terreno) e número de quartos;
 - orçamento máximo;
 - finalidade (morar ou investir) e prazo para a compra;
 - por fim, o contato para um corretor dar continuidade (veja Fechamento).
@@ -94,7 +94,7 @@ const TOOLS = [
         properties: {
           cidade: { type: ['string', 'null'], description: 'Cidade exatamente como a pessoa falou, ex.: "Florianópolis". Envie mesmo que não esteja na lista do catálogo: a ferramenta confirma se há imóveis lá. Nunca troque por null nem por outra cidade.' },
           bairros: { type: 'array', items: { type: 'string' }, description: 'Bairros como a pessoa falou, ex.: ["Jurerê"]. Envie mesmo que não estejam na lista: a ferramenta confirma.' },
-          tipo: { type: ['string', 'null'], enum: ['Casa', 'Apartamento', 'Cobertura', null] },
+          tipo: { type: ['string', 'null'], enum: ['Casa', 'Apartamento', 'Cobertura', 'Terreno', null] },
           quartos_min: { type: ['integer', 'null'] },
           orcamento_max: { type: ['number', 'null'], description: 'Valor máximo em reais, ex.: 4000000.' },
           comodidades: { type: 'array', items: { type: 'string' } }
@@ -177,7 +177,7 @@ const ALERT_TOOL = {
         consentimento: { type: 'boolean', description: 'true só se a pessoa aceitou ser avisada por esse contato.' },
         cidade: { type: ['string', 'null'] },
         bairros: { type: 'array', items: { type: 'string' } },
-        tipo: { type: ['string', 'null'], enum: ['Casa', 'Apartamento', 'Cobertura', null] },
+        tipo: { type: ['string', 'null'], enum: ['Casa', 'Apartamento', 'Cobertura', 'Terreno', null] },
         quartos_min: { type: ['integer', 'null'] },
         orcamento_max: { type: ['number', 'null'] },
         comodidades: { type: 'array', items: { type: 'string' } },
